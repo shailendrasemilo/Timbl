@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30 Sep, 2013 7:07:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.LmsCrfMappingPojo" table="crm_lms_crf_mapping"
+		dynamic-update="true">
+		<cache usage="read-write"/>
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />
+            <generator class="identity" />
+			
+		</id>
+        <property name="lmsId" type="long">
+            <column name="lms_id" not-null="true" />
+		</property>
+		<property name="crfValue" type="string">
+            <column name="crf_value" length="10" not-null="true" unique="true" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

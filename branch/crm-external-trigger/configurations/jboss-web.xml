@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+	<context-root>crm-external-trigger</context-root>
+	<valve>
+		<class-name>org.apache.catalina.valves.RemoteAddrValve</class-name>
+		<param>
+			<param-name>allow</param-name>
+			<param-value>${allowed.ip.pool}</param-value>
+		</param>
+		<param>
+			<param-name>deny</param-name>
+			<param-value />
+		</param>
+	</valve>
+	<valve>
+		<class-name>org.apache.catalina.valves.RequestDumperValve</class-name>
+	</valve>
+</jboss-web>

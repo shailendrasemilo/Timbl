@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 12, 2013 12:22:43 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmUpfrontPaymentPojo" table="crm_upfront_payment" dynamic-update="true">
+    <cache usage="read-write"/>
+        <id name="upfrontId" type="java.lang.Long">
+            <column name="upfront_id" />
+            <generator class="identity" />
+        </id>
+        <property name="chequeNo" type="string">
+            <column name="cheque_no" length="15" not-null="true" />
+        </property>
+        <property name="chequeDate" type="timestamp">
+            <column name="cheque_date" length="19" not-null="true" />
+        </property>
+        <property name="bankId" type="long">
+            <column name="bank_id" not-null="true" />
+        </property>
+        <property name="amount" type="double">
+            <column name="amount" precision="8" not-null="true" />
+        </property>
+        <property name="partnerId" type="long">
+            <column name="partner_id" not-null="true" />
+        </property>
+        <property name="entityName" type="string">
+            <column name="entity_name" length="45" not-null="true" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" update="false" insert="false">
+            <column name="last_modified_time" length="19" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+        <set name="crmUpCrfMappings" table="crm_up_crf_mapping" cascade="save-update" inverse="false" lazy="false" fetch="select"  >
+            <key>
+                <column name="upfront_id" />
+            </key>
+            <one-to-many class="com.np.tele.crm.pojos.CrmUpCrfMappingPojo" />
+        </set>
+    </class>
+</hibernate-mapping>

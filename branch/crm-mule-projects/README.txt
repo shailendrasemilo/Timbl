@@ -1,0 +1,1 @@
+This folder contains all Nextra Mule ESB Projects.

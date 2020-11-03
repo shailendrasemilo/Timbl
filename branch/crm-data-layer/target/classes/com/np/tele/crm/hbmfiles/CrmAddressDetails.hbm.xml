@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2013 12:03:20 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmAddressDetailsPojo"
+		table="crm_cust_address_details" dynamic-update="true" polymorphism="explicit">
+		<cache usage="read-write"/>
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />
+            <generator class="identity" />
+			
+		</id>
+		<many-to-one name="crmCustomerDetails"
+			class="com.np.tele.crm.pojos.CrmCustomerDetailsPojo" fetch="select">
+            <column name="customer_record_id" />
+		</many-to-one>
+		<property name="addressType" type="string" unique="true">
+            <column name="address_type" length="20" />
+		</property>
+		<property name="addLine1" type="string">
+            <column name="add_line1" length="35" />
+		</property>
+		<property name="addLine2" type="string">
+            <column name="add_line2" length="35" />
+		</property>
+		<property name="addLine3" type="string">
+            <column name="add_line3" length="35" />
+		</property>
+		<property name="landmark" type="string">
+            <column name="landmark" length="128" />
+		</property>
+        <property name="contactNo" type="java.lang.Long">
+            <column name="contact_no" />
+		</property>
+		<property name="propertyDetails" type="string">
+            <column name="property_details" length="128" />
+		</property>
+        <property name="pincode" type="int">
+            <column name="pincode" />
+		</property>
+        <property name="instSocietyId" type="java.lang.Long">
+            <column name="inst_society_id" />
+		</property>
+        <property name="instAreaId" type="java.lang.Long">
+            <column name="inst_area_id" />
+		</property>
+		<property name="sameAsInstAddr" type="java.lang.Boolean" insert="false">
+            <column name="same_as_inst_addr" sql-type="bit"/>
+		</property>
+		<property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="cityId" type="java.lang.Long">
+			<column name="city_id" precision="10" scale="0" />
+		</property>
+		<property name="stateId" type="java.lang.Long">
+			<column name="state_id" precision="10" scale="0" />
+		</property>
+	</class>
+</hibernate-mapping>

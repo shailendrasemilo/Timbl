@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 Sep, 2013 5:26:04 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.AppointmentPojo" table="crm_customer_appointment"
+		dynamic-update="true">
+		<cache usage="read-write" />
+		<id name="appointmentId" type="java.lang.Long">
+			<column name="appointment_id" />
+			<generator class="identity" />
+
+		</id>
+		<property name="modeOfContact" type="string">
+			<column name="mode_of_contact" length="10" not-null="true" />
+		</property>
+		<property name="appointmentDate" type="date">
+			<column name="appointment_date" length="10" not-null="true" />
+		</property>
+		<property name="appointmentTime" type="string">
+			<column name="appointment_time" length="2" not-null="true" />
+		</property>
+		<property name="appointmentAddress" type="string">
+			<column name="appointment_address" length="256" />
+		</property>
+		<property name="remarks" type="string">
+			<column name="remarks" length="4000" />
+		</property>
+		<property name="contactNumber" type="java.lang.Long">
+			<column name="contact_number" precision="10" scale="0" />
+		</property>
+		<property name="mappingId" type="string">
+			<column name="mapping_id" length="50" not-null="true" />
+		</property>
+		<property name="stage" type="string">
+			<column name="stage" length="10" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="appointmentType" type="string">
+			<column name="appointment_type" length="5" />
+		</property>
+		<property name="requestType" type="string">
+			<column name="request_type" length="10" />
+		</property>
+		<property name="appointmentDay" type="string">
+			<column name="appointment_day" length="10" />
+		</property>
+	</class>
+</hibernate-mapping>

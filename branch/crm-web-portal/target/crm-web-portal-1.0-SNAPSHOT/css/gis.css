@@ -1,0 +1,274 @@
+.border{ /* border:1px solid #ccc; */ padding:0px 15px 15px 15px; margin: 18px 0 0;}
+
+
+.radioWidth{width:130px;}
+/*--------------*/
+
+
+/*------------ error -------------*/
+
+/*--------- buttonc------------*/
+.grey_button_add {  /* background: url(../images/bg/add-left-bg.png) no-repeat left; */ font:14px arial; /* color:#ffffff; */ display:inline-block;   padding:14px 0px;  text-align:center;}
+.grey_button_add span{/* background:#DEAF00; */ padding:8px 14px ; display:inline-block; margin:-15px 0 0 0;}
+.gis_importButton{/* background:#A8A8EB */}
+
+/*----------------------------------------GIS   File Upload  ----------------------------------------------*/
+.selected_File {
+position: relative;
+
+top: 6px;
+}
+.file_Upload {
+position: relative;
+text-align: right;
+-moz-opacity: 0;
+filter: alpha(opacity: 0);
+opacity: 0;
+z-index: 2;
+height: 35px;
+width: 100px;
+outline: auto;
+cursor: pointer;
+}
+.import_file_Upload {
+/* background: url(../images/bg/btn.jpg) repeat; */
+position: absolute;
+top: 0px;
+left: 0px;
+z-index: 1;
+font: 14px arial;
+/* color: #FFFFFF; */
+display: inline-block;
+outline: auto;
+height: 14px;
+width: 90px;
+padding: 8px 0 11px 11px;
+cursor:pointer;
+}
+.import {
+position: relative;
+
+}
+
+.import_gisUpload{ position:absolute; left:0; top:-21;}
+.importInputFile{ /* border: 1px solid #FF0000; */
+    cursor: pointer;
+    height: 55px;
+    opacity: 0.01;
+    position: relative;
+    width: 64px;
+    z-index: 100;}
+.importLink{ position:absolute; left:-5px; top:0;}
+
+.inner_section .inner_left_gis p{ position:relative; margin-top:16px;}
+.inner_section .inner_left_gis b{ width:180px; display:inline-block; /* color:#414042; */ font:normal 12px arial; text-align:right; padding-right:0px; vertical-align:top; margin:5px 5px 0 0;}
+
+
+label.error font.gis {
+    position:absolute;
+	min-width:200px;
+    top:23px; left:-14px;
+    width: auto;
+}
+label.error font.gisText {
+    position:absolute;
+	min-width:200px;
+    top:23px; left:-17px;
+    width: auto;
+}
+.error_message_gis {
+    /* color: #E70000; */
+    font: bold 11px arial;
+    left: 190px;
+    position: absolute;
+    top: 29px;
+}
+	/*-----------------  manage master GIS   -----------------------------------------*/
+ul.manageGIS{ margin:20px 0; padding:10px 10px 50px 0; list-style:none; /* border-right:1px solid #ccc; */}
+ul.manageGIS li{ padding:0px 0px; font:14px arial; cursor:pointer; margin:5px 0; position:relative; }
+ul.manageGIS li span{ display:inline-block;}
+ul.manageGIS li:hover, ul.manageGIS li.active{ /* background:#DEAE00 url(../images/bg/manage-arrow.png) no-repeat 95% center;color:#fff; */ }
+
+
+.gis_button {
+    /* background: none repeat scroll 0 0 #DEAE00; 
+    color: #FFFFFF; */
+    font: 14px arial;
+    margin: 2px 0 0 13px;
+    padding: 5px 14px;
+}
+.gisTextbox{ /* background:url(../images/bg/text-bg.png) repeat; */ padding:5px; width:130px; height:17px; /* border:1px solid #afafaf;  color:#afafaf; */ vertical-align:inherit;}
+	
+.gisTextboxuppercase{ /* background:url(../images/bg/text-bg.png) repeat; */ padding:5px; width:130px; height:17px; /* border:1px solid #afafaf; */ text-transform: uppercase; /* color:#afafaf; */ vertical-align:inherit;}	
+	
+/*.manageGISRight{ margin:28px 0 0 30px;}*/
+.manageLinkBig{ /* color:#45669A; */ text-decoration:underline; font:13px/25px arial;}
+.manageLink{ /* color:#45669A; */ text-decoration:underline; font:12px arial;  margin:0 20px;}
+.manageText{ width:150px;  display:inline-block; word-wrap:break-word;}
+
+.manageRadio{ width:165px;  opacity: 0.01;	filter:alpha(opacity=1); height:30px;}
+ul.manageGIS li span label{ position:absolute; left:10px; top:10px;}
+
+/*---------------------------------- edit gis ----------------------------*/
+
+
+	
+.manageGISRight{ margin:23px 0 0 30px;}
+
+
+.lmsshowTextbox{
+	/* background: url(../images/bg/text-bg.png) repeat; */
+padding: 5px;
+width: 136px;
+height: 17px;
+/* border: 1px solid #afafaf;
+color: #afafaf; */
+display: inline-block;
+}
+
+label.error font.errorLmsDropdown {
+width: auto;
+display: block;
+margin: 5px 0 0 0px;
+position: absolute;
+}
+
+/*--------------*/
+
+
+
+/*---------------------------------- edit gis ----------------------------*/
+
+
+.stateHide{ display:block;}
+.cityHide{ display:none;}
+.areaHide{ display:none;}
+.localityHide{ display:none;}
+.manageGisServerError{position:absolute !important;}
+.lmsshowTextbox{
+	/* background: url(../images/bg/text-bg.png) repeat; */
+padding: 5px;
+width: 136px;
+height: 17px;
+/* border: 1px solid #afafaf;
+color: #afafaf; */
+display: inline-block;
+}
+
+label.error font.errorLmsDropdown {
+width: auto;
+display: block;
+margin: 5px 0 0 0px;
+position: absolute;
+}
+
+.serverError_message_Society {
+/* color: #E70000; */
+font: normal 11px arial;
+left: 0px;
+position: absolute;
+top: 52;
+width: 200px;
+}
+
+ul.add_gis_group {
+height: 300px;
+list-style: none outside none;
+margin: 0;
+min-width: 250px;
+overflow: auto;
+padding: 0;
+}
+ul.add_gis_group li {
+padding: 15px 20px;
+}
+ul.add_gis_group li.first {
+/* background: #eef2f9; */
+}
+ul.add_gis_group li.second {
+/* background: #e1e6ee; */
+}
+
+
+
+/************  new gis ************************/
+
+.showListFunctionalBinHeight60 {
+height: 67px !important;
+overflow:hidden;
+}
+
+.showListFunctionalBinHeight60 select {
+height: 67px !important;
+width:250px !important;
+padding:0;
+}
+
+
+/*-------------------- 1024 -------------------------------*/
+@media screen and (max-width:1024px){
+
+
+
+.manageText {width: 113px;display: inline-block;word-wrap: break-word;}
+.gisTextbox {width: 90px;}
+}
+
+
+
+
+
+/**** QRC  ***********/
+
+ul.qrc{ margin:0px 0; padding:10px 10px 50px 0; list-style:none; /* border-right:1px solid #ccc; */}
+ul.qrc li{ padding:0px 0px; font:14px arial; cursor:pointer; margin:5px 0; position:relative; }
+ul.qrc li a{ display:block; padding:10px ; /* color:#5f5f5f; */ margin-right:15px;}
+ul.qrc li:hover, ul.qrc li.active{ /* background:#DEAE00 url(../images/bg/manage-arrow.png) no-repeat 95% center; */ }
+ul.qrc li:hover a, ul.qrc li.active a{/* color:#fff; */}
+
+.bredcrumb{ /* color:#0f7d4c; */ font:bold 12px arial;}
+.bredcrumb span{display:inline-block;}
+.blue_button{/* color:#fff; */ font:bold 12px arial; /* background:#1d4686; */ padding:10px 20px;  margin-top:-21px; display:inline-block;}
+
+
+
+.table{list-style:none; font:12px arial;  width:100%;  padding:0px; margin-top:10px; max-width:707px; }
+.table_header, .table_header1, .table_container{width:100%; clear:both; display:table-row-group;}
+.table_header > span, .table_container >span{padding:10px 10px;   display:table-cell; /* border-left:1px solid #bfc9da; border-bottom:1px solid #bfc9da; */ width:auto;   }
+
+.table_container >span:last-child{ /* border-right:1px solid #bfc9da; */}
+
+.table_header, .table_header1{  text-transform:uppercase;  /* background:#056891; color:#fff; */ font:bold 14px arial;}
+
+.display .table_header > span, .display .table_container >span{/* border-left:none; */ width:auto; max-width:250px;}
+.table_container >span:first-child{ /* border-left:1px solid #bfc9da; */}
+.display .table_container >span a{/* color:#092bfc; */ font:12px arial; }
+
+.table_container{ /* background:#eef3f9; color:#5f5f5f; */}
+
+.table_header1 > span{/* border-left:none; */ padding:10px 10px;   display:table-cell;  /* border-bottom:1px solid #bfc9da; */ width:auto;   }
+.table .label_check{ width:auto !important;}
+
+.invoice_details{/* color: #414042; border:2px solid #C1C1C1; background:#F3F3F3;   */ position: absolute;  right: 0; top: 0; width: 250px; display:none; }
+.invoice_details font{/* border-bottom:1px solid #C1C1C1; */ display:block; font:12px arial;  padding:8px;}
+.invoice_details font strong{display:inline-block !important;     margin:0; padding:0; width:130px;}
+
+.tabbing { margin:0px 0 0 0; padding:0; list-style:none; overflow:hidden;  }
+.tabbing  li{ float:left; }
+.tabbing li a span{ font: 18px arial !important;   padding: 10px 25px 0 5px !important; /* color:#ccc; */}
+.tabbing  li a{ text-transform:uppercase;  }
+.tabbing  li a.selectedOne span, .tabbing  li a:hover span{ /* color:#056891; */}
+
+
+
+
+.big{/* color:#5f5f5f; */ font:20px/30px arial; display:block;}
+.green{ /* color:#0f7d4c; */ font:11px/15px arial;}
+.bold{font-weight:bold;}
+.paddingLeft60{ padding-left:60px !important;}
+.paddingTop20{ padding-top:20px !important;}
+.hidden{display:none;}
+
+@media screen and (max-width:1024px){
+.table_header > span, .table_container >span{padding:5px; }
+}

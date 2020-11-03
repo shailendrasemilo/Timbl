@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="crmCapMgr" class="com.np.tele.crm.cap.bussinessmgr.CrmCapMgrImpl">
+		<property name="capOperationDao" ref="capOperationDao" />
+	</bean>
+	<bean id="selfcareMgr" class="com.np.tele.crm.selfcare.bussinessmgr.SelfcareMgrImpl">
+		<property name="selfcareDao" ref="selfcareDao" />
+	</bean>
+	<bean id="selfcareDao" class="com.np.tele.crm.selfcare.dao.SelfcareDaoImpl"></bean>
+	<bean id="capOperationDao" class="com.np.tele.crm.ina.dao.CAPOperationDaoImpl">
+		<property name="crmBillingManager" ref="crmBillingManager" />
+		<property name="configManagerDao" ref="configManagerDao"></property>
+		<property name="qrcManagerDao" ref="qrcManagerDao"></property>
+	</bean>
+	<bean id="crmBillingManager" class="com.np.tele.crm.billing.manager.CrmBillingManagerImpl">
+		<property name="billingConversionImpl" ref="billingConversionImpl" />
+	</bean>
+	<bean id="billingConversionImpl"
+		class="com.np.tele.crm.billing.manager.BillingConversionMgrImpl" />
+	<bean id="configManagerDao" class="com.np.tele.crm.config.dao.ConfigManagerDaoImpl" />
+	<bean id="qrcManagerDao" class="com.np.tele.crm.qrc.dao.QrcManagerDaoImpl"></bean>
+</beans>

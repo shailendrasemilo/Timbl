@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 15, 2015 3:11:07 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmSlaLogPojo" table="crm_sla_logs">
+    <cache usage="read-write"/>
+        <id name="slaId" type="java.lang.Long">
+            <column name="sla_id" />
+            <generator class="identity" />
+        </id>
+        <property name="crmModule" type="string">
+            <column name="crm_module" length="5" not-null="true" />
+        </property>
+        <property name="mappingId" type="string">
+            <column name="mapping_id" length="25" not-null="true" />
+        </property>
+        <property name="slaValueMillis" type="long">
+            <column name="sla_value_millis" not-null="true" />
+        </property>
+        <property name="slaUnit" type="string">
+            <column name="sla_unit" length="2" not-null="true" />
+        </property>
+        <property name="slaActualMillis" type="long">
+            <column name="sla_actual_millis" not-null="true" />
+        </property>
+        <property name="alertType" type="string">
+            <column name="alert_type" length="2" not-null="true" />
+        </property>
+        <property name="slaFromStage" type="string">
+            <column name="sla_from_stage" length="10" not-null="true" />
+        </property>
+        <property name="slaToStage" type="string">
+            <column name="sla_to_stage" length="10" not-null="true" />
+        </property>
+        <property name="slaRecipients" type="string">
+            <column name="sla_recipients" length="2000" />
+        </property>
+        <property name="slaFailReason" type="string">
+            <column name="sla_fail_reason" length="500" />
+        </property>
+        <property name="auditLogId" type="java.lang.Long">
+            <column name="audit_log_id" />
+        </property>
+        <property name="slaDateTime" type="timestamp">
+            <column name="sla_date_time" length="19" not-null="true" />
+        </property>
+        <property name="slaStatus" type="string">
+            <column name="sla_status" length="2" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

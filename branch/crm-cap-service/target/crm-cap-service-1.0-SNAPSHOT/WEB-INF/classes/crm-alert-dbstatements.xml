@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DB_QUERIES>
+	<SQL id="STMT_INSERT_TRANSACTION_LOG"><![CDATA[
+		INSERT INTO vta_bal_quota_txns(dsl_id,channel_id,status_code,balance_quota,response_time,requested_by,requested_at) 
+					      VALUES(?,?,?,?,?,?,now())
+							
+
+]]>
+	</SQL>
+	<SQL id="STMT_GETCURRENT_BALANCE_FROM_NSN"><![CDATA[
+		SELECT BALANCE FROM ACCOUNT 
+		 WHERE SUBSCRIBER_ID=? and ACCOUNT_NAME='PeriodicQuota'
+	]]>
+	</SQL>
+	<SQL id="STMT_GETACCOUNT_DETAILS_FROM_VTA"><![CDATA[
+		SELECT billing_date, service_name,throttle,current_quota FROM radius_class WHERE dsl_id = ? and current_radius_value LIKE 'VTA%'
+	]]>
+	</SQL>
+	<SQL id="STMT_SELECT_IP_CHANNELS_BY_GROUP"><![CDATA[		
+		 select ip, channel from vta_ip_channels where service_group=? ;
+	]]>
+	</SQL>
+
+</DB_QUERIES>	

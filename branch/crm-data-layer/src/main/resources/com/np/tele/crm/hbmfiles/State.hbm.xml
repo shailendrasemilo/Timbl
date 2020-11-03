@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27 Aug, 2013 3:24:00 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.StatePojo" table="crm_state_master" dynamic-update="true">
+        <cache usage="read-write"/>
+        <id name="stateId" type="java.lang.Long">
+			
+            <column name="state_id" />
+            <generator class="identity" />
+		</id>
+		<!-- <many-to-one name="country" class="com.np.tele.crm.pojos.CountryPojo" 
+			fetch="select" lazy="false"> <column name="COUNTRY_ID" precision="10" scale="0" 
+			/> </many-to-one> -->
+		<property generated="never" lazy="false" name="countryId"
+			type="short">
+			<column name="country_id" precision="10" scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="stateName"
+			type="string">
+            <column name="state_name" length="30" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="stateAlias"
+			type="string">
+            <column name="state_alias" length="10" />
+		</property>
+		<property generated="never" lazy="false" name="createdBy"
+			type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="createdTime"
+			type="timestamp" update="false" insert="false">
+			<column length="7" name="created_time" />
+		</property>
+		<property generated="never" lazy="false" name="lastModifiedBy"
+			type="string">
+            <column name="last_modified_by" length="128" />
+		</property>
+		<property generated="never" lazy="false" name="lastModifiedTime"
+			type="timestamp" insert="false" update="false">
+			<column length="7" name="last_modified_time" />
+		</property>
+		<property generated="never" lazy="false" name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+		<set fetch="select" inverse="true" lazy="false" name="cities"
+			table="crm_city_master">
+          <cache usage="read-write"/>
+			<key>
+				<column name="state_id" precision="10" scale="0" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.CityPojo" />
+			<filter condition="status =:stStatus" name="ActiveCities" />
+		</set>
+	</class>
+</hibernate-mapping>

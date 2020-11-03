@@ -1,0 +1,7 @@
+com\np\tele\crm\qrc\businessmgr\CrmQrcBusinessImpl.class
+com\np\tele\crm\qrc\service\CrmQrcService.class
+com\np\tele\crm\qrc\businessmgr\ICrmTicketManager.class
+com\np\tele\crm\qrc\businessmgr\ICrmQrcBusiness.class
+com\np\tele\crm\qrc\config\businessmgr\QrcConfigBusinessImpl.class
+com\np\tele\crm\qrc\businessmgr\CrmTicketManagerImpl.class
+com\np\tele\crm\qrc\config\businessmgr\IQrcConfigBusiness.class

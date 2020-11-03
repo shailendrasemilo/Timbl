@@ -1,0 +1,237 @@
+com.np.tele.crm.alerts.engine.AlertsEngine -> com.np.tele.crm.alerts.engine.AlertsEngine:
+    org.apache.log4j.Logger LOGGER -> a
+    com.np.tele.crm.alerts.engine.bm.IAlertsEngineManager alertsEngineManager -> b
+    void setAlertsEngineManager(com.np.tele.crm.alerts.engine.bm.IAlertsEngineManager) -> setAlertsEngineManager
+    com.np.tele.crm.alerts.engine.bm.IAlertsEngineManager getAlertsEngineManager() -> getAlertsEngineManager
+    void init() -> init
+    void main(java.lang.String[]) -> main
+com.np.tele.crm.alerts.engine.bm.AlertsEngineManagerImpl -> com.np.tele.crm.alerts.engine.bm.AlertsEngineManagerImpl:
+    org.apache.log4j.Logger LOGGER -> a
+    void processAlerts() -> processAlerts
+com.np.tele.crm.alerts.engine.bm.IAlertsEngineManager -> com.np.tele.crm.alerts.engine.bm.IAlertsEngineManager:
+    void processAlerts() -> processAlerts
+com.np.tele.crm.billing.plan.request.engine.BillingPlanRequestEngine -> com.np.tele.crm.billing.plan.request.engine.BillingPlanRequestEngine:
+    org.apache.log4j.Logger LOGGER -> a
+    com.np.tele.crm.billing.plan.request.engine.bm.IBillingPlanRequestManager billingPlanRequestManager -> b
+    com.np.tele.crm.billing.plan.request.engine.bm.IBillingPlanRequestManager getBillingPlanRequestManager() -> getBillingPlanRequestManager
+    void setBillingPlanRequestManager(com.np.tele.crm.billing.plan.request.engine.bm.IBillingPlanRequestManager) -> setBillingPlanRequestManager
+    void init() -> init
+    void main(java.lang.String[]) -> main
+com.np.tele.crm.billing.plan.request.engine.bm.BillingPlanRequestManagerImpl -> com.np.tele.crm.billing.plan.request.engine.bm.BillingPlanRequestManagerImpl:
+    org.apache.log4j.Logger LOGGER -> a
+    boolean getBillingPlanRequest(java.lang.String) -> getBillingPlanRequest
+com.np.tele.crm.billing.plan.request.engine.bm.IBillingPlanRequestManager -> com.np.tele.crm.billing.plan.request.engine.bm.IBillingPlanRequestManager:
+    boolean getBillingPlanRequest(java.lang.String) -> getBillingPlanRequest
+com.np.tele.crm.change.billCycle.engine.ChangeBillCycleEngine -> com.np.tele.crm.change.billCycle.engine.ChangeBillCycleEngine:
+    org.apache.log4j.Logger LOGGER -> a
+    com.np.tele.crm.change.billCycle.engine.bm.IChangeBillCycleManager changeBillCycleManager -> b
+    com.np.tele.crm.change.billCycle.engine.bm.IChangeBillCycleManager getChangeBillCycleManager() -> getChangeBillCycleManager
+    void setChangeBillCycleManager(com.np.tele.crm.change.billCycle.engine.bm.IChangeBillCycleManager) -> setChangeBillCycleManager
+    void init() -> init
+    void main(java.lang.String[]) -> main
+com.np.tele.crm.change.billCycle.engine.bm.ChangeBillCycleManagerImpl -> com.np.tele.crm.change.billCycle.engine.bm.ChangeBillCycleManagerImpl:
+    org.apache.log4j.Logger LOGGER -> a
+    boolean changeCustomersBillCycle(java.lang.String,int,java.lang.String) -> changeCustomersBillCycle
+    java.util.List getBillCycleDataToProcess$15ca46d9(int,java.lang.String) -> a
+    boolean processFetchedRecords(java.lang.String,java.util.List) -> a
+com.np.tele.crm.change.billCycle.engine.bm.IChangeBillCycleManager -> com.np.tele.crm.change.billCycle.engine.bm.IChangeBillCycleManager:
+    boolean changeCustomersBillCycle(java.lang.String,int,java.lang.String) -> changeCustomersBillCycle
+com.np.tele.crm.change.status.engine.ChangeStatusEngine -> com.np.tele.crm.change.status.engine.ChangeStatusEngine:
+    org.apache.log4j.Logger LOGGER -> a
+    com.np.tele.crm.change.status.engine.bm.IChangeStatusEngineManager changeStatusEngineManager -> b
+    com.np.tele.crm.change.status.engine.bm.IChangeStatusEngineManager getChangeStatusEngineManager() -> getChangeStatusEngineManager
+    void setChangeStatusEngineManager(com.np.tele.crm.change.status.engine.bm.IChangeStatusEngineManager) -> setChangeStatusEngineManager
+    void init() -> init
+    void main(java.lang.String[]) -> main
+com.np.tele.crm.change.status.engine.bm.ChangeStatusEngineManagerImpl -> com.np.tele.crm.change.status.engine.bm.ChangeStatusEngineManagerImpl:
+    org.apache.log4j.Logger LOGGER -> a
+    boolean changeCustomersStatus(java.lang.String,byte,int) -> changeCustomersStatus
+com.np.tele.crm.change.status.engine.bm.IChangeStatusEngineManager -> com.np.tele.crm.change.status.engine.bm.IChangeStatusEngineManager:
+    boolean changeCustomersStatus(java.lang.String,byte,int) -> changeCustomersStatus
+com.np.tele.crm.massoutage.activity.engine.MassoutageActivityEngine -> com.np.tele.crm.massoutage.activity.engine.MassoutageActivityEngine:
+    org.apache.log4j.Logger LOGGER -> a
+    java.util.Properties applicationProperties -> applicationProperties
+    void main(java.lang.String[]) -> main
+com.np.tele.crm.massoutage.activity.engine.bm.IMassOutageActivityEngineManager -> com.np.tele.crm.massoutage.activity.engine.bm.IMassOutageActivityEngineManager:
+    void getListOfMassOutage() -> getListOfMassOutage
+com.np.tele.crm.massoutage.activity.engine.bm.OutageActivityEngineMngrImpl -> com.np.tele.crm.massoutage.activity.engine.bm.OutageActivityEngineMngrImpl:
+    org.apache.log4j.Logger LOGGER -> a
+    void getListOfMassOutage() -> getListOfMassOutage
+    boolean getOutageSocietyList(com.np.tele.crm.service.client.CrmMassOutagePojo) -> a
+    boolean updateMassOutageSocietyStatus(java.util.Set,java.lang.String) -> a
+    boolean getOutageMasterName(com.np.tele.crm.service.client.CrmMassOutagePojo) -> b
+    boolean updateMassOutageMasterStatus(java.util.Set,java.lang.String,long) -> a
+    boolean saveActiveMassOutageActivity(java.util.List,com.np.tele.crm.service.client.CrmMassOutagePojo) -> a
+    boolean saveResolveOutageActivity(java.util.List,com.np.tele.crm.service.client.CrmMassOutagePojo) -> b
+    void updateMassOutageActivityStatus(long,java.lang.String) -> a
+com.np.tele.crm.massoutage.activity.engine.threads.MassOutageThread -> com.np.tele.crm.massoutage.activity.engine.threads.MassOutageThread:
+    org.apache.log4j.Logger LOGGER -> a
+    int threadSleepTimeInMinute -> b
+    com.np.tele.crm.massoutage.activity.engine.bm.IMassOutageActivityEngineManager outageActivityEngineManager -> c
+    com.np.tele.crm.massoutage.activity.engine.bm.IMassOutageActivityEngineManager getOutageActivityEngineManager() -> getOutageActivityEngineManager
+    void setOutageActivityEngineManager(com.np.tele.crm.massoutage.activity.engine.bm.IMassOutageActivityEngineManager) -> setOutageActivityEngineManager
+    void run() -> run
+com.np.tele.crm.sla.engine.SlaInaEngine -> com.np.tele.crm.sla.engine.SlaInaEngine:
+    org.apache.log4j.Logger LOGGER -> a
+    java.util.Properties applicationProperties -> applicationProperties
+    boolean isInaSlaActive -> b
+    void main(java.lang.String[]) -> main
+com.np.tele.crm.sla.engine.SlaLmsEngine -> com.np.tele.crm.sla.engine.SlaLmsEngine:
+    org.apache.log4j.Logger LOGGER -> a
+    java.util.Properties applicationProperties -> applicationProperties
+    boolean isLmsSlaActive -> b
+    void main(java.lang.String[]) -> main
+com.np.tele.crm.sla.engine.SlaQrcEngine -> com.np.tele.crm.sla.engine.SlaQrcEngine:
+    org.apache.log4j.Logger LOGGER -> a
+    java.util.Properties applicationProperties -> applicationProperties
+    boolean isQrcSlaActive -> b
+    void main(java.lang.String[]) -> main
+com.np.tele.crm.sla.engine.constants.CRMSLAConstants -> com.np.tele.crm.sla.engine.constants.CRMSLAConstants:
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants LMS_SC_AM_ALERT -> LMS_SC_AM_ALERT
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants LMS_SC_CH_ALERT -> LMS_SC_CH_ALERT
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants LMS_AM_CH_ALERT -> LMS_AM_CH_ALERT
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants LMS_BP_AM_ALERT -> LMS_BP_AM_ALERT
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants LMS_BP_CH_ALERT -> LMS_BP_CH_ALERT
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants LMS_BP_AM_FORWARD -> LMS_BP_AM_FORWARD
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants INA_BP_AM_ALERT -> INA_BP_AM_ALERT
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants INA_BP_CH_ALERT -> INA_BP_CH_ALERT
+    java.lang.String slaUnit -> a
+    int slaTimeInHours -> b
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants[] $VALUES -> c
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants[] values() -> values
+    com.np.tele.crm.sla.engine.constants.CRMSLAConstants valueOf(java.lang.String) -> valueOf
+    java.lang.String getSlaUnit() -> getSlaUnit
+    void setSlaUnit(java.lang.String) -> setSlaUnit
+    int getSlaTimeInHours() -> getSlaTimeInHours
+    void setSlaTimeInHours(int) -> setSlaTimeInHours
+com.np.tele.crm.sla.engine.constants.IApplicationConstants -> com.np.tele.crm.sla.engine.constants.IApplicationConstants:
+    java.lang.String APPLICATION_PROPERTIES_FILE -> APPLICATION_PROPERTIES_FILE
+    java.lang.String CRM_SLA_OWNER -> CRM_SLA_OWNER
+    java.lang.String CRM_SLA_THREAD_SLEEP_TIME_MINUTE -> CRM_SLA_THREAD_SLEEP_TIME_MINUTE
+    java.lang.String SLA_LMS_MODULE_ACTIVE -> SLA_LMS_MODULE_ACTIVE
+    java.lang.String SLA_LMS_SC_TO_AM_ALERT_ACTIVE -> SLA_LMS_SC_TO_AM_ALERT_ACTIVE
+    java.lang.String SLA_LMS_SC_TO_AM_ALERT_UNIT -> SLA_LMS_SC_TO_AM_ALERT_UNIT
+    java.lang.String SLA_LMS_SC_TO_AM_ALERT_HOURS -> SLA_LMS_SC_TO_AM_ALERT_HOURS
+    java.lang.String SLA_LMS_SC_TO_CH_ALERT_ACTIVE -> SLA_LMS_SC_TO_CH_ALERT_ACTIVE
+    java.lang.String SLA_LMS_SC_TO_CH_ALERT_UNIT -> SLA_LMS_SC_TO_CH_ALERT_UNIT
+    java.lang.String SLA_LMS_SC_TO_CH_ALERT_HOURS -> SLA_LMS_SC_TO_CH_ALERT_HOURS
+    java.lang.String SLA_LMS_AM_TO_CH_ALERT_ACTIVE -> SLA_LMS_AM_TO_CH_ALERT_ACTIVE
+    java.lang.String SLA_LMS_AM_TO_CH_ALERT_UNIT -> SLA_LMS_AM_TO_CH_ALERT_UNIT
+    java.lang.String SLA_LMS_AM_TO_CH_ALERT_HOURS -> SLA_LMS_AM_TO_CH_ALERT_HOURS
+    java.lang.String SLA_LMS_BP_TO_AM_ALERT_ACTIVE -> SLA_LMS_BP_TO_AM_ALERT_ACTIVE
+    java.lang.String SLA_LMS_BP_TO_AM_ALERT_UNIT -> SLA_LMS_BP_TO_AM_ALERT_UNIT
+    java.lang.String SLA_LMS_BP_TO_AM_ALERT_HOURS -> SLA_LMS_BP_TO_AM_ALERT_HOURS
+    java.lang.String SLA_LMS_BP_TO_CH_ALERT_ACTIVE -> SLA_LMS_BP_TO_CH_ALERT_ACTIVE
+    java.lang.String SLA_LMS_BP_TO_CH_ALERT_UNIT -> SLA_LMS_BP_TO_CH_ALERT_UNIT
+    java.lang.String SLA_LMS_BP_TO_CH_ALERT_HOURS -> SLA_LMS_BP_TO_CH_ALERT_HOURS
+    java.lang.String SLA_LMS_BP_TO_AM_FORWARD_ACTIVE -> SLA_LMS_BP_TO_AM_FORWARD_ACTIVE
+    java.lang.String SLA_LMS_BP_TO_AM_FORWARD_UNIT -> SLA_LMS_BP_TO_AM_FORWARD_UNIT
+    java.lang.String SLA_LMS_BP_TO_AM_FORWARD_HOURS -> SLA_LMS_BP_TO_AM_FORWARD_HOURS
+    java.lang.String SLA_INA_MODULE_ACTIVE -> SLA_INA_MODULE_ACTIVE
+    java.lang.String SLA_INA_BP_TO_AM_ALERT_ACTIVE -> SLA_INA_BP_TO_AM_ALERT_ACTIVE
+    java.lang.String SLA_INA_BP_TO_AM_ALERT_UNIT -> SLA_INA_BP_TO_AM_ALERT_UNIT
+    java.lang.String SLA_INA_BP_TO_AM_ALERT_HOURS -> SLA_INA_BP_TO_AM_ALERT_HOURS
+    java.lang.String SLA_INA_BP_TO_CH_ALERT_ACTIVE -> SLA_INA_BP_TO_CH_ALERT_ACTIVE
+    java.lang.String SLA_INA_BP_TO_CH_ALERT_UNIT -> SLA_INA_BP_TO_CH_ALERT_UNIT
+    java.lang.String SLA_INA_BP_TO_CH_ALERT_HOURS -> SLA_INA_BP_TO_CH_ALERT_HOURS
+    java.lang.String SLA_QRC_MODULE_ACTIVE -> SLA_QRC_MODULE_ACTIVE
+    java.lang.String SLA_QRC_RECIPIENT -> SLA_QRC_RECIPIENT
+    java.lang.String MASS_OUTAGE_THREAD_SLEEP_TIME_MINUTE -> MASS_OUTAGE_THREAD_SLEEP_TIME_MINUTE
+com.np.tele.crm.sla.engine.threads.SlaInaThread -> com.np.tele.crm.sla.engine.threads.SlaInaThread:
+    org.apache.log4j.Logger LOGGER -> a
+    com.np.tele.crm.utils.SLACalculationUtil slaCalculationUtil -> b
+    int threadSleepTimeInMinute -> c
+    boolean isInaBPToAMalert -> d
+    java.lang.String inaBPToAMalertUnit -> e
+    int inaBPToAMalertHours -> f
+    boolean isInaBPToCHalert -> g
+    java.lang.String inaBPToCHalertUnit -> h
+    int inaBPToCHalertHours -> i
+    void run() -> run
+    void processToINAAlertRecipients(com.np.tele.crm.service.client.CrmSlaLogPojo,com.np.tele.crm.service.client.CrmCustomerDetailsPojo) -> a
+com.np.tele.crm.sla.engine.threads.SlaLmsThread -> com.np.tele.crm.sla.engine.threads.SlaLmsThread:
+    org.apache.log4j.Logger LOGGER -> a
+    com.np.tele.crm.utils.SLACalculationUtil slaCalculationUtil -> b
+    int threadSleepTimeInMinute -> c
+    boolean isLmsSCToAMalert -> d
+    java.lang.String lmsSCToAMalertUnit -> e
+    int lmsSCToAMalertHours -> f
+    boolean isLmsSCToCHalert -> g
+    java.lang.String lmsSCToCHalertUnit -> h
+    int lmsSCToCHalertHours -> i
+    boolean isLmsAMToCHalert -> j
+    java.lang.String lmsAMToCHalertUnit -> k
+    int lmsAMToCHalertHours -> l
+    boolean isLmsBPToAMalert -> m
+    java.lang.String lmsBPToAMalertUnit -> n
+    int lmsBPToAMalertHours -> o
+    boolean isLmsBPToCHalert -> p
+    java.lang.String lmsBPToCHalertUnit -> q
+    int lmsBPToCHalertHours -> r
+    boolean isLmsBPToAMforward -> s
+    java.lang.String lmsBPToAMforwardUnit -> t
+    int lmsBPToAMforwardHours -> u
+    void run() -> run
+    void processLmsSlaForAM$16da05f7(java.lang.String) -> a
+    void processLmsSlaForBP$16da05f7(java.lang.String) -> b
+    void processToLmsAlertRecipients(com.np.tele.crm.service.client.CrmSlaLogPojo,com.np.tele.crm.service.client.LmsPojo,com.np.tele.crm.service.client.CrmAuditLogPojo) -> a
+com.np.tele.crm.sla.engine.threads.SlaQrcThread -> com.np.tele.crm.sla.engine.threads.SlaQrcThread:
+    org.apache.log4j.Logger LOGGER -> a
+    com.np.tele.crm.utils.SLACalculationUtil slaCalculationUtil -> b
+    java.util.Properties properties -> c
+    int threadSleepTimeInMinute -> d
+    long EOC_RB_ID -> e
+    void run() -> run
+    void initializeSLAProcess(com.np.tele.crm.service.client.CrmQrcSubSubCategoriesPojo) -> a
+    void updateTicketAndPrepareSLALog(com.np.tele.crm.service.client.CrmSrTicketsPojo,com.np.tele.crm.service.client.CrmQrcSubSubCategoriesPojo) -> a
+    boolean updateSLADetails(com.np.tele.crm.service.client.CrmSrTicketsPojo) -> a
+    void processToAlert(java.util.Map,com.np.tele.crm.service.client.CrmSlaLogPojo) -> a
+    boolean calculatedExactSLA(java.util.Map,com.np.tele.crm.service.client.CrmSrTicketsPojo,java.util.Calendar,com.np.tele.crm.service.client.CrmQrcSubSubCategoriesPojo) -> a
+    boolean timeMapAnalysis(java.util.Map,java.util.List,java.util.Calendar,java.util.Calendar) -> a
+com.np.tele.crm.sla.engine.utils.SLACommonUtils -> com.np.tele.crm.sla.engine.utils.SLACommonUtils:
+    org.apache.log4j.Logger LOGGER -> a
+    java.util.List holidayList -> b
+    java.util.List qrcSubSubCategoriesPojos -> c
+    java.util.Calendar pastCacheTime -> d
+    java.util.List getHolidayList() -> getHolidayList
+    java.util.List getQrcSubSubCategoriesPojos() -> getQrcSubSubCategoriesPojos
+    java.lang.String getUsersByParameter(java.lang.String,java.lang.String,java.lang.String) -> getUsersByParameter
+    java.lang.String getUsersByBinID(java.lang.String) -> getUsersByBinID
+    com.np.tele.crm.service.client.CrmRcaReasonPojo getFunctionBinPojo(java.lang.String) -> getFunctionBinPojo
+    com.np.tele.crm.service.client.RemarksPojo getLatestRemarks(java.lang.String,javax.xml.datatype.XMLGregorianCalendar,java.lang.String) -> getLatestRemarks
+    com.np.tele.crm.service.client.ReportDto$ParamMap convertToClientMap(java.util.Map) -> convertToClientMap
+    java.util.Map prepareParameterMap(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,javax.xml.datatype.XMLGregorianCalendar,java.lang.String) -> prepareParameterMap
+    com.np.tele.crm.service.client.CrmAuditLogPojo getLatestAuditLog(java.lang.String,java.lang.String,com.np.tele.crm.service.client.ReportDto) -> getLatestAuditLog
+    java.lang.String getQrcSubCategory(long) -> getQrcSubCategory
+com.np.tele.crm.sla.engine.utils.SLAPropertyUtils -> com.np.tele.crm.sla.engine.utils.SLAPropertyUtils:
+    org.apache.log4j.Logger logger -> a
+    java.lang.String getString(java.util.Properties,java.lang.String,java.lang.String) -> getString
+    int getInt(java.util.Properties,java.lang.String,int) -> getInt
+    long getLong(java.util.Properties,java.lang.String,long) -> getLong
+    boolean getBoolean(java.util.Properties,java.lang.String,boolean) -> getBoolean
+    char getChar(java.util.Properties,java.lang.String,char) -> getChar
+com.np.tele.crm.ticket.close.engine.CloseTicketEngine -> com.np.tele.crm.ticket.close.engine.CloseTicketEngine:
+    org.apache.log4j.Logger LOGGER -> a
+    com.np.tele.crm.ticket.close.engine.bm.ICloseTicketEngineManager closeTicketEngineManager -> b
+    com.np.tele.crm.ticket.close.engine.bm.ICloseTicketEngineManager getCloseTicketEngineManager() -> getCloseTicketEngineManager
+    void setCloseTicketEngineManager(com.np.tele.crm.ticket.close.engine.bm.ICloseTicketEngineManager) -> setCloseTicketEngineManager
+    void init() -> init
+    void main(java.lang.String[]) -> main
+com.np.tele.crm.ticket.close.engine.bm.CloseTicketEngineManagerImpl -> com.np.tele.crm.ticket.close.engine.bm.CloseTicketEngineManagerImpl:
+    org.apache.log4j.Logger LOGGER -> a
+    boolean closeResolvedTickets(java.lang.String,byte,int) -> closeResolvedTickets
+com.np.tele.crm.ticket.close.engine.bm.ICloseTicketEngineManager -> com.np.tele.crm.ticket.close.engine.bm.ICloseTicketEngineManager:
+    boolean closeResolvedTickets(java.lang.String,byte,int) -> closeResolvedTickets
+com.np.tele.crm.ticket.resolve.engine.ResolveTicketEngine -> com.np.tele.crm.ticket.resolve.engine.ResolveTicketEngine:
+    org.apache.log4j.Logger LOGGER -> a
+    com.np.tele.crm.ticket.resolve.engine.bm.IResolveTicketEngineManager resolveTicketEngineManager -> b
+    com.np.tele.crm.ticket.resolve.engine.bm.IResolveTicketEngineManager getResovleTicketEngineManager() -> getResovleTicketEngineManager
+    void setResovleTicketEngineManager(com.np.tele.crm.ticket.resolve.engine.bm.IResolveTicketEngineManager) -> setResovleTicketEngineManager
+    void init() -> init
+    void main(java.lang.String[]) -> main
+com.np.tele.crm.ticket.resolve.engine.bm.IResolveTicketEngineManager -> com.np.tele.crm.ticket.resolve.engine.bm.IResolveTicketEngineManager:
+    boolean resovleOpenTickets(java.lang.String) -> resovleOpenTickets
+com.np.tele.crm.ticket.resolve.engine.bm.ResolveTicketEngineManagerImpl -> com.np.tele.crm.ticket.resolve.engine.bm.ResolveTicketEngineManagerImpl:
+    org.apache.log4j.Logger LOGGER -> a
+    boolean resovleOpenTickets(java.lang.String) -> resovleOpenTickets
+    boolean retrieveAndProcess(java.lang.String,com.np.tele.crm.service.client.CrmQrcDto,com.np.tele.crm.service.client.CrmQrcService,boolean,com.np.tele.crm.constants.CRMCustomerActivityActions) -> a

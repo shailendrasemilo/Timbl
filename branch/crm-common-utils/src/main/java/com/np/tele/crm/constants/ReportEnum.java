@@ -1,0 +1,68 @@
+package com.np.tele.crm.constants;
+
+import com.np.tele.crm.utils.StringUtils;
+
+public enum ReportEnum {
+    WORK_ORDER_INSTALLATION_REPORT("WO_INST_RPT"),
+    CRF_DETAIL_REPORT("CRFDETAIL_RPT"),
+    VALIDITY_EXTENSION_REPORT ("VALIDITY_EXT_RPT"),
+    WORK_ORDER_PENDANCY_REPORT("WO_PNDC_RPT"),
+    SCANNING_REPORT("CRF_SCN_RPT"),
+    ADJUSTMENT_REPORT("ADJUSTMENT_RPT"),
+    MIGRATION_REPORTS("MIGRATION_RPT"),
+    SRP_REPORT("SRP_RPT"),
+    KPI_REPORT("KPI_RPT"),
+    ACTIVATION_REPORT("ACTIVATION_RPT"),
+    FIRST_ASSIGNED_BIN_TICKET_REPORT("FST_ASSIGNED_BIN_TKT_RPT"),
+    CANCELLATION_REPORTS("CANCELLATION_RPT"),
+    FT_REJECTION_REPORTS("FT_REJECTION_RPT"),
+    ISR_PENDENCY_REPORTS("ISR_PENDENCY_RPT"),
+    TICKET_REPORTS("TICKET_RPT"),
+    MASS_OUTAGE_REPORTS("MASS_OUTAGE_RPT"),
+    CHURN_REPORT("CHURN_RPT"),
+    REACTIVATION_REPORT("REACTIVATION_RPT"),
+    REPEAT_TICKET_REPOERT("REPEAT_TKT_RPT"),
+    REOPEN_TICKET_REPOERT("REOPEN_TKT_RPT"),
+    RESOLVE_TICKET_REPORT("RESOLVED_TKT_RPT"),
+    OPEN_TICKET_REPORT("OPEN_TICKET_RPT"),
+    TAGGING_REPORT("TAGGING_RPT"),
+    SAFE_CUSTODY_REPORT("SAFE_CUSTODY_RPT"),
+    BARRING_REPORT("BARRING_RPT"),
+    CATEGORY_WISE_OPEN_TICKET_REPORT("CAT_WISE_OTR"),
+    USER_WISE_OPEN_TICKET_REPORT("USER_WISE_OTR"),
+    LMS_REPORT("LMS_RPT"),
+    RFS_REPORT("RFS_RPT"),
+    PAYMENT_REPORT("PAYMENT_RPT"),
+    OUT_OF_SLA_TICKET_REPORT("OUT_OF_SLA_TICKET_RPT"),
+    CATEGORY_WISE_RESOLVED_TICKET_REPORT("CAT_WISE_RTR"),
+    WORKORDER_GENERATION_REPORT("WO_GENRT_RPT"),
+    ERP_REPORT("ERP_RPT"),
+    LMS_RPT_SUBQUERY("LMS_RPT_SUBQUERY"),
+    /*CAT_WISE_REOPEN_TICKET_REPORT("CAT_WISE_REOPEN_RPT"),
+    CAT_N_SLA_WISE_RESOLVE_TICKET_REPORT("CATNSLA_WISE_RSLV_RPT")*/
+    ;
+    
+    private String reportName = null;
+
+    private ReportEnum( String inParameter )
+    {
+        this.reportName = inParameter;
+    }
+
+    public String getReportName()
+    {
+        return reportName;
+    }
+
+    public static ReportEnum getReportType( String inReportName )
+    {
+        for ( ReportEnum reportEnum : ReportEnum.values() )
+        {
+            if ( StringUtils.equals( reportEnum.getReportName(), inReportName ) )
+            {
+                return reportEnum;
+            }
+        }
+        return null;
+    }
+}

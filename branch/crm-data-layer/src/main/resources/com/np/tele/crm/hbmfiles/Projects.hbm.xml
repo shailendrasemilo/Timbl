@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Jul, 2013 11:15:38 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.ProjectsPojo" table="crm_projects" dynamic-update="true">
+		<cache usage="read-write"/>
+        <id name="projectId" type="java.lang.Long">
+            <column name="project_id" />
+            <generator class="identity" />
+			
+		</id>
+		<property name="projectName" type="string">
+            <column name="project_name" length="50" not-null="true" />
+		</property>
+		<property name="projectType" type="string">
+            <column name="project_type" length="1" not-null="true" />
+		</property>
+		<property name="projectDescription" type="string">
+            <column name="project_description" length="128" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19"/>
+		</property>
+		<property name="status" type="string">
+            <column name="status" length="2" />
+		</property>
+		<set name="crmParameterPojosSet" table="crm_parameter" inverse="true"
+			lazy="false" fetch="select" cascade="all">
+			<cache usage="read-write"/>
+			<key>
+				<column name="project_id" precision="10" scale="0" not-null="true" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.CrmParameterPojo" />
+		</set>
+		<!-- <set name="eventses" table="CRM_EVENTS" inverse="true" lazy="true" fetch="select"> 
+			<key> <column name="PROJECT_ID" precision="10" scale="0" not-null="true" 
+			/> </key> <one-to-many class="com.np.tele.crm.pojos.EventsPojo" /> </set> 
+			<set name="emailTemplates" table="CRM_EMAIL_TEMPLATE" inverse="true" lazy="true" 
+			fetch="select"> <key> <column name="PROJECT_ID" precision="10" scale="0" 
+			not-null="true" /> </key> <one-to-many class="com.np.tele.crm.pojos.EmailTemplatePojo" 
+			/> </set> <set name="smsTemplates" table="CRM_SMS_TEMPLATE" inverse="true" lazy="true" 
+			fetch="select"> <key> <column name="PROJECT_ID" precision="10" scale="0" 
+			not-null="true" /> </key> <one-to-many class="com.np.tele.crm.pojos.SmsTemplatePojo" 
+			/> </set> -->
+	</class>
+</hibernate-mapping>

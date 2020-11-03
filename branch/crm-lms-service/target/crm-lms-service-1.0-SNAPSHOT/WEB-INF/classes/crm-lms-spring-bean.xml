@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="lmsOperationMgr" class="com.np.tele.crm.lms.businessmgr.LMSOperationMgrImpl">
+		<property name="lmsOperationDao" ref="lmsOperationDao"></property>
+	</bean>
+	<bean id="lmsOperationDao" class="com.np.tele.crm.lms.dao.LMSOperationDaoImpl"></bean>
+</beans>

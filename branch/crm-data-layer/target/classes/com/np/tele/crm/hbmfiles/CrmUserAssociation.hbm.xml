@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 4, 2015 3:06:56 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmUserAssociationPojo" table="crm_user_association" dynamic-update="true">
+    <cache usage="read-write"/>
+        <id name="associationId" type="java.lang.Long">
+            <column name="association_id" />
+            <generator class="identity" />
+        </id>
+        <property name="userId" type="string" update="false" unique="true">
+            <column name="user_id" length="128" not-null="true" />
+        </property>
+        <property name="associationType" type="string" update="false" unique="true">
+            <column name="association_type" length="3" not-null="true" />
+        </property>
+        <property name="associatedValue" type="string" update="false" unique="true">
+            <column name="associated_value" length="20" not-null="true" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" update="false" insert="false">
+            <column name="last_modified_time" length="19" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" not-null="true" />
+        </property>
+    </class>
+	<sql-query name="ASSOCIATTE_SR_WITH_BP" callable="false">
+		<![CDATA[SELECT DISTINCT(cu.user_id) AS "userId",cu.sr_code AS "srCode",cu.first_name AS "firstName" ,cu.last_name AS "lastName" FROM crm_user cu
+		LEFT JOIN crm_user_association cua ON(cua.user_id = cu.user_id AND cu.sr_code IS NOT NULL AND cu. STATUS = 'A' AND cua.association_type = 'PT' AND cua. STATUS = 'A'),
+ 		crm_partner_details pd
+		RIGHT JOIN crm_partner cp ON(cp.partner_id = pd.partner_id AND pd.partner_type = 'ST' AND cp.current_status = 'A')
+	WHERE
+		pd.bussiness_type =:PRODUCT
+		AND cua.associated_value = cp.partner_id
+		AND pd.partner_id =:PARTNER_ID
+		]]>
+	</sql-query>
+</hibernate-mapping>

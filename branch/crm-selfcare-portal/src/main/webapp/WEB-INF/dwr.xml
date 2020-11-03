@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://directwebremoting.org/schema/dwr20.dtd">
+<dwr>
+	<allow>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmSelfcareCategoriesPojo" javascript="crmDwr">
+			<param name="include" value="selfcareCategory,qrcSubSubCategoryId" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CityPojo" javascript="crmDwr">
+			<param name="include" value="cityName,cityId" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmCustomerDetailsPojo" javascript="crmDwr" >
+			<param name="include" value="recordId,customerId,crmPlanDetailses" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmPlanDetailsPojo" javascript="crmDwr" >
+			<param name="include" value="recordId" />
+		</convert>
+		<!-- <convert converter="bean" match="com.np.tele.crm.service.client.ProjectsPojo" javascript="crmDwr">
+			<param name="include" value="projectId, projectName" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.PartnerPojo" javascript="crmDwr">
+			<param name="include" value="partnerId,partnerName,partnerAlias,bussinessType,crmPartnerCode" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmUserPojo" javascript="crmDwr">
+			<param name="include" value="srCode,userId" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmRolesPojo" javascript="crmDwr">
+			<param name="include" value="roleId,roleName" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.StatePojo" javascript="crmDwr">
+			<param name="include" value="stateId,stateName" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CityPojo" javascript="crmDwr">
+			<param name="include" value="cityId,cityName" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.LocalityPojo" javascript="crmDwr">
+			<param name="include" value="localityId,locality" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.AreaPojo" javascript="crmDwr">
+			<param name="include" value="areaId,area" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.SocietyPojo" javascript="crmDwr">
+			<param name="include" value="societyId,societyName" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.pojos.ContentPojo" javascript="crmDwr">
+			<param name="include" value="contentValue,contentName" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmCustomerDetailsPojo" javascript="crmDwr">
+			<param name="include" value="recordId,status,crfStage,activationDate,customerId,installationStatus,serviceType" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmCmsFilePojo" javascript="crmDwr">
+			<param name="include" value="cmsFileId,cmsFileName" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmQrcFieldsPojo" javascript="crmDwr">
+			<param name="include" value="fieldId,fieldLabel,fieldName,fieldType,regex,createdBy" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmQrcTicketsValuesPojo" javascript="crmDwr">
+			<param name="include" value="newValue,oldValue,createdBy" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmPlanMasterPojo" javascript="crmDwr">
+			<param name="include" value="securityDeposit,rentExclTax,addonAllowedYn,rentInclTax,advTelservPayment,advTelsolnPayment,planName,planCode" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmPartnerNetworkConfigPojo" javascript="crmDwr">
+			<param name="include" value="masterName,nasPortId,poolName" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmQrcCategoriesPojo" javascript="crmDwr">
+			<param name="include" value="qrcCategoryId,qrcCategory" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmQrcSubCategoriesPojo" javascript="crmDwr">
+			<param name="include" value="qrcSubCategoryId,qrcSubCategory" />
+		</convert>
+		<convert converter="bean" match="com.np.tele.crm.service.client.CrmQrcSubSubCategoriesPojo" javascript="crmDwr">
+			<param name="include" value="qrcSubSubCategoryId,qrcSubSubCategory" />
+		</convert>
+		<convert match="com.np.tele.crm.service.client.CrmRcaReasonPojo" converter="bean" javascript="crmDwr">
+			<param name="include" value="categoryId,categoryValue"></param>
+		</convert> -->
+		<create creator="new" javascript="crmDwr">
+			<param name="class" value="com.np.tele.selfcare.common.utils.SelfcareDwrManagerImpl" />
+		</create>
+		<create creator="struts" javascript="selfcareForm" scope="session" >
+			<param name="formBean" value="selfcareForm" />
+			<include method="getCustomerDetailsPojo"/>
+		</create>
+		<!-- this is a bad idea for live, but can be useful in testing -->
+		<convert converter="exception" match="java.lang.Exception" />
+		<convert converter="bean" match="java.lang.StackTraceElement" /> 
+		<convert converter="bean" match="com.np.tele.crm.service.client.ContentPojo" javascript="crmDwr">
+			 <param name="include" value="contentValue,contentName"/>
+		</convert>	
+	</allow>
+</dwr>

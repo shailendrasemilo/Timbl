@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2015 1:08:55 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmCustWaiverPojo" table="crm_cust_waiver"
+		dynamic-update="true">
+		<id name="waiverId" type="java.lang.Long">
+			<column name="waiver_id" />
+			<generator class="identity" />
+
+		</id>
+		<property name="customerId" type="string" update="false">
+			<column name="customer_id" length="15" not-null="true" />
+		</property>
+		<property name="billNo" type="string" update="false">
+			<column name="bill_no" length="50" not-null="true" />
+		</property>
+		<property name="waiverType" type="string" update="false">
+			<column name="waiver_type" length="128" not-null="true" />
+		</property>
+		<property name="waiverHead" type="string" update="false">
+			<column name="waiver_head" length="128" not-null="true" />
+		</property>
+		<property name="waiverAmount" type="double" update="false">
+			<column name="waiver_amount" precision="8" not-null="true" />
+		</property>
+		<property name="srTicketId" type="string">
+			<column name="sr_ticket_id" length="128" not-null="false" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false"
+			insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" not-null="true" />
+		</property>
+		<property name="workflowId" type="string">
+			<column name="workflow_id" length="41" />
+		</property>
+		<property name="workflowStage" type="string">
+			<column name="workflow_stage" length="25" not-null="true" />
+		</property>
+		<property name="approvedBy" type="string">
+			<column name="approved_by" length="128" />
+		</property>
+		<property name="finalApprovedBy" type="string">
+			<column name="final_approved_by" length="128" />
+		</property>
+		<property name="rejectedBy" type="string">
+			<column name="rejected_by" length="128" />
+		</property>
+		<property name="rejectionReason" type="string">
+			<column name="rejection_reason" length="1024" />
+		</property>
+		<property name="previousStage" type="string">
+			<column name="previous_stage" length="25" />
+		</property>
+		<property name="waiverPostedDate" type="timestamp">
+			<column name="waiver_posted_date" length="7" />
+		</property>
+
+	</class>
+	<sql-query name="ADJUSTMENT_RPT" callable="false">	
+	<![CDATA[SELECT  ccd.customer_id AS "customerId", ccd.crf_id AS "crfNo",
+       CASE WHEN ccd.bill_date IS NULL THEN '' ELSE CONCAT('Billing Cycle is ', CONCAT(ccd.bill_date, 'th')) END  AS "billCycle",
+       ccw.waiver_posted_date AS "waiverPostedDate",
+       ccw.waiver_amount AS "waiverAmount",
+       ccw.waiver_head AS "waiverHead",
+       ccw.waiver_type AS "waiverType",
+       cast(cr.remarks as char(4000)) AS "remarks",
+       ccw.bill_no AS "billNo",
+       ccw.sr_ticket_id AS "srTicketId",
+       ccw.final_approved_by AS "finalApprovedBy",
+       ccw.approved_by AS "approvedBy"
+       FROM
+       crm_customer_details ccd,
+    crm_cust_waiver ccw
+    LEFT JOIN crm_remarks cr ON(cr.mapping_id = ccw.workflow_id AND ccw.waiver_posted_date <= cr.created_time AND ccw.workflow_id = cr.mapping_id)
+       WHERE
+       ccd.customer_id = ccw.customer_id
+       AND ccw.waiver_posted_date IS NOT NULL
+      AND ccw.created_time BETWEEN :FROM_DATE AND :TO_DATE 
+		     
+		     ]]>
+	</sql-query>
+</hibernate-mapping>

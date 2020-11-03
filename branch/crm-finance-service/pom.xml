@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>crm-parent-pom</artifactId>
+		<groupId>tele.crm</groupId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../crm-parent-pom/pom.xml</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>crm-finance-service</artifactId>
+	<packaging>war</packaging>
+	<name>CRM Finance Service</name>
+	<description>CRM Finance Web Service</description>
+	<dependencies>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.0.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>3.0.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>tele.crm</groupId>
+			<artifactId>crm-service-utils</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>tele.crm</groupId>
+			<artifactId>crm-data-layer</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>tele.crm</groupId>
+			<artifactId>crm-billing-client</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<!-- TechProcess Payment Gateway >>>>> -->
+		<dependency>
+			<groupId>com.tp.pg</groupId>
+			<artifactId>SingleURLJARWithoutLIB_out</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.tp.pg</groupId>
+			<artifactId>bcjceprovider</artifactId>
+			<version>1.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- <<<< TechProcess Payment Gateway -->
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<filters>
+						<filter>${project.basedir}/configurations/conf/${conf_file}</filter>
+					</filters>
+					<nonFilteredFileExtensions>
+						<!-- default value contains jpg,jpeg,gif,bmp,png -->
+						<nonFilteredFileExtension>pdf</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+					<webResources>
+						<resource>
+							<directory>configurations</directory>
+							<targetPath>WEB-INF</targetPath>
+							<filtering>true</filtering>
+							<excludes>
+								<exclude>**/conf</exclude>
+							</excludes>
+						</resource>
+					</webResources>
+                    <index>true</index>
+                    <manifest>
+                      <addClasspath>true</addClasspath>
+                    </manifest>
+                    <archive>
+                      <manifestEntries>
+                        <Dependencies>com.np.tele.crm.configuration</Dependencies>
+                      </manifestEntries>
+                    </archive>
+          		</configuration>
+			</plugin>
+			<!-- <plugin>
+				<groupId>com.github.wvengen</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<version>2.0.6</version>
+				<dependencies>
+					<dependency>
+						<groupId>net.sf.proguard</groupId>
+						<artifactId>proguard-base</artifactId>
+						<version>4.10</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>proguard</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<injar>classes</injar>
+
+					<proguardVersion>4.10</proguardVersion>
+					<obfuscate>true</obfuscate>
+					<options>
+						<option>-keep public class * { public *; public static *; }</option>
+						<option>-keepattributes *Annotations*</option>
+						<option>-keep @javax.net.ssl.HttpsURLConnection class *</option>				
+					</options>
+					<libs>
+						<lib>${java.home}/lib/rt.jar</lib>
+						<lib>${java.home}/lib/jce.jar</lib>
+					</libs>
+				</configuration>
+			</plugin> -->
+		</plugins>
+
+	</build>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>env</name>
+					<value>dev</value>
+				</property>
+			</activation>
+			<properties>
+				<conf_file>dev.properties</conf_file>
+			</properties>
+		</profile>
+		<profile>
+			<id>qa</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>qa</value>
+				</property>
+			</activation>
+			<properties>
+				<conf_file>qa.properties</conf_file>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<activation>
+				<property>
+					<name>env</name>
+					<value>prod</value>
+				</property>
+			</activation>
+			<properties>
+				<conf_file>prod.properties</conf_file>
+			</properties>
+		</profile>
+	</profiles>
+</project>

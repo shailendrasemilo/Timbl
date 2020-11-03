@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+                                   "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" path="/jsp/layouts/selfcareBaseLayout.jsp">
+		<put name="title" value="My Account" />
+		<put name="header" value="/jsp/header/selfcareHeader.jsp" />
+		<put name="menu" value="/jsp/content/selfcareMenu.jsp" />
+		<put name="body" />
+		<put name="footer" value="/jsp/footer/selfcareFooter.jsp" />
+	</definition>
+	<definition name="qcpLayout" path="/jsp/layouts/qcpLayout.jsp">
+		<put name="title" value="Quick Pay" />
+		<put name="body" />
+	</definition>
+	<definition extends="baseLayout" name="homePage">
+		<put name="body" value="/jsp/content/myaccount/selfcare.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="myAccountPage">
+		<put name="body" value="/jsp/content/myaccount/selfcare.jsp" />
+	</definition>
+
+	<definition extends="qcpLayout" name="quickPayPage">
+		<put name="body" value="/jsp/content/quickpay/selfcareQuickPayPage.jsp" />
+	</definition>
+	<definition extends="qcpLayout" name="quickPayList">
+		<put name="body" value="/jsp/content/quickpay/selfcareQuickPayList.jsp" />
+	</definition>
+	<definition extends="qcpLayout" name="quickPayTransaction">
+		<put name="body" value="/jsp/content/quickpay/selfcareQuickPayTransaction.jsp" />
+	</definition>
+	<definition extends="qcpLayout" name="quickPayConfirm">
+		<put name="body" value="/jsp/content/quickpay/selfcareQuickPayConfirm.jsp" />
+	</definition>
+	<definition extends="qcpLayout" name="paymentResponse">
+		<put name="body" value="/jsp/content/quickpay/paymentResponse.jsp" />
+	</definition>
+	<definition extends="qcpLayout" name="emailVerification">
+		<put name="body" value="/jsp/content/user/emailVerification.jsp" />
+	</definition>
+
+
+	<definition name="boosterTopUpPage"
+		path="/jsp/content/migration/boosterTopUpPage.jsp" />
+	<definition name="planMigrationPage"
+		path="/jsp/content/migration/planMigrationPage.jsp" />
+</tiles-definitions>

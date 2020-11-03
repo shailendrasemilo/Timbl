@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Jul, 2013 11:15:38 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.EmailCcBccPojo" table="crm_email_cc_bcc" dynamic-update="true">
+	<cache usage="read-write"/>
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />
+            <generator class="identity" />
+				
+		</id>
+		<property name="emailId" type="string">
+            <column name="email_id" length="254" not-null="true" />
+		</property>
+		<property name="emailType" type="string">
+            <column name="email_type" length="4" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" update="false" insert="false">
+            <column name="last_modified_time" length="19" not-null="true" />
+		</property>
+		<property name="status" type="string">
+            <column name="status" length="2" />
+		</property>
+		<many-to-one name="emailTemplatePojo"
+			class="com.np.tele.crm.pojos.EmailTemplatePojo" fetch="join" lazy="false" >
+			<column name="email_template_id" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

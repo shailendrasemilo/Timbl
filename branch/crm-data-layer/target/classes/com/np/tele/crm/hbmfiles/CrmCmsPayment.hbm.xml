@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2013 5:15:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmCmsPaymentPojo" table="crm_cms_payment"
+		dynamic-update="true">
+		<cache usage="read-write" />
+		<id name="cmsId" type="java.lang.Long">
+			<column name="cms_id" />
+			<generator class="identity" />
+
+		</id>
+		<property generated="never" lazy="false" name="depositFileId"
+			type="java.lang.Long">
+			<column name="deposit_file_id" default="0" />
+		</property>
+		<property generated="never" lazy="false" name="clearanceFileId"
+			type="java.lang.Long">
+			<column name="clearance_file_id" default="0" />
+		</property>
+		<property generated="never" lazy="false" name="internalDepNo"
+			type="string">
+			<column name="internal_dep_no" length="20" />
+		</property>
+		<property generated="never" lazy="false" name="depositSlipNo"
+			type="string">
+			<column name="deposit_slip_no" length="45" />
+		</property>
+		<property generated="never" lazy="false" name="depositRemarks"
+			type="string">
+			<column name="deposit_remarks" length="256" />
+		</property>
+		<property generated="never" lazy="false" name="depositDate"
+			type="date">
+			<column name="deposit_date" length="10" />
+		</property>
+		<property generated="never" lazy="false" name="totalInstruments"
+			type="java.lang.Integer">
+			<column name="total_instruments" />
+		</property>
+		<property generated="never" lazy="false" name="pickupDate"
+			type="date">
+			<column name="pickup_date" length="10" />
+		</property>
+		<property generated="never" lazy="false" name="instrumentNo"
+			type="string">
+			<column name="instrument_no" length="8" />
+		</property>
+		<property generated="never" lazy="false" name="instrumentDate"
+			type="date">
+			<column name="instrument_date" length="10" />
+		</property>
+		<property generated="never" lazy="false" name="instrumentAmount"
+			type="java.lang.Double">
+			<column name="instrument_amount" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="totalAmount"
+			type="java.lang.Double">
+			<column name="total_amount" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="drawerName"
+			type="string">
+			<column name="drawer_name" length="128" />
+		</property>
+		<property generated="never" lazy="false" name="draweeBank"
+			type="string">
+			<column name="drawee_bank" length="128" />
+		</property>
+		<property generated="never" lazy="false" name="draweeBranch"
+			type="string">
+			<column name="drawee_branch" length="128" />
+		</property>
+		<property generated="never" lazy="false" name="ie1" type="string">
+			<column name="ie1" length="128" />
+		</property>
+		<property generated="never" lazy="false" name="ie2" type="string">
+			<column name="ie2" length="128" />
+		</property>
+		<property generated="never" lazy="false" name="bandId" type="string">
+			<column name="band_id" length="2" />
+		</property>
+		<property generated="never" lazy="false" name="entryId" type="string">
+			<column name="entry_id" length="20" />
+		</property>
+		<property generated="never" lazy="false" name="typeOfEntry"
+			type="string">
+			<column name="type_of_entry" length="2" />
+		</property>
+		<property generated="never" lazy="false" name="debitCreditFlag"
+			type="string">
+			<column name="debit_credit_flag" length="1" />
+		</property>
+		<property generated="never" lazy="false" name="entryAmount"
+			type="java.lang.Double">
+			<column name="entry_amount" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="valueDate"
+			type="date">
+			<column name="value_date" length="10" />
+		</property>
+		<property generated="never" lazy="false" name="postingDate"
+			type="date">
+			<column name="posting_date" length="10" />
+		</property>
+		<property generated="never" lazy="false" name="depositAmount"
+			type="java.lang.Double">
+			<column name="deposit_amount" precision="8" />
+		</property>
+		<property generated="never" lazy="false" name="returnReason"
+			type="string">
+			<column name="return_reason" length="256" />
+		</property>
+		<property generated="never" lazy="false" name="faliureReason"
+			type="string">
+			<column name="faliure_reason" length="256" />
+		</property>
+		<property generated="never" lazy="false" name="createdBy"
+			type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="createdTime"
+			type="timestamp" update="false">
+			<column length="19" name="created_time" />
+		</property>
+		<property generated="never" lazy="false" name="lastModifiedBy"
+			type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property generated="never" lazy="false" name="lastModifiedTime"
+			type="timestamp" update="false">
+			<column length="19" name="last_modified_time" />
+		</property>
+		<property generated="never" lazy="false" name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+	</class>
+	<sql-query name="FileRecordsStatusByFileId" callable="false">	
+	<![CDATA[SELECT
+  IFNULL(status, 'TOTAL')AS RECORDSTATUS,
+  CONCAT(COUNT(cms_id),'') AS COUNT
+ FROM
+  crm_cms_payment
+  WHERE
+   deposit_file_id = :CMS_FILE_ID
+  OR clearance_file_id = :CMS_FILE_ID
+ GROUP BY
+  status WITH ROLLUP]]>
+	</sql-query>
+</hibernate-mapping>

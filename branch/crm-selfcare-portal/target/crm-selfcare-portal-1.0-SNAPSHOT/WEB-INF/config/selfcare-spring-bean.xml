@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<aop:aspectj-autoproxy />
+	<bean name="/login" class="com.np.tele.selfcare.action.SelfcareLoginAction">
+		<property name="selfcareManager" ref="selfcareManager" />
+	</bean>
+	<bean name="/user" class="com.np.tele.selfcare.action.SelfcareAction">
+		<property name="selfcareManager" ref="selfcareManager" />
+	</bean>
+	<bean name="/quickPay" class="com.np.tele.selfcare.action.SelfcareQuickPayAction">
+		<property name="selfcareManager" ref="selfcareManager" />
+	</bean>
+	<bean name="/hdfcresponse" class="com.np.tele.selfcare.action.SelfcareHDFCResponseAction">
+		<property name="selfcareManager" ref="selfcareManager" />
+	</bean>
+	<bean name="/tpresponse" class="com.np.tele.selfcare.action.SelfcareTPResponseAction">
+		<property name="selfcareManager" ref="selfcareManager" />
+	</bean>
+	<bean name="/atomresponse" class="com.np.tele.selfcare.action.SelfcareATOMResponseAction">
+		<property name="selfcareManager" ref="selfcareManager" />
+	</bean>
+	<bean name="/migration" class="com.np.tele.selfcare.action.SelfcareMigrationAction">
+		<property name="selfcarePlanmigrationMgr" ref="selfcarePlanmigrationMgr" />
+	</bean>
+	<bean name="/verify" class="com.np.tele.selfcare.action.SelfcareVerificationAction">
+		<property name="selfcareManager" ref="selfcareManager" />
+	</bean>
+	<bean id="selfcareManager" class="com.np.tele.selfcare.bm.SelfcareManagerImpl">
+		<property name="capServiceClient" ref="capServiceClient" />
+		<property name="crmConfigClient" ref="crmConfigClient" />
+		<property name="crmFinanceClient" ref="crmFinanceClient" />
+		<property name="masterDataClient" ref="masterDataClient" />
+		<property name="crmQrcClient" ref="crmQrcClient" />
+		<property name="gisServiceClient" ref="gisServiceClient" />
+	</bean>
+	<bean id="selfcarePlanmigrationMgr" class="com.np.tele.selfcare.bm.SelfcarePlanMigrationMgrImpl">
+		<property name="masterDataClient" ref="masterDataClient" />
+		<property name="qrcServiceClient" ref="qrcServiceClient" />
+	</bean>
+	<bean id="crmConfigClient" class="com.np.tele.crm.client.CrmConfigClient" />
+	<bean id="capServiceClient" class="com.np.tele.crm.client.CRMCapClient" />
+	<bean id="crmFinanceClient" class="com.np.tele.crm.client.CRMFinanceClient" />
+	<bean id="masterDataClient" class="com.np.tele.crm.client.MasterDataClient" />
+	<bean id="crmQrcClient" class="com.np.tele.crm.client.CrmQrcClient" />
+	<bean id="gisServiceClient" class="com.np.tele.crm.client.GISServiceClient" />
+	<bean id="qrcServiceClient" class="com.np.tele.crm.client.CrmQrcClient" />
+</beans>

@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Jul, 2013 11:15:38 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmUserPojo" table="crm_user" dynamic-update="true">
+		<cache usage="read-write" />
+        <id name="recordId" type="java.lang.Long" >
+            <column name="record_id"  />
+            <generator class="identity" />
+			
+		</id>
+		<!--<many-to-one name="partner" class="com.np.tele.crm.pojos.PartnerPojo" fetch="join" cascade="none" lazy="false" > <column name="PARTNER_ID" precision="10" 
+			scale="0" /> </many-to-one> -->
+		<property name="userId" type="string">
+            <column name="user_id" length="128" not-null="false" unique="true" />
+		</property>
+		<property name="password" type="string">
+            <column name="password" length="128" />
+		</property>
+		<!-- <property name="adCheck" type="string"> <column name="AD_CHECK" length="1" /> </property> -->
+		<property name="firstName" type="string">
+            <column name="first_name" length="30" not-null="true" />
+		</property>
+		<property name="lastName" type="string">
+            <column name="last_name" length="30" not-null="true" />
+		</property>
+		<property name="emailId" type="string">
+            <column name="email_id" length="256" not-null="true" />
+		</property>
+		<property name="mobileNo" type="long">
+            <column name="mobile_no" not-null="true" />
+		</property>
+		<!-- <property name="empType" type="string"> <column name="EMP_TYPE" length="1" not-null="false" /> </property> -->
+		<!-- <property name="empCode" type="string"> <column name="EMP_CODE" length="15" /> </property> -->
+        <property name="passwordExpiry" type="short">
+            <column name="password_expiry" not-null="true" />
+		</property>
+        <property name="userAccountExpiry" type="short">
+            <column name="user_account_expiry" not-null="true" />
+		</property>
+		<property name="lastLoginTime" type="timestamp">
+            <column name="last_login_time" length="19" />
+		</property>
+        <property name="unsuccessfullAttempts" type="java.lang.Integer">
+            <column name="unsuccessfull_attempts" />
+		</property>
+		<property name="password1" type="string">
+            <column name="password1" length="128" />
+		</property>
+		<property name="password2" type="string">
+            <column name="password2" length="128" />
+		</property>
+		<property name="password3" type="string">
+            <column name="password3" length="128" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" update="false" insert="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+		<property name="lockingTime" type="timestamp">
+			<column name="locking_time" length="7" not-null="false" />
+		</property>
+		<property name="userToken" type="string">
+			<column name="user_token" length="1024" />
+		</property>
+		<property name="hierarchy" type="byte">
+			<column name="hierarchy" />
+		</property>
+		<property name="functionalBin" type="string">
+			<column name="functional_bin" length="200" />
+		</property>
+		<property name="srCode" type="string">
+			<column name="sr_code" length="15" />
+		</property>
+	</class>
+
+	<sql-query name="ParameterByUserId" callable="false">
+	
+	<![CDATA[Select
+	concat( crm_user.user_id,'') as USERID,
+  concat( crm_user.password,'') as USERCURRENTPASSWORD,
+  concat( crm_user.first_name,'') as USERFIRSTNAME,
+  concat( crm_user.last_name,'') as USERLASTNAME,
+  concat( crm_user.email_id,'') as USEREMAILID,
+   CONCAT(crm_user.mobile_no,'') as USERMOBILENO,
+   CASE crm_user.status
+    WHEN 'N' THEN 'NEW'
+    WHEN 'P' THEN 'PENDING'
+    WHEN 'A' THEN 'ACTIVE'
+    WHEN 'L' THEN 'Lock'
+    WHEN 'E' THEN 'Expire'
+    WHEN 'I' THEN 'INACTIVE'
+    WHEN 'D' THEN 'Deleted'
+    END as USERCURRENTSTATUS,
+   CONCAT('http://localhost:8080/RICRM/accountVerification.do?method=verifyUser&sessionId=',crm_user.user_token) as USERACTIVATIONLINK
+   from crm_user where user_id=  :USER_ID]]>
+			
+	</sql-query>
+	
+	<sql-query name="EMAIL_IDS_BY_USER_IDS" callable="false">
+	
+	<![CDATA[SELECT email_id FROM crm_user WHERE STATUS = 'A' AND user_id IN (:USER_IDS)]]>
+			
+	</sql-query>
+</hibernate-mapping>
+

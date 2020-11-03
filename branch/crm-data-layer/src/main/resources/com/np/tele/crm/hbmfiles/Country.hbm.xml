@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27 Aug, 2013 3:24:00 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+  <class name="com.np.tele.crm.pojos.CountryPojo" table="crm_country_master" dynamic-update="true" mutable="false">
+    <cache usage="read-only"/>
+        <id name="countryId" type="short">
+            <column name="country_id" />
+            <generator class="identity" />
+       
+    </id>
+    <property generated="never" lazy="false" name="countryName" type="string">
+            <column name="country_name" length="30" not-null="true" unique="true" />
+    </property>
+        <property name="isdCode" type="short">
+            <column name="isd_code" not-null="true" />
+    </property>
+    <property generated="never" lazy="false" name="description" type="string">
+            <column name="description" length="50" />
+    </property>
+    <property generated="never" lazy="false" name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+    </property>
+    <property generated="never" lazy="false" name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+    </property>
+    <property generated="never" lazy="false" name="lastModifiedBy" type="string" insert="false" update="false">
+            <column name="last_modified_by" length="128" />
+    </property>
+    <property generated="never" lazy="false" name="lastModifiedTime" type="timestamp">
+            <column name="last_modified_time" length="19" not-null="true" />
+    </property>
+    <property generated="never" lazy="false" name="status" type="string">
+            <column name="status" length="2" />
+    </property>
+    <set fetch="select" inverse="true" lazy="false" name="states" sort="unsorted" table="crm_state_master">
+      <cache usage="read-write"/>
+      <key>
+                <column name="country_id" not-null="true" />
+      </key>
+      <one-to-many class="com.np.tele.crm.pojos.StatePojo"/>
+      <filter condition="status =:stStatus" name="ActiveStates"/>
+    </set>
+  </class>
+  <filter-def name="ActiveStates">
+    <filter-param name="stStatus" type="string"/>
+  </filter-def>
+  <filter-def name="ActiveCities">
+    <filter-param name="stStatus" type="string"/>
+  </filter-def>
+  <filter-def name="ActiveAreas">
+    <filter-param name="stStatus" type="string"/>
+  </filter-def>
+<!--   <filter-def name="ActiveLocalities">
+    <filter-param name="stStatus" type="string"/>
+  </filter-def> -->
+  <filter-def name="ActiveSocieties">
+    <filter-param name="stStatus" type="string"/>
+  </filter-def>
+  <filter-def name="Feasible">
+    <filter-param name="stStatus" type="string"/>
+  </filter-def>
+</hibernate-mapping>

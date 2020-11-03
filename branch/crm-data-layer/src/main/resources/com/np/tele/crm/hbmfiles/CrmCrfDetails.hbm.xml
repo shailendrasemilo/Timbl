@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 7, 2015 1:08:47 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmCrfDetailsPojo" table="crm_crf_details" dynamic-update="true">
+	<cache usage="read-write"/>
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />            
+        </id>
+		<property name="product" type="string">
+            <column name="product" length="10" />
+		</property>
+		<property name="serviceType" type="string" update="false">
+			<column name="service_type" length="2" />
+		</property>
+		<property name="crfId" type="string" unique="true" update="false">
+            <column name="crf_id" length="25" unique="true" />
+		</property>
+		<property name="customerId" type="string">
+            <column name="customer_id" length="15" unique="true" />
+		</property>
+		<property name="crfDate" type="date">
+            <column name="crf_date" length="10" not-null="true" />
+		</property>
+		<property name="connectionType" type="string">
+            <column name="connection_type" length="25" not-null="true" />
+		</property>
+		<property name="custFname" type="string">
+            <column name="cust_fname" length="200" not-null="true" />
+		</property>
+		<property name="custMname" type="string">
+            <column name="cust_mname" length="50" />
+		</property>
+		<property name="custLname" type="string">
+            <column name="cust_lname" length="50" />
+		</property>
+		<property name="authSignFname" type="string">
+            <column name="auth_sign_fname" length="45" />
+		</property>
+		<property name="authSignLname" type="string">
+            <column name="auth_sign_lname" length="45" />
+		</property>
+		<property name="authSignDesg" type="string">
+            <column name="auth_sign_desg" length="45" />
+		</property>
+		<property name="orgCordFname" type="string">
+            <column name="org_cord_fname" length="45" />
+		</property>
+		<property name="orgCordLname" type="string">
+            <column name="org_cord_lname" length="45" />
+		</property>
+		<property name="custEmailId" type="string">
+            <column name="cust_email_id" length="256" />
+		</property>
+		<property name="altEmailId" type="string">
+            <column name="alt_email_id" length="256" />
+		</property>
+        <property name="custMobileNo" type="java.lang.Long">
+            <column name="cust_mobile_no" />
+		</property>
+		<property name="fhFname" type="string">
+            <column name="fh_fname" length="45" />
+		</property>
+		<property name="fhLname" type="string">
+            <column name="fh_lname" length="45" />
+		</property>
+		<property name="custDob" type="date">
+            <column name="cust_dob" length="10" />
+		</property>
+		<property name="custGender" type="string">
+            <column name="cust_gender" length="1" />
+		</property>
+		<property name="nationality" type="string">
+            <column name="nationality" length="30" />
+		</property>
+		<property name="custPanGirNo" type="string">
+            <column name="cust_pan_gir_no" length="10" />
+		</property>
+        <property name="rmn" type="java.lang.Long">
+            <column name="rmn" />
+		</property>
+        <property name="rtn" type="java.lang.Long">
+            <column name="rtn" />
+		</property>
+		<property name="crfStage" type="string">
+            <column name="crf_stage" length="25" />
+		</property>
+		<property name="crfPreviousStage" type="string">
+            <column name="crf_previous_stage" length="25" />
+		</property>
+		<property name="crfReferenceNo" type="string">
+            <column name="crf_reference_no" length="128" />
+		</property>
+		<property name="isrReferenceNo" type="string">
+            <column name="isr_reference_no" length="128" />
+		</property>
+		<property name="salesRepresentative" type="string">
+            <column name="sales_representative" length="128" />
+		</property>
+		<property name="businessPartner" type="java.lang.Long">
+            <column name="bp_id" />
+		</property>
+        <property name="npId" type="java.lang.Long">
+            <column name="np_id" />
+		</property>
+        <property name="spId" type="java.lang.Long">
+            <column name="sp_id" />
+		</property>
+		<property name="ftSubmittionDate" type="timestamp">
+            <column name="ft_submittion_date" length="19" />
+		</property>
+		<property name="ftApprovalDate" type="timestamp">
+            <column name="ft_approval_date" length="19" />
+		</property>
+		<property name="dateOnIsr" type="date">
+            <column name="date_on_isr" length="10" />
+		</property>
+		<property name="activationDate" type="timestamp">
+            <column name="activation_date" length="19" />
+		</property>
+		<property name="billDate" type="string">
+            <column name="bill_date" length="2" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp">
+            <column name="created_time" length="19" not-null="true" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" update="false" insert="false">
+            <column name="last_modified_time" length="19" not-null="true" />
+		</property>
+		<property name="status" type="string">
+            <column name="status" length="2" />
+		</property>
+		<property name="brand" type="string">
+            <column name="brand" length="20" />
+        </property>
+        <property name="aadharNo" type="string">
+            <column name="aadhar_no" length="12"/>
+        </property>
+		<set name="crmCrfPlanDetailses" table="crm_crf_plan_details" inverse="true" lazy="false" fetch="select">
+			<key>
+				<column name="customer_record_id" unique="true" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.CrmCrfPlanDetailsPojo" />
+		</set>
+		<set name="crmCrfAddressDetailses" table="crm_crf_address_details" inverse="true" lazy="false" fetch="select">
+			<key>
+				<column name="customer_record_id"  />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.CrmCrfAddressDetailsPojo" />
+		</set>
+	</class>
+	<sql-query name="ACTIVATION_RPT" callable="false">	
+		 <![CDATA[SELECT
+   ccd.customer_id AS "customerId",
+   ccd.crf_id AS "crfId",
+   CONVERT( ccd.np_id,CHAR) AS "LMOName",
+   ccd.product AS "product",
+   #CASE WHEN ccd.connection_type NOT IN ('Ind','Prop') THEN ccd.cust_fname END AS "companyName",
+   #ccd.cust_fname AS "custFname", IFNULL(ccd.cust_lname, ' ')AS "custLname",
+   #ccn.current_cpe_mac_id AS "cpeMacId",
+   ccn.current_slave_mac_id AS "cpeMacId",
+   ccd.crf_date AS "crfDate",
+   ccd.created_time AS "createdTime",
+   ccd.activation_date AS "macBindDate",
+   ccd.activation_date AS "activationDate",
+   cust_d.status AS "status",
+   CASE cust_d.status 
+    WHEN 'B' THEN cust_d.barring_date 
+    WHEN 'T' THEN cust_d.td_date 
+    WHEN 'PD' THEN cust_d.pd_date 
+    WHEN 'SC' THEN cust_d.safe_custody_date 
+    WHEN 'A' THEN cust_d.unbarring_date END AS "statusDate",
+   ccd.bill_date AS "billCycle",
+   CASE WHEN ccd.connection_type IN ('Ind','Prop') THEN 'HOME' ELSE 'COMMERCIAL' END AS "category",
+   ccd.connection_type AS "connectionType",
+   CONCAT(ccd.rmn, '') AS "rmn",
+   #CONCAT(ccd.rtn, '') AS "rtn",
+   ccd.service_type AS "serviceType", 
+   ccpd.bill_mode AS "billMode",
+   CASE ccpd.bill_mode WHEN 'PB' THEN 'Non Itemized' ELSE 'Itemized' END AS "billPref",
+   #CONCAT(crm_addr_bl.add_line1, CONCAT(CONCAT(' ', crm_addr_bl.add_line2), CONCAT(CONCAT(' ', crm_addr_bl.add_line3), CONCAT('-', crm_addr_bl.pincode))))AS "billingAddress",
+   #CONCAT(crm_addr.add_line1, CONCAT(CONCAT(' ', crm_addr.add_line2), CONCAT(CONCAT(' ', crm_addr.add_line3), CONCAT('-', crm_addr.pincode))))AS "installationAddress",
+   CONCAT(crm_addr.add_line1,'') AS "areaName",
+   ccm.city_name AS "cityName",
+   cpm.plan_name AS "basePlanName",
+    cpm.plan_code AS "planCode",
+    CONCAT(cpm.rent_incl_tax,'') AS "baseRent",
+   CONCAT(cpm.primary_speed, '') AS "primarySpeed",
+    CONCAT(cpm.primary_quota, '') AS "primaryQuota",
+    CONCAT(cpm.secondary_speed, '') AS "secondarySpeed",
+    cpm_add.plan_name AS "addonPlanName",
+    CASE WHEN cpm_add.plan_code IS NOT NULL THEN ccd.activation_date ELSE NULL END AS "addOnActivationDate",
+    cpm_add.plan_code AS "addOnPlanCode",
+    CONCAT(cpm_add.rent_incl_tax, '') AS "addOnRent",
+    CONCAT(cpm_add.primary_quota, '') AS "addOnQuota",
+    CONCAT(ccd.bp_id, '') AS "BPName",
+    CONCAT(cu.first_name, CONCAT(' ', cu.last_name)) AS "SRName",
+    cpnc.nas_port_id AS "nasportId"
+  FROM
+   crm_user cu,
+   crm_customer_details cust_d,
+   crm_crf_details ccd
+   LEFT JOIN crm_crf_network_config ccn ON(ccd.record_id = ccn.customer_record_id)
+   LEFT JOIN crm_crf_plan_details ccpd ON(ccpd.customer_record_id = ccd.record_id)
+   LEFT JOIN crm_crf_address_details crm_addr ON(ccd.record_id = crm_addr.customer_record_id AND crm_addr.address_type = 'IN')
+   LEFT JOIN crm_crf_address_details crm_addr_bl ON(ccd.record_id = crm_addr_bl.customer_record_id AND crm_addr_bl.address_type = 'BL')
+   LEFT JOIN crm_city_master ccm ON(ccm.city_id = crm_addr_bl.city_id)
+   LEFT JOIN crm_plan_master cpm ON(ccpd.base_plan_code = cpm.plan_code)
+   LEFT JOIN crm_plan_master cpm_add ON(ccpd.add_on_plan_code = cpm_add.plan_code)
+   LEFT JOIN crm_cust_network_config ccnc ON(ccn.record_id= ccnc.record_id)
+   LEFT JOIN crm_partner_network_config cpnc ON(cpnc.record_id=ccnc.option_82)
+  WHERE
+   cust_d.customer_id=ccd.customer_id
+   AND ccd.sales_representative = cu.user_id
+   AND ccd.activation_date BETWEEN :FROM_DATE AND :TO_DATE
+    AND ccd.service_type IN (:STYPE1,:STYPE2) 
+    AND ccd.product IN (:SNAME1,:SNAME2,:SNAME3)
+			]]>
+	</sql-query>
+</hibernate-mapping>

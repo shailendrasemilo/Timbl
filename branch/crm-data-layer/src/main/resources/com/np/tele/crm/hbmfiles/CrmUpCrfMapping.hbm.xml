@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 12, 2013 12:22:43 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmUpCrfMappingPojo" table="crm_up_crf_mapping" dynamic-update="true">
+    <cache usage="read-write"/>
+        <id name="upCrfMappingId" type="java.lang.Long">
+            <column name="up_crf_mapping_id" />
+            <generator class="identity" />
+        </id>
+       <many-to-one name="crmUpfrontPayment" class="com.np.tele.crm.pojos.CrmUpfrontPaymentPojo" fetch="select">
+            <column name="upfront_id" />
+        </many-to-one>
+        <property name="crfId" type="string" unique="true">
+            <column name="crf_id" length="25" not-null="true" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="masterDataDao" class="com.np.tele.crm.masterdata.dao.MasterDataDaoImpl">
+	</bean>
+
+	<bean id="masterDataBusiness"
+		class="com.np.tele.crm.masterdata.businessmgr.MasterDataBusinessImpl">
+		<property name="masterDataDao" ref="masterDataDao" />
+	</bean>
+
+	<bean id="masterDataService" class="com.np.tele.crm.masterdata.service.MasterDataService">
+		<property name="masterDataBusiness" ref="masterDataBusiness" />
+		<property name="bussinessPartnerMgt" ref="bussinessPartnerMgt" />
+		<property name="externalApplicationMgr" ref="externalApplicationMgr"/>
+	</bean>
+	<bean id="externalApplicationMgr"
+		class="com.np.tele.crm.masterdata.businessmgr.ExternalApplicationMgrImpl">
+		<property name="externalApplicationDao" ref="externalApplicationDao"></property>
+	</bean>
+	<bean id="externalApplicationDao" class="com.np.tele.crm.masterdata.dao.ExternalAppDaoImpl"></bean>
+	<bean id="bussinessPartnerMgrDao" class="com.np.tele.crm.masterdata.dao.BussinessPartnerMgtDao"></bean>
+	<bean id="bussinessPartnerMgt"
+		class="com.np.tele.crm.masterdata.businessmgr.BussinessPartnerMgtImpl">
+		<property name="bussinessPartnerMgrDao" ref="bussinessPartnerMgrDao"></property>
+	</bean>
+</beans>

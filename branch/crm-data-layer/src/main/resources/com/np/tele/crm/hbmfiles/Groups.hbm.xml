@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Jul, 2013 11:15:38 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.GroupsPojo" table="crm_groups" dynamic-update="true">
+	<cache usage="read-write"/>
+        <id name="groupId" type="long">
+            <column name="group_id" />
+            <generator class="identity" />
+				
+		</id>
+		<property name="groupName" type="string">
+            <column name="group_name" length="128" />
+		</property>
+		<property name="groupType" type="string">
+            <column name="group_type" length="20" />
+		</property>
+		<property name="groupDescription" type="string">
+            <column name="group_description" length="128" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" update="false" insert="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="status" type="string">
+            <column name="status" length="2" />
+		</property>
+		<set name="accessGroups" table="crm_access_group" inverse="false"
+			lazy="false" fetch="select" cascade="all">
+			<cache usage="read-write"/>
+			<key>
+				<column name="group_id" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.AccessGroupPojo" />
+		</set>
+		<!-- <set name="userRoleses" table="CRM_USER_ROLES" inverse="true" lazy="true" 
+			fetch="select" cascade="none" > <key> <column name="GROUP_ID" precision="10" 
+			scale="0" /> </key> <one-to-many class="com.np.tele.crm.pojos.UserRoles" 
+			/> </set> -->
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Jul, 2013 11:15:38 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.PartnerPojo" table="crm_partner"
+		dynamic-update="true">
+		<cache usage="read-write" />
+		<id name="partnerId" type="long">
+
+			<column name="partner_id" />
+			<generator class="identity" />
+		</id>
+		<property name="partnerName" type="string">
+			<column name="partner_name" length="60" not-null="true"
+				unique="true" />
+		</property>
+		<property name="partnerCen" type="string">
+			<column name="partner_cen" length="128" not-null="true" />
+		</property>
+		<property name="designation" type="string">
+			<column name="designation" length="50" not-null="true" />
+		</property>
+		<property name="mobileNo" type="long">
+			<column name="mobile_no" not-null="true" />
+		</property>
+		<property name="emailId" type="string">
+			<column name="email_id" length="1024" not-null="true" />
+		</property>
+		<property name="relatedDept" type="string">
+			<column name="nextra_dept" length="256" not-null="true" />
+		</property>
+		<property name="hoCpn" type="string">
+			<column name="ho_cpn" length="128" not-null="true" />
+		</property>
+		<property name="hoEmailId" type="string">
+			<column name="ho_email_id" length="256" not-null="true" />
+		</property>
+		<property name="hoMobileNo" type="long">
+			<column name="ho_mobile_no" not-null="true" />
+		</property>
+		<property name="fax" type="string">
+			<column name="fax" length="35" />
+		</property>
+		<property name="address" type="string">
+			<column name="address" />
+		</property>
+		<property name="city" type="string">
+			<column name="city" length="30" />
+		</property>
+		<property name="state" type="string">
+			<column name="state" length="30" />
+		</property>
+		<property name="pincode" type="int">
+			<column name="pincode" />
+		</property>
+		<!-- <property name="addedErp" type="string"> <column name="ADDED_ERP" 
+			length="1" /> </property> <property name="partnerErpCode" type="string"> 
+			<column name="PARTNER_ERP_CODE" length="30" /> </property> -->
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="currentStatus" type="string">
+			<column name="current_status" length="2" />
+		</property>
+		<!-- <property name="bussinessType" type="string"> <column name="BUSSINESS_TYPE" 
+			length="4"></column> </property> <property name="partnerType" type="string"> 
+			<column name="PARTNER_TYPE" length="4"></column> </property> -->
+		<property name="boardedDate" type="timestamp">
+			<column name="boarded_date" length="7"></column>
+		</property>
+		<property name="phoneNo" type="long">
+			<column name="phone_no" precision="10" scale="0" />
+		</property>
+		<!-- <property name="partnerAlias" type="string" insert="false" update="false"> 
+			<column name="PARTNER_ALIAS"/> </property> -->
+		<property name="commissionPercent" type="double">
+			<column name="commission_percent" precision="5" />
+		</property>
+		<property name="option82" type="string">
+			<column name="option82" length="1024" />
+		</property>
+		<property name="crmPartnerCode" type="string">
+			<column name="crm_partner_code" length="30" not-null="true" />
+		</property>
+		<property name="partnerShortName" type="string">
+			<column name="partner_short_name" length="60" />
+		</property>
+		<set name="crmPartnerDetailses" table="crm_partner_details"
+			inverse="true" lazy="false" fetch="select" cascade="all">
+			<cache usage="read-write" />
+			<key>
+				<column name="partner_id" precision="10" scale="0" not-null="true" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.CrmPartnerDetailsPojo" />
+		</set>
+		<!-- <set name="crmUsers" table="CRM_USER" inverse="true" lazy="true" fetch="select"> 
+			<key> <column name="PARTNER_ID" precision="10" scale="0" /> </key> <one-to-many 
+			class="CrmUser" /> </set> -->
+		<!-- <set name="societyNetworkPartners" table="CRM_SOCIETY_NETWORK_PARTNER" 
+			inverse="true" lazy="true" fetch="select"> <key> <column name="NETWORK_PARTNER_ID" 
+			precision="10" scale="0" not-null="true" /> </key> <one-to-many class="SocietyNetworkPartner" 
+			/> </set> -->
+	</class>
+	<sql-query name="ParameterByPartnerId" callable="false">
+		<![CDATA[select CONCAT(crm_partner.partner_name,'') as PARTNERNAME ,
+   CONCAT(crm_partner.mobile_no,'') as PARTNERMOBILENUMBER,
+  CONCAT( crm_partner.email_id,'') as PARTNEREMAILID
+   from crm_partner where partner_id=:PARTNER_ID
+]]>
+	</sql-query>
+</hibernate-mapping>

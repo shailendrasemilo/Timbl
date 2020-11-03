@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 18, 2014 6:15:08 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmCustAssetDetailsPojo" table="crm_cust_asset_details" dynamic-update="true">
+    	<cache usage="read-write"/>
+        <id name="assetDetailsId" type="java.lang.Long">
+             <column name="asset_details_id" />
+            <generator class="identity" />
+        </id>
+        <property name="customerRecordId" type="long">
+            <column name="customer_record_id" not-null="true" />
+        </property>
+        <property name="categoryName" type="string">
+            <column name="category_name" length="20" not-null="true" />
+        </property>
+        <property name="categoryValue" type="string">
+            <column name="category_value" length="128" />
+        </property>
+        <property name="categoryCount" type="java.lang.Byte">
+            <column name="category_count" />
+        </property>
+        <property name="categoryAmount" type="java.lang.Double">
+            <column name="category_amount" precision="10" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false" >
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

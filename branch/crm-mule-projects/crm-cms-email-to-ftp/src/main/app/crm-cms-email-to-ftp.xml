@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:sftp="http://www.mulesoft.org/schema/mule/sftp"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:imaps="http://www.mulesoft.org/schema/mule/imaps"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:email="http://www.mulesoft.org/schema/mule/email"
+	xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp"
+	xmlns:smtps="http://www.mulesoft.org/schema/mule/smtps"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="CE-3.5.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/sftp http://www.mulesoft.org/schema/mule/sftp/current/mule-sftp.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://www.mulesoft.org/schema/mule/imaps http://www.mulesoft.org/schema/mule/imaps/current/mule-imaps.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd
+http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/smtps http://www.mulesoft.org/schema/mule/smtps/current/mule-smtps.xsd">
+	
+	<spring:beans>
+		<context:property-placeholder location="classpath:crm-esb-email-to-ftp.properties,classpath:crm-esb-email-to-ftp-override.properties" ignore-resource-not-found="true"/>
+	</spring:beans>
+
+	<imaps:connector name="IMAP-Connector"
+		 			validateConnections="${emailToFtp.imap.validateConnections}" 
+					checkFrequency="${emailToFtp.imap.checkFrequency}" 
+					doc:name="IMAP" 
+					deleteReadMessages="${emailToFtp.imap.deleteReadMessages}" 
+					mailboxFolder="${emailToFtp.imap.mailbox.folder}"
+					moveToFolder="${emailToFtp.imap.mailbox.moveToFolder}">
+        <reconnect-forever frequency="${emailToFtp.imap.reconnect.frequency}"/>
+    </imaps:connector>
+    
+    <smtp:connector name="Global-SMTP-Connector"
+					validateConnections="true"
+					fromAddress="${emailToFtp.smtp.from}"
+					bccAddresses="${emailToFtp.smtp.bcc}"
+    			   doc:name="SMTP-Connector" >
+    </smtp:connector>
+    
+    <smtp:endpoint name="Global-SMTP-Endpoint" 
+    			   host="${emailToFtp.smtp.host}"
+    			   port="${emailToFtp.smtp.port}"
+    			   user="${emailToFtp.smtp.username}" 
+    			   password="${emailToFtp.smtp.password}" 
+    			   responseTimeout="${emailToFtp.smtp.sockTimeOut}" 
+    			   to="${emailToFtp.smtp.to}"
+    			   mimeType="${emailToFtp.mimeType}"
+    			   connector-ref="Global-SMTP-Connector"
+    			   doc:name="SMTP-Endpoint" >
+    </smtp:endpoint>
+    
+    <set-variable variableName="mailCommonValidator" value="${emailToFtp.validation.common.validator}" doc:name="Mail From"/>
+    
+    <flow name="crm-esb-email-to-file-flow" doc:name="crm-esb-email-to-file-flow" processingStrategy="synchronous">
+		<imaps:inbound-endpoint host="${emailToFtp.imap.server.host}"
+								port="${emailToFtp.imap.server.port}" 
+								user="${emailToFtp.emailIDToPoll}" 
+								password="${emailToFtp.emailPassword}"
+								responseTimeout="${emailToFtp.imap.responseTimeout}" 
+								doc:name="IMAP-Inbound-Endpoint"
+								doc:description="IMAP Connector for Polling and Receiving deposit and credit reports" 
+								connector-ref="IMAP-Connector">
+			<!-- <expression-filter expression="message.inboundProperties.Subject.trim() contains mailCommonValidator" doc:name="Expression"/> -->
+		</imaps:inbound-endpoint>
+								
+		<logger message="******************---------------Found a new email to process" level="INFO" doc:name="Logger" />								
+		<expression-filter expression="#[message.inboundAttachments != null]" doc:name="Expression - Check if attachments are not null"/>
+		<logger message="******************---------------Found message with not null inbound attachments" level="INFO" doc:name="Logger" />
+
+		<expression-filter expression="#[message.inboundAttachments.size() &gt; 1]" doc:name="Expression - Check if more than 1 attachment is available"/>
+		<logger message="#['******************---------------Found message with inbound attachments count : ' # message.inboundAttachments.size()]" level="INFO" doc:name="Logger" />
+
+		<set-variable variableName="validAttachmentNameFound" value="false" doc:name="Variable"/>
+		
+		
+		<set-variable variableName="mailInFrom" value="#['\nFrom :' #  message.inboundProperties.fromAddress]" doc:name="Mail From"/>
+		<set-variable variableName="mailInTo" value="#['\nTo :' #  message.inboundProperties.toAddresses]" doc:name="Mail To"/>
+		<set-variable variableName="mailInSubject" value="#['\nSubject :' #  message.inboundProperties.Subject]" doc:name="Mail Subject"/>
+		<set-variable variableName="mailInDate" value="#['\nDate :' #  message.inboundProperties.Date]" doc:name="Mail Date"/>
+		<set-variable variableName="mailInAttachments" value="#['\nAttachment Names :' #  message.inboundAttachments.keySet()]" doc:name="Mail Attachments Key Set"/>
+		<set-variable variableName="mailDetails" value="#[ '\nDetails of the email processed: ' + mailInFrom +  mailInTo + mailInSubject + mailInDate + mailInAttachments]" doc:name="Mail Details Summary"/>
+		<logger message="#['******************---------------\n===========Mail Details===========\n' + mailDetails ]" level="INFO" doc:name="Logger"/>
+		
+		<foreach collection="#[message.inboundAttachments.keySet()]" doc:name="ForEach - Iterate over the list of attachments to identify the correct attachment contained the CMS data" >
+			<logger message="******************---------------Attachment on the email is/are :-" level="INFO" doc:name="Logger"/>
+			<logger message="#['Attachment Name - ' + payload]" level="INFO" doc:name="Logger" />
+			<set-variable variableName="attachmentKeyName" value="#[payload]" doc:name="Variable"/>
+			<choice doc:name="Choice">
+				<when expression="#[attachmentKeyName.startsWith('${emailToFtp.validation.deposit.attachmentStartsWith}')]">
+					<set-variable variableName="validAttachmentNameFound" value="true" doc:name="Variable"/>
+					<logger message="Found Email Attachment for Deposit Report" level="INFO" doc:name="Logger" />
+					<set-variable variableName="attachmentFileName" value="#[payload]" doc:name="Variable"/>
+					<set-variable variableName="mailFrom" value="${emailToFtp.validation.deposit.fromMailID}" doc:name="Variable"/>
+					<set-variable variableName="mailTo" value="${emailToFtp.validation.deposit.toMailID}" doc:name="Variable"/>
+					<set-variable variableName="mailSubject" value="${emailToFtp.validation.deposit.emailSubject}" doc:name="Variable"/>		
+				</when>
+				<when expression="#[attachmentKeyName.startsWith('${emailToFtp.validation.credit.attachmentStartsWith}')]">
+					<set-variable variableName="validAttachmentNameFound" value="true" doc:name="Variable"/>
+					<logger message="Found Email Attachment for Credit Report" level="INFO" doc:name="Logger" />
+					<set-variable variableName="attachmentFileName" value="#[payload]" doc:name="Variable"/>
+					<set-variable variableName="mailFrom" value="${emailToFtp.validation.credit.fromMailID}" doc:name="Variable"/>
+					<set-variable variableName="mailTo" value="${emailToFtp.validation.credit.toMailID}" doc:name="Variable"/>
+					<set-variable variableName="mailSubject" value="${emailToFtp.validation.credit.emailSubject}" doc:name="Variable"/>		
+				</when>
+				<otherwise>
+					<logger message="Found Email Attachment with invalid name" level="INFO" doc:name="Logger" />
+				</otherwise>
+			</choice>
+		</foreach>
+		
+		<expression-filter expression="#[validAttachmentNameFound == true]" doc:name="Expression"/>
+		<logger message="#['Attachment File Name   : ' # attachmentFileName]" level="INFO" doc:name="Logger" />
+		<logger message="#['Mail Should be From    : ' # mailFrom]" level="INFO" doc:name="Logger" />
+		<logger message="#['Mail Should be To      : ' # mailTo]" level="INFO" doc:name="Logger" />
+		<logger message="#['Mail Subject Should be : ' # mailSubject]" level="INFO" doc:name="Logger" />
+		
+		<logger message="=======================EMail To FTP Validation Starts=========================" level="INFO" doc:name="Logger" />
+		
+		<expression-filter expression="message.inboundProperties.fromAddress contains mailFrom" doc:name="Expression"/>
+		<logger message="Mail From Validation Passed" level="INFO"  doc:name="Logger" />
+		
+		<expression-filter expression="message.inboundProperties.toAddresses contains mailTo" doc:name="Expression"/>
+		<logger message="Mail To Validation Passed" level="INFO"  doc:name="Logger" />
+		
+		<expression-filter expression="message.inboundProperties.Subject.trim() contains mailSubject" doc:name="Expression"/>
+		<logger message="Mail Subject Validation Passed" level="INFO"  doc:name="Logger" />
+        
+        <logger message="=======================EMail To FTP Validation Success. Writing file to Local Filesystem========================" level="INFO" doc:name="Logger" />
+        
+        <set-variable variableName="outputFileName" value="#[ ((new java.text.SimpleDateFormat('${emailToFtp.output.fileName.prefix}')).format(new java.util.Date())) # attachmentFileName]" doc:name="Variable"/>		
+        
+        <logger message="#['Filename for saving attachment to the local file system for FTP : ' # outputFileName]" level="INFO"  doc:name="Logger" />
+        <remove-property propertyName="#[message.inboundAttachments]" doc:name="Property"/>
+		
+		<set-payload value="#[message.inboundAttachments[attachmentFileName]]" doc:name="Set Payload"/>
+		
+		<!-- <logger message="#['message.inboundProperties.keySet() : ' # message.inboundProperties.keySet()]" level="INFO" doc:name="Logger" />
+		<logger message="#['attachmentFileName : ' # attachmentFileName]" level="INFO" doc:name="Logger" /> -->
+        <file:outbound-endpoint path="${emailToFtp.output.local.outbound.path}" 
+        						outputPattern="#[outputFileName]" 
+        						responseTimeout="60000" 
+        						doc:name="File"/>
+		<logger message="================Writing file to Local Filesystem is SUCCESSFUL - Send email confirmation=================" level="INFO" doc:name="Logger" />
+        
+		<!-- Shoot success email here -->
+		<set-payload value="#[ mailDetails + ' \nFile saved to local filesystem with name : ' + outputFileName]" doc:name="Set Payload"/>
+		
+		<logger message="=======AAAAA - Start Mailing" doc:name="Logger"/>
+        
+		<smtp:outbound-endpoint ref="Global-SMTP-Endpoint" subject="Success - Email to File for email received" doc:name="SMTP">
+			<email:object-to-mime-transformer useInboundAttachments="false" useOutboundAttachments="false" doc:name="Object to MIME"/>
+		</smtp:outbound-endpoint>
+		
+		<logger message="=======AAAAA - Stop Mailing" doc:name="Logger"/>
+
+		<logger message="#['================Email Sent']" level="INFO" doc:name="Logger"/>
+		
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<!-- Shoot exception email here -->
+			<set-payload value="Error: #[exception.summaryMessage]" doc:name="Set Payload"/>
+			<append-string-transformer message="#[mailDetails]" doc:name="Append String"/>
+			<smtp:outbound-endpoint ref="Global-SMTP-Endpoint"
+									subject="#['ERROR during Email to File for mail with subject - ' + mailInSubject]" 
+									doc:name="SMTP"/> 
+		</catch-exception-strategy>	       						
+	</flow>
+	
+    <flow name="crm-esb-file-to-ftp-flow" doc:name="crm-esb-file-to-ftp-flow">
+        <file:inbound-endpoint responseTimeout="${emailToFtp.file.inboundEndpoint.responseTimeout}"  
+        					   fileAge="${emailToFtp.file.inboundEndpoint.fileAge}" 
+        					   path="${emailToFtp.output.local.outbound.path}" 
+        					   moveToDirectory="${emailToFtp.output.local.outbound.postftp.path}"
+        					   pollingFrequency="${emailToFtp.file.inboundEndpoint.pollingFrequency}"  
+        					   doc:description="File Inbound Endpoint for FTP of Recon Reports received from CMS on Email. 
+        					   					Email attachments are saved to local filesystem from where they are 
+        					   					transferred to destination server using SFTP" 
+        					   doc:name="File-Inbound-Endpoint"> 
+            <file:filename-regex-filter pattern="${emailToFtp.output.sftp.filename.pattern.regex}"  
+            							caseSensitive="${emailToFtp.output.sftp.filename.pattern.regex.caseSensitive}" /> 
+        </file:inbound-endpoint>
+        <set-session-variable doc:name="Session Variable"  variableName="outboundFilename" value="#[message.inboundProperties.originalFilename]"/>
+        <set-session-variable doc:name="Session Variable"  variableName="ftpSuccess" value="true"/>
+        <logger message="+++++++++++++++++++++================================************************"  level="INFO" doc:name="Logger"/>
+        <logger message="#[message.inboundProperties.originalFilename]"  level="INFO" doc:name="Logger"/>
+        <logger message="#['About to start SFTP for file : ' # sessionVars['outboundFilename']]" doc:name="Logger"   level="INFO" />
+        
+        <sftp:outbound-endpoint exchange-pattern="request-response" 
+        						host="${emailToFtp.output.sftp.host}" 
+        						port="${emailToFtp.output.sftp.port}" 
+        						path="${emailToFtp.output.sftp.path}" 
+        						user="${emailToFtp.output.sftp.username}" 
+        						password="${emailToFtp.output.sftp.password}" 
+        						responseTimeout="${emailToFtp.output.sftp.responseTimeout}"
+        						outputPattern="#[sessionVars['outboundFilename']]"
+        						duplicateHandling="addSeqNo"
+        						doc:name="SFTP" />
+        						
+        <expression-filter expression="#[sessionVars['ftpSuccess'] == true]" doc:name="Expression"/>
+		<set-payload value="#['FTP for file ' + sessionVars['outboundFilename'] + ' is Successful.']" doc:name="Set Payload"/>
+		<logger message="#[payload]" level="INFO" doc:name="Logger"/>
+		<smtp:outbound-endpoint ref="Global-SMTP-Endpoint" subject="#['Successful File FTP for ' # sessionVars['outboundFilename']]" doc:name="SMTP"/>        						
+		<catch-exception-strategy doc:name="Catch Exception Strategy">
+			<set-session-variable doc:name="Session Variable"  variableName="ftpSuccess" value="false"/>	
+			<set-payload value="Error: #[exception.summaryMessage]" doc:name="Set Payload"/>
+			<smtp:outbound-endpoint ref="Global-SMTP-Endpoint" subject="#['ERROR during File FTP for ' # sessionVars['outboundFilename']]" doc:name="SMTP"/>
+		</catch-exception-strategy>
+    </flow>
+</mule>

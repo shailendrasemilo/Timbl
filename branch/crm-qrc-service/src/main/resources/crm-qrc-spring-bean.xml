@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <bean id="qrcManagerDao" class="com.np.tele.crm.qrc.dao.QrcManagerDaoImpl">
+    <property name="crmBillingManager" ref="crmBillingManager"/>
+    <property name="masterDataDao" ref="masterDataDao"/>
+    <property name="massOutageDao" ref="massOutageDao"/>
+    <property name="billingDao" ref="billingDao"/>
+  </bean>
+  <bean id="crmQrcBusiness" class="com.np.tele.crm.qrc.businessmgr.CrmQrcBusinessImpl">
+    <property name="qrcManagerDao" ref="qrcManagerDao"/>
+    <property name="customerProfileDao" ref="customerProfileDao"/>
+    <property name="workFlowDao" ref="workFlowDao"/>
+    <property name="massOutageDao" ref="massOutageDao"/>
+    <property name="billingDao" ref="billingDao"/>
+  </bean>
+  <bean id="ticketManager" class="com.np.tele.crm.qrc.businessmgr.CrmTicketManagerImpl">
+    <property name="ticketDao" ref="ticketDao"/>
+    <property name="billingDao" ref="billingDao"/>
+  </bean>
+  <bean id="billingDao" class="com.np.tele.crm.qrc.dao.BillingDataDaoImpl"/>
+  <bean id="ticketDao" class="com.np.tele.crm.qrc.dao.CrmTicketDaoImpl">
+    <property name="massOutageDao" ref="massOutageDao"/>
+    <property name="qrcManagerDao" ref="qrcManagerDao"/>
+  </bean>
+  <bean id="qrcConfigManagerDao" class="com.np.tele.crm.qrc.config.dao.QrcConfigManagerDaoImpl"/>
+  <bean id="qrcConfigBusiness" class="com.np.tele.crm.qrc.config.businessmgr.QrcConfigBusinessImpl">
+    <property name="qrcConfigManagerDao" ref="qrcConfigManagerDao"/>
+  </bean>
+  <bean id="crmQrcService" class="com.np.tele.crm.qrc.service.CrmQrcService">
+    <property name="crmQrcBusiness" ref="crmQrcBusiness"/>
+    <property name="qrcConfigBusiness" ref="qrcConfigBusiness"/>
+  </bean>
+  <bean id="crmBillingManager" class="com.np.tele.crm.billing.manager.CrmBillingManagerImpl">
+    <property name="billingConversionImpl" ref="billingConversionImpl"/>
+  </bean>
+  <bean id="billingConversionImpl" class="com.np.tele.crm.billing.manager.BillingConversionMgrImpl"/>
+  <bean id="customerProfileDao" class="com.np.tele.crm.qrc.profile.dao.CustomerProfileDaoImpl">
+    <property name="crmBillingManager" ref="crmBillingManager"/>
+    <property name="qrcManagerDao" ref="qrcManagerDao"/>
+  </bean>
+  <bean id="masterDataDao" class="com.np.tele.crm.masterdata.dao.MasterDataDaoImpl">
+  </bean>
+  <bean id="workFlowDao" class="com.np.tele.crm.workflow.dao.WorkFlowDaoImpl">
+    <property name="crmBillingManager" ref="crmBillingManager"/>
+    <property name="capOperationDao" ref="capOperationDao"/>
+    <property name="qrcManagerDao" ref="qrcManagerDao"/>
+    <property name="configManagerDao" ref="configManagerDao"/>
+     <property name="lmsOperationDao" ref="lmsOperationDao"/>
+    
+  </bean>
+  <bean id="configManagerDao" class="com.np.tele.crm.config.dao.ConfigManagerDaoImpl"/>
+  <bean id="capOperationDao" class="com.np.tele.crm.ina.dao.CAPOperationDaoImpl"/>
+  <bean id="massOutageDao" class="com.np.tele.crm.massoutage.dao.MassOutageDaoImpl"/>
+  <bean id="lmsOperationDao" class="com.np.tele.crm.lms.dao.LMSOperationDaoImpl"/>
+  
+</beans>

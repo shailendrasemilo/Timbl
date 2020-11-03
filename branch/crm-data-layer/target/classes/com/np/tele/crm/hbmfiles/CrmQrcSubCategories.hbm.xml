@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2014 6:05:04 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmQrcSubCategoriesPojo"
+		table="crm_qrc_sub_categories" dynamic-update="true">
+        <cache usage="read-write"/>
+        <id name="qrcSubCategoryId" type="java.lang.Long">
+		
+            <column name="qrc_sub_category_id" />
+            <generator class="identity" />
+		</id>
+		<!--  <many-to-one name="crmQrcCategories" class="com.np.tele.crm.pojos.CrmQrcCategoriesPojo" fetch="select"> 
+			<column name="QRC_CATEGORY_ID" precision="10" scale="0" not-null="true" /> 
+		</many-to-one> -->
+		 <property name="qrcCategoryId" type="long">
+            <column name="qrc_category_id" precision="10" scale="0" not-null="true" />
+        </property>
+		<property name="qrcSubCategory" type="string">
+            <column name="qrc_sub_category" length="128" not-null="true" />
+		</property>
+		<property name="modificationAllowed" type="string">
+            <column name="modification_allowed" length="1" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19" not-null="true" />
+		</property>
+		<property name="status" type="string">
+            <column name="status" length="2" />
+		</property>
+		<property name="moduleType" type="string">
+            <column name="module_type" length="10"/>
+		</property>
+		<!-- <set name="crmSrTicketses" table="CRM_SR_TICKETS" inverse="true" lazy="true" 
+			fetch="select"> <key> <column name="QRC_SUB_CATEGORY_ID" precision="10" scale="0" 
+			not-null="true" /> </key> <one-to-many class="CrmSrTickets" /> </set> -->
+		<set name="crmQrcSubSubCategorieses" table="crm_qrc_sub_sub_categories"
+			inverse="true" lazy="false" fetch="select">
+			<cache usage="read-write"/>
+			<key>
+				<column name="qrc_sub_category_id" precision="10" scale="0"
+					not-null="true" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.CrmQrcSubSubCategoriesPojo" />
+			<filter condition="STATUS =:catStatus" name="ActiveSubSubCategories" />
+			<filter condition="QRC_SUB_SUB_CATEGORY =:qrcSubSubCategory" name="catqrcSubSubCategory" />
+			<filter condition="QRC_TYPE =:qrcType" name="qrcType" />
+		</set>
+	</class>
+	<filter-def name="ActiveSubSubCategories">
+		<filter-param name="catStatus" type="string"/>
+	</filter-def>
+	<filter-def name="catqrcSubSubCategory">
+		<filter-param name="qrcSubSubCategory" type="string"/>
+	</filter-def>
+	<filter-def name="qrcType">
+		<filter-param name="qrcType" type="string"/>
+	</filter-def>
+</hibernate-mapping>

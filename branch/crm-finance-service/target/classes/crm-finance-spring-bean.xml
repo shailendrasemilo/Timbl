@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="financeManagerDao" class="com.np.tele.crm.finance.dao.FinanceManagerDaoImpl">
+		<property name="configManagerDao" ref="configManagerDao"></property>
+		<property name="crmBillingManager" ref="crmBillingManager" />
+		<property name="qrcManagerDao" ref="qrcManagerDao" />
+	</bean>
+	<bean id="configManagerDao" class="com.np.tele.crm.config.dao.ConfigManagerDaoImpl" />
+	<bean id="qrcManagerDao" class="com.np.tele.crm.qrc.dao.QrcManagerDaoImpl" />
+	<bean id="crmFinanceBusiness" class="com.np.tele.crm.finance.businessmgr.CRMFinanceBusinessImpl">
+		<property name="financeManagerDao" ref="financeManagerDao" />
+		<property name="hdfcPg" ref="hdfcPg" />
+		<property name="tpslPg" ref="tpslPg" />
+		<property name="atomPg" ref="atomPg" />
+		<property name="pgwDao" ref="pgwDao" />
+	</bean>
+	<bean id="crmFinanceService" class="com.np.tele.crm.finance.service.CrmFinanceService">
+		<property name="crmFinanceBusiness" ref="crmFinanceBusiness" />
+	</bean>
+	<bean id="crmBillingManager" class="com.np.tele.crm.billing.manager.CrmBillingManagerImpl">
+		<property name="billingConversionImpl" ref="billingConversionImpl" />
+	</bean>
+	<bean id="billingConversionImpl" class="com.np.tele.crm.billing.manager.BillingConversionMgrImpl" />
+	<bean id="hdfcPg" class="com.np.tele.paymentGateway.HDFC" />
+	<bean id="tpslPg" class="com.np.tele.paymentGateway.TPSL" />
+	<bean id="atomPg" class="com.np.tele.paymentGateway.ATOM" />
+	<bean id="pgwDao" class="com.np.tele.crm.paymentGateway.dao.PaymentGatewayDaoImpl" />
+</beans>

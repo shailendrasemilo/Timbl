@@ -1,0 +1,125 @@
+@CHARSET "ISO-8859-1";
+
+/* =========== Mass outage tree =========== */
+.bonsai, .bonsai li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+
+.bonsai li {
+	position: relative;
+	padding-left: 1.3em; /* padding for the thumb */
+}
+
+li .thumb {
+	margin: -1px 0 0 -1em; /* negative margin into the padding of the li */
+	position: absolute;
+	cursor: pointer;
+}
+
+/* li.has-children>.thumb:after {
+	content: '+';
+}
+
+li.has-children.expanded>.thumb:after {
+	content: '-';
+} */
+li.collapsed>ol.bonsai {
+	height: 0;
+	overflow: hidden;
+}
+
+.bonsai .all, .bonsai .none {
+	cursor: pointer;
+}
+
+.expand-all>.all, .expand-all>.none {
+	cursor: pointer;
+}
+
+.expand-all>.separator:after {
+	content: ' | ';
+}
+
+.thumb {
+	margin: 2px 0 0 -15px !important;
+	content: " ";
+	height: 15px;
+	width: 15px;
+}
+
+.treeView {
+	padding-left: 40px;
+	border-left: 1px dashed #b5b5b5;
+	min-height: 300px;
+	max-width: 500px;
+}
+
+.treeView ul {
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.treeView ul li {
+	position: relative;
+}
+
+.treeView ul .has-children.expanded {
+	margin-bottom: 10px;
+}
+
+.treeView ul .has-children.collapsed {
+	margin-bottom: 5px;
+}
+
+.has-children.expanded>.thumb {
+	background: url(../images/minus.png) no-repeat;
+}
+
+.has-children.collapsed>.thumb {
+	background: url(../images/plus.png) no-repeat;
+}
+
+.has-children {
+	padding: 5px 10px 0px 20px !important;
+	margin-bottom: 5px;
+}
+
+li.has-children.expanded {
+	border: 1px dotted #F1F1F1;
+	border-left: 1px dotted #DEAE00;
+	border-top: 1px dotted #DEAE00;
+} /* 1  level*/
+li.has-children.expanded li {
+	border: 1px solid #F1F1F1;
+	border-left: 1px dotted #ECD6F4;
+	border-top: 1px dotted #ECD6F4;
+	margin-bottom: 5px;
+} /* 2  level*/
+li.has-children.expanded li li {
+	border: 1px solid #F1F1F1;
+	border-left: 1px dotted #F69C12;
+	border-top: 1px dotted #F69C12;
+} /* 3  level*/
+li.has-children.expanded li li li {
+	border: 1px solid #F1F1F1;
+	border-left: 1px dotted #1D4686;
+	border-top: 1px dotted #1D4686;
+} /* 4 level*/
+li.has-children.expanded li li li li {
+	border: 1px solid #F1F1F1;
+	border-left: 1px dotted #CDE8F6;
+	border-top: 1px dotted #CDE8F6;
+} /* 5  level*/
+li.has-children.expanded li li li li li {
+	border: 1px solid #F1F1F1;
+	border-left: 1px dotted #000;
+	border-top: 1px dotted #000;
+	margin-bottom: 5px;
+} /* 6  level*/
+li.collapsed {
+	margin-bottom: 10px;
+	padding: 3px 10px;
+}

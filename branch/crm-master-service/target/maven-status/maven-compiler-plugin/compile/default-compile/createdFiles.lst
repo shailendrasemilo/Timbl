@@ -1,0 +1,7 @@
+com\np\tele\crm\masterdata\businessmgr\BussinessPartnerMgtImpl.class
+com\np\tele\crm\masterdata\businessmgr\IMasterDataBusiness.class
+com\np\tele\crm\masterdata\businessmgr\IBussinessPartnerMgt.class
+com\np\tele\crm\masterdata\service\MasterDataService.class
+com\np\tele\crm\masterdata\businessmgr\MasterDataBusinessImpl.class
+com\np\tele\crm\masterdata\businessmgr\IExternalApplicationMgr.class
+com\np\tele\crm\masterdata\businessmgr\ExternalApplicationMgrImpl.class

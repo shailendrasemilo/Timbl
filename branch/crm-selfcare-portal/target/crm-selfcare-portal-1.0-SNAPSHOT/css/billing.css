@@ -1,0 +1,240 @@
+.mainWrapper {width: 980px; margin: auto; overflow: hidden;}
+.subMainWrapper {width: 100%; height: 80px; margin: auto; margin-top: 10px; position: relative;}
+.phoneArea {position: absolute; right: 10px; top: 22px; font-size: 18px;font-weight:bold;}
+.centerWrapper {width: 99.8%; margin-top: 5px; min-height: 500px; /* background-color: #fff; border: solid 1px #E5E5E5; */ overflow: hidden;}
+
+#Menu .SubHeading {
+	font-family: Arial;
+	font-size: 15px;
+	line-height: 22px;
+}
+#SubMenu .SubHeading {
+	font-family: Arial;
+	font-size: 15px;
+	line-height: 32px;
+}
+
+.SubHeading {
+	font-size: 32px;
+}
+.DivMarginTop {
+	margin-top: 40px;
+}
+.MarginTop20 {
+	margin-top: 20px;
+}
+.avil {
+	width: 225px;
+	height: 120px;
+	float: left;
+}
+.avil img {
+	margin-top: -12px;
+}
+.UnselectOPtion {
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin-right: 10px;
+}
+.UnselectOPtion .arrow {
+	margin-top: 10px;
+}
+.UnselectOPtion p {
+	margin-top: 10px;
+	font-size: 25px;
+}
+.bodyText {
+	font-size: 20px;
+}
+.bodyText P {
+	font-size: 14px;
+	/* color: #A7A8AD; */
+	font-weight: bold;
+}
+.inputText {
+	width: 210px;
+	outline: none;
+	/* brder: solid 1px #A7A8AC; */
+}
+.divbtn {
+	height: 24px;
+	width: 82px;
+	/* background-color: #2E5795; */
+	outline: none;
+	/* border: none;
+	color: #fff; */
+	font-family: Arial;
+	font-size: 15px;
+	cursor: pointer;
+}
+.trHeight {
+	height: 40px;
+}
+
+/*****Select Option Plan*******/
+.myopSteps
+{
+    height: 40px;
+    float: left;
+}
+.myopStepSeperatorContainer
+{
+    margin: 0 13px;
+    width: 24px;
+    height: 25px;
+    float: left;
+}
+.myopStepSeperator
+{
+    margin-top: 8px;
+}
+.myopSteps .SubHeading
+{
+    margin-top: 7px;
+    font-size: 15px;
+    white-space: nowrap;
+}
+.myopSteps div.stepNumberContainer
+{
+    width: 36px;
+    height: 34px;
+    padding: 4px 0 0 0;
+    float: left;
+    margin-right: 12px;
+}
+.myopSteps .stepNumberContainer div.stepNumber
+{
+    font-size: 22px;
+    font-family: Arial;
+    font-weight: normal;
+    /* color: #fff; */
+    margin-left: 13px;
+    margin-top: 3px;
+}
+.myopSteps div.activeStepNumber
+{
+    /* background: transparent url('images/selected.png') no-repeat 0 0; */
+}
+.myopSteps div.inActiveStepNumber
+{
+    /* background: transparent url('images/unselected.png') no-repeat 0 0; */
+}
+
+.DivMarginTop
+{
+    margin-top: 15px;
+}
+.bodyText
+{
+    font-size: 12px;
+    line-height: 17px;
+    font-family: Arial;
+    font-weight: normal;
+}
+.cityClass
+{
+    float: left;
+    margin-left: 25px;
+}
+.cityText
+{
+    margin-top: 30px;
+    font-size: 15px;
+    float: left;
+}
+.ddlCity
+{
+    float: left;
+    width: 120px;
+    height: 25px;
+    margin-left: 20px;
+    margin-top: 25px;
+    outline: none;
+    /* border: solid 1px #A5A8AD; */
+}
+.ddlText
+{
+    /* color: #000; */
+    padding-left: 4px;
+    font-family: Arial;
+    font-size: 12px !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 2px 2px 2px 2px;
+    outline: none;
+    /* background: none;
+    background: url('images/ddlCity.png') no-repeat right;
+    background-color: #fff; */
+}
+.txtText
+{
+    padding-left: 10px;
+    font-family: Arial !important;
+    font-size: 12px !important;
+}
+.btnSearch
+{
+    /* background: url(images/submit-btn.png) no-repeat; */
+    cursor: pointer;
+    /* border: 0px;
+    color: #034289; */
+    font-weight: bold;
+    font-size: 11px !important;
+    float: left;
+    padding: 6px 20px 9px 18px;
+    width: 82px;
+}
+.VendorName
+{
+    font-family: Verdana;
+    font-size: 13px;
+    /* color: #034289; */
+    line-height: 20px;
+    text-decoration: none;
+}
+#ctl00_ContentPlaceHolder1_gridSearchData th
+{
+    display: none;
+}
+input[type=checkbox]
+{
+    padding: 0px;
+}
+.PageTitle
+{
+    line-height: 46px;
+}
+
+.ErrorMessage {
+	font-family: Arial;
+	font-size: 12px;
+	/* color: Red; */
+}
+.bodyText {
+	font-size: 14px;
+}
+.bodyText p {
+	font-size: 12px;
+	line-height: 17px;
+	font-weight: normal;
+}
+.ui-dialog-title {
+	font-weight: bold !important;
+	font-size: 13px !important;
+	font-family: Arial, Sans-Serif !important;
+	/* color: #FFF; */
+}
+#MainDiv {
+	/* background-color: #fff !important; */
+}
+#MainDiv .bodytext {
+	/* color: #818181 !important; */
+}
+#MainDiv a {
+	/* color: #034289 !important; */
+}
+.ui-dialog .ui-dialog-titlebar-close span.ui-button-text {
+	display : none;
+}

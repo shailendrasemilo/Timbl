@@ -1,0 +1,727 @@
+.green{/* color: green; */ font-size: 12px;}
+.red{/* color: red; */}
+.underline{text-decoration: underline;}
+.QRC p {margin-top:12px;}
+.QRC p strong{width:auto; /* color: #414042; */ display: block; font: bold 12px arial; margin: 5px 5px 3px 0; text-align: left; padding-bottom: 0;}
+
+.mWidth900 {
+	max-width: 900px;
+}
+.QRCtextbox {
+    /* background: url("../images/bg/text-bg.png") repeat scroll 0 0 transparent;
+    border: 1px solid #AFAFAF;
+    color: #AFAFAF; */
+    height: 17px;
+    padding: 5px;
+    vertical-align: top;
+    width: 280px;
+}
+.customerDetail li {
+	display: table;
+	/* border: 1px solid #bfc9da;
+	border-top: 0px !important; */
+	min-height: 50px;
+}
+.customerDetail .table_header {
+	/* border-bottom: none !important; */
+}
+.customerDetail li label, .mWidth900 .table_container span {
+	display: inline-block;
+	vertical-align: middle;
+}
+.customerDetail li label {
+	width: 8% !important;
+	padding: 10px 5px;
+	float: left;
+	font-weight: bold;
+	height: 30px;
+}
+.customerDetail .table_container span {
+	width: 23%;
+	float: left;
+	/* border: 0px !important; */
+	padding: 10px 5px;
+	line-height: 15px;
+	position: relative;
+}
+/*.Lmstextbox {height: 29px !important; width: 150px !important;}*/
+
+.noPadding {
+	padding : 0px!important;
+}
+
+.customerDetail .table_container label {
+	/* background: #e3ebf4; */
+}
+.customerDetail .table_container span.select {
+	line-height: 30px !important;
+	padding: 0 20px 0 0 !important;
+	width: 90% !important;
+	/* color: #5f5f5f !important; */
+}
+.saveCanelButtons {
+	width: 35px;
+	height: 15px;
+	position: absolute;
+	top: 5px;
+	right: -5px;
+}
+
+.saveCanelButtons a {
+	width: 11px;
+	height: 11px;
+	border-radius: 3px;
+	display: inline-block;
+	margin: 0 2px !important;
+}
+ .saveCanelButtons a#cancelButton {
+	/* background: #F00 url(../images/bg/cancel-save.png) -9px center no-repeat; */
+}
+.saveCanelButtons a#saveButton {
+	/* background: #6C3 url(../images/bg/cancel-save.png) 2px center no-repeat; */
+	;
+}
+
+.saveCanelBilledUsageButtons {	width: 176px;	height: 15px;	position: absolute;	top: 96px;	right: -5px;}
+
+.saveCanelBilledUsageButtons a {	width: 11px;	height: 11px;	border-radius: 3px;	display: inline-block;	margin: 0 2px !important;}
+ .saveCanelBilledUsageButtons a#cancelButton {	/* background: #F00 url(../images/bg/cancel-save.png) -9px center no-repeat; */}
+ .saveCanelBilledUsageButtons a#saveButton {	/* background: #6C3 url(../images/bg/cancel-save.png) 2px center no-repeat; */}
+
+.customerAddress li {
+	/* border: 1px solid #bfc9da;
+	border-left: 0px !important;
+	border-top: 0px !important; */
+	display: block !important;
+}
+
+.excel-download {width: 24px; height: 24px; display: inline-block; /* background: url(../images/excel-icon.png) no-repeat; */}
+.send-mail {width: 38px; height: 26px; display: inline-block; /* background: url(../images/bulk-mail.png) no-repeat; */}
+
+.customerAddress .table_container {
+	/* border-top: 0px !important; */
+	
+}
+.customerAddress .table_container  > span {
+	width: 201px ;
+	display: table-cell !important;
+	/* border-left: 1px solid #bfc9da !important;
+	border: 0px; */
+	vertical-align: top;
+	height: 100%;
+	position: relative;
+}
+
+.customerAdd .table_contain {
+	/* border-top: 0px !important; */
+}
+.customerAdd .table_contain  > span {
+	width: 250px ;
+	display: table-cell !important;
+	/* border-left: 1px solid transparent;
+	border: 0px; */
+	vertical-align: top;
+	height: 100%;
+	position: relative;
+}
+
+.customerAddress .table_header span {
+	width: 201px;
+	display: table-cell !important;
+	/* border-bottom: 0px !important; */
+}
+.customerAddress li span .big {
+	display: inline-block;
+	vertical-align: middle;
+}
+.customerAddress li span strong {
+	display: block;
+	vertical-align: middle;
+}
+
+.customerAddress .table_container label {
+	width: 35px;
+	display: inline-block;
+	margin-right: 10px;
+	padding: 0 0 15px 0;
+	font-weight: bold;
+	vertical-align: top;
+}
+.BillModedropdown{position:relative; display:inline-block; font:12px arial; /* color:#a4a3a3; */} 
+.BillModedropdown select.select{position:relative;z-index:10;width:90px !important;line-height:26px;	/* background:#fff; */		padding:0 10px 0 0;		cursor:pointer;  margin:5px 0;}
+.BillModedropdown span.select{position:absolute;	bottom:0;	float:left;	left:0;	width:80px;	height:29px;	line-height:26px;	text-indent:0;	/* background:url(../images/bg/mapping-dropdown-bg-90.jpg) no-repeat 0 0; */	cursor:pointer;	z-index:1;overflow:hidden;}
+.billMode .BillModedropdown  span.select, .connectionTypeArea .BillModedropdown  span.select{margin-top: -26px !important; width: 90px !important;}
+
+
+.customerAddress .table_container span>div {margin-top: 5px; display: block;}
+.addressLine1, .addressLine2, .addressLine3, .addressLine01, .addressLine02, .addressLine03, .addressPincode {display: inline-block; vertical-align: top; width: 150px;}
+#changeBillAddress, #changeinstallAddress {/* color: #092bfc; */ font: 12px arial; float: left; text-decoration: underline;}
+.billAddressArea .saveCanelButtons{
+	right: 0px !important;
+	top: 260px !important;
+}
+.billAddArea{margin-left:0px !important;}
+.billAddArea .billAddressArea .saveCanelButtons{
+	right: 0px !important;
+	top: 150px !important;
+}
+.billAddressArea, .installAddressArea {padding-bottom: 40px !important;}
+
+.installAddressArea .saveCanelButtons{
+	right: 15px !important;
+	top: 115px !important;
+}
+.billAddressArea .Lmsdropdown select {padding: 5px 10px 5px 0 !important;}
+.billAddressArea .Lmsdropdown  span.select {width: 150px !important; /* color: #000 !important; */  margin-top: -33px !important;}
+.stateDropdown label, .stateDropdown .Lmsdropdown {vertical-align: middle;}
+.cityDropdown label, .cityDropdown .Lmsdropdown {vertical-align: middle;}
+.stateDropdown label, .cityDropdown label {vertical-align: 0px !important}
+.stateDropdown .Lmsdropdown, .cityDropdown .Lmsdropdown {width: 150px !important;}
+p.invoice_details {z-index: 10 !important}
+.hidden {display: none !important;}
+.verticleAlignT8 {vertical-align: -8px !important;}
+
+.namePopup {width: 265px; height: 80px; padding: 20px; /* background: #eef3f9; */ border-radius: 10px; position: absolute; /* border: 1px solid #bfc9da; */ z-index: 1; left: -10px; top: -130px;}
+.namePopup>div>label {display: inline-block !important; width: 110px !important; verticle-align: middle !important; padding: 0px !important; /* background: none !important; */ line-height: 29px !important}
+.namePopup:after{content:'';width: 0; height: 0; /* border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid #bfc9da; */ bottom: 0; position: absolute; bottom: -16px; left: 15px;}
+.namePopup .Lmstextbox {margin-bottom: 5px; display: inline-block; verticle-align: middle;}
+.namePopup .saveCanelButtons {right: 22px; top: 90px;}
+
+.billedUsagePopup {width: 273px;height: 85px;padding: 20px;/* background: #eef3f9; */border-radius: 14px;position: absolute;/* border: 1px solid #bfc9da; */z-index: 1;left: 96px;top: -170px;}
+.billedUsagePopup>div>label {display: inline-block !important; width: 110px !important; verticle-align: middle !important; padding: 0px !important; /* background: none !important; */ line-height: 29px !important}
+.billedUsagePopup:after{content:'';width: 0; height: 0; /* border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid #bfc9da; */ bottom: 0; position: absolute; bottom: -16px; left: 15px;}
+.billedUsagePopup .Lmstextbox {margin-bottom: 5px; display: inline-block; verticle-align: middle;}
+.billedUsagePopup .saveCanelButtons {right: 22px; top: 90px;}
+
+
+.contactPopup {width: 230px; height: 80px; padding: 20px; /* background: #eef3f9; */ border-radius: 10px; position: absolute; /* border: 1px solid #bfc9da; */ z-index: 1; left: -10px; top: -130px;}
+.contactPopup>div>label {display: inline-block !important; width: 70px !important; verticle-align: middle !important; padding: 0px !important; /* background: none !important; */ line-height: 29px !important}
+.contactPopup:after{content:'';width: 0; height: 0; /* border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid #bfc9da; */ bottom: 0; position: absolute; bottom: -16px; left: 15px;}
+.contactPopup .Lmstextbox {margin-bottom: 5px; display: inline-block; verticle-align: middle;}
+.contactPopup .saveCanelButtons {right: 15px; top: 90px;}
+
+.table li {position: relative;}
+.height33i {height: 33px !important; overflow: hidden;}
+
+/*====================== Ticket List Hide/Show ======================*/
+.ticketList table.tList {margin-top: 12px;}
+.ticketList table.tList td {padding-left: 5px; }
+.clrBg {/* background: #e3ebf4; */}
+
+.errorRemarks{
+	margin: 0;
+	width: 225px;
+	position: absolute;
+	left: 0px;
+	/* color: #E70000; */
+	top: 105px;
+	font: 11px arial;
+}
+
+.errorBox{
+	margin: 0;
+	width: 225px;
+	position: absolute;
+	left: 0px;
+	/* color: #E70000; */
+	top: 180px;
+	font: 11px arial;
+}
+.errorSelection {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 180px;
+    width: 160px;
+	font:11px arial;  /* color:#e70000; */
+	margin:0 !important;
+}
+.errorSpclRemarks{
+	margin: 0;
+	width: 225px;
+	position: absolute;
+	left: 0px;
+	/* color: #E70000; */
+	top: 95px;
+	font: 11px arial;
+}
+/*//////////////////Ticket View/////////////////////*/
+.mWidth700 {width: 700px !important;}
+.ticketView li {
+	display: inline-flex;
+	/* border: 1px solid #bfc9da;
+	border-top: 0px !important; */
+	/* min-height: 50px; */
+}
+.ticketView .table_header {
+	/* border-bottom: none !important */
+}
+.ticketView li label, .mWidth700 .table_container span {
+	display: inline-block;
+	vertical-align: middle;
+}
+.ticketView li label {
+	width: 22% ;
+	padding: 10px 5px;
+	float: left;
+	font-weight: bold;
+	/* height: 30px; */
+}
+.ticketView .table_container span {
+	width: 25%;
+	float: left;
+	/* border: 0px !important; */
+	padding: 10px 5px;
+	line-height: 15px;
+	position: relative;
+}
+.ticketView .table_container label {
+	/* background: #e3ebf4; */
+}
+.ticketCreation, .ticketSearch{position: relative;}
+.displayB {display: block !Important;}
+
+/*=============== customer details table ===============*/
+.customerInfo {width: 900px; /* border: 1px solid #bfc9da; border-bottom: none; color: #5f5f5f; */ font-size: 12px; margin: 2px 0 20px;}
+.customerInfo ul {padding: 0; margin: 0;}
+.customerInfo ul li {list-style-type: none; /* border-bottom: 1px solid #bfc9da; background: #eef3f9; */}
+.customerInfo ul li.customerHead {padding: 10px; /* background: #056891; color: #fff; */ font-weight: bold; text-transform: uppercase; font-size: 14px;}
+.customerInfo ul li label {width: 117px; font-weight: bold; padding: 4px; display: inline-block; /* background: #e3ebf4; */}
+.customerInfo ul li span {position: relative; padding: 0 5px; display: inline-block;}
+.customerInfo ul li span a{/* color: #092bfc; */ font: 12px arial; margin-left: 15px; text-decoration: underline;}
+.edit-btn{ color: #092bfc;}
+.customerInfo ul li span .Lmstextbox {height: 14px; padding: 3px 5px;}
+.customerInfo .width85 {width: 85px !important;}
+.customerInfo .Lmsdropdown span.select {/* background: url(../images/bg/dropdown-bg-image.png) left 0px no-repeat !important; */ line-height: 22px; height: 22px; top: 25px;}
+.customerInfo .Lmsdropdown select.select {line-height: 22px; margin: 0;}
+.customerInfo .saveCanelButtonsDrop {top: 1px !important; right: -2px !important;}
+.success_message {font-weight: bold; font-size: 11px; /* color: #095 !important; */ display: inline-block;}
+.width120 {width: 120px !important;}
+.width140 {width: 140px;}
+.width150 {width: 150px;}
+.width230 {width: 230px;}
+.width760 {width: 760px;}
+.width75 {width: 75px !important;}
+.width387{width: 387px !important;}
+.width400 {width: 400px;}
+.width450 {width: 450px !important;}
+.width165 {width: 165px;}
+.width169 {width: 169px !important;}
+.width218 {width: 218px;}
+.width158{width: 158px !important;}
+.width367{width: 367px !important;}
+.width135{width: 135px !important;}
+.width220{width: 220px !important;}
+.width172{width: 172px !important;}
+.simple{ padding:5px 5px !important; /* background: #FFD07A; */ margin-left:-3px;}
+.simple.styleForUpdate{ padding:1px 5px !important;  margin-left:-3px;}
+
+.LmsdropdownWithoutJsExt {/* background: url("../images/bg/dropdown-bg1.jpg") left center no-repeat !important; */ width: 224px !important; }
+.LmsdropdownWithoutJsExt  select {width: 224px !important;}
+
+/*================== 3/11/2014 =================*/
+
+.width430 {width: 430px !important;}
+.width150 {width: 150px !important;}
+.width175 {width: 175px !important;}
+.width300 {width: 300px !important;}
+.noTopMargin {margin-top: 0px !important;}
+
+.usageDetails {padding: 0;}
+.usageDetails li {/* border: none; */} 
+.usageDetails li span {/* border-left: 0px !important; */ width: 203px; display: inline-block; vertical-align: middle !important;} 
+.usageDetails li span strong {margin: 0px !important;}
+.usageDetails li span a { /* color: #092bfc; */ text-decoration: underline;}
+
+.invoiceDetails {padding: 0;}
+.invoiceDetails li {/* border: none; */}
+.invoiceDetails li span {display: inline-block; vertical-align: middle !important;}
+
+/*================= popup loader ==============*/
+.loadingPopup{/* background: rgba(255, 255, 255, 0.5); */ position: fixed; width: 100%; height: 100%; padding: 0px; top: 0; z-index: 999999;}
+.loaderImg{text-align: center; margin-top: 200px;}
+
+/*=================== 21/11/2014 (add accessories links) =============================*/
+#DIVstaticIP_ADDREMOVEACC, #DIVwiring_ADDREMOVEACC {position:relative;}
+.topHeadingLinks{ position: absolute; left:0; top:-30px;}
+.topHeadingLinks a {font-size: 16px; text-decoration: underline;}
+.topHeadingLinks a:hover, .topHeadingLinks a.active {/* color: #000; */}
+
+/*============================ plan migration  =========================*/
+.pageHeads {padding: 0px; float: left; margin-bottom: 10px;}
+.pageHeads li {display: inline-block; vertical-align: middle; margin-right: 5px;}
+.pageHeads li a {font-size: 14px; text-decoration: none;}
+.pageHeads li a:hover, .pageHeads li a.active {/* color: #000; */}
+.pageHeads > li > a.active {/* color: #000; */}
+
+.pageHeads > li > a.yellow_button{/* background: #1D4686; color: #fff; */}
+.pageHeads > li> a.yellow_button:hover, .pageHeads > li > a.active{/* background: #DEAE00; color: #fff; */}
+.pageHeads > li a.yellow_button.disabled{/* background: #C7C7C7; color: #000; */ cursor: default;}
+
+.planInfo {padding: 0; list-style-type: none; /* color: #414042; */}
+.planInfo > li {margin-bottom: 10px; overflow: hidden;}
+.planInfo li label {width: 100px; display: inline-block; vertical-align: top;}
+.planInfo li label strong {margin: 0;}
+.planInfo li > div {width: 160px; display: inline-block; vertical-align: top;}
+.planInfo li > div > span {display: block;}
+.planInfo.crm > li > label{width: 145px;}
+.planInfo.crm > li > label:AFTER{content: '-'}
+.planInfo.crm > li > label > strong{width: 140px;}
+.planInfo.crm > li > span{margin-left: 5px;}
+
+.adviceDiv {width: 700px !important;}
+
+.planInfo li > div > span a.usage {margin-left: 10px; /* color: #092bfc; */}
+.planInfo li .speedTable {width: 435px; /* border: 1px solid #bfc9da; background: #eef3f9; */ padding: 0; list-style-type: none; /* border-bottom: 0px; */}
+.planInfo li .speedTable li {/* border-bottom: 1px solid #bfc9da; */ display: table; width: 100%;}
+.planInfo li .speedTable li.colHead {/* background: #056891; */ font-weight: bold; text-transform: uppercase; /* color: #fff; */}
+.planInfo li .speedTable li.colHead div{text-align: center;}
+.planInfo li .speedTable li div {display: table-cell; vertical-align: middle; padding: 5px;}
+.planInfo li .speedTable li .col1 {width: 20%; font-weight: bold; text-align: center;}
+.planInfo li .speedTable li .col2 {width: 30%; /* border-left: 1px solid #bfc9da; */}
+.planInfo li .speedTable li .col3 {width: 25%; /* border-left: 1px solid #bfc9da; */}
+
+.smallUsageBar {width: 150px; height: 20px; /* border:  1px solid #CCC; background: #e3e3e3; */ float: right; padding: 0 !important; position: relative; margin: 0 10px 10px 0;}
+.smallBar {float: left; height: 100%; max-width: 100%; /* background-color: #007F0E; */ padding: 0 !important;}
+.smallUsageBar_50 {width: 50%; height: 100%; /* border-right: 1px solid #CCC; */ padding: 0 !important; position: absolute; top: 0; left: 0;}
+.smallUsageBar_80 {width: 80%; height: 100%; /* border-right: 1px solid #CCC; */ padding: 0 !important; position: absolute; top: 0; left: 0;}
+.smallUsageBar span{position: absolute; right: -12px; bottom: -15px; font-size: 10px; /* color: #666; */}
+
+
+.DivMarginTop {
+	margin-top: 5px;
+}
+.SubHeading {
+	font-size: 27px;
+}
+.DivMarginTop li {
+	list-style-image: url('http://nextraworld.com/Images/bullet.jpg');
+}
+.myopContainer {
+}
+.myopContainer * {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.myopContainer img {
+	margin-left: 4px;
+	vertical-align: middle;
+}
+.myopContainer .basePlanRow {
+	margin: 2px 0;
+	height: 43px;
+	text-align: center;
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: normal;
+	/* border: 1px solid; */
+}
+.myopContainer .basePlanRow td {
+	width: 100px;
+	margin: 0 2px;
+	vertical-align: baseline;
+	/* border: 1px solid #bfc9da;
+	background: #eef3f9; */
+}
+.myopContainer .basePlanRow td span {
+	display: inline-block;
+	margin-top: 13px;
+}
+.myopContainer .addOnPlanRow {
+	margin: 2px 0;
+	text-align: center;
+	font-family: Verdana;
+	font-size: 16px;
+	font-weight: normal;
+}
+.myopContainer .addOnPlanRow td {
+	width: 130px;
+	margin: 0 2px;
+	vertical-align: baseline;
+	/* border: 1px solid #bfc9da;
+	background: #eef3f9; */
+}
+.myopContainer .addOnPlanHeaderRow td span {
+	display: inline-block;
+	margin-top: 13px;
+}
+.myopContainer .addOnPlanFooterRow td span {
+	display: inline-block;
+	margin-top: 15px;
+}
+.myopContainer .addOnPlanRow td span {
+	display: inline-block;
+}
+.myopContainer .NextraBlue {
+}
+.myopContainer .NextraGrey {
+}
+.myopContainer .NextraWhite {
+}
+.typeface-js {
+}
+.myopBaseplan {
+	display: inline-block;
+	width: 280px;
+}
+.myopAddonplan {
+	display: inline-block;
+	width: 490px;
+	/*padding-top: 15px;*/
+}
+.addOnOverlayDiv {
+	/* background: transparent url('http://nextraworld.com/Images/Tariffs/overlay.png') repeat; */
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	position: absolute;
+}
+.tarrifPlanBasePrice {
+}
+.tarrifPlanBaseSpeed {
+}
+.tarrifPlanAddonSpeed {
+}
+.tarrifPlanAddonPrice {
+}
+.animateHeadTd {
+}
+.animateBodyTd {
+}
+.animateBaseBodyRow {
+}
+.animateBaseTd {
+}
+#tooltip {
+	/* border: 1px solid #1f487c;
+	background: #fff; */
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px 10px;
+	opacity: 1;
+}
+.summaryContainer {
+	width: 170px;
+	height: 90px;
+	margin: 5px;
+	font-family: verdana;
+	font-size: 14px;
+	/* color: #1f487c; */
+}
+.summaryContainer p {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.summaryContainer .sumarryHeading {
+	font-size: 16px;
+	font-weight: bold;
+	/* color: #1f487c; */
+}
+.summaryContainer .sumarryLabel {
+	display: inline-block;
+	width: 60%;
+}
+.summaryContainer .sumarryData {
+	display: inline-block;
+	text-align: right;
+	width: 40%;
+}
+.myopNavigator input {
+	/* border: none; */
+	width: 120px;
+	height: 30px;
+	font-family: verdana;
+	font-size: 15px;
+}
+.myopNavigator input:hover {
+}
+.myopNavigator input:disabled {
+}
+.myopNavigator #myopNavigatePrevious {
+	float: left;
+}
+.myopNavigator #myopNavigateNext {
+	float: right;
+	margin-right: 8px;
+}
+.animateBasePriceTd {
+	text-align: right;
+}
+.animateBasePriceTd span {
+	/*padding-right: 25px;*/
+}
+.myopContainer .topArrow {
+	display: none;
+	width: 79px;
+	height: 27px;
+	margin-left: -30px;
+}
+.myopContainer .topArrowDark {
+	/* background: transparent url('../images/myopArrowDark.png') no-repeat; */
+}
+.myopContainer .topArrowLight {
+	/* background: transparent url('../images/myopArrowLight.png') no-repeat; */
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+.myopContainer .addOnPlanRow td.animateTopArrowTd {
+	vertical-align: bottom;
+}
+.noAddonPlanDivContainer {
+	text-align: center;
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: normal;
+	display: inline-block;
+	/* color: #1F487C; */
+	margin-left: 408px;
+	margin-top: 3px;
+}
+.noAddonPlanDiv {
+	display: none;
+}
+.noAddonPlanDiv input {
+	width: auto;
+	/* border: none; */
+	height: auto;
+}
+
+.newPlanTable {/* border: 1px solid #bfc9da; color: #414042; background: #eef3f9; */}
+#newPlanTable #newBasePlanCodeID{font-size: 12px; line-height: 20px;}
+.planListTable {list-style-type: none; padding: 0; /* border: 1px solid #bfc9da; border-bottom: 0px; */}
+.planListTable li {/* background: #eef3f9; border-bottom: 1px solid #bfc9da; */}
+.planListTable li.colHead {/* background: #056891; */ font-weight: bold; text-transform: uppercase; /* color: #fff; */}
+.planListTable li div {padding: 5px; display: table-cell; vertical-align: middle; /* border-left: 1px solid #bfc9da; */ line-height: 18px;}
+.planListTable li div input[type=checkbox] {margin: 0;}
+.planListTable li div input[type=text] {/* background: url(../images/bg/small-textbox-bg.png) left center no-repeat; */ height: 24px; padding: 0 0 0 5px;}
+.planListTable li div span {margin-right: 5px;}
+.planListTable li input.yellow_button {/* color: #fff !important; */ margin: 5px; cursor: pointer;}
+.planListTable li .col4 {width: 15px;}
+.planListTable li .col5 {width: 80px;}
+.planListTable li .col6 {width: 100px;}
+.planListTable li .col7 {width: 130px;}
+.planListTable li .col8 {width: 40px;}
+.planListTable li .col9 {width: 80px;}
+.planListTable li .col10 {width: 150px;}
+.planListTable li .col11 {width: 200px;}
+.planListTable li .col12 {width: 208px;}
+.planListTable li .col13 {width: 190px;}
+.planListTable li .col14 {width: 130px;}
+.planListTable li .col15 {width: 207px;}
+
+/*================  plan Table changes 24/11/2014  ======================*/
+.tarrifPlanAddonSpeed {font-size: 16px; font-family: Verdana, Geneva, sans-serif; /* color: #414042; */ text-align: center; padding: 11px 0 12px 0; display: block;}
+.tarrifPlanAddonPrice {display: block; font-size: 16px;}
+.blueBdr {/* border: 1px solid #bfc9da; */}
+.marginT5 {margin-top: 2px !important}
+.planLimitTag {position: absolute; top: -15px; right: 15px; padding-left: 10px; /* background: url(../images/plus-sign.png) left center no-repeat; color: #7f7f7f; */ font-size: 14px;}
+.nBdrT {/* border-top: 0px !important; */}
+.nMarginT {margin-top: 0px !important;}
+.nMarginB {margin-bottom: 0px !important;}
+
+.planListTable li .col_4 {width: 30px; text-align: center;}
+.planListTable li .col_8 {width: 100px;}
+
+.loadingPopup {height: 100%; width: 100%; /* background: rgba(255, 255, 255, 0.6) url(../images/loadingImg.gif) center center no-repeat; */ position: fixed; top: 0; left: 0;}
+#otherDetailsId .planInfo {margin: 0;}
+span.spanRow {display: block !important;}
+span.spanRow  strong {display: inline-block !important; margin-top: 3px !important;}
+.viewMorePayment_InvDetails {/* color: #092bfc; */}
+
+.qrcConfigDropdownWithoutJs {
+	text-align: left !important;
+	width: 242px;
+	height: 29px;
+	overflow: hidden;
+	/* background: url(../images/bg/dropdown-bg-242.jpg) no-repeat; */
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 0 0 0px;
+}
+.qrcConfigDropdownWithoutJs select{
+	/* background:transparent; */ 
+	width:242px; 
+	padding: 5px 0px 0 5px; 
+	font: 12px arial; 
+	/* color:#000; */   
+	cursor: pointer;   
+	text-overflow: ''; 
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;  
+	text-indent: 0.01px; 
+	overflow:hidden; 
+	word-wrap:break-word;  
+	height:24px; }
+	
+    .col-date {width: 70px !important;}
+	.col-amount, .col-trans {width: 100px !important;}
+	.col-common {width: 88px !important; padding: 10px 2px !important;}
+	.col-inv {width: 200px !important; padding: 10px 2px !important;}
+	.col-due {width: 120px !important; padding: 10px 2px !important;}
+	
+.qrcticketDropdownWithoutJs {
+	text-align: left !important;
+	width: 200px;
+	height: 29px;
+	overflow: hidden;
+	/* background: url(../images/bg/dropdown-bg-200.jpg) no-repeat; */
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 0 0 0px;
+}
+.qrcticketDropdownWithoutJs select{
+	/* background:transparent; */ 
+	width:200px; 
+	padding: 5px 0px 0 5px; 
+	font: 12px arial; 
+	/* color:#000; */   
+	cursor: pointer;   
+	text-overflow: ''; 
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;  
+	text-indent: 0.01px; 
+	overflow:hidden; 
+	word-wrap:break-word;  
+	height:24px; }
+
+/*===== for modelPopUp viewPayment&InvoiceDetails  ========*/
+
+   #viewPaymentHistory_wrapper table th, #invoiceDetailsId_wrapper table th {font-size: 13px; text-align: left; padding: 10px 5px !important;}
+	#viewPaymentHistory_wrapper table, #invoiceDetailsId_wrapper table {font-size: 13px;}
+	#viewPaymentHistory_wrapper table td span, #invoiceDetailsId_wrapper table td span{font-size: 13px; width: 73px; display: inline-block;}
+	.dataTables_paginate {position: absolute; right: 0px; top: 275px;}
+	.dataTables_info {position: absolute; left: 10px; top: 275px;}
+	#viewPaymentHistory_wrapper table tr.odd, #invoiceDetailsId_wrapper table tr.odd {/* background: #eef3f9 !important; */}
+	#viewPaymentHistory_wrapper table tr.even, #invoiceDetailsId_wrapper table tr.even {/* background: #e3ebf4 !important; */}
+	.bgWhite {/* background: #fff !important; */} 
+	.period_span {width: 90px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+	.small-bg {/* background: url(../images/bulk-mail-small.png) no-repeat !important; */ height: 17px !important;} 
+	.borderBottom{ /* border:1px solid #ccc !important; */}
+	
+font#installAddLine1, font#billAddLine1, font#billAddLine2{word-wrap: break-word;}
+.qrcRight{margin-top: 0;}
+ul.qrc{margin-top: 0;}
+
+/*========== Mass Outage ===============*/
+#addMassOutageForm label.error,#updateMassOutageForm label.error{display:inline-block}
+#addMassOutageForm label.error .errorCheckbox,#updateMassOutageForm label.error .errorCheckbox{top:40px;}
+/*============================== for coloring the ticket table===============*/
+
+.color_C{ /* background-color: #E1E6EE !important; */}
+.color_R{ /* background-color: #ABABAB  !important; */}
+.color_RO{ /* background-color: #C14C4C  !important; */}
+.color_O{ /* background-color: #ADFF85 !important; */}
+.color_SLA{ /* background-color: #FFCD70 !important; */}
+.showlist_ticket {width: 222px;}
+.showlist_ticket select {  width: 245px;}
+.qrcReports .inner_right{ position:static !important;}
+.AddonActionCSS {height:30px  !important;padding: 0 0 0 5px !important;}

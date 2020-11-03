@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 17 Sep, 2013 12:10:39 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmInboxPojo" table="crm_inbox" dynamic-update="true">
+        <cache usage="read-write"/>
+        <id name="inboxId" type="java.lang.Long">
+            <column name="inbox_id" />
+            <generator class="identity" />
+        </id>
+        <property name="userId" type="string">
+            <column name="user_id" length="128" />
+        </property>
+        <property name="requestType" type="string">
+            <column name="request_type" length="10" not-null="true" />
+        </property>
+        <property name="mappingId" type="string">
+            <column name="mapping_id" length="50" not-null="true" />
+        </property>
+        <property name="stage" type="string">
+            <column name="stage" length="10" not-null="true" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="7" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" update="false" insert="false" >
+            <column name="last_modified_time" length="7" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+         <property name="partnerType" type="string">
+            <column name="partner_type" length="5" />
+        </property>
+        <property name="partnerId" type="java.lang.Long">
+            <column name="partner_id" />
+        </property>
+        <property name="unRead" type="boolean">
+			<column name="unread" precision="1" scale="0" default="true" sql-type="bit"/>
+		</property>
+    </class>
+    <sql-query name="CURRENT_OWNER_BY_TICKET_ID" callable="false">
+	
+	<![CDATA[SELECT user_id
+    FROM
+   crm_inbox
+    WHERE
+   request_type = 'QRC'
+   AND status = 'A'
+   AND mapping_id = :TICKET_ID]]>
+	</sql-query>
+</hibernate-mapping>

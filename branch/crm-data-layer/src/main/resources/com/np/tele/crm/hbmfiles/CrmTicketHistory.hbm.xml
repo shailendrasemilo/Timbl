@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 15, 2015 4:13:55 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmTicketHistoryPojo" table="crm_ticket_history" dynamic-update="true">
+	<cache usage="read-write"/>
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />
+            <generator class="identity" />
+			
+		</id>
+		<property name="ticketId" type="string" update="false">
+            <column name="ticket_id" length="128" not-null="true" />
+		</property>
+		<property name="action" type="string" update="false">
+            <column name="action" length="10" not-null="true" />
+		</property>
+        <property name="fromBin" type="java.lang.Long">
+			<column name="from_bin" precision="10" scale="0" />
+		</property>
+        <property name="toBin" type="java.lang.Long">
+			<column name="to_bin" precision="10" scale="0" />
+		</property>
+		<property name="oldFollowupOn" type="timestamp">
+            <column name="old_followup_on" length="19" />
+		</property>
+		<property name="newFollowupOn" type="timestamp">
+            <column name="new_followup_on" length="19" />
+		</property>
+		<property name="actionTaken" type="string">
+            <column name="action_taken" length="1024" />
+		</property>
+		<property name="rootCause" type="string">
+            <column name="root_cause" length="1024" />
+		</property>
+		<property name="attributedTo" type="string">
+            <column name="attributed_to" length="1024" />
+		</property>
+		<property name="visitRequired" type="string">
+            <column name="visit_required" length="1" />
+		</property>
+		<property name="wrongTagging" type="string">
+            <column name="wrong_tagging" length="1" />
+		</property>
+		<property name="remarks" type="string">
+			<column name="remarks" length="4000" sql-type="text"/>
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="fromUser" type="string">
+			<column name="from_user" length="128" />
+		</property>
+		<property name="toUser" type="string">
+			<column name="to_user" length="128" />
+		</property>
+		<property name="clientIp" type="string">
+            <column name="client_ip" length="40" />
+        </property>
+        <property name="serverIp" type="string">
+            <column name="server_ip" length="40" />
+        </property>
+        <property name="serviceIp" type="string">
+            <column name="service_ip" length="40" />
+        </property>
+	</class>
+   <sql-query name="TAGGING_RPT" callable="false">	
+		<![CDATA[ 
+   				 SELECT 
+				ccd.customer_id AS "customerId",
+				ccd.cust_fname AS "custFname",
+				IFNULL(ccd.cust_lname, ' ') AS "custLname",
+				cth.ticket_id as "ticketId",
+				cst.qrc_type AS "qrcType",
+				cqc.qrc_category AS "category",
+				cqsc.qrc_sub_category AS "subCategory",
+				cqssc.qrc_sub_sub_category AS "subSubCategory",
+				CASE  WHEN  cth.ACTION='CL' THEN 'CLOSE'
+				WHEN  cth.action='OP'THEN 'OPENED'
+				WHEN  cth.action='RV'THEN 'RESOLVED'
+				WHEN  cth.action='RO'THEN 'REOPENED'
+				WHEN  cth.action='FU'THEN 'FOLLOW_UP'
+				WHEN  cth.action='AS'THEN 'ASSIGNED'
+				WHEN  cth.action='FW'THEN 'FORWARD'
+				END AS "action",
+				cth.created_time AS "createdTime",
+				cth.created_by AS "resolvedBy",
+				cast(cth.remarks AS char(4000)) AS "remarks",
+				ccd.product AS "product",
+				ccd.service_type AS "serviceType",
+				cst.created_time AS "raisedDate",
+				cst.created_by AS "raiseUser",
+				cst.status AS "ticketStatus",
+				CONCAT(cst.calling_no,' ') AS "callingNo"
+				FROM 
+				crm_ticket_history cth
+				LEFT JOIN crm_sr_tickets cst ON (cth.ticket_id = cst.sr_id)
+				LEFT JOIN crm_customer_details ccd ON(ccd.customer_id = cst.mapping_id)
+				LEFT JOIN crm_qrc_categories cqc ON(cst.qrc_category_id=cqc.qrc_category_id)
+				LEFT JOIN crm_qrc_sub_categories cqsc ON(cqsc.qrc_sub_category_id=cst.qrc_sub_category_id)
+				LEFT JOIN crm_qrc_sub_sub_categories cqssc ON(cqssc.qrc_sub_sub_category_id=cst.qrc_sub_sub_category_id)
+				WHERE 
+				cth.created_time BETWEEN :FROM_DATE AND :TO_DATE
+				AND (:QTYPE IS NULL OR cst.qrc_type=:QTYPE)
+				AND (:CATGRY IS NULL OR cst.qrc_category_id=:CATGRY)
+				AND (:SUBCATGRY IS NULL OR cst.qrc_sub_category_id=:SUBCATGRY)
+				AND (:SUBSUBCATGRY IS NULL OR cst.qrc_sub_sub_category_id=:SUBSUBCATGRY)
+				AND (:CURRENTBIN IS NULL OR cst.functionalbin_id=:CURRENTBIN)
+   		]]>
+	</sql-query> 
+	<sql-query name="FST_ASSIGNED_BIN_TKT_RPT" callable="false">	
+	<![CDATA[SELECT ccd.customer_id AS "customerId",
+	#ccd.cust_fname AS "custFname",IFNULL(ccd.cust_lname, ' ') AS "custLname",
+  ccd.status AS "status",ccd.product AS "product",cst.sr_id AS "ticketId",cst.qrc_type AS "qrcType",cqc.qrc_category AS "category",
+    cqsc.qrc_sub_category AS "subCategory",cqssc.qrc_sub_sub_category AS "subSubCategory",cst.created_time AS "raisedDate",
+  cst.created_by AS "raiseUser",cst.status AS "ticketStatus",cst.resolved_by AS "resolvedBy",cmc.category_value AS "binName",
+  cst.sr_resolved_on AS "srResolvedOn",cst.action_taken AS "resolutionCode",cst.root_cause AS "rca",cst.attributed_to AS "attributedTo",
+  cast(cthrmk.remarks as char(4000)) AS "remarks",cst.visit_required AS "fieldVisit",
+  CASE  WHEN cst.sla_time BETWEEN 0 AND 14400000 THEN 'HOURS_0_4'
+    WHEN cst.sla_time BETWEEN 14400000 AND 86400000 THEN 'HOURS_4_24'
+    WHEN cst.sla_time BETWEEN 8640000 AND 172800000 THEN 'DAYS_1_2'
+    WHEN cst.sla_time BETWEEN 172800000 AND 259200000 THEN 'DAYS_2_3'
+    WHEN cst.sla_time BETWEEN 259200000 AND 345600000 THEN 'DAYS_3_4'
+    WHEN cst.sla_time BETWEEN 432000000 AND 432000000 THEN 'DAYS_4_5'
+    WHEN cst.sla_timE BETWEEN 345600000 AND 518400000 THEN 'DAYS_5_6'
+    WHEN cst.sla_time BETWEEN 518400000 AND 604800000 THEN 'DAYS_6_7'
+    WHEN cst.sla_time BETWEEN 604800000 AND 864000000 THEN 'DAYS_7_10'
+    WHEN cst.sla_time BETWEEN 864000000 AND 1296000000 THEN 'DAYS_10_15'
+    WHEN cst.sla_time >1296000000 THEN 'DAYS ABOVE 15'
+  END AS "slab",
+  cthusr.to_user AS "firstAssignUser",
+ 	DATE_FORMAT(TIMEDIFF(cthusr.created_time , cst.created_time), '%T') AS "totDurAssignTime",
+  	DATE_FORMAT(TIMEDIFF(cthrmk.created_time , cst.created_time), '%T') AS "totDurRemarkTime",
+	DATE_FORMAT(TIMEDIFF(cst.sr_resolved_on , cst.created_time), '%T') AS "resolutionTime"
+   FROM
+  crm_customer_details ccd,
+  crm_qrc_categories cqc,
+  crm_qrc_sub_categories cqsc,
+  crm_sr_tickets cst
+  LEFT JOIN crm_ticket_history cth ON (cth.ticket_id=cst.sr_id AND cth.action='OP')
+  LEFT JOIN crm_qrc_sub_sub_categories cqssc ON (cst.qrc_sub_sub_category_id = cqssc.qrc_sub_sub_category_id)
+  LEFT JOIN crm_ticket_history cthusr ON (cthusr.ticket_id=cst.sr_id AND cthusr.action='AS' AND cthusr.from_user IS NULL AND cthusr.from_bin=cqssc.functional_bin_id AND cthusr.created_time > cth.created_time)
+  LEFT JOIN crm_master_configuration cmc ON(cqssc.functional_bin_id = cmc.category_id)
+  LEFT JOIN crm_ticket_history cthrmk ON (cthrmk.ticket_id=cst.sr_id AND cthrmk.remarks IS NOT NULL AND cthrmk.action!='AS')
+    WHERE 
+  cst.qrc_category_id = cqc.qrc_category_id
+  AND cst.qrc_sub_category_id = cqsc.qrc_sub_category_id
+  AND cst.mapping_id = ccd.customer_id 
+  AND cst.module_type='QRC' 
+  AND cst.sr_id = cth.ticket_id 
+  AND cqssc.functional_bin_id=:CURRENTBIN 
+  AND cthusr.created_time = (SELECT MIN(cthusr1.created_time) FROM crm_ticket_history cthusr1 WHERE cthusr1.ticket_id=cst.sr_id AND cthusr1.action='AS' AND cthusr1.from_user IS NULL AND cthusr1.from_bin=cqssc.functional_bin_id AND cthusr1.created_time > cth.created_time)
+  AND cthrmk.created_time = (SELECT MIN(cthrmk1.created_time) FROM crm_ticket_history cthrmk1 WHERE cthrmk1.ticket_id=cst.sr_id AND cthrmk1.remarks IS NOT NULL AND cthrmk1.action != 'AS' AND cthrmk1.action != 'OP' AND  cthrmk1.created_time >= cth.created_time)  
+  AND (:QTYPE IS NULL OR cst.qrc_type=:QTYPE)
+  AND (:CATGRY IS NULL OR cst.qrc_category_id=:CATGRY)
+  AND (:SUBCATGRY IS NULL OR cst.qrc_sub_category_id=:SUBCATGRY)
+  AND (:SUBSUBCATGRY IS NULL OR cst.qrc_sub_sub_category_id=:SUBSUBCATGRY)
+  AND cth.created_time BETWEEN :FROM_DATE AND :TO_DATE
+
+		]]>
+	</sql-query>
+</hibernate-mapping>

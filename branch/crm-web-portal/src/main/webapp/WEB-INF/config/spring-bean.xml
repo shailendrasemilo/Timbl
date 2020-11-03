@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<aop:aspectj-autoproxy />
+	
+
+	<bean name="/gis" class="com.np.tele.crm.gis.action.GISAction">
+		<property name="gisManagerImpl" ref="gisManagerImpl"></property>
+		<property name="masterBMngr" ref="masterDataBm"></property>
+	</bean>
+	<bean name="/alertsConfiguration" class="com.np.tele.crm.masterdata.action.AlertsConfigAction">
+		<property name="crmConfigManager" ref="crmConfigManager"></property>
+		<property name="masterBMngr" ref="masterDataBm"></property>
+	</bean>
+
+	<bean name="/gisMaster" class="com.np.tele.crm.gis.action.GISMasterAction">
+		<property name="gisMasterImpl" ref="gisMasterImpl"></property>
+	</bean>
+	<bean id="gisMasterImpl" class="com.np.tele.crm.gis.bm.GISMasterImpl">
+		<property name="gisServiceClient" ref="gisServiceClient"></property>
+	</bean>
+	<bean id="gisServiceClient" class="com.np.tele.crm.client.GISServiceClient"></bean>
+	<bean id="gisManagerImpl" class="com.np.tele.crm.gis.bm.GISManagerImpl">
+		<property name="gisServiceClient" ref="gisServiceClient"></property>
+		<property name="lmsManagerImpl" ref="lmsManagerImpl"></property>
+	</bean>
+	<bean name="/login" class="com.np.tele.crm.usrmngmnt.action.LoginAction">
+		<property name="usermngmntbm" ref="usermngmntbm"></property>
+		<property name="crmConfigManager" ref="crmConfigManager"></property>
+		<property name="masterDataBm" ref="masterDataBm"></property>
+	</bean>
+	<bean id="usermngmntbm" class="com.np.tele.crm.usrmngmnt.bm.UserBMngrImpl">
+		<property name="crmUserClient" ref="crmUserClient"></property>
+		<property name="crmConfigClient" ref="crmConfigClient"></property>
+	</bean>
+	<bean id="crmUserClient" class="com.np.tele.crm.client.UserManagementClient">
+	</bean>
+	<bean name="/changePassword" class="com.np.tele.crm.usrmngmnt.action.ChangePasswordAction">
+		<property name="usermngmntbm" ref="usermngmntbm"></property>
+	</bean>
+	<bean name="/register" class="com.np.tele.crm.usrmngmnt.action.RegisterAction">
+		<property name="usermngmntbm" ref="usermngmntbm"></property>
+		<property name="masterDataBm" ref="masterDataBm"></property>
+	</bean>
+	<bean id="alertClient" class="com.np.tele.crm.client.CRMAlertsClient" />
+	<bean name="/smsAlert" class="com.np.tele.crm.alerts.action.SmsAlertAction">
+		<property name="smsAlertImp" ref="smsAlertImpl"></property>
+		<property name="masterDataBm" ref="masterDataBm"></property>
+		<property name="crmConfigManager" ref="crmConfigManager"></property>
+		<property name="eventTemplateMapping" ref="eventTemplateMappingImpl"></property>
+	</bean>
+
+	<!-- Team 1 Start -->
+	<bean name="/userManagement" class="com.np.tele.crm.usrmngmnt.action.UserManagementAction">
+		<property name="usermngmntbm" ref="usermngmntbm"></property>
+		<property name="masterDataBm" ref="masterDataBm"></property>
+	</bean>
+
+	<bean name="/roleGroup" class="com.np.tele.crm.masterdata.action.RoleGroupAction">
+		<property name="masterDataBm" ref="masterDataBm"></property>
+	</bean>
+	<bean name="/parameterGroup"
+		class="com.np.tele.crm.masterdata.action.ParameterGroupAction">
+		<property name="masterDataBm" ref="masterDataBm"></property>
+	</bean>
+
+
+	<bean name="/forgetPassword" class="com.np.tele.crm.usrmngmnt.action.ForgetPasswordAction">
+		<property name="usermngmntbm" ref="usermngmntbm"></property>
+	</bean>
+
+	<bean name="masterDataClient" class="com.np.tele.crm.client.MasterDataClient" />
+	<bean name="masterDataBm" class="com.np.tele.crm.masterdata.bm.MasterBmngrImpl">
+		<property name="masterDataClient" ref="masterDataClient" />
+	</bean>
+	<bean name="/roleManagement"
+		class=" com.np.tele.crm.usrmngmnt.action.RoleManagementAction">
+		<property name="usermngmntbm" ref="usermngmntbm" />
+		<property name="masterDataBm" ref="masterDataBm"></property>
+	</bean>
+	<bean name="/parameterManagement"
+		class=" com.np.tele.crm.usrmngmnt.action.ParameterManagementAction">
+		<property name="usermngmntbm" ref="usermngmntbm" />
+		<property name="masterDataBm" ref="masterDataBm"></property>
+	</bean>
+	<bean name="/option82Management"
+		class="com.np.tele.crm.masterdata.action.Option82ManagementAction">
+		<property name="masterDataBm" ref="masterDataBm"></property>
+	</bean>
+	<bean name="/smsManagement"
+		class="com.np.tele.crm.masterdata.action.SmsConfigurationManagement">
+		<property name="masterDataBm" ref="masterDataBm"></property>
+		<property name="crmConfigManager" ref="crmConfigManager"></property>
+
+
+
+	</bean>
+	<bean name="/emailServer"
+		class="com.np.tele.crm.masterdata.action.EmailServerConfigAction">
+		<property name="crmConfigManager" ref="crmConfigManager"></property>
+		<property name="masterBMngr" ref="masterDataBm"></property>
+	</bean>
+	<bean name="/leadGeneration" class="com.np.tele.crm.lms.action.LmsAction">
+		<property name="lmsManagerImpl" ref="lmsManagerImpl"></property>
+		<property name="masterBMngr" ref="masterDataBm"></property>
+		<property name="crmConfigManager" ref="crmConfigManager"></property>
+		<property name="custProfileMgrImpl" ref="customerProfileMgrImpl"></property>
+	</bean>
+	<bean id="lmsManagerImpl" class="com.np.tele.crm.lms.bm.LmsManagerImpl">
+		<property name="lmsServiceClient" ref="lmsServiceClient"></property>
+		<property name="crmConfigClient" ref="crmConfigClient"></property>
+		<property name="crmUserClient" ref="crmUserClient"></property>
+		<property name="capServiceClient" ref="capServiceClient"></property>
+		<property name="qrcServiceClient" ref="qrcServiceClient"></property>
+	</bean>
+
+	<bean id="lmsServiceClient" class="com.np.tele.crm.client.LMSServiceClient"></bean>
+	<bean name="/goToInbox" class="com.np.tele.crm.inbox.action.InboxAction">
+		<property name="inboxManagerImpl" ref="inboxManagerImpl"></property>
+		<property name="qrcManagerBm" ref="qrcManagerBm" />
+	</bean>
+	<bean id="inboxManagerImpl" class="com.np.tele.crm.inbox.bm.InboxManagerImpl">
+		<property name="crmConfigClient" ref="crmConfigClient"></property>
+	</bean>
+	<bean name="/crmRcaReason" class="com.np.tele.crm.masterdata.action.CrmRcaReasonAction">
+		<property name="crmRcaReasonMgrImpl" ref="crmRcaReasonMgrImpl"></property>
+		<property name="masterBMngr" ref="masterDataBm"></property>
+	</bean>
+	<bean id="crmRcaReasonMgrImpl" class="com.np.tele.crm.masterdata.bm.CrmRcaReasonMgrImpl">
+		<property name="masterDataClient" ref="masterDataClient" />
+	</bean>
+	<bean name="/searchEWUser" class="com.np.tele.crm.usrmngmnt.action.EWUserMappingAction">
+		<property name="ewUserMappingMgr" ref="ewUserMappingMgr"></property>
+	</bean>
+	<bean id="ewUserMappingMgr" class="com.np.tele.crm.usrmngmnt.bm.EWUserMappingImpl">
+		<property name="crmUserClient" ref="crmUserClient"></property>
+	</bean>
+	<bean name="/crmCap" class="com.np.tele.crm.cap.action.CrmCapAction">
+		<property name="capManagerImpl" ref="capManagerImpl"></property>
+		<property name="masterBMngr" ref="masterDataBm"></property>
+		<property name="crmConfigManager" ref="crmConfigManager"></property>
+	</bean>
+	<bean id="capManagerImpl" class="com.np.tele.crm.cap.bm.CrmCapManagerImpl">
+		<property name="capServiceClient" ref="capServiceClient"></property>
+		<property name="masterDataClient" ref="masterDataClient"></property>
+		<property name="masterBMngr" ref="masterDataBm"></property>
+		<property name="crmUserClient" ref="crmUserClient"></property>
+		<property name="crmConfigClient" ref="crmConfigClient"></property>
+	</bean>
+	<bean id="capServiceClient" class="com.np.tele.crm.client.CRMCapClient"></bean>
+	<!-- Team 1 Ends -->
+	<!-- Team 2 Starts -->
+
+	<bean name="/emailAlert" class="com.np.tele.crm.alerts.action.EmailAlertAction">
+		<property name="emailAlert" ref="emailAlertImp"></property>
+		<property name="masterDataBm" ref="masterDataBm"></property>
+		<property name="crmConfigManager" ref="crmConfigManager"></property>
+	</bean>
+	<bean name="smsAlertImpl" class="com.np.tele.crm.alerts.bm.SmsAlertImp">
+		<property name="crmAlertsClient" ref="alertClient"></property>
+	</bean>
+	<bean name="emailAlertImp" class="com.np.tele.crm.alerts.bm.EmailAlertImpl">
+		<property name="crmAlertsClient" ref="alertClient"></property>
+	</bean>
+	<bean name="/crmProject" class="com.np.tele.crm.masterdata.action.CrmProjectAction">
+		<property name="rgstrExtrnlProjectImp" ref="rgstrExtrnlProjectImp"></property>
+	</bean>
+	<bean name="rgstrExtrnlProjectImp" class="com.np.tele.crm.masterdata.bm.RgstrExtrnlProjectImp">
+		<property name="masterData" ref="masterDataClient"></property>
+	</bean>
+	<bean name="/partnerManagement"
+		class="com.np.tele.crm.masterdata.action.PartnerManagementAction">
+		<property name="managePartner" ref="managePartner"></property>
+		<property name="masterBMngr" ref="masterDataBm"></property>
+		<property name="gisManagerImpl" ref="gisManagerImpl"></property>
+	</bean>
+	<bean name="managePartner" class="com.np.tele.crm.masterdata.bm.PartnerManagementImpl">
+		<property name="masterData" ref="masterDataClient"></property>
+		<property name="crmConfigClient" ref="crmConfigClient"></property>
+	</bean>
+
+	<bean id="logAspect" class="com.np.tele.crm.aspects.LoggingAspect" />
+	<!-- <bean name="toStringAspect" class="com.np.tele.crm.aspects.ToStringAspect" 
+		/> <bean name="usermngmntbmProxy" class="org.springframework.aop.framework.ProxyFactoryBean"> 
+		<property name="target" ref="usermngmntbm"></property> <property name="interceptorNames"> 
+		<list> <value>toStringAspect</value> </list> </property> </bean> -->
+	<bean name="/eventTemplateMapping" class="com.np.tele.crm.alerts.action.TemplateMappingAction">
+		<property name="eventTemplateMapping" ref="eventTemplateMappingImpl"></property>
+	</bean>
+	<bean name="eventTemplateMappingImpl" class="com.np.tele.crm.alerts.bm.EventTemplateMappingImpl">
+		<property name="crmAlertsClient" ref="alertClient"></property>
+	</bean>
+	<bean name="appDataManagerImpl" class="com.np.tele.crm.masterdata.bm.AppDataManagerImpl">
+		<property name="userMngmntBm" ref="usermngmntbm"></property>
+		<property name="masterDataBm" ref="masterDataBm"></property>
+		<property name="smsAlertImpl" ref="smsAlertImpl"></property>
+		<property name="emailAlertImpl" ref="emailAlertImp"></property>
+		<property name="gisManagerImpl" ref="gisManagerImpl"></property>
+		<property name="crmConfigManager" ref="crmConfigManager"></property>
+		<property name="financeManagerBm" ref="financeManagerBm"></property>
+		<property name="qrcManagerBm" ref="qrcManagerBm"></property>
+		<property name="lmsManagerBm" ref="lmsManagerImpl"></property>
+		<property name="crmCapManagerBm" ref="capManagerImpl"></property>
+		<property name="qrcConfigManagerBm" ref="qrcConfigManagerBm" />
+		<property name="inboxManagerBm" ref="inboxManagerImpl"></property>
+	</bean>
+	<bean name="crmConfigClient" class="com.np.tele.crm.client.CrmConfigClient"></bean>
+	<bean name="crmConfigManager" class="com.np.tele.crm.config.bm.CrmConfigManagerImpl">
+		<property name="crmConfigClient" ref="crmConfigClient"></property>
+	</bean>
+	<bean name="/accountVerification"
+		class="com.np.tele.crm.usrmngmnt.action.AccountVerificationAction">
+		<property name="accountVerificationBm" ref="accountVerificationBm"></property>
+	</bean>
+	<bean name="accountVerificationBm" class="com.np.tele.crm.usrmngmnt.bm.AccountVerificationImpl">
+		<property name="crmUserClient" ref="crmUserClient"></property>
+	</bean>
+
+	<bean name="/paymentPosting" class="com.np.tele.crm.finance.action.PaymentPostingAction">
+		<property name="financeManagerBm" ref="financeManagerBm"></property>
+	</bean>
+
+	<bean name="/paymentTracking" class="com.np.tele.crm.finance.action.PaymentTrackingAction">
+		<property name="financeManagerBm" ref="financeManagerBm"></property>
+	</bean>
+	<bean name="financeManagerBm" class="com.np.tele.crm.finance.bm.FinanceManagerImpl">
+		<property name="financeService" ref="financeService"></property>
+		<property name="masterDataClient" ref="masterDataClient"></property>
+		<property name="crmConfigClient" ref="crmConfigClient"></property>
+
+	</bean>
+	<bean id="financeService" class="com.np.tele.crm.client.CRMFinanceClient" />
+	<bean name="/upFrontPaymentRecovery"
+		class="com.np.tele.crm.finance.action.UpFrontPaymentRecoveryAction">
+		<property name="financeManagerBm" ref="financeManagerBm"></property>
+		<property name="masterBMngr" ref="masterDataBm"></property>
+	</bean>
+	<bean name="/profileSearch"
+		class="com.np.tele.crm.usrmngmnt.action.CustomerProfileSearchAction">
+		<property name="customerProfileMgrImpl" ref="customerProfileMgrImpl"></property>
+		<property name="qrcManagerBm" ref="qrcManagerBm"></property>
+	</bean>
+	<bean id="customerProfileMgrImpl" class="com.np.tele.crm.usrmngmnt.bm.CustomerProfileMgrImpl">
+		<property name="capServiceClient" ref="capServiceClient"></property>
+		<property name="lmsServiceClient" ref="lmsServiceClient"></property>
+		<property name="qrcServiceClient" ref="qrcServiceClient"></property>
+	</bean>
+
+	<!-- QRC Bean Mapping Starts -->
+	<bean name="/manageQrc" class="com.np.tele.crm.qrc.action.QrcAction">
+		<property name="qrcManagerBm" ref="qrcManagerBm" />
+		<property name="crmConfigManager" ref="crmConfigManager"></property>
+		<property name="capManagerImpl" ref="capManagerImpl"></property>
+		<property name="masterDataBm" ref="masterDataBm"></property>
+		<property name="custProfileMgrImpl" ref="customerProfileMgrImpl"></property>
+		<property name="workFlowManager" ref="workFlowManager" />
+		<property name="usermngmntbm" ref="usermngmntbm"></property>
+	</bean>
+	<bean id="qrcManagerBm" class="com.np.tele.crm.qrc.bm.QrcManagerImpl">
+		<property name="qrcServiceClient" ref="qrcServiceClient"></property>
+		<property name="capServiceClient" ref="capServiceClient"></property>
+		<property name="crmConfigClient" ref="crmConfigClient"></property>
+		<property name="financeService" ref="financeService"></property>
+		<property name="masterDataClient" ref="masterDataClient" />
+		<property name="crmAlertsClient" ref="alertClient" />
+		<property name="faultRepairClient" ref="faultRepairClient" />
+	</bean>
+
+	<!-- Bulk Upload for Mount Booster & Validity Extension Bean Mapping Starts -->
+	<bean name="/bulkUploadAction" class="com.np.tele.crm.qrc.action.BulkUploadAction">
+		<property name="bulkUploadBm" ref="bulkUploadBm" />
+	</bean>
+
+	<bean id="bulkUploadBm" class="com.np.tele.crm.qrc.bm.BulkUploadImpl">
+		<property name="qrcServiceClient" ref="qrcServiceClient" />
+	</bean>
+	<bean id="qrcServiceClient" class="com.np.tele.crm.client.CrmQrcClient"></bean>
+	<!-- QRC Bean Mapping Ends -->
+	<bean name="/massOutage" class="com.np.tele.crm.qrc.action.QrcMassOutageAction">
+		<property name="massOutageManagerBm" ref="massOutageManagerBm" />
+		<property name="masterDataBm" ref="masterDataBm" />
+	</bean>
+	<bean name="/qrcConfig" class="com.np.tele.crm.qrc.config.action.QrcConfigAction">
+		<property name="qrcConfigManagerBm" ref="qrcConfigManagerBm" />
+	</bean>
+	<bean name="qrcConfigManagerBm" class="com.np.tele.crm.qrc.config.bm.QrcConfigManagerImpl">
+		<property name="qrcServiceClient" ref="qrcServiceClient" />
+	</bean>
+	<bean name="/customerStatus"
+		class="com.np.tele.crm.qrc.status.action.CustomerStatusAction">
+		<property name="customersStatusBm" ref="customersStatusBm" />
+	</bean>
+	<bean id="customersStatusBm"
+		class="com.np.tele.crm.qrc.status.bm.CustomerStatusBusinessMgrImpl">
+		<property name="qrcServiceClient" ref="qrcServiceClient" />
+	</bean>
+
+	<bean name="/customerProfile"
+		class="com.np.tele.crm.qrc.profile.action.QrcCustomerProfileAction">
+		<property name="customerProfileMgr" ref="customerProfileMgr" />
+		<property name="qrcManagerBm" ref="qrcManagerBm" />
+	</bean>
+	<bean id="customerProfileMgr" class="com.np.tele.crm.qrc.profile.bm.CustomerProfileMgrImpl">
+		<property name="qrcServiceClient" ref="qrcServiceClient" />
+	</bean>
+
+	<bean name="/waiver" class="com.np.tele.crm.qrc.waiver.action.QrcWaiverAction">
+		<property name="workFlowManager" ref="workFlowManager" />
+		<property name="qrcManagerBm" ref="qrcManagerBm" />
+		<property name="masterBMngr" ref="masterDataBm" />
+	</bean>
+
+	<bean name="/shiftingWorkflow"
+		class="com.np.tele.crm.qrc.shifting.action.CrmQrcShiftingAction">
+		<property name="workFlowManager" ref="workFlowManager" />
+		<property name="qrcManagerBm" ref="qrcManagerBm" />
+		<property name="crmConfigManager" ref="crmConfigManager" />
+		<property name="masterBMngr" ref="masterDataBm"></property>
+		<property name="capManagerImpl" ref="capManagerImpl"></property>
+	</bean>
+
+	<bean id="workFlowManager" class="com.np.tele.crm.qrc.workflow.bm.WorkFlowManagerImpl">
+		<property name="qrcServiceClient" ref="qrcServiceClient" />
+		<property name="masterDataClient" ref="masterDataClient" />
+		<property name="financeService" ref="financeService" />
+		<property name="gisServiceClient" ref="gisServiceClient" />
+
+	</bean>
+	<bean name="/refund" class="com.np.tele.crm.finance.action.RefundProcessAction">
+		<property name="financeManagerBm" ref="financeManagerBm"></property>
+	</bean>
+
+	<bean id="massOutageManagerBm" class="com.np.tele.crm.qrc.bm.QrcMassOutageManagerImpl">
+		<property name="qrcServiceClient" ref="qrcServiceClient"></property>
+	</bean>
+
+	<bean name="/logAction" class="com.np.tele.crm.config.action.CRMLogAction">
+		<property name="crmConfigManager" ref="crmConfigManager" />
+		<property name="customerProfileMgr" ref="customerProfileMgr" />
+	</bean>
+
+	<bean name="/capReportAction" class="com.np.tele.crm.reports.action.CapReportAction">
+		<property name="reportManager" ref="reportManager"></property>
+	</bean>
+	<bean name="/qrcReportAction" class="com.np.tele.crm.reports.action.QRCReportAction">
+		<property name="reportManager" ref="reportManager"></property>
+	</bean>
+	<bean name="/rfsReportAction" class="com.np.tele.crm.reports.action.RFSReportAction">
+		<property name="reportManager" ref="reportManager"></property>
+	</bean>
+	<bean id="reportsClient" class="com.np.tele.crm.client.CRMReportsClient" />
+	<bean id="reportManager" class="com.np.tele.crm.reports.bm.ReportBMngrImpl">
+		<property name="qrcServiceClient" ref="qrcServiceClient"></property>
+		<property name="reportsClient" ref="reportsClient"></property>
+	</bean>
+	<bean name="/faultRepair"
+		class="com.np.tele.crm.qrcFaultRepair.action.QrcFaultRepairAction">
+		<property name="qrcManagerBm" ref="qrcManagerBm"></property>
+	</bean>
+	<bean id="faultRepairClient" class="com.np.tele.crm.client.QRCFaultRepairClient"></bean>
+</beans>

@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+                                   "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+<tiles-definitions>
+  <definition name="baseLayout" path="/jsp/layouts/baseLayout.jsp">
+    <put name="title" value="Tele CRM" />
+    <put name="header" value="/jsp/header/header.jsp" />
+    <put name="menu" value="/jsp/content/menu.jsp" />
+    <put name="body" />
+    <put name="footer" value="/jsp/footer/footer.jsp" />
+  </definition>
+  <definition name="loginLayout" path="/jsp/layouts/loginLayout.jsp">
+    <put name="title" value="Tele CRM" />
+    <put name="header" value="/jsp/header/loginHeader.jsp" />
+    <put name="body" />
+    <put name="footer" value="/jsp/footer/loginFooter.jsp" />
+  </definition>
+  <definition name="qrcLayout" path="/jsp/layouts/qrcLayout.jsp">
+    <put name="title" value="Tele CRM" />
+    <put name="header" value="/jsp/header/header.jsp" />
+    <!-- <put name="qrcMenu" value="/jsp/content/qrc/qrcMenu.jsp" /> -->
+    <put name="body" />
+    <put name="activity" value="/jsp/content/masterdata/customerActivityLog.jsp" />
+    <put name="remarksLog" value="/jsp/content/masterdata/customerRemarksLog.jsp" />
+    <put name="footer" value="/jsp/footer/footer.jsp" />
+  </definition>
+  <definition name="massOutageLayout" path="/jsp/layouts/massOutageLayout.jsp">
+    <put name="title" value="Tele CRM" />
+    <put name="header" value="/jsp/header/header.jsp" />
+    <put name="menu" value="/jsp/content/menu.jsp" />
+    <put name="body" />
+    <put name="footer" value="/jsp/footer/footer.jsp" />
+  </definition>
+  <definition name="reportLayout" path="/jsp/layouts/reportLayout.jsp">
+    <put name="title" value="Tele CRM" />
+    <put name="header" value="/jsp/header/header.jsp" />
+    <put name="body" />
+    <put name="footer" value="/jsp/footer/footer.jsp" />
+  </definition>
+	<definition extends="baseLayout" name="failure">
+		<put name="title" value="Failure" />
+		<put name="body" value="/jsp/content/Failure.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="modifySMSTemplate">
+		<put name="title" value="Modify SMS Template" />
+		<put name="body" value="/jsp/content/alert/createSmsTemplate.jsp" />
+	</definition>
+	<definition extends="loginLayout" name="changePassword">
+		<put name="title" value="Change Password" />
+		<put name="body" value="/jsp/content/user/changePassword.jsp" />
+	</definition>
+	<definition extends="loginLayout" name="login">
+		<put name="title" value="Login" />
+		<put name="body" value="/jsp/content/user/login.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="homePage">
+		<put name="title" value="Home Page" />
+		<put name="body" value="/jsp/content/home.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="newUser">
+		<put name="title" value="Manage User" />
+		<put name="body" value="/jsp/content/user/createUser.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="createSmsTemplate">
+		<put name="title" value="SMS Template" />
+		<put name="body" value="/jsp/content/alert/createSmsTemplate.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="searchUserByIdPage">
+		<put name="title" value="Search User" />
+		<put name="body" value="/jsp/content/user/searchUserById.jsp" />
+	</definition>
+	<!-- Team 1 Start -->
+	<definition extends="baseLayout" name="searchUser">
+		<put name="title" value="Manage User" />
+		<put name="body" value="/jsp/content/user/searchUser.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="modifyUser">
+		<put name="title" value="Modify User" />
+		<put name="body" value="/jsp/content/user/createUser.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="viewUser">
+		<put name="title" value="View User" />
+		<put name="body" value="/jsp/content/user/viewUser.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="createRoleGroupPage">
+		<put name="title" value="Manage Role Group" />
+		<put name="body" value="/jsp/content/masterdata/createRoleGroup.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="searchRoleGroupPage">
+		<put name="title" value="Manage Role Groups" />
+		<put name="body" value="/jsp/content/masterdata/searchRoleGroup.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="searchParameterGroupPage">
+		<put name="title" value="Search Parameter Group Page" />
+		<put name="body" value="/jsp/content/masterdata/searchParameterGroup.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="createParameterGroupPage">
+		<put name="title" value="Manage Parameter Group" />
+		<put name="body" value="/jsp/content/masterdata/createParameterGroup.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="listRoleGroup">
+		<put name="title" value="Manage Parameter Groups" />
+		<put name="body" value="/jsp/content/masterdata/searchParameterGroup.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="myAccount">
+		<put name="title" value="My Profile" />
+		<put name="body" value="/jsp/content/user/myAccount.jsp" />
+	</definition>
+	<definition extends="loginLayout" name="forgetPassword">
+		<put name="title" value="Forgot Password" />
+		<put name="body" value="/jsp/content/user/forgetPassword.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="viewRole">
+		<put name="title" value="View Role" />
+		<put name="body" value="/jsp/content/masterdata/viewRoleGroup.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="viewParameter">
+		<put name="title" value="View Parameter" />
+		<put name="body" value="/jsp/content/masterdata/viewParameterGroup.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="assignParameterGroup">
+		<put name="title" value="Assign Parameter Group" />
+		<put name="body" value="/jsp/content/user/assignParameter.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="updateAssignRoleGroup">
+		<put name="title" value="Assign Role Group" />
+		<put name="body" value="/jsp/content/user/updateRoleAssignPage.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="assignRoleGroup">
+		<put name="title" value="Assign Role Group" />
+		<put name="body" value="/jsp/content/user/assignRoles.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="uploadGis">
+		<put name="title" value="Upload GIS" />
+		<put name="body" value="/jsp/content/gis/uploadGis.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="searchGis">
+		<put name="title" value="Manage Societies" />
+		<put name="body" value="/jsp/content/gis/searchSociety.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="viewGisMaster">
+		<put name="title" value="Manage Master GIS" />
+		<put name="body" value="/jsp/content/gis/manageMasterGIS.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="createSociety">
+		<put name="title" value="Create Society" />
+		<put name="body" value="/jsp/content/gis/createSociety.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="option82">
+		<put name="title" value="Option 82 Configuration" />
+		<put name="body" value="/jsp/content/masterdata/option82.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="createEmailServer">
+		<put name="title" value="Create Email Server" />
+		<put name="body" value="/jsp/content/masterdata/createEmailServer.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="searchEmailServer">
+		<put name="title" value="Manage Email Servers" />
+		<put name="body" value="/jsp/content/masterdata/searchEmailServer.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="smsManagement">
+		<put name="title" value="Manage SMS Gateways" />
+		<put name="body" value="/jsp/content/masterdata/smsConfiguration.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="searchSmsCofigurationPage">
+		<put name="title" value="SMS Management" />
+		<put name="body" value="/jsp/content/masterdata/searchSMSGateway.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="leadGeneration">
+		<put name="title" value="Lead Management" />
+		<put name="body" value="/jsp/content/lms/leadGeneration.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="viewCreatedLead">
+		<put name="title" value="Lead Management" />
+		<put name="body" value="/jsp/content/lms/viewSuccessLead.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="viewLeadDeatils">
+		<put name="title" value="Lead Management" />
+		<put name="body" value="/jsp/content/lms/viewLeads.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="lmsFileUpload">
+		<put name="title" value="Lead Management" />
+		<put name="body" value="/jsp/content/lms/lmsFileUpload.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="inbox">
+		<put name="title" value="Inbox" />
+		<put name="body" value="/jsp/content/lms/inbox.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="createRcaReason">
+		<put name="title" value="CRM Master" />
+		<put name="body" value="/jsp/content/masterdata/createRcaReason.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="addReceiptPage">
+		<put name="title" value="Add Receipt/CAF" />
+		<put name="body" value="/jsp/content/masterdata/addReceipt.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="searchEWUserPage">
+		<put name="title" value="Escalation and Workflow" />
+		<put name="body" value="/jsp/content/user/searchEWUser.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="ewUserMappingPage">
+		<put name="title" value="Search Escalation Workflow User" />
+		<put name="body" value="/jsp/content/user/escalationWorkflow.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="installationAndActivation">
+		<put name="title" value="Installation And Activation" />
+		<put name="body" value="/jsp/content/cap/create-InA.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="searchCrfPage">
+		<put name="title" value="Search CAF" />
+		<put name="body" value="/jsp/content/cap/searchCrf.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="cancelCRF">
+		<put name="title" value="Cancel CAF" />
+		<put name="body" value="/jsp/content/cap/cancelCRF.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="viewCrfPage">
+		<put name="title" value="View CAF Details" />
+		<put name="body" value="/jsp/content/cap/view-InA.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="crfValidatepage">
+		<put name="title" value="Validate of CAF Entry" />
+		<put name="body" value="/jsp/content/cap/validateCRFEntry.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="networkDetailsPage">
+		<put name="title" value="Network Details" />
+		<put name="body" value="/jsp/content/cap/networkDetails.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="mapMacIdDetailsPage">
+		<put name="title" value="Map MAC ID" />
+		<put name="body" value="/jsp/content/cap/mapMacId.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="salesCRFConfirmationPage">
+		<put name="title" value="CAF Confirmation" />
+		<put name="body" value="/jsp/content/cap/salesCRFConfirmation.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="viewCRFDetails">
+		<put name="title" value="CAF Details" />
+		<put name="body" value="/jsp/content/cap/view-InAFull.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="isrReportPage">
+		<put name="title" value="ISR Reports" />
+		<put name="body" value="/jsp/content/cap/installation-Satisfaction-Report.jsp" />
+	</definition>
+	
+	<!-- <definition extends="baseLayout" name="searchUserPopUp"> <put name="title" 
+		value="Search User Pop Up" /> <put name="body" value="/jsp/content/user/userMappingPopUP.jsp" 
+		/> </definition> -->
+	<!-- Team 1 Ends -->
+	<!-- Team 2 Starts -->
+	<definition extends="baseLayout" name="searchTemplate">
+		<put name="title" value="Manage Templates" />
+		<put name="body" value="/jsp/content/alert/searchTemplate.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="createEmailTemplate">
+		<put name="title" value="Email Template" />
+		<put name="body" value="/jsp/content/alert/createEmailTemplate.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="externalProjectPage">
+		<put name="title" value="Register External Project" />
+		<put name="body" value="/jsp/content/masterdata/registerExternalProject.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="searchExternalProject">
+		<put name="title" value="Manage External Projects" />
+		<put name="body" value="/jsp/content/masterdata/searchExternalProject.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="viewExternalProject">
+		<put name="title" value="View External Project" />
+		<put name="body" value="/jsp/content/masterdata/viewExtrProject.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="addModifyPartner">
+		<put name="title" value="Partner Registration" />
+		<put name="body" value="/jsp/content/masterdata/partnerManagement.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="searchPartner">
+		<put name="title" value="Manage Partners" />
+		<put name="body" value="/jsp/content/masterdata/searchPartner.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="eventTemplateMapping">
+		<put name="title" value="Event Template Mapping" />
+		<put name="body" value="/jsp/content/alert/eventTemplateMapping.jsp" />
+	</definition>
+	<definition extends="loginLayout" name="activateAccount">
+		<put name="title" value="Account Activation" />
+		<put name="header" value="/jsp/header/extHeader.jsp" />
+		<put name="body" value="/jsp/content/user/accountVarification.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="alertsConfig">
+		<put name="title" value="Alert Configuration Page" />
+		<put name="body" value="/jsp/content/masterdata/createAlertsConfiguration.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="assignServicePartner">
+		<put name="title" value="Assign Partners" />
+		<put name="body" value="/jsp/content/masterdata/assignServicePartner.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="addNPMobilePage">
+		<put name="title" value="Add NP Mobile" />
+		<put name="body" value="/jsp/content/masterdata/addNPMobilePage.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="paymentPostingPage">
+		<put name="title" value="Payment Posting" />
+		<put name="body" value="/jsp/content/finance/paymentPosting.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="paymentTrackingPage">
+		<put name="title" value="Payment Tracking" />
+		<put name="body" value="/jsp/content/finance/paymentTracking.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="paymentReversalPage">
+		<put name="title" value="Payment Reversal" />
+		<put name="body" value="/jsp/content/finance/paymentReversal.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="suspenseRejectedPaymentPage">
+		<put name="title" value="CMS Tracking" />
+		<put name="body" value="/jsp/content/finance/suspenseRejected.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="manualyUpfrontPaymentPage">
+		<put name="title" value="Manage Upfront Payment" />
+		<put name="body" value="/jsp/content/finance/manualEntryUFPayment.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="searchUpfrontPaymentPage">
+		<put name="title" value="Manage Upfront Payment" />
+		<put name="body" value="/jsp/content/finance/searchUFPaymentDetail.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="customerProfileSearchPage">
+		<put name="title" value="Customer Profile Search Details" />
+		<put name="body" value="/jsp/content/user/customerProfileSearch.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="fileUploadUFPaymentPage">
+		<put name="title" value="Upload Upfront Paymnent" />
+		<put name="body" value="/jsp/content/finance/fileUploadUFPayment.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="paymentGatewaysConfigPage">
+		<put name="title" value="Payment Gateways Configuration" />
+		<put name="body" value="/jsp/content/finance/paymentGatewaysConfigPage.jsp" />
+	</definition>
+	<!-- QRC JSPs Starts -->
+	<definition extends="baseLayout" name="qrcSearchCustomerPage">
+		<put name="title" value="Search Customer" />
+		<put name="body" value="/jsp/content/qrc/searchCustomer.jsp" />
+	</definition>
+	
+	<definition extends="qrcLayout" name="qrcCustomerProfile">
+		<put name="title" value="Customer Enquiry" />
+		<put name="body" value="/jsp/content/qrc/QRC.jsp" />
+		<!-- <put name="activity" value="/jsp/content/masterdata/customerActivityLog.jsp" 
+			/> -->
+	</definition>
+	<definition extends="qrcLayout" name="activityLogPage">
+		<put name="title" value="Activity Log" />
+		<put name="body" value="/jsp/content/qrc/activity_log.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="barringPage">
+		<put name="title" value="Barring" />
+		<put name="body" value="/jsp/content/qrc/barring.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="collectedPaymentPage">
+		<put name="title" value="QRC Log Page" />
+		<put name="body" value="/jsp/content/qrc/collected_payment_post.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="planMigrationPage">
+		<put name="title" value="QRC Log Page" />
+		<put name="body" value="/jsp/content/qrc/plan-migration.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="waiverPage">
+		<put name="title" value="Adjustment / Waiver" />
+		<put name="body" value="/jsp/content/qrc/waiver.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="ticketsPage">
+		<put name="title" value="QRC Tickets" />
+		<put name="body" value="/jsp/content/qrc/tickets.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="addSingleWhiteList">
+		<put name="title" value="QRC Whitelist Exception Customer" />
+		<put name="body" value="/jsp/content/qrc/addSingleWhiteList.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="viewTicket">
+		<put name="title" value="Ticket View" />
+		<put name="body" value="/jsp/content/qrc/ticket_view.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="editTicketPage">
+		<put name="title" value="QRC Log Page" />
+		<put name="body" value="/jsp/content/qrc/ticket_edit.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="disconnectionPage">
+		<put name="title" value="Disconnection"></put>
+		<put name="body" value="/jsp/content/qrc/disconnectionPage.jsp"></put>
+	</definition>
+	<definition extends="baseLayout" name="addressChangePage">
+		<put name="title" value="Installation Address Change"></put>
+		<put name="body" value="/jsp/content/qrc/addressChangePage.jsp"></put>
+	</definition>
+	<definition extends="qrcLayout" name="deviceChangePage">
+		<put name="title" value="Device Change"></put>
+		<put name="body" value="/jsp/content/qrc/deviceChange.jsp"></put>
+	</definition>
+	<definition extends="qrcLayout" name="tariffMigration">
+		<put name="title" value="Tariff Migration"></put>
+		<put name="body" value="/jsp/content/qrc/tariffMigration.jsp"></put>
+	</definition>
+	<definition extends="baseLayout" name="bulkWhitelistPage">
+		<put name="title" value="Bulk Whitelist Customers" />
+		<put name="body" value="/jsp/content/qrc/bulkWhitelistPage.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="customerInteractionPage">
+		<put name="title" value="Customer Interaction" />
+		<put name="body" value="/jsp/content/qrc/customerInteraction.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="configRcaPage">
+		<put name="title" value="QRC RCA Configuration" />
+		<put name="body" value="/jsp/content/qrcConfig/configureRcaPage.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="configResolutionCodePage">
+		<put name="title" value="Configure Resolution Code" />
+		<put name="body" value="/jsp/content/qrcConfig/configResolutionCodePage.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="configureSubSubCatPage">
+		<put name="title" value="Configure Sub Sub Categories" />
+		<put name="body" value="/jsp/content/qrcConfig/configureSubSubCatPage.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="configAttributedToPage">
+		<put name="title" value="Configure Attributed To" />
+		<put name="body" value="/jsp/content/qrcConfig/configAttributedTo.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="configFunctionalBinPage">
+		<put name="title" value="QRC Functional Bin Configuration" />
+		<put name="body" value="/jsp/content/qrcConfig/configFunctionalBinPage.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="addRemoveAccessoriesPage">
+		<put name="title" value="Add or Remove Accessories"></put>
+		<put name="body" value="/jsp/content/qrc/addRemoveAccessoriesPage.jsp"></put>
+	</definition>
+	<definition extends="baseLayout" name="customerStatusPage">
+		<put name="title" value="Manage Customers Status"></put>
+		<put name="body" value="/jsp/content/qrc/qrcCustomerStatus.jsp"></put>
+	</definition>
+	
+	<definition extends="baseLayout" name="bulkMountBoosterPage">
+		<put name="title" value="Bulk Mount Booster Upload" />
+		<put name="body" value="/jsp/content/qrc/bulkMountBoosterPage.jsp" />
+	</definition>
+
+	<definition extends="baseLayout" name="bulkValidityExtensionPage">
+		<put name="title" value="Bulk Validity Extension Upload" />
+		<put name="body" value="/jsp/content/qrc/bulkValidityExtensionPage.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="safeCustodyPage">
+		<put name="title" value="Safe Custody"></put>
+		<put name="body" value="/jsp/content/qrc/safeCustody.jsp"></put>
+	</definition>
+	<definition extends="qrcLayout" name="viewCustomerProfilePage">
+		<put name="title" value="Manage Profile"></put>
+		<put name="body" value="/jsp/content/qrc/qrcCustomerProfile.jsp"></put>
+	</definition>
+	
+	<definition extends="qrcLayout" name="viewCustomerBillCyclePage">
+		<put name="title" value="Manage Profile"></put>
+		<put name="body" value="/jsp/content/qrc/qrcCustomerBillCycle.jsp"></put>
+	</definition>
+	
+	<definition extends="baseLayout" name="viewWaiverPage">
+		<put name="title" value="View Waiver" />
+		<put name="body" value="/jsp/content/qrc/viewWaiver.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="updateWaiverPage">
+		<put name="title" value="Update Waiver" />
+		<put name="body" value="/jsp/content/qrc/updateWaiver.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="shiftingInitiationPage">
+		<put name="title" value="Initiate Shifting"></put>
+		<put name="body" value="/jsp/content/qrc/shiftingAddressInitiation.jsp"></put>
+	</definition>
+	<definition extends="baseLayout" name="ifrstage">
+		<put name="title" value="FT Level 1"></put>
+		<put name="body" value="/jsp/content/qrc/ifrStage.jsp"></put>
+	</definition>
+	<definition extends="baseLayout" name="installationPartnerStage">
+		<put name="title" value="SP Stage"></put>
+		<put name="body" value="/jsp/content/qrc/installationPartnerStage.jsp"></put>
+	</definition>
+	<definition extends="baseLayout" name="networkPartnerStage">
+		<put name="title" value="NP Stage"></put>
+		<put name="body" value="/jsp/content/qrc/networkPartnerStage.jsp"></put>
+	</definition>
+  
+   <definition extends="baseLayout" name="csdOutcallStage">
+    <put name="title" value="CSD Level 2"></put>
+    <put name="body" value="/jsp/content/qrc/csdOutcallStage.jsp"></put>
+  </definition>
+  
+  <definition extends="baseLayout" name="IfrEocLevel1">
+    <put name="title" value="IFR EOC Level 1"></put>
+    <put name="body" value="/jsp/content/qrc/IfrEocLevel1.jsp"></put>
+  </definition>
+  
+  <definition extends="baseLayout" name="CsdLevel3">
+    <put name="title" value="CSD Level 3"></put>
+    <put name="body" value="/jsp/content/qrc/CsdLevel3.jsp"></put>
+  </definition>
+ <definition extends="baseLayout" name="NOCLEVEL1">
+    <put name="title" value="NOC Level 1"></put>
+    <put name="body" value="/jsp/content/qrc/nocLevel1.jsp"></put>
+  </definition>
+  
+	
+	<definition extends="baseLayout" name="postRefundPage">
+		<put name="title" value="Refund Process" />
+		<put name="body" value="/jsp/content/finance/refundPayment.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="fileUploadPODPage">
+		<put name="title" value="Upload POD File" />
+		<put name="body" value="/jsp/content/finance/uploadPODFile.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="refundTrackingPage">
+		<put name="title" value="Refund Tracking" />
+		<put name="body" value="/jsp/content/finance/refundTracking.jsp" />
+	</definition>
+	
+	<definition extends="baseLayout" name="viewPodTrackingPage">
+		<put name="title" value="Suspence Rejected Record Tracking" />
+		<put name="body" value="/jsp/content/finance/viewPodTrackingPage.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="shiftingview">
+		<put name="title" value="Shifting View" />
+		<put name="body" value="/jsp/content/qrc/shiftingView.jsp" />
+	</definition>
+	<definition extends="massOutageLayout" name="addMassOutagePage">
+		<put name="title" value="Add Mass Outage" />
+		<put name="body" value="/jsp/content/qrc/addMassOutagePage.jsp" />
+	</definition>
+	<definition extends="massOutageLayout" name="editMassOutagePage">
+		<put name="title" value="Edit Mass Outage" />
+		<put name="body" value="/jsp/content/qrc/editMassOutagePage.jsp" />
+	</definition>
+    <definition extends="massOutageLayout" name="resolveMassOutagePage">
+		<put name="title" value="Resolve Mass Outage" />
+		<put name="body" value="/jsp/content/qrc/resolveMassOutagePage.jsp" />
+	</definition>
+	<definition extends="baseLayout" name="searchMassOutagePage">
+		<put name="title" value="Mass Outage Search" />
+		<put name="body" value="/jsp/content/qrc/searchMassOutagePage.jsp" />
+	</definition>
+	<definition extends="qrcLayout" name="gracePeriodPage">
+		<put name="title" value="Manage Profile"></put>
+		<put name="body" value="/jsp/content/qrc/gracePeriodPage.jsp"></put>
+	</definition>
+	
+	<definition extends="reportLayout" name="crfScanningReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportCRFScanning.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="crfDetailReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportCRFDetail.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="cancellationReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportCancellation.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="workorderInstallationReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportWorkorderInstallation.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="workorderPendancyReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportWorkorderPendancy.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="ftRejectionReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportFTRejection.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="isrPendancyReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportISRPendancy.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="srPReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportSRP.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="erpReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportERP.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="workorderGenerationReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportWorkorderGeneration.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="kpiReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportKPI.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="activationReport">
+		<put name="title" value="INA Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportActivation.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="qrcReportHome">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportAdjustment.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="churnReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportChurn.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="massOutageReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportMassOutage.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="interactionReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportInteraction.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="migrationReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportMigration.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="reactivationReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportReactivation.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="validityExtensionReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportValidityExtension.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="openTicketReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportOpenTicket.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="resolvedTickets">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportResolvedTickets.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="taggingReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportTagging.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="ticketReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportTicket.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="firstAssignedBinTicketReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportFirstAssignedBinTicket.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="categoryNSlaWiseResolveTicketReport">
+		<put name="title" value="QRC Reports"></put>
+		
+		
+		<put name="body" value="/jsp/content/reports/reportCategoryNSlaWiseResolveTicket .jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="categoryWiseReopenTicketReport">
+		<put name="title" value="QRC Reports"></put>
+		
+		<put name="body" value="/jsp/content/reports/reportCategorywiseReopenTicket.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="reopenTicketReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportReopenTicket.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="repeatTicketReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportRepeatTicket.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="safeCustodyReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportSafeCustody.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="barringReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportBarring.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="catWiseOpenTicketReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportCategoryWiseOpenTicket.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="userWiseOpenTicketReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportUserWiseOpenTicket.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="userWiseReOpenResolvedTktReport">
+		<put name="title" value="QRC Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportUsrWiseRRTkt.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="paymentReportPage">
+		<put name="title" value="Finance Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportPayment.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="lmsReport">
+		<put name="title" value="LMS Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportLMS.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="rfsReport">
+		<put name="title" value="RFS Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportRFS.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="outOfSlaTicketReport">
+		<put name="title" value="User Wise Out Of SLA Open Ticket Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportUsrWseOpnOutOfSLA.jsp"></put>
+	</definition>
+	<definition extends="reportLayout" name="catWiseResolveTicketReport">
+		<put name="title" value="Category Wise Resolve Ticket Reports"></put>
+		<put name="body" value="/jsp/content/reports/reportCtgryWiseResolveTckt.jsp"></put>
+	</definition>
+	<definition extends="baseLayout" name="addHolidayPage">
+		<put name="title" value="Add Holiday" />
+		<put name="body" value="/jsp/content/masterdata/addHoliday.jsp" />
+	</definition>
+<definition extends="baseLayout" name="assignAreaPage">
+		<put name="title" value="Assign Area" />
+		<put name="body" value="/jsp/content/user/assignArea.jsp" />
+	</definition>
+  <definition extends="baseLayout" name="userAlert">
+    <put name="title" value="User Alert Template" />
+    <put name="body" value="/jsp/content/alert/userAlert.jsp" />
+  </definition>
+	<!-- QRC JSPs Ends -->
+
+  </tiles-definitions>
+

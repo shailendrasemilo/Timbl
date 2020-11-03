@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 6, 2014 5:38:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmCustomerActivityPojo" table="crm_customer_activity" dynamic-update="true">
+        <cache usage="read-only"/>
+        <id name="activityId" type="java.lang.Long">
+            <column name="activity_id" />
+            <generator class="identity" />
+			
+        </id>
+        <property name="customerId" type="string">
+            <column name="customer_id" length="15" not-null="true" />
+        </property>
+        <property name="ticketId" type="string">
+            <column name="ticket_id" length="128" />
+        </property>
+        <property name="action" type="string">
+            <column name="action" length="20" not-null="true" />
+        </property>
+        <property name="reason" type="string">
+            <column name="reason" length="200" />
+        </property>
+        <property name="oldValue" type="string">
+            <column name="old_value" length="2048" />
+        </property>
+        <property name="newValue" type="string">
+            <column name="new_value" length="2048" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="clientIp" type="string">
+            <column name="client_ip" length="40"  />
+        </property>
+        <property name="serverIp" type="string">
+            <column name="server_ip" length="40"  />
+        </property>
+        <property name="serviceIp" type="string">
+            <column name="service_ip" length="40" />
+        </property>
+          <property name="additionalDetail" type="string">
+            <column name="additional_detail" length="45" />
+        </property>
+    </class>
+
+    
+     <sql-query name="MIGRATION_RPT" callable="false">	
+	<![CDATA[SELECT
+   cca.customer_id AS "customerId",
+   cca.old_value AS "oldValue",
+   cca.created_time AS "createdTime",
+   cca.new_value AS "newValue",
+   CASE cca.action WHEN 'CRMCA01' THEN 'Addon Plan Change'
+            WHEN 'CRMCA06' THEN 'Base Plan Migration' WHEN 'CRMCA40' THEN 'Plan Renewal - Base' WHEN 'CRMCA51' THEN 'Addon Plan Removal' WHEN 'CRMCA42' THEN 'Plan Reactivation - Base'
+            END AS "action"
+  FROM
+   crm_customer_activity cca,
+   crm_customer_details ccd
+  WHERE
+   cca.customer_id = ccd.customer_id
+  AND cca.action IN(:ACTION1 ,:ACTION2 ,:ACTION3,:ACTION4,:ACTION5)
+  AND ccd.service_type IN(:STYPE1 ,:STYPE2)
+  AND ccd.product IN(:SNAME1 ,:SNAME2 ,:SNAME3)
+  AND cca.created_time BETWEEN :FROM_DATE
+  AND :TO_DATE]]>
+	</sql-query>
+	 <sql-query name="VALIDITY_EXT_RPT" callable="false">
+      <![CDATA[SELECT 
+ ccd.customer_id AS "customerId",
+ ccd.cust_fname AS "custFname",
+ ccd.cust_lname AS "custLname",
+ ccd.service_type AS "serviceType",
+ ccd.product AS "product",
+ cca.created_time AS "activationDate",
+ cca.ticket_id AS "ticketId",
+ cca.additional_detail AS "extendedDays",
+ cr.remarks AS "remarks",
+ cca.reason AS "reason",
+ cca.created_by AS "raiseUser"
+ FROM 
+   crm_customer_details ccd
+   JOIN crm_customer_activity cca 
+    ON cca.customer_id=ccd.customer_id
+   JOIN crm_remarks cr 
+    ON cca.activity_id = cr.activity_id AND cr.mapping_type = 'QRC'
+    WHERE cca.ACTION = :action
+    AND cca.created_time BETWEEN :fromDate and :toDate
+     ]]>
+     </sql-query>
+	
+
+</hibernate-mapping>

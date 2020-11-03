@@ -1,0 +1,5 @@
+com\np\tele\crm\cap\bussinessmgr\CrmCapMgrImpl.class
+com\np\tele\crm\selfcare\bussinessmgr\SelfcareMgrImpl.class
+com\np\tele\crm\cap\bussinessmgr\ICrmCapMgr.class
+com\np\tele\crm\selfcare\bussinessmgr\ISelfcareMgr.class
+com\np\tele\crm\cap\service\CrmCapService.class

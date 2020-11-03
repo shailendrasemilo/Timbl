@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>tele.crm</groupId>
+	<artifactId>crm-parent-service</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>CRM Parent Service POM</name>
+	<description>Parent POM file for Tele CRM Service EAR Project</description>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<profiles>
+		<profile>
+			<id>siti</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>client</name>
+					<value>siti</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.0</version>
+						<configuration>
+							<verbose>false</verbose>
+							<fork>false</fork>
+							<source>1.6</source>
+							<target>1.6</target>
+							<!--<executable>C:/Program Files (x86)/Java/jdk1.6.0_31/bin/javac</executable> 
+								<compilerVersion>1.6</compilerVersion> -->
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.3</version>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<module>../crm-common-utils</module>
+				<module>../crm-service-utils</module>
+				<module>../crm-data-layer</module>
+				<module>../crm-config-service</module>
+				<module>../crm-alert-service</module>
+				<module>../crm-master-service</module>
+				<module>../crm-user-mngmt-service</module>
+				<module>../crm-gis-service</module>
+				<module>../crm-lms-service</module>
+				<module>../crm-external-trigger</module>
+				<module>../crm-report-service</module>
+				<module>../crm-service-ear</module>
+				<module>../crm-lms-wrapper</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>ri</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>client</name>
+					<value>ri</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.0</version>
+						<configuration>
+							<verbose>false</verbose>
+							<fork>false</fork>
+							<source>1.6</source>
+							<target>1.6</target>
+							<!--<executable>C:/Program Files (x86)/Java/jdk1.6.0_31/bin/javac</executable> 
+								<compilerVersion>1.6</compilerVersion> -->
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.3</version>
+					</plugin>
+				</plugins>
+			</build>
+			<modules>
+				<module>../crm-common-utils</module>
+				<module>../crm-service-utils</module>
+				<module>../crm-data-layer</module>
+				<module>../crm-billing-client</module>
+				<module>../crm-config-service</module>
+				<module>../crm-alert-service</module>
+				<module>../crm-master-service</module>
+				<module>../crm-user-mngmt-service</module>
+				<module>../crm-gis-service</module>
+				<module>../crm-lms-service</module>
+				<module>../crm-cap-service</module>
+				<module>../crm-finance-service</module>
+				<module>../crm-qrc-service</module>
+				<module>../crm-external-trigger</module>
+				<module>../crm-report-service</module>
+				<module>../crm-service-ear</module>
+			</modules>
+		</profile>
+	</profiles>
+
+
+</project>
+

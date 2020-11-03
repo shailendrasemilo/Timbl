@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 26, 2013 6:47:52 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmRcaReasonPojo" table="crm_master_configuration" dynamic-update="true">
+    <cache usage="read-write"/>
+        <id name="categoryId" type="java.lang.Long">
+            <column name="category_id" />
+            <generator class="identity" />
+        </id>
+        <property name="category" type="string" update="false">
+            <column name="category" length="50" not-null="true" />
+        </property>
+        <property name="subCategory" type="string" update="false">
+            <column name="sub_category" length="50" not-null="true" />
+        </property>
+        <property name="subSubCategory" type="string" update="false">
+            <column name="sub_sub_category" length="50" not-null="true" />
+        </property>
+        <property name="categoryAlias" type="string" insert="false" update="false">
+            <column name="category_alias" length="101"  />
+        </property>
+        <property name="categoryValue" type="string">
+            <column name="category_value" length="1024" not-null="true" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+        <property name="valueAlias" type="string">
+            <column name="value_alias" length="45" />
+        </property>
+        <property name="modificationAllowed" type="string" insert="false" update="false">
+            <column name="modification_allowed" length="1" />
+        </property>
+    </class>
+    <sql-query name="CategoryValuesByRange">	
+	<![CDATA[SELECT
+    category_value AS "categoryValue",
+    category_id AS "categoryIdentity",
+    category AS "category",
+    sub_category AS "subCategory",
+    sub_sub_category AS "subSubCategory",
+    category_alias AS "categoryAlias",
+    value_alias AS "valueAlias",
+    created_by AS "createdBy",
+    created_time AS "createdTime",
+    last_modified_by AS "lastModifiedBy",
+    last_modified_time AS "lastModifiedTime",
+    status AS "status"
+    FROM
+    crm_master_configuration
+    WHERE
+    category=:CATEGORY AND
+    sub_category=:SUB_CATEGORY AND
+    sub_sub_category=:SUB_SUB_CATEGORY AND 
+    category_value BETWEEN :RANGE_START AND :RANGE_END]]>
+  			
+	</sql-query>
+	<sql-query name="ParameterByothers" callable="false">	
+	<![CDATA[SELECT DATE_FORMAT(NOW(),'%d-%b-%Y %H:%i:%s ') AS CURRENTTIME FROM DUAL
+	]]>
+	</sql-query>
+</hibernate-mapping>

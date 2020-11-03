@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="configManagerDao" class="com.np.tele.crm.config.dao.ConfigManagerDaoImpl">
+	</bean>
+
+	<bean id="crmConfigBusiness"
+		class="com.np.tele.crm.config.businessmgr.CrmConfigBusinessImpl">
+		<property name="configManagerDao" ref="configManagerDao" />
+		<property name="billingTransactionDao" ref="billingTransactionDao" />
+		<property name="crmBillingManager" ref="crmBillingManager" />
+	</bean>
+
+	<bean id="crmConfigService" class="com.np.tele.crm.config.service.CRMConfigService">
+		<property name="crmConfigBusiness" ref="crmConfigBusiness" />
+	</bean>
+
+	<bean id="billingTransactionDao" class="com.np.tele.crm.billing.dao.CRMBillingTransactionDao" />
+	<bean id="crmBillingManager" class="com.np.tele.crm.billing.manager.CrmBillingManagerImpl">
+		<property name="billingConversionImpl" ref="billingConversionImpl" />
+	</bean>
+	<bean id="billingConversionImpl"
+		class="com.np.tele.crm.billing.manager.BillingConversionMgrImpl" />
+</beans>

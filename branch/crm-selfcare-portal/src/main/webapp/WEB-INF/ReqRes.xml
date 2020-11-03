@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payload>
+	<!-- Request -->
+	<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+		<soap:Body>
+			<ns2:PostPayment xmlns="http://schemas.datacontract.org/2004/07/" xmlns:ns2="h8SSRMS"
+				xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ns4="http://schemas.microsoft.com/2003/10/Serialization/">
+				<ns2:custpay>
+					<BankTransID>2000048T484</BankTransID>
+					<RefTransid>421_1426601418000</RefTransid>
+					<amount>10.0</amount>
+					<customerNo>2000048</customerNo>
+					<payDate>2015-03-17T00:00:00.000+05:30</payDate>
+					<paymentRefId>2000048T484</paymentRefId>
+					<paymethod>O</paymethod>
+					<pgwTransId>2000048T484</pgwTransId>
+				</ns2:custpay>
+				<ns2:Request>
+					<extTransactionId>2293</extTransactionId>
+					<password>api@nextra.com</password>
+					<requestDate>2015-03-17T19:40:18.610+05:30</requestDate>
+					<systemId>api@nextra.com</systemId>
+				</ns2:Request>
+			</ns2:PostPayment>
+		</soap:Body>
+	</soap:Envelope>
+	<!-- Response -->
+	<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+		<s:Body>
+			<PostPaymentResponse xmlns="h8SSRMS">
+				<PostPaymentResult xmlns:a="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+					<a:extTransactionId i:nil="true" />
+					<a:returnCode>1817</a:returnCode>
+					<a:returnMessage>Post payment is not possible for Suspended and Terminated customer.</a:returnMessage>
+					<a:transactionId>0</a:transactionId>
+					<a:Balance>0</a:Balance>
+				</PostPaymentResult>
+			</PostPaymentResponse>
+		</s:Body>
+	</s:Envelope>
+</payload>

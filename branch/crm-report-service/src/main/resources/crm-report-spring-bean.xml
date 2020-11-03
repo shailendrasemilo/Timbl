@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="reportOperationMgr"
+		class="com.np.tele.crm.report.businessmgr.ReportOperationMgrImpl">
+		<property name="crmBillingManager" ref="crmBillingManager" />
+		<property name="qrcReportDao" ref="qrcReportDao"></property>
+		<property name="inaReportDao" ref="inaReportDao"></property>
+	</bean>
+
+	<bean id="slaOperationMgrImpl"
+		class="com.np.tele.sla.businessmgr.SLABusinessMgrImpl">
+		<property name="slaManagerDoaImpl" ref="slaManagerDoaImpl"></property>
+	</bean>
+
+	<bean id="slaManagerDoaImpl" class="com.np.tele.crm.sla.dao.SLAManagerDaoImpl"></bean>
+
+	<bean id="inaReportDao" class="com.np.tele.crm.report.dao.INAReportDaoImpl"></bean>
+	<bean id="qrcReportDao" class="com.np.tele.crm.report.dao.QRCReportDaoImpl"></bean>
+	<bean id="crmBillingManager" class="com.np.tele.crm.billing.manager.CrmBillingManagerImpl">
+		<property name="billingConversionImpl" ref="billingConversionImpl" />
+	</bean>
+	<bean id="billingConversionImpl"
+		class="com.np.tele.crm.billing.manager.BillingConversionMgrImpl" />
+</beans>

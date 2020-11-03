@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 20, 2016 3:50:33 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmValueFirstRequestPojo"
+		table="crm_value_first_request" dynamic-update="true">
+		<id name="recordId" type="java.lang.Long">
+			<column name="record_id" />
+			<generator class="identity" />
+		</id>
+		<property name="reqTo" type="string">
+			<column name="req_to" length="128" not-null="true" />
+		</property>
+		<property name="reqMessage" type="string">
+			<column name="req_message" length="256" not-null="true" />
+		</property>
+		<property name="reqOprator" type="string">
+			<column name="req_oprator" length="35" not-null="true" />
+		</property>
+		<property name="reqFrom" type="string">
+			<column name="req_from" length="128" not-null="true" />
+		</property>
+		<property name="reqDate" type="timestamp">
+			<column name="req_date" length="7" not-null="true" />
+		</property>
+		<property name="createdBy" type="string">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp">
+			<column name="created_time" length="7" not-null="true" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+	</class>
+</hibernate-mapping>

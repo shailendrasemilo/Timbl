@@ -1,0 +1,5 @@
+com\np\tele\sla\businessmgr\SLABusinessMgrImpl.class
+com\np\tele\crm\report\businessmgr\IReportOperationMgr.class
+com\np\tele\crm\report\service\CRMReportService.class
+com\np\tele\crm\report\businessmgr\ReportOperationMgrImpl.class
+com\np\tele\sla\businessmgr\ISLABusinessMgr.class

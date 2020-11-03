@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 23, 2014 7:43:30 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmPartnerNetworkConfigPojo" table="crm_partner_network_config" dynamic-update="true">
+        <cache usage="read-write"/>
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />
+            <generator class="identity" />
+        </id>
+        <property name="partnerDetailsId" type="long">
+            <column name="partner_details_id" precision="10" scale="0" not-null="true" />
+        </property>
+        <property name="oltType" type="string">
+            <column name="olt_type" length="2" />
+        </property>
+        <property name="parameterSequenceNo" type="java.lang.Byte">
+            <column name="parameter_sequence_no" />
+        </property>
+        <property name="parameterId" type="java.lang.Long">
+            <column name="parameter_id" />
+        </property>
+        <property name="masterName" type="string">
+            <column name="master_name" length="50" />
+        </property>
+        <property name="nasPortId" type="string">
+            <column name="nas_port_id" length="50" />
+        </property>
+        <property name="poolName" type="string">
+            <column name="pool_name" length="50" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+    </class>
+</hibernate-mapping>

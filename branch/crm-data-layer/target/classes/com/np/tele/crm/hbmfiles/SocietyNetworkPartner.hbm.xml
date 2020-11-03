@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28 Aug, 2013 11:28:13 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.SocietyNetworkPartnerPojo"
+		table="crm_society_network_partner" dynamic-update="true">
+        <cache usage="read-write"/>
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+				
+		</id>
+		<!-- <many-to-one name="society" class="com.np.tele.crm.pojos.SocietyPojo" 
+			fetch="select"> <column name="SOCIETY_ID" precision="10" scale="0" not-null="true" 
+			/> </many-to-one> -->
+		<!-- <many-to-one name="partner" class="com.np.tele.crm.pojos.PartnerPojo"
+			fetch="join" lazy="false">
+			<column name="NETWORK_PARTNER_ID" precision="10" scale="0"
+				not-null="true" />
+		</many-to-one> -->
+		
+		<property name="partnerId" type="long">
+			<column name="network_partner_id" precision="10" scale="0" not-null="true" />
+		</property>
+		
+		<property name="societyId" type="long">
+			<column name="society_id" precision="10" scale="0" not-null="true" />
+		</property>
+
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false" >
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="productName" type="string">
+			<column name="product_name" length="50" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="status" type="string">
+            <column name="status" length="2" />
+		</property>
+		<property name="rfsDus" type="java.lang.Long">
+            <column name="rfs_dus" length="20"/>
+		</property>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://service.tpe.tbms.suntecgroup.com" xmlns:ax217="http://request.service.tpe.tbms.suntecgroup.com/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax219="http://response.service.tpe.tbms.suntecgroup.com/xsd" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ax212="http://rmi.java/xsd" xmlns:ax221="http://request.service.commons.tbms.suntecgroup.com/xsd" xmlns:ax222="http://utilities.service.commons.tbms.suntecgroup.com/xsd" xmlns:ax213="http://io.java/xsd" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax225="http://response.service.commons.tbms.suntecgroup.com/xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://service.tpe.tbms.suntecgroup.com">
+    <wsdl:documentation>
+		WebService for TPE
+	</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns:ax215="http://io.java/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://rmi.java/xsd">
+            <xs:import namespace="http://io.java/xsd"/>
+            <xs:complexType name="RemoteException">
+                <xs:complexContent>
+                    <xs:extension base="ax213:IOException">
+                        <xs:sequence>
+                            <xs:element minOccurs="0" name="cause" nillable="true" type="xs:anyType"/>
+                            <xs:element minOccurs="0" name="message" nillable="true" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://utilities.service.commons.tbms.suntecgroup.com/xsd">
+            <xs:complexType name="AbstractServiceObject">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="fieldId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="format" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="operator" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="type" type="xs:byte"/>
+                    <xs:element minOccurs="0" name="value" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://request.service.tpe.tbms.suntecgroup.com/xsd">
+            <xs:complexType name="VoucherServiceRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="activity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="amount" type="xs:double"/>
+                    <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="plan" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="reqstId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestTime" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="sourceId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="subscriberId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="validity" type="xs:int"/>
+                    <xs:element minOccurs="0" name="voucherPin" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="TransferServiceRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="activity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="amount" type="xs:double"/>
+                    <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestTime" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="sourceId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="subscriberId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="toCustomerId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="toSubscriberId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="validity" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="TopUpServiceRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="activity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="amount" type="xs:double"/>
+                    <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="reqstId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestTime" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="sourceId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="subscriberId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user3" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RevokeServiceRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="activity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="reasonCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="reqstId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RechargeServiceRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="activity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="amount" type="xs:double"/>
+                    <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="reqstId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestTime" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="sourceId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="subscriberId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="validity" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BalanceServiceRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="activity" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="amount" type="xs:double"/>
+                    <xs:element minOccurs="0" name="creditDebitYn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="negativeAllowedYN" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="reasonCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="reqstId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestCurrency" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestTime" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="revokeYn" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="sourceId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="subscriberId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user3" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax214="http://service.tpe.tbms.suntecgroup.com" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://io.java/xsd">
+            <xs:import namespace="http://service.tpe.tbms.suntecgroup.com"/>
+            <xs:complexType name="IOException">
+                <xs:complexContent>
+                    <xs:extension base="ns:Exception">
+                        <xs:sequence/>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax223="http://utilities.service.commons.tbms.suntecgroup.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://request.service.commons.tbms.suntecgroup.com/xsd">
+            <xs:import namespace="http://utilities.service.commons.tbms.suntecgroup.com/xsd"/>
+            <xs:complexType name="ProcessRequest">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="abstractObjs" nillable="true" type="ax223:AbstractServiceObject"/>
+                    <xs:element minOccurs="0" name="batchId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="officeId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="recordId" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RepriceRequest">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="changes" nillable="true" type="ax221:ChangeRequest"/>
+                    <xs:element minOccurs="0" name="criteriaForBilled" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="criteriaForUnBilled" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="officeCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestType" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ChangeRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="keyFieldValue" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="operationType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tableName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="uniqueId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="viewName" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PriceRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="AArea" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ANumber" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="ARbs" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BArea" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BNumber" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BRbs" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="CNumber" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="chcCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="computationScheme" type="xs:int"/>
+                    <xs:element minOccurs="0" name="cost" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="currencyISOCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="customerId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="dayBreakCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="dirCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="fsdCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="inOprId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="inRoute" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="officeCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="operatorId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="outOprId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="outRoute" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="perspCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="priceRoundingModel" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="priceRoundingPrecision" type="xs:int"/>
+                    <xs:element minOccurs="0" name="pricingActId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pricingScheme" type="xs:int"/>
+                    <xs:element minOccurs="0" name="product" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="productvariant" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="qosCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="qosObt" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="qosReq" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="rbsCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="refId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="requestTime" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="routeCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="soTcgHier" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="switchName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tariffClass" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tdrSource" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tfCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="timeBreakCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="transDate" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="transToDate" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="transValueClass" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactinoId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="unitType" type="xs:int"/>
+                    <xs:element minOccurs="0" name="usageUnits" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="user01" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user02" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user03" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user04" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user05" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user06" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user07" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user08" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user09" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user10" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user11" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user12" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user13" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user14" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user15" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user16" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="user17" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userData1" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="userData2" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="userData3" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="userData4" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="userData5" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="userDate01" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="userDate02" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="userDate03" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="userDir1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userDir2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userDir3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userDir4" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userDir5" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userExtnPhNo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userField1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userField2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userField3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userField4" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userField5" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userFlag1" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userFlag2" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userFlag3" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userFlag4" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userFlag5" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userNum01" type="xs:long"/>
+                    <xs:element minOccurs="0" name="userNum02" type="xs:long"/>
+                    <xs:element minOccurs="0" name="userNum03" type="xs:long"/>
+                    <xs:element minOccurs="0" name="userPrice1" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="userPrice2" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="userPrice3" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="userPrice4" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="userPrice5" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="userPrice6" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="usgRoundingPlan" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="usgRoundingPrecision" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="CostApportionRequest">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="chargeCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cost" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="fromDate" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="toDate" nillable="true" type="xs:dateTime"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://response.service.tpe.tbms.suntecgroup.com/xsd">
+            <xs:complexType name="BalanceServiceResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="balance" type="xs:double"/>
+                    <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="status" type="xs:int"/>
+                    <xs:element minOccurs="0" name="time" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transferrerBalance" type="xs:double"/>
+                    <xs:element minOccurs="0" name="validityUpto" nillable="true" type="xs:dateTime"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax226="http://utilities.service.commons.tbms.suntecgroup.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://response.service.commons.tbms.suntecgroup.com/xsd">
+            <xs:import namespace="http://utilities.service.commons.tbms.suntecgroup.com/xsd"/>
+            <xs:complexType name="ProcessResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="abstractServiceObjects" nillable="true" type="ax226:AbstractServiceObject"/>
+                    <xs:element minOccurs="0" name="errCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="officeId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="priceResponse" nillable="true" type="ax225:PriceResponse"/>
+                    <xs:element minOccurs="0" name="recordId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="refResponseId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="responseId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="sourceType" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="PriceResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="AArea" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="AAreaChargeDistrict" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BArea" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="BAreaChargeDistrict" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="aArea" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="aAreaChargeDistrict" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="accountId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="actNumber" type="xs:int"/>
+                    <xs:element minOccurs="0" name="appliedUnits" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="associationCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="bArea" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="bAreaChargeDistrict" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="baseRecId" type="xs:int"/>
+                    <xs:element minOccurs="0" name="baseUId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="billSch" type="xs:int"/>
+                    <xs:element minOccurs="0" name="billedCustNo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="categoryCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="chargeableUnits" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="chcCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="chcType" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="computationSchemeCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="consnCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cost" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="crDb" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cugCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="currencyISOCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="custNumber" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="dayBreakCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="dirCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="fixedCharge" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="freqId" type="xs:int"/>
+                    <xs:element minOccurs="0" name="fsdCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="holidayCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="homeArea" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="inferredYN" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="instalId" type="xs:int"/>
+                    <xs:element minOccurs="0" name="mainServiceClass" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pcpDet" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="perspCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="poolCustNo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="price" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="priceInCustCurrency" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="priceMode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="priceRoundingModel" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="priceRoundingPrecision" type="xs:int"/>
+                    <xs:element minOccurs="0" name="pricingActId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pricingActNo" type="xs:int"/>
+                    <xs:element minOccurs="0" name="pricingCustNo" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pricingCwtExpln" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pricingExpln" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="pricingResponses" nillable="true" type="ax225:PriceResponse"/>
+                    <xs:element minOccurs="0" name="pricingSchemeCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="product" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="productVariant" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="qosCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="refNoId" type="xs:int"/>
+                    <xs:element minOccurs="0" name="regionCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="relComputationSchemeCode" type="xs:long"/>
+                    <xs:element minOccurs="0" name="relTcRecId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="relativeProduct" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="serviceCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="setUpCharge" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="soTcgHier" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="status" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="stdComputationSchemeCode" type="xs:long"/>
+                    <xs:element minOccurs="0" name="stvBaseTvRecId" type="xs:int"/>
+                    <xs:element minOccurs="0" name="stvId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="switchCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="taxAmt" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="tcgCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tcgDiscount" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="tcsRecId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="tfCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="timeBreakCode" type="xs:int"/>
+                    <xs:element minOccurs="0" name="timeZoneCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="totTaxExpln" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tsRecId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="tvInd" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tvRecId" type="xs:int"/>
+                    <xs:element minOccurs="0" name="tvUId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="unitType" type="xs:int"/>
+                    <xs:element minOccurs="0" name="usageUnits" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="usgFactor" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="usgMethod" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="validityId" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RepriceResponseWrapper">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="errCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errMessage" nillable="true" type="xs:string"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="repriceResponses" nillable="true" type="ax225:RepriceResponse"/>
+                    <xs:element minOccurs="0" name="repriceStatus" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="RepriceResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="actNumber" type="xs:long"/>
+                    <xs:element minOccurs="0" name="billedOrUnbilled" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="currency" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="newPrice" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="oldPrice" nillable="true" type="xs:decimal"/>
+                    <xs:element minOccurs="0" name="stvId" type="xs:long"/>
+                    <xs:element minOccurs="0" name="tvUId" type="xs:long"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="BalancePriceResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="availableBalance" type="xs:double"/>
+                    <xs:element minOccurs="0" name="balAvailable" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="currentBalance" type="xs:double"/>
+                    <xs:element minOccurs="0" name="error" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="hierachiYN" type="xs:boolean"/>
+                    <xs:element minOccurs="0" name="orgPrice" type="xs:double"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="priceResponses" nillable="true" type="ax225:PriceResponse"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Response">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="errorCode" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="errorMessage" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="status" type="xs:int"/>
+                    <xs:element minOccurs="0" name="time" nillable="true" type="xs:dateTime"/>
+                    <xs:element minOccurs="0" name="transactionId" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+        <xs:schema xmlns:ax216="http://rmi.java/xsd" xmlns:ax218="http://request.service.tpe.tbms.suntecgroup.com/xsd" xmlns:ax227="http://response.service.commons.tbms.suntecgroup.com/xsd" xmlns:ax220="http://response.service.tpe.tbms.suntecgroup.com/xsd" xmlns:ax224="http://request.service.commons.tbms.suntecgroup.com/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.tpe.tbms.suntecgroup.com">
+            <xs:import namespace="http://rmi.java/xsd"/>
+            <xs:import namespace="http://request.service.tpe.tbms.suntecgroup.com/xsd"/>
+            <xs:import namespace="http://response.service.tpe.tbms.suntecgroup.com/xsd"/>
+            <xs:import namespace="http://request.service.commons.tbms.suntecgroup.com/xsd"/>
+            <xs:import namespace="http://response.service.commons.tbms.suntecgroup.com/xsd"/>
+            <xs:complexType name="Exception">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="Exception" nillable="true" type="xs:anyType"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="RemoteException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="RemoteException" nillable="true" type="ax212:RemoteException"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="voucherRecharge">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="voucherServiceRequest" nillable="true" type="ax218:VoucherServiceRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="voucherRechargeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax220:BalanceServiceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="transfer">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="transferServiceRequest" nillable="true" type="ax218:TransferServiceRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="transferResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax220:BalanceServiceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="topUp">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="topUpServiceRequest" nillable="true" type="ax218:TopUpServiceRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="topUpResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax220:BalanceServiceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="revoke">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="revokeServiceRequest" nillable="true" type="ax218:RevokeServiceRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="revokeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax220:BalanceServiceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="reprocess">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="criteria" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="reprocessResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax220:BalanceServiceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="recharge">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="rechargeServiceRequest" nillable="true" type="ax218:RechargeServiceRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="rechargeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax220:BalanceServiceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="processTransaction">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="txnSource" nillable="true" type="xs:string"/>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="processRequests" nillable="true" type="ax224:ProcessRequest"/>
+                        <xs:element minOccurs="0" name="mode" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="OfficeCode" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="processTransactionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax225:ProcessResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="processOnlineRepriceRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="repriceRequest" nillable="true" type="ax224:RepriceRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="processOnlineRepriceRequestResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax225:RepriceResponseWrapper"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="priceTransaction">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="priceRequests" nillable="true" type="ax224:PriceRequest"/>
+                        <xs:element minOccurs="0" name="officeCode" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="priceTransactionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax225:PriceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="priceEnquiry">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="priceRequests" nillable="true" type="ax224:PriceRequest"/>
+                        <xs:element minOccurs="0" name="officeCode" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="priceEnquiryResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax225:PriceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getBalance">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="entityId" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="entityType" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getBalanceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax220:BalanceServiceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="directDebit">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="priceRequest" nillable="true" type="ax224:PriceRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="directDebitResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax225:BalancePriceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="directCredit">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="priceRequest" nillable="true" type="ax224:PriceRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="directCreditResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax225:BalancePriceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="checkBalance">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="priceRequest" nillable="true" type="ax224:PriceRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="checkBalanceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax225:BalancePriceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="apportionCost">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="costApportionRequests" nillable="true" type="ax224:CostApportionRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="apportionCostResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax225:Response"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="adjustBalance">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="balanceServiceRequest" nillable="true" type="ax218:BalanceServiceRequest"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="adjustBalanceResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax220:BalanceServiceResponse"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="topUpRequest">
+        <wsdl:part name="parameters" element="ns:topUp"/>
+    </wsdl:message>
+    <wsdl:message name="topUpResponse">
+        <wsdl:part name="parameters" element="ns:topUpResponse"/>
+    </wsdl:message>
+    <wsdl:message name="RemoteException">
+        <wsdl:part name="parameters" element="ns:RemoteException"/>
+    </wsdl:message>
+    <wsdl:message name="voucherRechargeRequest">
+        <wsdl:part name="parameters" element="ns:voucherRecharge"/>
+    </wsdl:message>
+    <wsdl:message name="voucherRechargeResponse">
+        <wsdl:part name="parameters" element="ns:voucherRechargeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="apportionCostRequest">
+        <wsdl:part name="parameters" element="ns:apportionCost"/>
+    </wsdl:message>
+    <wsdl:message name="apportionCostResponse">
+        <wsdl:part name="parameters" element="ns:apportionCostResponse"/>
+    </wsdl:message>
+    <wsdl:message name="processTransactionRequest">
+        <wsdl:part name="parameters" element="ns:processTransaction"/>
+    </wsdl:message>
+    <wsdl:message name="processTransactionResponse">
+        <wsdl:part name="parameters" element="ns:processTransactionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="transferRequest">
+        <wsdl:part name="parameters" element="ns:transfer"/>
+    </wsdl:message>
+    <wsdl:message name="transferResponse">
+        <wsdl:part name="parameters" element="ns:transferResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getBalanceRequest">
+        <wsdl:part name="parameters" element="ns:getBalance"/>
+    </wsdl:message>
+    <wsdl:message name="getBalanceResponse">
+        <wsdl:part name="parameters" element="ns:getBalanceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="priceEnquiryRequest">
+        <wsdl:part name="parameters" element="ns:priceEnquiry"/>
+    </wsdl:message>
+    <wsdl:message name="priceEnquiryResponse">
+        <wsdl:part name="parameters" element="ns:priceEnquiryResponse"/>
+    </wsdl:message>
+    <wsdl:message name="rechargeRequest">
+        <wsdl:part name="parameters" element="ns:recharge"/>
+    </wsdl:message>
+    <wsdl:message name="rechargeResponse">
+        <wsdl:part name="parameters" element="ns:rechargeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="adjustBalanceRequest">
+        <wsdl:part name="parameters" element="ns:adjustBalance"/>
+    </wsdl:message>
+    <wsdl:message name="adjustBalanceResponse">
+        <wsdl:part name="parameters" element="ns:adjustBalanceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="reprocessRequest">
+        <wsdl:part name="parameters" element="ns:reprocess"/>
+    </wsdl:message>
+    <wsdl:message name="reprocessResponse">
+        <wsdl:part name="parameters" element="ns:reprocessResponse"/>
+    </wsdl:message>
+    <wsdl:message name="revokeRequest">
+        <wsdl:part name="parameters" element="ns:revoke"/>
+    </wsdl:message>
+    <wsdl:message name="revokeResponse">
+        <wsdl:part name="parameters" element="ns:revokeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="directCreditRequest">
+        <wsdl:part name="parameters" element="ns:directCredit"/>
+    </wsdl:message>
+    <wsdl:message name="directCreditResponse">
+        <wsdl:part name="parameters" element="ns:directCreditResponse"/>
+    </wsdl:message>
+    <wsdl:message name="checkBalanceRequest">
+        <wsdl:part name="parameters" element="ns:checkBalance"/>
+    </wsdl:message>
+    <wsdl:message name="checkBalanceResponse">
+        <wsdl:part name="parameters" element="ns:checkBalanceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="priceTransactionRequest">
+        <wsdl:part name="parameters" element="ns:priceTransaction"/>
+    </wsdl:message>
+    <wsdl:message name="priceTransactionResponse">
+        <wsdl:part name="parameters" element="ns:priceTransactionResponse"/>
+    </wsdl:message>
+    <wsdl:message name="processOnlineRepriceRequestRequest">
+        <wsdl:part name="parameters" element="ns:processOnlineRepriceRequest"/>
+    </wsdl:message>
+    <wsdl:message name="processOnlineRepriceRequestResponse">
+        <wsdl:part name="parameters" element="ns:processOnlineRepriceRequestResponse"/>
+    </wsdl:message>
+    <wsdl:message name="directDebitRequest">
+        <wsdl:part name="parameters" element="ns:directDebit"/>
+    </wsdl:message>
+    <wsdl:message name="directDebitResponse">
+        <wsdl:part name="parameters" element="ns:directDebitResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="TPEWebServicePortType">
+        <wsdl:operation name="topUp">
+            <wsdl:input message="ns:topUpRequest" wsaw:Action="urn:topUp"/>
+            <wsdl:output message="ns:topUpResponse" wsaw:Action="urn:topUpResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:topUpRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="voucherRecharge">
+            <wsdl:input message="ns:voucherRechargeRequest" wsaw:Action="urn:voucherRecharge"/>
+            <wsdl:output message="ns:voucherRechargeResponse" wsaw:Action="urn:voucherRechargeResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:voucherRechargeRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="apportionCost">
+            <wsdl:input message="ns:apportionCostRequest" wsaw:Action="urn:apportionCost"/>
+            <wsdl:output message="ns:apportionCostResponse" wsaw:Action="urn:apportionCostResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:apportionCostRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="processTransaction">
+            <wsdl:input message="ns:processTransactionRequest" wsaw:Action="urn:processTransaction"/>
+            <wsdl:output message="ns:processTransactionResponse" wsaw:Action="urn:processTransactionResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:processTransactionRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="transfer">
+            <wsdl:input message="ns:transferRequest" wsaw:Action="urn:transfer"/>
+            <wsdl:output message="ns:transferResponse" wsaw:Action="urn:transferResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:transferRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="getBalance">
+            <wsdl:input message="ns:getBalanceRequest" wsaw:Action="urn:getBalance"/>
+            <wsdl:output message="ns:getBalanceResponse" wsaw:Action="urn:getBalanceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="priceEnquiry">
+            <wsdl:input message="ns:priceEnquiryRequest" wsaw:Action="urn:priceEnquiry"/>
+            <wsdl:output message="ns:priceEnquiryResponse" wsaw:Action="urn:priceEnquiryResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:priceEnquiryRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="recharge">
+            <wsdl:input message="ns:rechargeRequest" wsaw:Action="urn:recharge"/>
+            <wsdl:output message="ns:rechargeResponse" wsaw:Action="urn:rechargeResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:rechargeRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="adjustBalance">
+            <wsdl:input message="ns:adjustBalanceRequest" wsaw:Action="urn:adjustBalance"/>
+            <wsdl:output message="ns:adjustBalanceResponse" wsaw:Action="urn:adjustBalanceResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:adjustBalanceRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="reprocess">
+            <wsdl:input message="ns:reprocessRequest" wsaw:Action="urn:reprocess"/>
+            <wsdl:output message="ns:reprocessResponse" wsaw:Action="urn:reprocessResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:reprocessRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="revoke">
+            <wsdl:input message="ns:revokeRequest" wsaw:Action="urn:revoke"/>
+            <wsdl:output message="ns:revokeResponse" wsaw:Action="urn:revokeResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:revokeRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="directCredit">
+            <wsdl:input message="ns:directCreditRequest" wsaw:Action="urn:directCredit"/>
+            <wsdl:output message="ns:directCreditResponse" wsaw:Action="urn:directCreditResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="checkBalance">
+            <wsdl:input message="ns:checkBalanceRequest" wsaw:Action="urn:checkBalance"/>
+            <wsdl:output message="ns:checkBalanceResponse" wsaw:Action="urn:checkBalanceResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="priceTransaction">
+            <wsdl:input message="ns:priceTransactionRequest" wsaw:Action="urn:priceTransaction"/>
+            <wsdl:output message="ns:priceTransactionResponse" wsaw:Action="urn:priceTransactionResponse"/>
+            <wsdl:fault message="ns:RemoteException" name="RemoteException" wsaw:Action="urn:priceTransactionRemoteException"/>
+        </wsdl:operation>
+        <wsdl:operation name="processOnlineRepriceRequest">
+            <wsdl:input message="ns:processOnlineRepriceRequestRequest" wsaw:Action="urn:processOnlineRepriceRequest"/>
+            <wsdl:output message="ns:processOnlineRepriceRequestResponse" wsaw:Action="urn:processOnlineRepriceRequestResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="directDebit">
+            <wsdl:input message="ns:directDebitRequest" wsaw:Action="urn:directDebit"/>
+            <wsdl:output message="ns:directDebitResponse" wsaw:Action="urn:directDebitResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TPEWebServiceSoap11Binding" type="ns:TPEWebServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="topUp">
+            <soap:operation soapAction="urn:topUp" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="apportionCost">
+            <soap:operation soapAction="urn:apportionCost" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="voucherRecharge">
+            <soap:operation soapAction="urn:voucherRecharge" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="transfer">
+            <soap:operation soapAction="urn:transfer" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="processTransaction">
+            <soap:operation soapAction="urn:processTransaction" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="priceEnquiry">
+            <soap:operation soapAction="urn:priceEnquiry" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getBalance">
+            <soap:operation soapAction="urn:getBalance" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recharge">
+            <soap:operation soapAction="urn:recharge" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="reprocess">
+            <soap:operation soapAction="urn:reprocess" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="adjustBalance">
+            <soap:operation soapAction="urn:adjustBalance" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="revoke">
+            <soap:operation soapAction="urn:revoke" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="directCredit">
+            <soap:operation soapAction="urn:directCredit" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="priceTransaction">
+            <soap:operation soapAction="urn:priceTransaction" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="checkBalance">
+            <soap:operation soapAction="urn:checkBalance" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="processOnlineRepriceRequest">
+            <soap:operation soapAction="urn:processOnlineRepriceRequest" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="directDebit">
+            <soap:operation soapAction="urn:directDebit" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="TPEWebServiceSoap12Binding" type="ns:TPEWebServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="topUp">
+            <soap12:operation soapAction="urn:topUp" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="apportionCost">
+            <soap12:operation soapAction="urn:apportionCost" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="voucherRecharge">
+            <soap12:operation soapAction="urn:voucherRecharge" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="transfer">
+            <soap12:operation soapAction="urn:transfer" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="processTransaction">
+            <soap12:operation soapAction="urn:processTransaction" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="priceEnquiry">
+            <soap12:operation soapAction="urn:priceEnquiry" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getBalance">
+            <soap12:operation soapAction="urn:getBalance" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recharge">
+            <soap12:operation soapAction="urn:recharge" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="reprocess">
+            <soap12:operation soapAction="urn:reprocess" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="adjustBalance">
+            <soap12:operation soapAction="urn:adjustBalance" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="revoke">
+            <soap12:operation soapAction="urn:revoke" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="directCredit">
+            <soap12:operation soapAction="urn:directCredit" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="priceTransaction">
+            <soap12:operation soapAction="urn:priceTransaction" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="RemoteException">
+                <soap12:fault use="literal" name="RemoteException"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="checkBalance">
+            <soap12:operation soapAction="urn:checkBalance" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="processOnlineRepriceRequest">
+            <soap12:operation soapAction="urn:processOnlineRepriceRequest" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="directDebit">
+            <soap12:operation soapAction="urn:directDebit" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="TPEWebServiceHttpBinding" type="ns:TPEWebServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="topUp">
+            <http:operation location="TPEWebService/topUp"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="topUp"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="topUp"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="apportionCost">
+            <http:operation location="TPEWebService/apportionCost"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="apportionCost"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="apportionCost"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="voucherRecharge">
+            <http:operation location="TPEWebService/voucherRecharge"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="voucherRecharge"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="voucherRecharge"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="transfer">
+            <http:operation location="TPEWebService/transfer"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="transfer"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="transfer"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="processTransaction">
+            <http:operation location="TPEWebService/processTransaction"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="processTransaction"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="processTransaction"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="priceEnquiry">
+            <http:operation location="TPEWebService/priceEnquiry"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="priceEnquiry"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="priceEnquiry"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getBalance">
+            <http:operation location="TPEWebService/getBalance"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="getBalance"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="getBalance"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="recharge">
+            <http:operation location="TPEWebService/recharge"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="recharge"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="recharge"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="reprocess">
+            <http:operation location="TPEWebService/reprocess"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="reprocess"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="reprocess"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="adjustBalance">
+            <http:operation location="TPEWebService/adjustBalance"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="adjustBalance"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="adjustBalance"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="revoke">
+            <http:operation location="TPEWebService/revoke"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="revoke"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="revoke"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="directCredit">
+            <http:operation location="TPEWebService/directCredit"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="directCredit"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="directCredit"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="priceTransaction">
+            <http:operation location="TPEWebService/priceTransaction"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="priceTransaction"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="priceTransaction"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="checkBalance">
+            <http:operation location="TPEWebService/checkBalance"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="checkBalance"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="checkBalance"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="processOnlineRepriceRequest">
+            <http:operation location="TPEWebService/processOnlineRepriceRequest"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="processOnlineRepriceRequest"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="processOnlineRepriceRequest"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="directDebit">
+            <http:operation location="TPEWebService/directDebit"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="directDebit"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="directDebit"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="TPEWebService">
+        <wsdl:port name="TPEWebServiceHttpEndpoint" binding="ns:TPEWebServiceHttpBinding">
+            <http:address location="http://103.14.124.32:8085/tbms/services/TPEWebService.TPEWebServiceHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

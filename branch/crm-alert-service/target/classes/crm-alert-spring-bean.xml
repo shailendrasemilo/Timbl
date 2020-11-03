@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="alertsTemplateMgr" class="com.np.tele.crm.alerts.businessmgr.AlertsTemplateMgrImpl">
+		<property name="alertTemplateDao" ref="alertTemplateDao"></property>
+		<property name="configManagerDao" ref="configManagerDao"></property>
+	</bean>
+	<bean id="alertTemplateDao" class="com.np.tele.crm.alert.dao.AlertTemplateDaoImpl"></bean>
+	<bean id="configManagerDao" class="com.np.tele.crm.config.dao.ConfigManagerDaoImpl"></bean>
+</beans>

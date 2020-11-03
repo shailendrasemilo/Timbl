@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25 May, 2017 5:03:48 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmCustAadharNumberPojo"
+		dynamic-update="true" table="crm_cust_aadhar_number">
+		<id name="recordId" type="java.lang.Long">
+			<column name="record_id" />
+			<generator class="identity" />
+		</id>
+		<property name="mappingId" type="string">
+			<column name="mapping_id" length="50" not-null="true" />
+		</property>
+		<property name="aadharNumber" type="string">
+			<column name="aadhar_number" length="256" not-null="true" />
+		</property>
+		<property name="aadharAdd" type="string">
+			<column name="aadhar_address" length="256" not-null="true" />
+		</property>
+		<property name="instAddress" type="string">
+			<column name="inst_address" length="256" not-null="true" />
+		</property>
+		<property name="propertyDetails" type="string">
+			<column name="property_details" length="128" not-null="true" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false">
+			<column name="created_time" length="7" />
+		</property>
+	</class>
+</hibernate-mapping>

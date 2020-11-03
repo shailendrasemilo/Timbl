@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 2, 2013 5:15:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmPaymentDetailsPojo" table="crm_cust_payment_details"
+		dynamic-update="true">
+		<cache usage="read-write" />
+		<id name="paymentId" type="java.lang.Long">
+			<column name="payment_id" />
+			<generator class="identity" />
+
+		</id>
+		<many-to-one name="customerDetailsPojo"
+			class="com.np.tele.crm.pojos.CrmCustomerDetailsPojo" fetch="join"
+			lazy="false" insert="false" update="false" not-null="true">
+			<column name="customer_record_id" precision="10" scale="0" />
+		</many-to-one>
+		<property name="customerRecordId" type="long" not-null="true">
+			<column name="customer_record_id" precision="10" scale="0" />
+		</property>
+		<property name="entityType" type="string">
+			<column name="entity_type" length="15" />
+		</property>
+		 <property name="registrationCharges" type="java.lang.Double">
+		  <column name="registration_charges" precision="8" /> </property>
+		<property name="activationCharges" type="java.lang.Double">
+			<column name="activation_charges" precision="8" />
+		</property>
+		<property name="securityCharges" type="java.lang.Double">
+			<column name="security_charges" precision="8" />
+		</property>
+		<!-- <property name="otherCharges" type="big_decimal"> <column name="OTHER_CHARGES" 
+			precision="8" /> </property> -->
+		<!-- <property name="cpeCharges" type="big_decimal"> <column name="CPE_CHARGES" 
+			precision="8" /> </property> <property name="wiFiCharges" type="big_decimal"> 
+			<column name="WI_FI_CHARGES" precision="8" /> </property> -->
+		<!-- <property name="wiringCharges" type="big_decimal"> <column name="WIRING_CHARGES" 
+			precision="8" /> </property> -->
+		<property name="paymentMode" type="string">
+			<column name="payment_mode" length="50" />
+		</property>
+		<property name="chequeDdNo" type="string">
+			<column name="cheque_dd_no" length="15" />
+		</property>
+		<property name="bankName" type="string">
+			<column name="bank_name" length="45" />
+		</property>
+		<property name="bankBranch" type="string">
+			<column name="bank_branch" length="45" />
+		</property>
+		<property name="chequeDate" type="date">
+			<column name="cheque_date" length="10" />
+		</property>
+		<property name="bankCity" type="string">
+			<column name="bank_city" length="45" />
+		</property>
+		<property name="receiptNo" type="string">
+			<column name="receipt_no" length="45" />
+		</property>
+		<property name="transactionId" type="string">
+			<column name="transaction_id" length="45" />
+		</property>
+		<property name="bankTransId" type="string">
+			<column name="bank_trans_id" length="45" />
+		</property>
+		<property name="pgwTransId" type="string">
+			<column name="pgw_trans_id" length="45" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false"
+			update="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="paymentDate" type="timestamp">
+			<column name="payment_date" length="7" />
+		</property>
+		<property name="paymentChannel" type="string">
+			<column name="payment_channel" length="15" />
+		</property>
+		<property name="amount" type="java.lang.Double">
+			<column name="amount" precision="8" />
+		</property>
+		<property name="paymentStatus" type="string">
+			<column name="payment_status" length="25" />
+		</property>
+		<property name="realzationStatus" type="string">
+			<column name="realzation_status" length="15" />
+		</property>
+		<property name="caseStatus" type="string">
+			<column name="case_status" length="50" />
+		</property>
+		<property name="bouncingDate" type="timestamp">
+			<column name="bouncing_date" length="19" />
+		</property>
+		<property name="bouncingReason" type="string">
+			<column name="bouncing_reason" length="1024" />
+		</property>
+		<property name="reversalReason" type="string">
+			<column name="reversal_reason" length="1024" />
+		</property>
+		<property name="installationStatus" type="string">
+			<column name="installation_status" length="20" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+		<property name="serviceType" type="string">
+			<column name="service_type" length="2" />
+		</property>
+		<property name="reversalDate" type="timestamp">
+			<column name="reversal_date" length="7" />
+		</property>
+		<property name="srId" type="string">
+			<column name="sr_id" length="128" />
+		</property>
+		<property name="cmsId" type="java.lang.Long">
+			<column name="cms_id" precision="10" scale="0" />
+		</property>
+		<property name="postingDate" type="timestamp">
+			<column name="posting_date" length="7" />
+		</property>
+		<!-- <join table="CRM_CUSTOMER_DETAILS" fetch="join"> <key column="RECORD_ID" 
+			foreign-key="customerRecordId"></key> <property name="crfId" column="CRF_ID"></property> 
+			<property name="customerId" column="CUSTOMER_ID"></property> </join> -->
+	</class>
+	<sql-query name="ParameterByPaymentId" callable="false">	
+	<![CDATA[SELECT
+   pd.cheque_dd_no AS INSTRUMENT_NUMBER,
+   CONCAT(pd.transaction_id, '')AS PAYMENT_TRANSACTIONID,
+   DATE_FORMAT(pd.cheque_date,'DD-MON-YYYY')AS INSTRUMENT_DATE,
+   DATE_FORMAT(pd.payment_date,'DD-MON-YYYY')AS PAYMENT_DATETIME,    
+   CONCAT(pd.amount, '')AS INSTRUMENT_AMOUNT,
+   pd.bouncing_reason AS BOUNCING_REASON,
+   ccd.customer_id AS CUSTOMERID,
+   ccd.crf_id AS CRFID,
+   ccd.cust_fname AS CUSTOMERFIRSTNAME,
+   IFNULL(ccd.cust_lname, ' ') AS CUSTOMERLASTNAME,
+   ccd.cust_email_id AS CUSTOMER_EMAIL,
+   CONCAT(ccd.rmn, '')AS CUSTOMER_RMN
+  FROM
+   crm_cust_payment_details pd,
+   crm_customer_details ccd
+  WHERE
+   pd.customer_record_id = ccd.record_id
+ AND pd.payment_id =:PAYMENT_ID
+		
+		]]>
+	</sql-query>
+	<sql-query name="PAYMENT_RPT" callable="false">	
+	<![CDATA[SELECT
+  ccd.customer_id AS "customerId",
+  CONCAT(ccd.cust_fname,CONCAT(' ',IFNULL(ccd.cust_lname, ' '))) AS "customerName",
+  ccd.crf_id AS "crfId",
+  CASE WHEN ccd.bill_date IS NULL THEN '' ELSE CONCAT('Billing Cycle is ', CONCAT(ccd.bill_date, 'th')) END  AS "billingCycle",
+  ccd.product AS "productName",
+  FORMAT(ccpd.amount,2) AS "amount",
+  ccpd.payment_date AS "paymentDate",
+  ccpd.payment_mode AS "paymentMode",
+  ccpd.payment_channeL AS "paymentChannel",
+  ccpd.cheque_dd_no AS "chequeDdNo",
+  ccpd.cheque_date AS "chequeDate",
+  ccpd.bank_name AS "bankName",
+  ccpd.bank_branch AS "bankBranch",
+  ccpd.bank_city AS "bankCity",
+  CASE ccpd.payment_mode WHEN 'C' THEN ccpd.receipt_no WHEN 'O' THEN ccpd.transaction_id ELSE ccpd.cheque_dd_no END AS "refTransId",
+  ccpd.pgw_trans_id AS "pgwTransId",
+  ccpd.bank_trans_id AS "bankTransId",
+  ccpd.entity_type AS "entityType",
+  ccpd.installation_status AS "installationStatus",
+  ccpd.status AS "postingStatus",
+  ccpd.reversal_date AS "reversalDate",
+  ccpd.bouncing_date AS "chequeBouncingDate"
+  FROM
+   crm_cust_payment_details ccpd,
+   crm_customer_details ccd
+  WHERE
+   ccpd.customer_record_id = ccd.record_id
+        AND ccpd.amount > 0 
+
+  AND ccpd.posting_datE BETWEEN :FROM_DATE AND :TO_DATE
+   AND (:CUSTOMER_ID IS NULL OR ccd.customer_id=:CUSTOMER_ID) 
+  AND (:CRF_ID IS NULL OR ccd.crf_id=:CRF_ID)
+  AND (:SERVICE_TYPE IS NULL OR ccpd.service_type=:SERVICE_TYPE)
+  AND (:INSTALLATION_STATUS  IS NULL OR ccpd.installation_status=:INSTALLATION_STATUS)
+  AND (:PAYMENT_STATUS IS NULL OR ccpd.payment_status=:PAYMENT_STATUS)
+  AND (:CASE_STATUS IS NULL OR ccpd.case_status=:CASE_STATUS)
+  AND (:CHEQUE_STATUS IS NULL OR ccpd.realzation_status=:CHEQUE_STATUS)
+  AND (:ENTITY_TYPE IS NULL OR ccpd.entity_type=:ENTITY_TYPE)
+  AND (:PAYMENT_MODE IS NULL OR ccpd.payment_mode=:PAYMENT_MODE)
+  AND (:PAYMENT_CHANNEL IS NULL OR ccpd.payment_channel=:PAYMENT_CHANNEL)
+  AND (:POSTING_STATUS IS NULL OR ccpd.status=:POSTING_STATUS)
+		]]>
+	</sql-query>
+
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 8 May, 2015 3:13:44 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmMassOutageStatePojo"
+		table="crm_mass_outage_state" optimistic-lock="version"
+		dynamic-update="true">
+		<cache usage="read-write" />
+        <id name="recordId" type="java.lang.Long">
+			<column name="record_id" />
+			<generator class="identity" />
+
+		</id>
+		<!-- <many-to-one name="crmMassOutagePartner" class="com.np.tele.crm.pojos.CrmMassOutagePartnerPojo" 
+			fetch="select"> <column name="OUTAGE_NP_ID" precision="10" scale="0" not-null="true" 
+			/> </many-to-one> -->
+		<property name="outageId" type="long" update="false">
+			<column name="outage_id" precision="10" scale="0" not-null="true" />
+		</property>
+		<property name="outageNpId" type="long" update="false">
+			<column name="outage_np_id" precision="10" scale="0" not-null="true" />
+		</property>
+		<property name="stateId" type="long" update="false">
+			<column name="state_id" precision="10" scale="0" not-null="true" />
+		</property>
+		<property name="stateName" type="string" update="false">
+			<column name="state_name" length="50" />
+		</property>
+		<property name="resolvedBy" type="string">
+			<column name="resolved_by" length="128" />
+		</property>
+		<property name="resolvedOn" type="timestamp">
+			<column name="resolved_on" length="19" />
+		</property>
+		<property name="enabled" type="java.lang.Boolean">
+			<column name="enabled" sql-type="bit"/>
+		</property>
+		<property name="startPoint" type="java.lang.Boolean">
+			<column name="start_point" sql-type="bit"/>
+		</property>
+		<set name="crmMassOutageCities" table="crm_mass_outage_city"
+			inverse="true" lazy="false" fetch="join">
+			<key>
+				<column name="outage_state_id" not-null="true" unique="true" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.CrmMassOutageCityPojo" />
+		</set>
+	</class>
+</hibernate-mapping>

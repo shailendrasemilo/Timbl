@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2014 6:05:04 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmQrcCategoryBinMappingPojo"
+		table="crm_qrc_category_bin_mapping" dynamic-update="true">
+		<cache usage="read-write" />
+		<id name="mappingId" type="java.lang.Long">
+			<column name="mapping_id" />
+			<generator class="identity" />
+
+		</id>
+		<!-- <many-to-one name="crmQrcSubSubCategories" class="CrmQrcSubSubCategories" 
+			fetch="select"> <column name="QRC_SUB_SUB_CATEGORY_ID" precision="10" scale="0" 
+			not-null="true" /> </many-to-one> -->
+		<property name="qrcSubSubCategoryId" type="long">
+			<column name="qrc_sub_sub_category_id" precision="10" scale="0"
+				not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="fromBinId"
+			type="java.lang.Long">
+			<column name="from_bin_id" />
+		</property>
+		<property generated="never" lazy="false" name="toBinId"
+			type="java.lang.Long">
+			<column name="to_bin_id" />
+		</property>
+		<property generated="never" lazy="false" name="createdBy"
+			type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="createdTime"
+			type="timestamp" update="false" insert="false">
+			<column length="7" name="created_time" />
+		</property>
+		<property generated="never" lazy="false" name="lastModifiedBy"
+			type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property generated="never" lazy="false" name="lastModifiedTime"
+			type="timestamp" update="false" insert="false">
+			<column length="7" name="last_modified_time" />
+		</property>
+		<property generated="never" lazy="false" name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+	</class>
+</hibernate-mapping>

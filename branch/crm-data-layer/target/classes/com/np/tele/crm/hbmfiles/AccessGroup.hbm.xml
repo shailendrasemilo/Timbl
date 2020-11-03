@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Jul, 2013 11:15:38 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.AccessGroupPojo" table="crm_access_group"
+		dynamic-update="true">
+		<cache usage="read-write" />
+		<id name="recordId" type="long">
+			<column name="record_id" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="crmRoles" class="com.np.tele.crm.pojos.CrmRolesPojo"
+			fetch="join" cascade="none">
+			<column name="role_id"  />
+		</many-to-one>
+		<many-to-one name="groups" class="com.np.tele.crm.pojos.GroupsPojo"
+			fetch="join">
+			<column name="group_id"  />
+		</many-to-one>
+		<many-to-one name="crmParameter" class="com.np.tele.crm.pojos.CrmParameterPojo"
+			fetch="join">
+			<column name="parameter_id" />
+		</many-to-one>
+		<property name="parameterValue" type="string">
+			<column name="parameter_value" length="50" />
+		</property>
+		<property name="createAccess" type="java.lang.Boolean">
+			<column name="create_access" sql-type="bit" />
+		</property>
+		<property name="readAccess" type="java.lang.Boolean">
+			<column name="read_access" sql-type="bit" />
+		</property>
+		<property name="updateAccess" type="java.lang.Boolean">
+			<column name="update_access" sql-type="bit" />
+		</property>
+		<property name="deleteAccess" type="java.lang.Boolean">
+			<column name="delete_access" sql-type="bit" />
+		</property>
+		<property name="recoverAccess" type="java.lang.Boolean">
+			<column name="recovery_access" sql-type="bit" />
+		</property>
+		<!-- <property name="createdBy" type="string"> <column name="CREATED_BY" 
+			length="128" not-null="true" /> </property> <property name="createdTime" 
+			type="timestamp"> <column name="CREATED_TIME" length="7"/> </property> <property 
+			name="lastModifiedBy" type="string"> <column name="LAST_MODIFIED_BY" length="128"/> 
+			</property> <property name="lastModifiedTime" type="timestamp"> <column name="LAST_MODIFIED_TIME" 
+			length="7"/> </property> -->
+		<property name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+	</class>
+</hibernate-mapping>

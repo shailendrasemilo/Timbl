@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 8, 2015 4:11:35 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmInvoiceDetailsPojo" table="crm_invoice_details">
+    <cache usage="read-write"/>
+        <id name="billNumber" type="string">
+            <column name="bill_no" length="100" />
+            <generator class="assigned" />
+        </id>
+        <property name="customerId" type="string" insert="false">
+            <column name="customer_id" length="15" not-null="true" />
+        </property>
+        <property name="billType" type="string" insert="false">
+            <column name="bill_type" length="30" />
+        </property>
+        <property name="billGeneDate" type="date" insert="false">
+            <column name="bill_gene_date" length="10" />
+        </property>
+        <property name="billDate" type="date" insert="false">
+            <column name="bill_date" length="10" />
+        </property>
+        <property name="billAmount" type="java.lang.Double">
+            <column name="bill_amount" precision="10" />
+        </property>
+        <property name="dueDate" type="date" insert="false">
+            <column name="due_date" length="10" />
+        </property>
+        <property name="billPeriod" type="string" insert="false">
+            <column name="bill_period" length="50" />
+        </property>
+        <property name="billGroupId" type="string" insert="false">
+            <column name="bill_group_id" length="100" />
+        </property>
+        <property name="passwordPdfFile" type="string" insert="false">
+            <column name="password_pdf_file" length="500" />
+        </property>
+        <property name="nopasswordPdfFile" type="string" insert="false">
+            <column name="nopassword_pdf_file" length="500" />
+        </property>
+        <property name="psFilePath" type="string" insert="false">
+            <column name="ps_file_path" length="500" />
+        </property>
+        <property name="createdBy" type="string" insert="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" insert="false" update="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

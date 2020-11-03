@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:pattern="http://www.mulesoft.org/schema/mule/pattern"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.5.2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/pattern http://www.mulesoft.org/schema/mule/pattern/current/mule-pattern.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+
+		
+	<spring:beans>
+		<context:property-placeholder
+			location="classpath:crm-ws-proxy-config.properties,classpath:crm-ws-proxy-config-override.properties"
+			ignore-resource-not-found="true" />
+	</spring:beans>
+
+	<!-- <custom-transformer class="com.np.wsproxy.transformer.CustomDebugTransformer" 
+		name="customDebugTransformer" doc:name="Java"/> -->
+
+	<http:connector name="Global-HTTP-Connector" cookieSpec="netscape"
+		validateConnections="true" sendBufferSize="0" receiveBufferSize="0"
+		receiveBacklog="0" clientSoTimeout="${global.http.connector.clientSoTimeout}"
+		serverSoTimeout="${global.http.connector.serverSoTimeout}"
+		socketSoLinger="0" doc:name="HTTP\HTTPS">
+
+		<receiver-threading-profile
+			maxThreadsActive="400" maxThreadsIdle="10" doThreading="true"
+			threadTTL="300000" poolExhaustedAction="WAIT" threadWaitTimeout="60000"
+			maxBufferSize="20" />
+
+	</http:connector>
+
+	<!-- Start WS Proxy for - MasterDataService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${MasterDataService.inboundEndpoint.host}" port="${MasterDataService.inboundEndpoint.port}"
+		path="${MasterDataService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-MasterDataService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${MasterDataService.outboundEndpoint.host}" port="${MasterDataService.outboundEndpoint.port}"
+		path="${MasterDataService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-MasterDataService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-MasterDataService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-MasterDataService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-MasterDataService" />
+	<!-- End WS Proxy for MasterDataService -->
+
+	<!-- Start WS Proxy for - UserManagementService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${UserManagementService.inboundEndpoint.host}" port="${UserManagementService.inboundEndpoint.port}"
+		path="${UserManagementService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-UserManagementService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${UserManagementService.outboundEndpoint.host}" port="${UserManagementService.outboundEndpoint.port}"
+		path="${UserManagementService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-UserManagementService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-UserManagementService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-UserManagementService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-UserManagementService" />
+	<!-- End WS Proxy for UserManagementService -->
+
+	<!-- Start WS Proxy for - AlertsService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${AlertsService.inboundEndpoint.host}" port="${AlertsService.inboundEndpoint.port}"
+		path="${AlertsService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-AlertsService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${AlertsService.outboundEndpoint.host}" port="${AlertsService.outboundEndpoint.port}"
+		path="${AlertsService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-AlertsService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-AlertsService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-AlertsService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-AlertsService" />
+	<!-- End WS Proxy for AlertsService -->
+
+	<!-- Start WS Proxy for - CRMConfigService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${CRMConfigService.inboundEndpoint.host}" port="${CRMConfigService.inboundEndpoint.port}"
+		path="${CRMConfigService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-CRMConfigService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${CRMConfigService.outboundEndpoint.host}" port="${CRMConfigService.outboundEndpoint.port}"
+		path="${CRMConfigService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-CRMConfigService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-CRMConfigService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-CRMConfigService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-CRMConfigService" />
+	<!-- End WS Proxy for CRMConfigService -->
+
+	<!-- Start WS Proxy for - GISService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${GISService.inboundEndpoint.host}" port="${GISService.inboundEndpoint.port}"
+		path="${GISService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-GISService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${GISService.outboundEndpoint.host}" port="${GISService.outboundEndpoint.port}"
+		path="${GISService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-GISService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-GISService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-GISService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-GISService" />
+	<!-- End WS Proxy for GISService -->
+
+	<!-- Start WS Proxy for - LMSService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${LMSService.inboundEndpoint.host}" port="${LMSService.inboundEndpoint.port}"
+		path="${LMSService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-LMSService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${LMSService.outboundEndpoint.host}" port="${LMSService.outboundEndpoint.port}"
+		path="${LMSService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-LMSService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-LMSService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-LMSService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-LMSService" />
+	<!-- End WS Proxy for LMSService -->
+	
+	<!-- Start WS Proxy for - CAPService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${CAPService.inboundEndpoint.host}" port="${CAPService.inboundEndpoint.port}"
+		path="${CAPService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-CAPService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${CAPService.outboundEndpoint.host}" port="${CAPService.outboundEndpoint.port}"
+		path="${CAPService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-CAPService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-CAPService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-CAPService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-CAPService" />
+	<!-- End WS Proxy for CAPService -->
+	
+	<!-- Start WS Proxy for - FinanceService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${FinanceService.inboundEndpoint.host}" port="${FinanceService.inboundEndpoint.port}"
+		path="${FinanceService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-FinanceService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${FinanceService.outboundEndpoint.host}" port="${FinanceService.outboundEndpoint.port}"
+		path="${FinanceService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-FinanceService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-FinanceService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-FinanceService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-FinanceService" />
+	<!-- End WS Proxy for FinanceService -->
+	
+	<!-- Start WS Proxy for - QRCService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${QRCService.inboundEndpoint.host}" port="${QRCService.inboundEndpoint.port}"
+		path="${QRCService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-QRCService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${QRCService.outboundEndpoint.host}" port="${QRCService.outboundEndpoint.port}"
+		path="${QRCService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-QRCService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-QRCService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-QRCService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-QRCService" />
+	<!-- End WS Proxy for QRCService -->
+	
+	<!-- Start WS Proxy for - ReportService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${ReportService.inboundEndpoint.host}" port="${ReportService.inboundEndpoint.port}"
+		path="${ReportService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-ReportService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${ReportService.outboundEndpoint.host}" port="${ReportService.outboundEndpoint.port}"
+		path="${ReportService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-ReportService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-ReportService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-ReportService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-ReportService" />
+	<!-- End WS Proxy for ReportService -->
+	
+	<!-- Start WS Proxy for - EasyBillService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${EasyBillService.inboundEndpoint.host}" port="${EasyBillService.inboundEndpoint.port}"
+		path="${EasyBillService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-EasyBillService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${EasyBillService.outboundEndpoint.host}" port="${EasyBillService.outboundEndpoint.port}"
+		path="${EasyBillService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-EasyBillService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-EasyBillService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-EasyBillService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-EasyBillService" />
+	<!-- End WS Proxy for EasyBillService -->
+	
+	<!-- Start WS Proxy for - BillingTriggerService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${BillingTriggerService.inboundEndpoint.host}" port="${BillingTriggerService.inboundEndpoint.port}"
+		path="${BillingTriggerService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-BillingTriggerService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${BillingTriggerService.outboundEndpoint.host}" port="${BillingTriggerService.outboundEndpoint.port}"
+		path="${BillingTriggerService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-BillingTriggerService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-BillingTriggerService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-BillingTriggerService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-BillingTriggerService" />
+	<!-- End WS Proxy for BillingTriggerService -->
+	
+	<!-- Start WS Proxy for - ECAFTriggerService -->
+	<http:endpoint exchange-pattern="request-response"
+		host="${ECAFTriggerService.inboundEndpoint.host}" port="${ECAFTriggerService.inboundEndpoint.port}"
+		path="${ECAFTriggerService.inboundEndpoint.path}" method="POST"
+		name="HTTP-Inbound-Endpoint-ECAFTriggerService" connector-ref="Global-HTTP-Connector"
+		doc:name="HTTP" />
+	<http:endpoint exchange-pattern="request-response"
+		host="${ECAFTriggerService.outboundEndpoint.host}" port="${ECAFTriggerService.outboundEndpoint.port}"
+		path="${ECAFTriggerService.outboundEndpoint.path}" method="POST"
+		name="HTTP-Outbound-Endpoint-ECAFTriggerService" connector-ref="Global-HTTP-Connector"
+		responseTimeout="${global.http.endpoint.responseTimeout}"
+		doc:name="HTTP" />
+	<pattern:web-service-proxy name="pattern-ws-proxy-ECAFTriggerService"
+		inboundEndpoint-ref="HTTP-Inbound-Endpoint-ECAFTriggerService"
+		outboundEndpoint-ref="HTTP-Outbound-Endpoint-ECAFTriggerService" />
+	<!-- End WS Proxy for ECAFTriggerService -->
+</mule>

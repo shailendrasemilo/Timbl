@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 26, 2014 11:23:53 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmPgwTransactionsPojo" table="crm_pgw_transactions" dynamic-update="true">
+	<cache usage="read-write"/>
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />
+            <generator class="identity" />
+			
+		</id>
+		<property name="customerId" type="string" update="false">
+            <column name="customer_id" length="15" not-null="true" />
+		</property>
+		<property name="pgwName" type="string">
+            <column name="pgw_name" length="20" />
+		</property>
+		<property name="paymentOption" type="string">
+            <column name="payment_option" length="20" />
+		</property>
+		<property name="pgwTrackId" type="string" update="false" insert="false">
+            <column name="pgw_track_id" length="64" unique="true" />
+		</property>
+		<property name="amount" type="double" update="false">
+            <column name="amount" precision="8" not-null="true" />
+		</property>
+		<property name="pgwPaymentId" type="string">
+            <column name="pgw_payment_id" length="50" />
+		</property>
+		<property name="pgwTransactionId" type="string">
+            <column name="pgw_transaction_id" length="64" />
+		</property>
+		<property name="pgwReferenceNumber" type="string">
+            <column name="pgw_reference_number" length="50" />
+		</property>
+		<property name="pgwAuthCode" type="string">
+            <column name="pgw_auth_code" length="50" />
+		</property>
+		<property name="pgwAvr" type="string">
+            <column name="pgw_avr" />
+		</property>
+		<property name="pgwErrorCode" type="string">
+            <column name="pgw_error_code" length="50" />
+		</property>
+		<property name="pgwErrorMsg" type="string">
+            <column name="pgw_error_msg" />
+		</property>
+		<property name="pgwResult" type="string">
+            <column name="pgw_result" length="50" />
+		</property>
+		<property name="pgwPaymentPage" type="string">
+            <column name="pgw_payment_page" />
+		</property>
+		<property name="status" type="string">
+            <column name="status" length="2" />
+		</property>
+		<property name="initiationDatetime" type="timestamp" update="false">
+            <column name="initiation_datetime" length="19" not-null="true" />
+		</property>
+		<property name="pgwAuthDatetime" type="timestamp">
+            <column name="pgw_auth_datetime" length="19" />
+		</property>
+		<property name="pgwResponseDatetime" type="timestamp">
+            <column name="pgw_response_datetime" length="19" />
+		</property>
+		<property name="billingPaymentStatus" type="string" insert="false">
+            <column name="billing_payment_status" length="2" />
+		</property>
+	</class>
+	<sql-query name="ParameterByPGW_TRACK_ID" callable="false">  
+  <![CDATA[SELECT
+     concat( pgw.pgw_track_id,'') AS PAYMENT_TRANSACTIONID,
+     concat( pgw.pgw_payment_id,'') AS BANK_TRANSACTIONID,
+     concat( pgw.pgw_transaction_id,'' )AS PGW_TRANSACTIONID,
+     concat( DATE_FORMAT(pgw.initiation_datetime,'%d-%b-%Y %H:%i:%s'),'')AS INITIATION_DATETIME,
+     concat( DATE_FORMAT(pgw.pgw_response_datetime,'%d-%b-%Y %H:%i:%s'),'')AS PAYMENT_DATETIME,  
+     CONCAT(pgw.amount, '') AS INSTRUMENT_AMOUNT,
+     concat(pgw.status,'' )AS PGW_PAYMENT_STATUS,
+     concat( ccd.customer_id,'') AS CUSTOMERID,
+     concat (ccd.crf_id,'') AS CRFID,
+     concat(  ccd.cust_fname,'') AS CUSTOMERFIRSTNAME,
+     concat(IFNULL(ccd.cust_lname, ' '),'') AS CUSTOMERLASTNAME,
+     concat( ccd.cust_email_id,'') AS CUSTOMER_EMAIL,
+      CONCAT(ccd.rmn, '')AS CUSTOMER_RMN
+    FROM
+      crm_customer_details ccd,
+      crm_pgw_transactions pgw
+    WHERE
+      pgw.customer_id = ccd.customer_id 
+	AND
+       pgw.pgw_track_id =:PGW_TRACK_ID
+      
+      ]]>
+	</sql-query>
+</hibernate-mapping>

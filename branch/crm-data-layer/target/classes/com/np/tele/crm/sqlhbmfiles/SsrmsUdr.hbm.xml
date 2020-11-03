@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 25, 2015 12:48:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.ext.pojos.CustomerUsageDetailsPojo" table="VMS_UDR" catalog="VMS_UDR">
+        <id name="usageID" type="big_decimal">
+            <column name="ID" sql-type="decimal" precision="32" scale="0"/>
+            <generator class="assigned" />
+        </id>
+        <property name="framedIP" type="string">
+            <column name="FRAMED_IP_ADDRESS" length="40" not-null="true" />
+        </property>
+        <property name="uploadInKB" type="long">
+            <column name="ACCT_INPUT_OCTETS" precision="14" scale="0" not-null="true" />
+        </property>
+        <property name="downloadInKB" type="long">
+            <column name="ACCT_OUTPUT_OCTETS" precision="14" scale="0" not-null="true" />
+        </property>
+        <property name="startTime" type="timestamp">
+            <column name="CALL_START" length="23" />
+        </property>
+        <property name="endTime" type="timestamp">
+            <column name="CALL_END" length="23" />
+        </property>
+        <property name="customerNo" type="long">
+            <column name="CUSTOMER_NO" />
+        </property>
+        <property name="createdate" type="timestamp">
+            <column name="CREATEDATE" length="23" />
+        </property>
+    </class>
+    <sql-query name="CUST_USAGE_DETAILS" callable="false">	
+	    <![CDATA[SELECT CONVERT(VARCHAR(11), CALL_END, 106) AS "callEndDate",
+		IIF(CALL_END > CALL_START, CAST(DATEADD(MINUTE ,- 20, CALL_END) AS TIME), CAST(MAX(CALL_START) AS TIME)) AS "startTime",
+		CAST(MAX(CALL_END) AS TIME) AS "endTime",
+		SUM(ACCT_INPUT_OCTETS_ITR)/ 1024 AS "uploadKB", 
+		SUM(ACCT_OUTPUT_OCTETS_ITR)/ 1024 AS "downloadKB"
+	FROM
+		VMS_UDR
+	WHERE
+		CUSTOMER_NO =:CUSTOMER_ID
+		AND CALL_START BETWEEN :FROM_DATE AND :TO_DATE
+		GROUP BY
+		CUSTOMER_NO,
+		ACCT_SESSION_ID,
+		CALL_START,
+		CALL_END ORDER BY CALL_END desc,startTime DESC ]]>
+	</sql-query>
+	<sql-query name="CUST_USAGE_DETAILS_IN_GB" callable="false">	
+	    <![CDATA[SELECT CAST(CALL_END AS DATE) AS "endTime",
+			-- IIF(CAST(MAX(CALL_END) AS DATE) > CAST(MIN(CALL_START) AS DATE), CONVERT(datetime, CONVERT(INT, MAX(CALL_START) - 1)), MIN(CALL_START)) AS "startTime",
+			-- MAX(CALL_END) AS "endTime",
+			SUM(ACCT_INPUT_OCTETS_ITR)/ (1024*1024*1024) AS "uploadKB",
+			SUM(ACCT_OUTPUT_OCTETS_ITR)/ (1024*1024*1024) AS "downloadKB"
+		FROM
+			VMS_UDR
+		WHERE
+			CUSTOMER_NO =:CUSTOMER_ID
+			AND CALL_START BETWEEN :FROM_DATE AND :TO_DATE
+			GROUP BY
+			CUSTOMER_NO,
+			CAST(CALL_END AS DATE) ]]>
+	</sql-query>
+</hibernate-mapping>

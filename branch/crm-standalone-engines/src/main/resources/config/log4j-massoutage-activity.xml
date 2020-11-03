@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="InfoAppender" 		class="org.apache.log4j.RollingFileAppender">
+  		<param name="File"   		value="../log/massoutage-activity.log" />
+  		<param name="Append" 		value="false" />	    
+  		<param name="ImmediateFlush" 	value="true" />	    
+  		<param name="MaxFileSize" 	value="50MB" />
+  		<param name="MaxBackupIndex" 	value="10" />
+ 
+  		<layout class="org.apache.log4j.PatternLayout">
+   			<param name="ConversionPattern" value="%d %X{SERVER_NAME} [%t] %-5p (%F:%L) - %m%n" />
+  		</layout>
+  		
+  		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<!-- excludes trace / includes everything else -->
+			<param name="LevelMin" value="info" />
+			<param name="LevelMax" value="fatal" />
+		</filter>
+ 	</appender>
+ 	
+ 	<!--   
+ 		The appender for Debug mode - displays filename and line number
+ 	-->
+ 	
+	<appender name="DebugAppender" 	class="org.apache.log4j.RollingFileAppender">
+  		<param name="File"   		value="../log/massoutage-activity.log" />
+  		<param name="Append" 		value="false" />	    
+  		<param name="ImmediateFlush" 	value="true" />	    
+  		<param name="MaxFileSize" 	value="50MB" />
+  		<param name="MaxBackupIndex" 	value="10" />
+
+  		<layout class="org.apache.log4j.PatternLayout">
+   			<param name="ConversionPattern" value="%d %X{SERVER_NAME} [%t] %-5p (%F:%L) - %m%n" />
+  		</layout>
+  		
+  		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<!-- includes everything else -->
+			<param name="LevelMin" value="debug" />
+			<param name="LevelMax" value="debug" />
+		</filter>
+		
+ 	</appender>
+ 	
+ 	<logger name="httpclient.wire" additivity="false">
+		<level value="FATAL" />  
+	</logger> 
+
+	<logger name="org.apache.commons.httpclient" additivity="false">
+		<level value="fatal"/>  
+	</logger> 
+ 	
+	<root>
+		<!--  
+  			LOG LEVELS	
+			fatal
+			error
+			warn
+			info
+			debug
+    		Production Log level should be set to 'info'
+  		-->
+	
+		<level value="INFO" />
+		<appender-ref ref="InfoAppender" />
+		<appender-ref ref="DebugAppender" />
+	</root>
+</log4j:configuration>

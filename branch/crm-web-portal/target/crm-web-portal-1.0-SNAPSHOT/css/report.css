@@ -1,0 +1,37 @@
+CHARSET "ISO-8859-1";
+
+#reportDataTable_wrapper .dataTables_paginate,#reportDataTable_wrapper .dataTables_info
+	{
+	position: static;
+}
+/*
+#reportDataTable{width:100% !important;}
+.dataTable tr.odd {
+  background-color: #E1E6EE;
+   text-align: left; 
+   padding-left:20px;
+   
+}
+.dataTable element.style {
+  box-sizing: content-box;
+   width: 100%; 
+  padding-right: 0px;
+}*/
+
+.dTInteractionRpt{}
+.dTInteractionRpt .dataTables_scrollHeadInner, .dTInteractionRpt .dataTables_scrollHeadInner .dataTable,
+.dTInteractionRpt #reportDataTable
+{width:100% !important;}
+
+ .dTInteractionRpt .dataTables_scrollHeadInner .dataTable tr td,
+.dTInteractionRpt #reportDataTable tr td{padding-left: 18px !important; padding-right: 18px !important;   text-align: left;
+}
+.dataTables_info {position: absolute; left: 10px; top: auto;}
+.dataTables_paginate{position: absolute; left: 10px; top: auto;}
+
+
+
+
+
+
+

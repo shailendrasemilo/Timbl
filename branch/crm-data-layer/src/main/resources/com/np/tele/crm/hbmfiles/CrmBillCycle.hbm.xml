@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 12, 2015 4:13:32 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmBillCyclePojo" table="crm_bill_cycle">
+    <cache usage="read-write"/>
+        <id name="billCycleId" type="java.lang.Long">
+            <column name="bill_cycle_id" />
+            <generator class="identity" />
+        </id>
+        <property name="workflowId" type="string" >
+            <column name="workflow_id" length="41" />
+        </property>
+        <property name="customerId" type="string" update="false">
+            <column name="customer_id" length="10" not-null="true" />
+        </property>
+        <property name="billDate" type="string" update="false">
+            <column name="bill_date" length="2" not-null="true" />
+        </property>
+        <property name="apiTransactionId" type="string" update="false">
+            <column name="api_transaction_id" length="45" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" insert="false" update="false">
+            <column name="created_time" length="7" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="7" />
+        </property>
+        <property name="ticketId" type="string" update="false">
+            <column name="ticket_id" length="128"/>
+        </property>
+         <property name="processingDate" type="timestamp">
+            <column name="processing_date" length="19" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

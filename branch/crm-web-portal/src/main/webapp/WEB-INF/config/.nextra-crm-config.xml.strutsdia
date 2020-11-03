@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="StrutsProcess">
+ <PROCESS-ITEM ID="goToLeadInbox" NAME="forward0"
+  PATH="/goToInbox.do?method=leadInbox" SHAPE="864,33,0,0"
+  TARGET="action27" TITLE="goToLeadInbox" TYPE="forward" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#partnerManagement" NAME="action0"
+  PATH="/partnerManagement" SHAPE="48,4705,0,0"
+  TITLE="partnerManagementForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewPartner" NAME="forward0"
+   PATH="/jsp/content/masterdata/viewPartner.jsp" TARGET="page0"
+   TITLE="viewPartner" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="addModifyPartner" NAME="forward1"
+   PATH="addModifyPartner" TARGET="page1" TITLE="addModifyPartner"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assignPartnerRedirect" NAME="forward2"
+   PATH="/partnerManagement.do?method=assignServicePartnerPage"
+   TARGET="action0" TITLE="assignPartnerRedirect" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchPartnerSuccessfull" NAME="forward3"
+   PATH="/partnerManagement.do?method=searchPartner" TARGET="action0"
+   TITLE="searchPartnerSuccessfull" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchPartner" NAME="forward4"
+   PATH="searchPartner" TARGET="page2" TITLE="searchPartner"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assignServicePartner" NAME="forward5"
+   PATH="assignServicePartner" TARGET="page3"
+   TITLE="assignServicePartner" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#paymentPosting" NAME="action1"
+  PATH="/paymentPosting" SHAPE="32,5313,0,0" TITLE="financeForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="paymentTrackingPage" NAME="forward0"
+   PATH="/paymentTracking.do?method=paymentTrackingPage"
+   TARGET="action5" TITLE="paymentTrackingPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="realizationPopUp" NAME="forward1"
+   PATH="/jsp/content/finance/realizationPopUp.jsp" TARGET="page4"
+   TITLE="realizationPopUp" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="paymentReversalPopUp" NAME="forward2"
+   PATH="/jsp/content/finance/paymentReversalPopup.jsp" TARGET="page5"
+   TITLE="paymentReversalPopUp" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="paymentTracking" NAME="forward3"
+   PATH="/paymentTracking.do?method=paymentTracking" TARGET="action5"
+   TITLE="paymentTracking" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="suspenseRejectedPayment" NAME="forward4"
+   PATH="/paymentTracking.do?method=viewSuspenseRejectedRecord"
+   TARGET="action5" TITLE="suspenseRejectedPayment" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="paymentPostingPage" NAME="forward5"
+   PATH="paymentPostingPage" TARGET="page6" TITLE="paymentPostingPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="paymentReversalPage" NAME="forward6"
+   PATH="paymentReversalPage" TARGET="page7" TITLE="paymentReversalPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#crmCap" NAME="action2" PATH="/crmCap"
+  SHAPE="864,401,0,0" TITLE="crmCapForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="checkFeasibility" NAME="forward0"
+   PATH="/jsp/content/cap/checkFeasibility.jsp" TARGET="page8"
+   TITLE="checkFeasibility" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editCPEStatusPage" NAME="forward1"
+   PATH="/jsp/content/cap/editCpeStatus.jsp" TARGET="page9"
+   TITLE="editCPEStatusPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="inbox" NAME="forward2"
+   PATH="/goToInbox.do?method=crfInbox" TARGET="action27" TITLE="inbox"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="mapMacIdDetailsPage" NAME="forward3"
+   PATH="mapMacIdDetailsPage" TARGET="page10"
+   TITLE="mapMacIdDetailsPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="installationAndActivation" NAME="forward4"
+   PATH="installationAndActivation" TARGET="page11"
+   TITLE="installationAndActivation" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewCRFDetails" NAME="forward5"
+   PATH="viewCRFDetails" TARGET="page12" TITLE="viewCRFDetails"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="npCRFEntryPage" NAME="forward6"
+   PATH="npCRFEntryPage" TARGET="page13" TITLE="npCRFEntryPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="salesCRFConfirmationPage" NAME="forward7"
+   PATH="salesCRFConfirmationPage" TARGET="page14"
+   TITLE="salesCRFConfirmationPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewCrfPage" NAME="forward8"
+   PATH="viewCrfPage" TARGET="page15" TITLE="viewCrfPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchCrfPage" NAME="forward9"
+   PATH="searchCrfPage" TARGET="page16" TITLE="searchCrfPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="crfValidatepage" NAME="forward10"
+   PATH="crfValidatepage" TARGET="page17" TITLE="crfValidatepage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="networkConfigDetailPage" NAME="forward11"
+   PATH="/jsp/content/cap/networkConfigDetail.jsp" TARGET="page18"
+   TITLE="networkConfigDetailPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="isrReportPage" NAME="forward12"
+   PATH="/jsp/content/cap/installation-Satisfaction-Report.jsp"
+   TARGET="page19" TITLE="isrReportPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="networkDetailsPage" NAME="forward13"
+   PATH="networkDetailsPage" TARGET="page20" TITLE="networkDetailsPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#changePassword" NAME="action3"
+  PATH="/changePassword" SHAPE="48,2065,0,0" TITLE="loginForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="myAccount" NAME="forward0" PATH="myAccount"
+   TARGET="page21" TITLE="myAccount" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward1" PATH="login"
+   TARGET="page22" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="changePassword" NAME="forward2"
+   PATH="changePassword" TARGET="page23" TITLE="changePassword"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#emailServer" NAME="action4" PATH="/emailServer"
+  SHAPE="32,6065,0,0" TITLE="masterForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="createEmailServer" NAME="forward0"
+   PATH="createEmailServer" TARGET="page24" TITLE="createEmailServer"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchEmailAction" NAME="forward1"
+   PATH="/emailServer.do?method=searchEmailServerPage" TARGET="action4"
+   TITLE="searchEmailAction" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchEmailServer" NAME="forward2"
+   PATH="searchEmailServer" TARGET="page25" TITLE="searchEmailServer"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#paymentTracking" NAME="action5"
+  PATH="/paymentTracking" SHAPE="576,5313,0,0" TITLE="financeForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="paymentTrackingPage" NAME="forward0"
+   PATH="paymentTrackingPage" TARGET="page26"
+   TITLE="paymentTrackingPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="paymentGatewaysConfigPage" NAME="forward1"
+   PATH="paymentGatewaysConfigPage" TARGET="page27"
+   TITLE="paymentGatewaysConfigPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editRejectedRecordPage" NAME="forward2"
+   PATH="/jsp/content/finance/editRejectedRecordPopUp.jsp"
+   TARGET="page28" TITLE="editRejectedRecordPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewPayment" NAME="forward3"
+   PATH="/jsp/content/finance/viewPayment.jsp" TARGET="page29"
+   TITLE="viewPayment" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="suspenseRejectedPaymentPage" NAME="forward4"
+   PATH="suspenseRejectedPaymentPage" TARGET="page30"
+   TITLE="suspenseRejectedPaymentPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#manageQrc" NAME="action6" PATH="/manageQrc"
+  SHAPE="320,929,0,0" TITLE="qrcForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="collectedPaymentPage" NAME="forward0"
+   PATH="collectedPaymentPage" TARGET="page31"
+   TITLE="collectedPaymentPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewPaymentAndInvoiceDetails" NAME="forward1"
+   PATH="/jsp/content/qrc/viewPaymentAndInvoiceDetails.jsp"
+   TARGET="page32" TITLE="viewPaymentAndInvoiceDetails" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="bulkWhitelistPage" NAME="forward2"
+   PATH="bulkWhitelistPage" TARGET="page33" TITLE="bulkWhitelistPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="massOutagePage" NAME="forward3"
+   PATH="massOutagePage" TARGET="page34" TITLE="massOutagePage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="qrcSearchCustomerPage" NAME="forward4"
+   PATH="qrcSearchCustomerPage" TARGET="page35"
+   TITLE="qrcSearchCustomerPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="disconnectionPage" NAME="forward5"
+   PATH="disconnectionPage" TARGET="page36" TITLE="disconnectionPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editTicketPage" NAME="forward6"
+   PATH="editTicketPage" TARGET="page37" TITLE="editTicketPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="waiverPageMethod" NAME="forward8"
+   PATH="/manageQrc.do?method=waiverPage" TARGET="action6"
+   TITLE="waiverPageMethod" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewTicket" NAME="forward9" PATH="viewTicket"
+   TARGET="page39" TITLE="viewTicket" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="deviceChangePopup" NAME="forward11"
+   PATH="/jsp/content/qrc/deviceChangePopup.jsp" TARGET="page40"
+   TITLE="deviceChangePopup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="addRemoveAccessoriesPage" NAME="forward12"
+   PATH="addRemoveAccessoriesPage" TARGET="page41"
+   TITLE="addRemoveAccessoriesPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="deviceChangePage" NAME="forward13"
+   PATH="deviceChangePage" TARGET="page42" TITLE="deviceChangePage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="waiverPage" NAME="forward14"
+   PATH="waiverPage" TARGET="page43" TITLE="waiverPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="tariffMigration" NAME="forward15"
+   PATH="tariffMigration" TARGET="page44" TITLE="tariffMigration"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewPaymentPage" NAME="forward16"
+   PATH="viewPaymentPage" TARGET="page45" TITLE="viewPaymentPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="addSingleWhiteList" NAME="forward17"
+   PATH="addSingleWhiteList" TARGET="page46" TITLE="addSingleWhiteList"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="addressChangePage" NAME="forward18"
+   PATH="addressChangePage" TARGET="page47" TITLE="addressChangePage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="addressChangeFeasibility" NAME="forward19"
+   PATH="/jsp/content/qrc/addressChangeFeasibility.jsp" TARGET="page48"
+   TITLE="addressChangeFeasibility" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="qrcSearchCustomerMethod" NAME="forward20"
+   PATH="/manageQrc.do?method=searchCustomer" TARGET="action6"
+   TITLE="qrcSearchCustomerMethod" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="barringPage" NAME="forward21"
+   PATH="barringPage" TARGET="page49" TITLE="barringPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="ticketsPage" NAME="forward22"
+   PATH="ticketsPage" TARGET="page50" TITLE="ticketsPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="activityLogPage" NAME="forward23"
+   PATH="activityLogPage" TARGET="page51" TITLE="activityLogPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="getAccessories" NAME="forward24"
+   PATH="/manageQrc.do?method=getAccessories" TARGET="action6"
+   TITLE="getAccessories" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="planMigrationPage" NAME="forward25"
+   PATH="planMigrationPage" TARGET="page52" TITLE="planMigrationPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="customerInteractionPage" NAME="forward26"
+   PATH="customerInteractionPage" TARGET="page53"
+   TITLE="customerInteractionPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="qrcCustomerProfile" NAME="forward7"
+   PATH="qrcCustomerProfile" TARGET="page117" TITLE="qrcCustomerProfile"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="inbox" NAME="forward10"
+   PATH="/goToInbox.do?method=qrcInbox" TARGET="action27" TITLE="inbox"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#RegisterUserPage" NAME="action7"
+  PATH="/RegisterUserPage" SHAPE="32,11345,0,0" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#parameterGroup" NAME="action8"
+  PATH="/parameterGroup" SHAPE="48,2241,0,0" TITLE="parameterGroupForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewParameter" NAME="forward0"
+   PATH="/jsp/content/masterdata/viewParameterGroup.jsp" TARGET="page54"
+   TITLE="viewParameter" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="parameterDetails" NAME="forward1"
+   PATH="/jsp/content/masterdata/showParameterDetails.jsp"
+   TARGET="page55" TITLE="parameterDetails" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="createParameterGroupPage" NAME="forward2"
+   PATH="createParameterGroupPage" TARGET="page56"
+   TITLE="createParameterGroupPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward3" PATH="login"
+   TARGET="page22" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchParameterGroup" NAME="forward4"
+   PATH="/parameterGroup.do?method=searchParameterGroup"
+   TARGET="action8" TITLE="searchParameterGroup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchParameterGroupPage" NAME="forward5"
+   PATH="searchParameterGroupPage" TARGET="page57"
+   TITLE="searchParameterGroupPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#option82Management" NAME="action9"
+  PATH="/option82Management" SHAPE="48,1857,0,0" TITLE="masterForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="searchOption82PageRedirect" NAME="forward0"
+   PATH="/option82Management.do?method=searchOption82Page"
+   TARGET="action9" TITLE="searchOption82PageRedirect" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="option82redirect" NAME="forward1"
+   PATH="/option82Management.do?method=option82Page" TARGET="action9"
+   TITLE="option82redirect" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assignParameterGroup" NAME="forward2"
+   PATH="assignParameterGroup" TARGET="page58"
+   TITLE="assignParameterGroup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="option82Page" NAME="forward3" PATH="option82"
+   TARGET="page59" TITLE="option82Page" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#smsAlert" NAME="action10" PATH="/smsAlert"
+  SHAPE="32,6353,0,0" TITLE="alertForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="saveSMSTemplate" NAME="forward0"
+   PATH="saveSMSTemplate" TARGET="page60" TITLE="saveSMSTemplate"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="error" NAME="forward1" PATH="failure"
+   TARGET="page61" TITLE="error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="createSmsTemplate" NAME="forward2"
+   PATH="createSmsTemplate" TARGET="page62" TITLE="createSmsTemplate"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewSMSTemplate" NAME="forward3"
+   PATH="/smsAlert.do?method=viewSMSTemplate" TARGET="action10"
+   TITLE="viewSMSTemplate" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchTemplate" NAME="forward4"
+   PATH="searchTemplate" TARGET="page63" TITLE="searchTemplate"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="modifySMSTemplate" NAME="forward5"
+   PATH="modifySMSTemplate" TARGET="page64" TITLE="modifySMSTemplate"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#register" NAME="action11" PATH="/register"
+  SHAPE="48,385,0,0" TITLE="loginForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="createUserPage" NAME="forward0"
+   PATH="newUser" TARGET="page65" TITLE="createUserPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="modifyUserPage" NAME="forward1"
+   PATH="modifyUser" TARGET="page66" TITLE="modifyUserPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewUserPage" NAME="forward2" PATH="viewUser"
+   TARGET="page67" TITLE="viewUserPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchUserByIdPage" NAME="forward3"
+   PATH="/userManagement.do?method=searchUserById" TARGET="action31"
+   TITLE="searchUserByIdPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assignRoleGroup" NAME="forward4"
+   PATH="assignRoleGroup" TARGET="page68" TITLE="assignRoleGroup"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#smsManagement" NAME="action12" PATH="/smsManagement"
+  SHAPE="32,7889,0,0" TITLE="masterForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="searchSmsCofigurationPage" NAME="forward0"
+   PATH="searchSmsCofigurationPage" TARGET="page69"
+   TITLE="searchSmsCofigurationPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchSmsConfig" NAME="forward1"
+   PATH="/smsManagement.do?method=searchSMSGateway" TARGET="action12"
+   TITLE="searchSmsConfig" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="smsManagement" NAME="forward2"
+   PATH="smsManagement" TARGET="page70" TITLE="smsManagement"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#customerStatus" NAME="action13"
+  PATH="/customerStatus" SHAPE="48,913,0,0" TITLE="qrcForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="customerStatusPage" NAME="forward0"
+   PATH="customerStatusPage" TARGET="page71" TITLE="customerStatusPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="safeCustodyPage" NAME="forward1"
+   PATH="safeCustodyPage" TARGET="page72" TITLE="safeCustodyPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="successSafeCustodyPage" NAME="forward2"
+   PATH="/manageQrc.do?method=searchCustomer" TARGET="action6"
+   TITLE="successSafeCustodyPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#roleGroup" NAME="action14" PATH="/roleGroup"
+  SHAPE="48,2513,0,0" TITLE="roleGroupForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="searchRoleGroup" NAME="forward0"
+   PATH="/roleGroup.do?method=searchRoleGroup" TARGET="action14"
+   TITLE="searchRoleGroup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="listRoleGroup" NAME="forward1"
+   PATH="listRoleGroup" TARGET="page73" TITLE="listRoleGroup"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchRoleGroupPage" NAME="forward2"
+   PATH="searchRoleGroupPage" TARGET="page74"
+   TITLE="searchRoleGroupPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewRole" NAME="forward3"
+   PATH="/jsp/content/masterdata/viewRoleGroup.jsp" TARGET="page75"
+   TITLE="viewRole" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward4" PATH="login"
+   TARGET="page22" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="showRolesDetails" NAME="forward5"
+   PATH="/jsp/content/masterdata/showRolesDetails.jsp" TARGET="page76"
+   TITLE="showRolesDetails" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="createRoleGroupPage" NAME="forward6"
+   PATH="createRoleGroupPage" TARGET="page77"
+   TITLE="createRoleGroupPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#viewDetails" NAME="action15" PATH="/viewDetails"
+  SHAPE="1360,929,0,0" TITLE="lmsForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="failure" NAME="forward0"
+   PATH="viewLeadDeatils" TARGET="page78" TITLE="failure" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="leadGeneration" NAME="forward1"
+   PATH="leadGeneration" TARGET="page79" TITLE="leadGeneration"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#leadGeneration" NAME="action16"
+  PATH="/leadGeneration" SHAPE="1360,401,0,0" TITLE="lmsForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewLeadDeatils" NAME="forward0"
+   PATH="viewLeadDeatils" TARGET="page78" TITLE="viewLeadDeatils"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="leadGeneration" NAME="forward1"
+   PATH="leadGeneration" TARGET="page79" TITLE="leadGeneration"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewLead" NAME="forward2"
+   PATH="viewCreatedLead" TARGET="page80" TITLE="viewLead"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewCreatedLead" NAME="forward3"
+   PATH="viewCreatedLead" TARGET="page80" TITLE="viewCreatedLead"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="lmsFileUpload" NAME="forward4"
+   PATH="lmsFileUpload" TARGET="page81" TITLE="lmsFileUpload"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#upFrontPaymentRecovery" NAME="action17"
+  PATH="/upFrontPaymentRecovery" SHAPE="32,8177,0,0" TITLE="financeForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="searchUpfrontPaymentAction" NAME="forward0"
+   PATH="/upFrontPaymentRecovery.do?method=searchUpfrontPayment"
+   TARGET="action17" TITLE="searchUpfrontPaymentAction" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchUpfrontPaymentPage" NAME="forward1"
+   PATH="searchUpfrontPaymentPage" TARGET="page82"
+   TITLE="searchUpfrontPaymentPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="manualyUpfrontPaymentPage" NAME="forward2"
+   PATH="manualyUpfrontPaymentPage" TARGET="page83"
+   TITLE="manualyUpfrontPaymentPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="fileUploadUFPaymentPage" NAME="forward3"
+   PATH="fileUploadUFPaymentPage" TARGET="page84"
+   TITLE="fileUploadUFPaymentPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="upfrontPopup" NAME="forward4"
+   PATH="/jsp/content/finance/viewUPfrontPopup.jsp" TARGET="page85"
+   TITLE="upfrontPopup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#roleManagement" NAME="action18"
+  PATH="/roleManagement" SHAPE="592,913,0,0" TITLE="loginForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="assignParameterGroup" NAME="forward0"
+   PATH="assignParameterGroup" TARGET="page58"
+   TITLE="assignParameterGroup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward1" PATH="login"
+   TARGET="page22" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assignRoleGroupPage" NAME="forward2"
+   PATH="/roleManagement.do?method=updateRoleAssignPage"
+   TARGET="action18" TITLE="assignRoleGroupPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="showRolesDetails" NAME="forward3"
+   PATH="/jsp/content/masterdata/showRolesDetails.jsp" TARGET="page76"
+   TITLE="showRolesDetails" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assignRoleGroup" NAME="forward4"
+   PATH="assignRoleGroup" TARGET="page68" TITLE="assignRoleGroup"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#accountVerification" NAME="action19"
+  PATH="/accountVerification" SHAPE="48,2817,0,0" TITLE="loginForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="verifyUser" NAME="forward0"
+   PATH="activateAccount" TARGET="page86" TITLE="verifyUser"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward1" PATH="login"
+   TARGET="page22" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#login" NAME="action20" PATH="/login"
+  SHAPE="48,17,0,0" TITLE="loginForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="createUserPage" NAME="forward0"
+   PATH="newUser" TARGET="page65" TITLE="createUserPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="successLogin" NAME="forward1" PATH="homePage"
+   TARGET="page87" TITLE="successLogin" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="inbox" NAME="forward2"
+   PATH="/goToInbox.do?method=leadInbox" TARGET="action27" TITLE="inbox"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="myAccount" NAME="forward3"
+   PATH="/userManagement.do?method=myAccount" TARGET="action31"
+   TITLE="myAccount" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward4" PATH="login"
+   TARGET="page22" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="changePassword" NAME="forward5"
+   PATH="changePassword" TARGET="page23" TITLE="changePassword"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#parameterManagement" NAME="action21"
+  PATH="/parameterManagement" SHAPE="592,17,0,0" TITLE="loginForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="assignParameterPage" NAME="forward0"
+   PATH="/parameterManagement.do?method=updateParameterAssignPage"
+   TARGET="action21" TITLE="assignParameterPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assignParameterGroup" NAME="forward1"
+   PATH="assignParameterGroup" TARGET="page58"
+   TITLE="assignParameterGroup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward2" PATH="login"
+   TARGET="page22" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#alertsConfiguration" NAME="action22"
+  PATH="/alertsConfiguration" SHAPE="32,8753,0,0" TITLE="masterForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="alertsConfig" NAME="forward0"
+   PATH="alertsConfig" TARGET="page88" TITLE="alertsConfig"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#crmProject" NAME="action23" PATH="/crmProject"
+  SHAPE="32,6625,0,0" TITLE="crmProjectForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="error" NAME="forward0" PATH="failure"
+   TARGET="page61" TITLE="error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewExternalProject" NAME="forward1"
+   PATH="viewExternalProject" TARGET="page89"
+   TITLE="viewExternalProject" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="externalProjectPage" NAME="forward2"
+   PATH="externalProjectPage" TARGET="page90"
+   TITLE="externalProjectPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="extrProjectSearch" NAME="forward3"
+   PATH="/crmProject.do?method=searchExtrnlProject" TARGET="action23"
+   TITLE="extrProjectSearch" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchExternalProject" NAME="forward4"
+   PATH="searchExternalProject" TARGET="page91"
+   TITLE="searchExternalProject" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#gisMaster" NAME="action24" PATH="/gisMaster"
+  SHAPE="80,8865,0,0" TITLE="gisForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="searchAfterEditLocality" NAME="forward0"
+   PATH="/gisMaster.do?method=searchLocality" TARGET="action24"
+   TITLE="searchAfterEditLocality" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewGisMaster" NAME="forward1"
+   PATH="viewGisMaster" TARGET="page92" TITLE="viewGisMaster"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchAfterEditCity" NAME="forward2"
+   PATH="/gisMaster.do?method=searchCity" TARGET="action24"
+   TITLE="searchAfterEditCity" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchAfterEditArea" NAME="forward3"
+   PATH="/gisMaster.do?method=searchArea" TARGET="action24"
+   TITLE="searchAfterEditArea" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchAfterEditState" NAME="forward4"
+   PATH="/gisMaster.do?method=searchState" TARGET="action24"
+   TITLE="searchAfterEditState" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#searchEWUser" NAME="action25" PATH="/searchEWUser"
+  SHAPE="32,9105,0,0" TITLE="eWUserMappingForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="searchUserPopUp" NAME="forward0"
+   PATH="/jsp/content/user/userMappingPopUP.jsp" TARGET="page93"
+   TITLE="searchUserPopUp" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="ewUserMappingPage" NAME="forward1"
+   PATH="ewUserMappingPage" TARGET="page94" TITLE="ewUserMappingPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchEWUserPage" NAME="forward2"
+   PATH="searchEWUserPage" TARGET="page95" TITLE="searchEWUserPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#eventTemplateMapping" NAME="action26"
+  PATH="/eventTemplateMapping" SHAPE="32,6865,0,0" TITLE="alertForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="error" NAME="forward0" PATH="failure"
+   TARGET="page61" TITLE="error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="eventTemplateMapping" NAME="forward1"
+   PATH="eventTemplateMapping" TARGET="page96"
+   TITLE="eventTemplateMapping" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#goToInbox" NAME="action27" PATH="/goToInbox"
+  SHAPE="1136,17,0,0" TITLE="inboxForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="inbox" NAME="forward0" PATH="inbox"
+   TARGET="page97" TITLE="inbox" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="editLeadDeatils" NAME="forward1"
+   PATH="/leadGeneration.do?method=modifyLeadPage" TARGET="action16"
+   TITLE="editLeadDeatils" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#crmRcaReason" NAME="action28" PATH="/crmRcaReason"
+  SHAPE="32,9505,0,0" TITLE="crmRcaReasonForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="showDetails" NAME="forward0"
+   PATH="/jsp/content/masterdata/showDetails.jsp" TARGET="page98"
+   TITLE="showDetails" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="createRcaReason" NAME="forward1"
+   PATH="createRcaReason" TARGET="page99" TITLE="createRcaReason"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewaAddReceiptPage" NAME="forward2"
+   PATH="/jsp/content/masterdata/viewAddReceipt.jsp" TARGET="page100"
+   TITLE="viewaAddReceiptPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="addReceiptPage" NAME="forward3"
+   PATH="addReceiptPage" TARGET="page101" TITLE="addReceiptPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#emailAlert" NAME="action29" PATH="/emailAlert"
+  SHAPE="32,7009,0,0" TITLE="alertForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="error" NAME="forward0" PATH="failure"
+   TARGET="page61" TITLE="error" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="createEmailTemplate" NAME="forward1"
+   PATH="createEmailTemplate" TARGET="page102"
+   TITLE="createEmailTemplate" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchAndViewEmail" NAME="forward2"
+   PATH="/emailAlert.do?method=searchAndViewEmailTemplate"
+   TARGET="action29" TITLE="searchAndViewEmail" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchTemplate" NAME="forward3"
+   PATH="searchTemplate" TARGET="page63" TITLE="searchTemplate"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#gis" NAME="action30" PATH="/gis"
+  SHAPE="32,10049,0,0" TITLE="gisForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewSociety" NAME="forward0"
+   PATH="/jsp/content/gis/viewSociety.jsp" TARGET="page103"
+   TITLE="viewSociety" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchGisForCreateSociety" NAME="forward1"
+   PATH="/gis.do?method=searchSociety" TARGET="action30"
+   TITLE="searchGisForCreateSociety" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="uploadGis" NAME="forward2" PATH="uploadGis"
+   TARGET="page104" TITLE="uploadGis" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchGis" NAME="forward3" PATH="searchGis"
+   TARGET="page105" TITLE="searchGis" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="createSociety" NAME="forward4"
+   PATH="createSociety" TARGET="page106" TITLE="createSociety"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#userManagement" NAME="action31"
+  PATH="/userManagement" SHAPE="320,33,0,0" TITLE="loginForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="createUserPage" NAME="forward0"
+   PATH="newUser" TARGET="page65" TITLE="createUserPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchUser" NAME="forward1" PATH="searchUser"
+   TARGET="page107" TITLE="searchUser" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="modifyUserPage" NAME="forward2"
+   PATH="modifyUser" TARGET="page66" TITLE="modifyUserPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assignParameterGroup" NAME="forward3"
+   PATH="/parameterManagement.do?method=updateParameterAssignPage"
+   TARGET="action21" TITLE="assignParameterGroup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewUserPage" NAME="forward4"
+   PATH="/jsp/content/user/viewUser.jsp" TARGET="page108"
+   TITLE="viewUserPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="myAccount" NAME="forward5" PATH="myAccount"
+   TARGET="page21" TITLE="myAccount" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward6" PATH="login"
+   TARGET="page22" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="searchUserByIdPage" NAME="forward7"
+   PATH="searchUserByIdPage" TARGET="page109" TITLE="searchUserByIdPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="assignRoleGroup" NAME="forward8"
+   PATH="/roleManagement.do?method=updateRoleAssignPage"
+   TARGET="action18" TITLE="assignRoleGroup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#profileSearch" NAME="action32" PATH="/profileSearch"
+  SHAPE="48,3105,0,0" TITLE="customerProfileForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="customerProfileSearchPage" NAME="forward0"
+   PATH="customerProfileSearchPage" TARGET="page110"
+   TITLE="customerProfileSearchPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="lmsViewPageForSingle" NAME="forward1"
+   PATH="/leadGeneration.do?method=viewLeadDetails" TARGET="action16"
+   TITLE="lmsViewPageForSingle" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#qrcConfig" NAME="action33" PATH="/qrcConfig"
+  SHAPE="32,10625,0,0" TITLE="qrcConfigForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="configFunctionalBinPage" NAME="forward0"
+   PATH="configFunctionalBinPage" TARGET="page111"
+   TITLE="configFunctionalBinPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="getSubSubCatRedirect" NAME="forward1"
+   PATH="/qrcConfig.do?method=getSubSubCat" TARGET="action33"
+   TITLE="getSubSubCatRedirect" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="configAttributedToPage" NAME="forward2"
+   PATH="configAttributedToPage" TARGET="page112"
+   TITLE="configAttributedToPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="configRcaPage" NAME="forward3"
+   PATH="configRcaPage" TARGET="page113" TITLE="configRcaPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="configureSubSubCatPage" NAME="forward4"
+   PATH="configureSubSubCatPage" TARGET="page114"
+   TITLE="configureSubSubCatPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="configResolutionCodePage" NAME="forward5"
+   PATH="configResolutionCodePage" TARGET="page115"
+   TITLE="configResolutionCodePage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#forgetPassword" NAME="action34"
+  PATH="/forgetPassword" SHAPE="48,2961,0,0" TITLE="loginForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="forgetPassword" NAME="forward0"
+   PATH="forgetPassword" TARGET="page116" TITLE="forgetPassword"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="login" NAME="forward1" PATH="login"
+   TARGET="page22" TITLE="login" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page0"
+  PATH="/jsp/content/masterdata/viewPartner.jsp" SHAPE="320,4722,0,0"
+  SUBTYPE="jsp" TITLE="viewPartner.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page1" PATH="addModifyPartner" SHAPE="320,4994,0,0"
+  SUBTYPE="tile" TITLE="addModifyPartner" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page2" PATH="searchPartner" SHAPE="320,5106,0,0"
+  SUBTYPE="tile" TITLE="searchPartner" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page3" PATH="assignServicePartner"
+  SHAPE="320,5218,0,0" SUBTYPE="tile" TITLE="assignServicePartner"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page4"
+  PATH="/jsp/content/finance/realizationPopUp.jsp" SHAPE="304,5330,0,0"
+  SUBTYPE="jsp" TITLE="realizationPopUp.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/paymentTracking.do"
+   SUBTYPE="confirmed" TARGET="action5" TITLE="/paymentTracking.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page5"
+  PATH="/jsp/content/finance/paymentReversalPopup.jsp"
+  SHAPE="304,5746,0,0" SUBTYPE="jsp" TITLE="paymentReversalPopup.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/paymentPosting.do"
+   SUBTYPE="confirmed" TARGET="action1" TITLE="/paymentPosting.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page6" PATH="paymentPostingPage"
+  SHAPE="304,5858,0,0" SUBTYPE="tile" TITLE="paymentPostingPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page7" PATH="paymentReversalPage"
+  SHAPE="304,5970,0,0" SUBTYPE="tile" TITLE="paymentReversalPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page8" PATH="/jsp/content/cap/checkFeasibility.jsp"
+  SHAPE="1136,914,0,0" SUBTYPE="jsp" TITLE="checkFeasibility.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page9" PATH="/jsp/content/cap/editCpeStatus.jsp"
+  SHAPE="592,386,0,0" SUBTYPE="jsp" TITLE="editCpeStatus.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/crmCap.do"
+   SUBTYPE="confirmed" TARGET="action2" TITLE="/crmCap.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page10" PATH="mapMacIdDetailsPage"
+  SHAPE="1136,1858,0,0" SUBTYPE="tile" TITLE="mapMacIdDetailsPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page11" PATH="installationAndActivation"
+  SHAPE="1136,2066,0,0" SUBTYPE="tile" TITLE="installationAndActivation"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page12" PATH="viewCRFDetails" SHAPE="1136,2242,0,0"
+  SUBTYPE="tile" TITLE="viewCRFDetails" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page13" PATH="npCRFEntryPage" SHAPE="1136,2514,0,0"
+  SUBTYPE="tile" TITLE="npCRFEntryPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page14" PATH="salesCRFConfirmationPage"
+  SHAPE="1136,2818,0,0" SUBTYPE="tile" TITLE="salesCRFConfirmationPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page15" PATH="viewCrfPage" SHAPE="1136,2962,0,0"
+  SUBTYPE="tile" TITLE="viewCrfPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page16" PATH="searchCrfPage" SHAPE="1136,3106,0,0"
+  SUBTYPE="tile" TITLE="searchCrfPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page17" PATH="crfValidatepage"
+  SHAPE="1136,3250,0,0" SUBTYPE="tile" TITLE="crfValidatepage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page18"
+  PATH="/jsp/content/cap/networkConfigDetail.jsp" SHAPE="1136,386,0,0"
+  SUBTYPE="jsp" TITLE="networkConfigDetail.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/crmCap.do"
+   SUBTYPE="confirmed" TARGET="action2" TITLE="/crmCap.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page19"
+  PATH="/jsp/content/cap/installation-Satisfaction-Report.jsp"
+  SHAPE="1136,3362,0,0" SUBTYPE="jsp"
+  TITLE="installation-Satisfaction-Report.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page20" PATH="networkDetailsPage"
+  SHAPE="1136,3474,0,0" SUBTYPE="tile" TITLE="networkDetailsPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page21" PATH="myAccount" SHAPE="592,4594,0,0"
+  SUBTYPE="tile" TITLE="myAccount" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page22" PATH="login" SHAPE="864,1874,0,0"
+  SUBTYPE="tile" TITLE="login" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page23" PATH="changePassword" SHAPE="320,2258,0,0"
+  SUBTYPE="tile" TITLE="changePassword" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page24" PATH="createEmailServer"
+  SHAPE="272,6082,0,0" SUBTYPE="tile" TITLE="createEmailServer"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page25" PATH="searchEmailServer"
+  SHAPE="272,6258,0,0" SUBTYPE="tile" TITLE="searchEmailServer"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page26" PATH="paymentTrackingPage"
+  SHAPE="848,5634,0,0" SUBTYPE="tile" TITLE="paymentTrackingPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page27" PATH="paymentGatewaysConfigPage"
+  SHAPE="848,5746,0,0" SUBTYPE="tile" TITLE="paymentGatewaysConfigPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page28"
+  PATH="/jsp/content/finance/editRejectedRecordPopUp.jsp"
+  SHAPE="304,5634,0,0" SUBTYPE="jsp" TITLE="editRejectedRecordPopUp.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/paymentTracking.do"
+   SUBTYPE="confirmed" TARGET="action5" TITLE="/paymentTracking.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page29" PATH="/jsp/content/finance/viewPayment.jsp"
+  SHAPE="848,5330,0,0" SUBTYPE="jsp" TITLE="viewPayment.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/paymentTracking.do"
+   SUBTYPE="confirmed" TARGET="action5" TITLE="/paymentTracking.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page30" PATH="suspenseRejectedPaymentPage"
+  SHAPE="848,5858,0,0" SUBTYPE="tile"
+  TITLE="suspenseRejectedPaymentPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page31" PATH="collectedPaymentPage"
+  SHAPE="592,2066,0,0" SUBTYPE="tile" TITLE="collectedPaymentPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page32"
+  PATH="/jsp/content/qrc/viewPaymentAndInvoiceDetails.jsp"
+  SHAPE="592,1858,0,0" SUBTYPE="jsp"
+  TITLE="viewPaymentAndInvoiceDetails.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/manageQrc.do"
+   SUBTYPE="confirmed" TARGET="action6" TITLE="/manageQrc.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page33" PATH="bulkWhitelistPage" SHAPE="592,18,0,0"
+  SUBTYPE="tile" TITLE="bulkWhitelistPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page34" PATH="massOutagePage" SHAPE="592,2242,0,0"
+  SUBTYPE="tile" TITLE="massOutagePage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page35" PATH="qrcSearchCustomerPage"
+  SHAPE="592,2514,0,0" SUBTYPE="tile" TITLE="qrcSearchCustomerPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page36" PATH="disconnectionPage"
+  SHAPE="592,2818,0,0" SUBTYPE="tile" TITLE="disconnectionPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page37" PATH="editTicketPage" SHAPE="592,2962,0,0"
+  SUBTYPE="tile" TITLE="editTicketPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page39" PATH="viewTicket" SHAPE="592,3250,0,0"
+  SUBTYPE="tile" TITLE="viewTicket" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page40"
+  PATH="/jsp/content/qrc/deviceChangePopup.jsp" SHAPE="592,914,0,0"
+  SUBTYPE="jsp" TITLE="deviceChangePopup.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/crmCap.do"
+   SUBTYPE="confirmed" TARGET="action2" TITLE="/crmCap.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page41" PATH="addRemoveAccessoriesPage"
+  SHAPE="592,3362,0,0" SUBTYPE="tile" TITLE="addRemoveAccessoriesPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page42" PATH="deviceChangePage"
+  SHAPE="592,3474,0,0" SUBTYPE="tile" TITLE="deviceChangePage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page43" PATH="waiverPage" SHAPE="592,3586,0,0"
+  SUBTYPE="tile" TITLE="waiverPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page44" PATH="tariffMigration" SHAPE="592,3698,0,0"
+  SUBTYPE="tile" TITLE="tariffMigration" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page45" PATH="viewPaymentPage" SHAPE="592,3810,0,0"
+  SUBTYPE="tile" TITLE="viewPaymentPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page46" PATH="addSingleWhiteList"
+  SHAPE="592,3922,0,0" SUBTYPE="tile" TITLE="addSingleWhiteList"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page47" PATH="addressChangePage"
+  SHAPE="592,4034,0,0" SUBTYPE="tile" TITLE="addressChangePage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page48"
+  PATH="/jsp/content/qrc/addressChangeFeasibility.jsp"
+  SHAPE="592,4146,0,0" SUBTYPE="jsp"
+  TITLE="addressChangeFeasibility.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page49" PATH="barringPage" SHAPE="592,4258,0,0"
+  SUBTYPE="tile" TITLE="barringPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page50" PATH="ticketsPage" SHAPE="592,4370,0,0"
+  SUBTYPE="tile" TITLE="ticketsPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page51" PATH="activityLogPage" SHAPE="592,4482,0,0"
+  SUBTYPE="tile" TITLE="activityLogPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page52" PATH="planMigrationPage"
+  SHAPE="592,914,0,0" SUBTYPE="tile" TITLE="planMigrationPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page53" PATH="customerInteractionPage"
+  SHAPE="592,914,0,0" SUBTYPE="tile" TITLE="customerInteractionPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page54"
+  PATH="/jsp/content/masterdata/viewParameterGroup.jsp"
+  SHAPE="320,2530,0,0" SUBTYPE="jsp" TITLE="viewParameterGroup.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page55"
+  PATH="/jsp/content/masterdata/showParameterDetails.jsp"
+  SHAPE="320,2834,0,0" SUBTYPE="jsp" TITLE="showParameterDetails.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page56" PATH="createParameterGroupPage"
+  SHAPE="320,2978,0,0" SUBTYPE="tile" TITLE="createParameterGroupPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page57" PATH="searchParameterGroupPage"
+  SHAPE="320,3122,0,0" SUBTYPE="tile" TITLE="searchParameterGroupPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page58" PATH="assignParameterGroup"
+  SHAPE="864,930,0,0" SUBTYPE="tile" TITLE="assignParameterGroup"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page59" PATH="option82" SHAPE="320,2082,0,0"
+  SUBTYPE="tile" TITLE="option82" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page60" PATH="saveSMSTemplate" SHAPE="304,6370,0,0"
+  SUBTYPE="tile" TITLE="saveSMSTemplate" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page61" PATH="failure" SHAPE="304,6642,0,0"
+  SUBTYPE="tile" TITLE="failure" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page62" PATH="createSmsTemplate"
+  SHAPE="304,7682,0,0" SUBTYPE="tile" TITLE="createSmsTemplate"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page63" PATH="searchTemplate" SHAPE="304,7570,0,0"
+  SUBTYPE="tile" TITLE="searchTemplate" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page64" PATH="modifySMSTemplate"
+  SHAPE="304,7794,0,0" SUBTYPE="tile" TITLE="modifySMSTemplate"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page65" PATH="newUser" SHAPE="592,18,0,0"
+  SUBTYPE="tile" TITLE="newUser" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page66" PATH="modifyUser" SHAPE="592,386,0,0"
+  SUBTYPE="tile" TITLE="modifyUser" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page67" PATH="viewUser" SHAPE="320,3938,0,0"
+  SUBTYPE="tile" TITLE="viewUser" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page68" PATH="assignRoleGroup" SHAPE="864,2082,0,0"
+  SUBTYPE="tile" TITLE="assignRoleGroup" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page69" PATH="searchSmsCofigurationPage"
+  SHAPE="272,7906,0,0" SUBTYPE="tile" TITLE="searchSmsCofigurationPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page70" PATH="smsManagement" SHAPE="272,8082,0,0"
+  SUBTYPE="tile" TITLE="smsManagement" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page71" PATH="customerStatusPage"
+  SHAPE="320,1874,0,0" SUBTYPE="tile" TITLE="customerStatusPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page72" PATH="safeCustodyPage" SHAPE="320,402,0,0"
+  SUBTYPE="tile" TITLE="safeCustodyPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page73" PATH="listRoleGroup" SHAPE="320,3266,0,0"
+  SUBTYPE="tile" TITLE="listRoleGroup" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page74" PATH="searchRoleGroupPage"
+  SHAPE="320,3378,0,0" SUBTYPE="tile" TITLE="searchRoleGroupPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page75"
+  PATH="/jsp/content/masterdata/viewRoleGroup.jsp" SHAPE="320,3490,0,0"
+  SUBTYPE="jsp" TITLE="viewRoleGroup.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page76"
+  PATH="/jsp/content/masterdata/showRolesDetails.jsp"
+  SHAPE="864,2530,0,0" SUBTYPE="jsp" TITLE="showRolesDetails.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page77" PATH="createRoleGroupPage"
+  SHAPE="320,3602,0,0" SUBTYPE="tile" TITLE="createRoleGroupPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page78" PATH="viewLeadDeatils" SHAPE="1632,386,0,0"
+  SUBTYPE="tile" TITLE="viewLeadDeatils" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page79" PATH="leadGeneration" SHAPE="1632,914,0,0"
+  SUBTYPE="tile" TITLE="leadGeneration" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page80" PATH="viewCreatedLead" SHAPE="1632,18,0,0"
+  SUBTYPE="tile" TITLE="viewCreatedLead" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page81" PATH="lmsFileUpload" SHAPE="1632,1858,0,0"
+  SUBTYPE="tile" TITLE="lmsFileUpload" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page82" PATH="searchUpfrontPaymentPage"
+  SHAPE="304,8194,0,0" SUBTYPE="tile" TITLE="searchUpfrontPaymentPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page83" PATH="manualyUpfrontPaymentPage"
+  SHAPE="304,8434,0,0" SUBTYPE="tile" TITLE="manualyUpfrontPaymentPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page84" PATH="fileUploadUFPaymentPage"
+  SHAPE="304,8546,0,0" SUBTYPE="tile" TITLE="fileUploadUFPaymentPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page85"
+  PATH="/jsp/content/finance/viewUPfrontPopup.jsp" SHAPE="304,8658,0,0"
+  SUBTYPE="jsp" TITLE="viewUPfrontPopup.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page86" PATH="activateAccount" SHAPE="320,3714,0,0"
+  SUBTYPE="tile" TITLE="activateAccount" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page87" PATH="homePage" SHAPE="320,4050,0,0"
+  SUBTYPE="tile" TITLE="homePage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page88" PATH="alertsConfig" SHAPE="240,8770,0,0"
+  SUBTYPE="tile" TITLE="alertsConfig" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page89" PATH="viewExternalProject"
+  SHAPE="304,6882,0,0" SUBTYPE="tile" TITLE="viewExternalProject"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page90" PATH="externalProjectPage"
+  SHAPE="304,7026,0,0" SUBTYPE="tile" TITLE="externalProjectPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page91" PATH="searchExternalProject"
+  SHAPE="304,7234,0,0" SUBTYPE="tile" TITLE="searchExternalProject"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page92" PATH="viewGisMaster" SHAPE="352,8882,0,0"
+  SUBTYPE="tile" TITLE="viewGisMaster" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page93"
+  PATH="/jsp/content/user/userMappingPopUP.jsp" SHAPE="272,9122,0,0"
+  SUBTYPE="jsp" TITLE="userMappingPopUP.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/searchEWUser.do"
+   SUBTYPE="confirmed" TARGET="action25" TITLE="/searchEWUser.do"
+   TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page94" PATH="ewUserMappingPage"
+  SHAPE="272,9298,0,0" SUBTYPE="tile" TITLE="ewUserMappingPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page95" PATH="searchEWUserPage"
+  SHAPE="272,9410,0,0" SUBTYPE="tile" TITLE="searchEWUserPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page96" PATH="eventTemplateMapping"
+  SHAPE="304,7346,0,0" SUBTYPE="tile" TITLE="eventTemplateMapping"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page97" PATH="inbox" SHAPE="1360,34,0,0"
+  SUBTYPE="tile" TITLE="inbox" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page98"
+  PATH="/jsp/content/masterdata/showDetails.jsp" SHAPE="288,9522,0,0"
+  SUBTYPE="jsp" TITLE="showDetails.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page99" PATH="createRcaReason" SHAPE="288,9730,0,0"
+  SUBTYPE="tile" TITLE="createRcaReason" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page100"
+  PATH="/jsp/content/masterdata/viewAddReceipt.jsp" SHAPE="288,9842,0,0"
+  SUBTYPE="jsp" TITLE="viewAddReceipt.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page101" PATH="addReceiptPage" SHAPE="288,9954,0,0"
+  SUBTYPE="tile" TITLE="addReceiptPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page102" PATH="createEmailTemplate"
+  SHAPE="304,7458,0,0" SUBTYPE="tile" TITLE="createEmailTemplate"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page103" PATH="/jsp/content/gis/viewSociety.jsp"
+  SHAPE="304,10066,0,0" SUBTYPE="jsp" TITLE="viewSociety.jsp"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page104" PATH="uploadGis" SHAPE="304,10306,0,0"
+  SUBTYPE="tile" TITLE="uploadGis" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page105" PATH="searchGis" SHAPE="304,10418,0,0"
+  SUBTYPE="tile" TITLE="searchGis" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page106" PATH="createSociety" SHAPE="304,10530,0,0"
+  SUBTYPE="tile" TITLE="createSociety" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page107" PATH="searchUser" SHAPE="592,18,0,0"
+  SUBTYPE="tile" TITLE="searchUser" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page108" PATH="/jsp/content/user/viewUser.jsp"
+  SHAPE="592,18,0,0" SUBTYPE="jsp" TITLE="viewUser.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page109" PATH="searchUserByIdPage"
+  SHAPE="592,18,0,0" SUBTYPE="tile" TITLE="searchUserByIdPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page110" PATH="customerProfileSearchPage"
+  SHAPE="320,4162,0,0" SUBTYPE="tile" TITLE="customerProfileSearchPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page111" PATH="configFunctionalBinPage"
+  SHAPE="304,10642,0,0" SUBTYPE="tile" TITLE="configFunctionalBinPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page112" PATH="configAttributedToPage"
+  SHAPE="304,10914,0,0" SUBTYPE="tile" TITLE="configAttributedToPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page113" PATH="configRcaPage" SHAPE="304,11026,0,0"
+  SUBTYPE="tile" TITLE="configRcaPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page114" PATH="configureSubSubCatPage"
+  SHAPE="304,11138,0,0" SUBTYPE="tile" TITLE="configureSubSubCatPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page115" PATH="configResolutionCodePage"
+  SHAPE="304,11250,0,0" SUBTYPE="tile" TITLE="configResolutionCodePage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page116" PATH="forgetPassword" SHAPE="320,3826,0,0"
+  SUBTYPE="tile" TITLE="forgetPassword" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#customerProfile" NAME="action35"
+  PATH="/customerProfile" SHAPE="32,15009,0,0" TITLE="qrcForm"
+  TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="viewCustomerProfilePage" NAME="forward0"
+   PATH="viewCustomerProfilePage" TARGET="page118"
+   TITLE="viewCustomerProfilePage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="viewCustomerBillCyclePage" NAME="forward1"
+   PATH="viewCustomerBillCyclePage" TARGET="page119"
+   TITLE="viewCustomerBillCyclePage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page117" PATH="qrcCustomerProfile"
+  SHAPE="528,1041,0,0" SUBTYPE="tile" TITLE="qrcCustomerProfile"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page118" PATH="viewCustomerProfilePage"
+  SHAPE="256,15026,0,0" SUBTYPE="tile" TITLE="viewCustomerProfilePage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page119" PATH="viewCustomerBillCyclePage"
+  SHAPE="256,15170,0,0" SUBTYPE="tile" TITLE="viewCustomerBillCyclePage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+</PROCESS>

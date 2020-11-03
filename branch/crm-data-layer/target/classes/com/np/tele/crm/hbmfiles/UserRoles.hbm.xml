@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Jul, 2013 11:15:38 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.UserRolesPojo" table="crm_user_roles" dynamic-update="true">
+    <cache usage="read-write"/>
+        <id name="recordId" type="long">
+            <column name="record_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="crmRoles" class="com.np.tele.crm.pojos.CrmRolesPojo" fetch="join" lazy="false">
+            <column name="role_id" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="groups" class="com.np.tele.crm.pojos.GroupsPojo" fetch="select" lazy="false">
+            <column name="group_id" precision="10" scale="0" />
+        </many-to-one>
+        <many-to-one name="crmParameter" class="com.np.tele.crm.pojos.CrmParameterPojo" fetch="select" lazy="false">
+            <column name="parameter_id" precision="10" scale="0" />
+        </many-to-one>
+        <property name="userId" type="string">
+            <column name="user_id" length="128" not-null="true" />
+        </property>
+        <property name="parameterValue" type="string">
+            <column name="parameter_value" length="50" />
+        </property>
+        <property name="createAccess" type="java.lang.Boolean">
+            <column name="create_access" sql-type="bit"/>
+        </property>
+        <property name="readAccess" type="java.lang.Boolean">
+            <column name="read_access" sql-type="bit"/>
+        </property>
+        <property name="updateAccess" type="java.lang.Boolean">
+            <column name="update_access" sql-type="bit"/>
+        </property>
+        <property name="deleteAccess" type="java.lang.Boolean">
+            <column name="delete_access" sql-type="bit"/>
+        </property>
+        <property name="recoverAccess" type="java.lang.Boolean">
+            <column name="recovery_access" sql-type="bit"/>
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+    </class>
+</hibernate-mapping>

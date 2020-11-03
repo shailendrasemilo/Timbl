@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 8, 2014 10:56:06 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmPartnerDetailsPojo" table="crm_partner_details" dynamic-update="true">
+    <cache usage="read-write"/>
+        <id name="recordId" type="long">
+            <column name="record_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="partner" class="com.np.tele.crm.pojos.PartnerPojo" fetch="select" lazy="false">
+            <column name="partner_id" not-null="true" />
+        </many-to-one>
+        <property name="bussinessType" type="string">
+            <column name="bussiness_type" length="4" />
+        </property>
+        <property name="partnerType" type="string">
+            <column name="partner_type" length="4" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19"  />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,565 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2014 6:05:04 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmSrTicketsPojo" table="crm_sr_tickets" dynamic-update="true">
+		<cache usage="read-write"/>
+        <id name="ticketId" type="java.lang.Long">
+            <column name="ticket_id" />
+            <generator class="identity" />
+		</id>
+		<property name="qrcSubSubCategoryId" type="long">
+			<column name="qrc_sub_sub_category_id" precision="10" scale="0"
+				not-null="true" />
+		</property>
+		<property name="qrcSubCategoryId" type="long">
+			<column name="qrc_sub_category_id" precision="10" scale="0"
+				not-null="true" />
+		</property>
+		<property name="qrcCategoryId" type="long">
+			<column name="qrc_category_id" precision="10" scale="0"
+				not-null="true" />
+		</property>
+		<property name="flagRemarks" type="string">
+			<column name="flag_remarks" length="4000" sql-type="text"/>
+		</property>
+		<!-- <many-to-one name="crmQrcSubSubCategories" class="com.np.tele.crm.pojos.CrmQrcSubSubCategoriesPojo" 
+			fetch="select"> <column name="QRC_SUB_SUB_CATEGORY_ID" precision="10" scale="0" 
+			not-null="true" /> </many-to-one> -->
+		<!-- <many-to-one name="crmQrcSubCategories" class="com.np.tele.crm.pojos.CrmQrcSubCategoriesPojo" 
+			fetch="select"> <column name="QRC_SUB_CATEGORY_ID" precision="10" scale="0" 
+			not-null="true" /> </many-to-one> -->
+		<!-- <many-to-one name="crmQrcCategories" class="com.np.tele.crm.pojos.CrmQrcCategoriesPojo" 
+			fetch="select"> <column name="QRC_CATEGORY_ID" precision="10" scale="0" not-null="true" 
+			/> </many-to-one> -->
+		<property name="srId" type="string" unique="true">
+			<column name="sr_id" length="128" not-null="true" />
+		</property>
+		<property name="resolutionType" type="byte">
+			<column name="resolution_type" precision="2" scale="0"
+				not-null="true" />
+		</property>
+		<property name="functionalbinId" type="java.lang.Long">
+			<column name="functionalbin_id" precision="10" scale="0" />
+		</property>
+		<property name="moduleType" type="string">
+            <column name="module_type" length="10" not-null="true" />
+		</property>
+		<property name="mappingId" type="string">
+            <column name="mapping_id" length="50" not-null="true" />
+		</property>
+		<property name="followupOn" type="timestamp">
+            <column name="followup_on" length="19" />
+		</property>
+		<property name="processingDate" type="timestamp">
+			<column name="processing_date" length="7" />
+		</property>
+		<property name="srResolvedOn" type="timestamp">
+			<column name="sr_resolved_on" length="7" />
+		</property>
+		<property name="srClosedOn" type="timestamp">
+            <column name="sr_closed_on" length="19" />
+		</property>
+		<property name="srReopenedOn" type="timestamp">
+            <column name="sr_reopened_on" length="19" />
+		</property>
+		<property name="actionTakenId" type="java.lang.Long">
+			<column name="rca_id" precision="10" scale="0" />
+		</property>
+		<property name="rootCauseId" type="java.lang.Long">
+			<column name="resolution_code_id" precision="10" scale="0" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+		<property name="qrcType" type="string">
+			<column name="qrc_type" length="2" />
+		</property>
+		<property name="callingNo" type="java.lang.Long">
+			<column name="calling_no" precision="10" scale="0" />
+		</property>
+		<property name="visitRequired" type="string">
+			<column name="visit_required" length="1" />
+		</property>
+		<property name="wrongTagging" type="string">
+			<column name="wrong_tagging" length="1" />
+		</property>
+		<property name="resolvedBy" type="string">
+			<column name="resolved_by" length="128" />
+		</property>
+		<property name="APITransactionId" type="string">
+			<column name="api_transaction_id" length="45" />
+		</property>
+		<property name="previousStage" type="string">
+			<column name="previous_stage" length="25" />
+		</property>
+		<property name="expectedSLATime" type="timestamp">
+			<column name="expected_sla_time" />
+		</property>
+		<property name="slaTime" type="java.lang.Long">
+			<column name="sla_time" precision="10" scale="0" />
+		</property>
+		<property name="actionTaken" type="string">
+			<column name="action_taken" length="1024" />
+		</property>
+		<property name="rootCause" type="string">
+			<column name="root_cause" length="1024" />
+		</property>
+		<property name="attributedTo" type="string">
+			<column name="attributed_to" length="1024" />
+		</property>
+		<property name="slaCalculatedOn" type="timestamp">
+			<column name="sla_calculated_on" length="7" />
+		</property>
+	</class>
+	<sql-query name="ParameterBySrNumber" callable="false">	
+	<![CDATA[SELECT
+             SUBSTR(cst.sr_id,LENGTH(ccd.customer_id)+1,4) AS TICKETID,
+             ccd.customer_id AS CUSTOMERID,
+             ccd.cust_fname AS CUSTOMERFIRSTNAME,
+             IFNULL(ccd.cust_lname, ' ') AS CUSTOMERLASTNAME,
+             ccd.cust_email_id AS CUSTOMER_EMAIL,
+             CONCAT(ccd.rmn, '') AS CUSTOMER_RMN,
+             DATE_FORMAT(cst.expected_sla_time, '%d-%b %r') AS ETR_DATE,
+            cqc.qrc_category AS QRC_CATEGORY,
+            cqsc.qrc_sub_category AS QRC_SUB_CATEGORY,
+            cqssc.qrc_sub_sub_category AS QRC_SUB_SUB_CATEGORY,
+            CONCAT(cpd.security_charges,'') AS SECURITY_DEPOSIT
+          FROM
+             crm_sr_tickets cst,
+             crm_customer_details ccd,
+             crm_qrc_categories cqc,
+             crm_qrc_sub_categories cqsc,
+             crm_qrc_sub_sub_categories cqssc,
+             crm_cust_payment_details cpd
+          WHERE
+             cst.mapping_id = ccd.customer_id
+          AND cst.qrc_sub_sub_category_id = cqssc.qrc_sub_sub_category_id
+          AND cqssc.qrc_sub_category_id = cqsc.qrc_sub_category_id
+          AND cqsc.qrc_category_id = cqc.qrc_category_id
+          AND ccd.record_id = cpd.customer_record_id AND cpd.installation_status='PreIns'
+          AND cst.sr_id=:SR_ID]]>
+</sql-query>
+ <sql-query name="TICKET_RPT" callable="false">	
+   <![CDATA[SELECT ccd.customer_id AS "customerId",
+	  ccd.cust_fname AS "custFname",
+	  #IFNULL(ccd.cust_lname, ' ')AS "custLname",
+	  ccd.crf_id AS "crfId",ccd.status AS "status",
+	  cst.sr_id AS "ticketId",cst.qrc_type AS "qrcType",
+	  cqc.qrc_category AS "category",cqs.qrc_sub_category AS "subCategory",
+	  cqss.qrc_sub_sub_category AS "subSubCategory",cast(cth.remarks as char(4000)) AS "remarks",
+	  cst.status AS "ticketStatus",CONVERT(cst.resolution_type,CHAR) AS "resolutionType",
+	  cst.created_time AS "raisedDate",cst.created_by AS "raiseUser",
+	  cst.sr_resolved_on AS "srResolvedOn",cst.resolved_by AS "resolvedBy",
+	  cst.action_taken AS "resolutionCode",cst.root_cause AS "rca",
+	  cst.attributed_to AS "attributedTo",cst.visit_required AS "fieldVisit",
+	  CONVERT(cst.functionalbin_id,CHAR) AS "binName",CONVERT(ccd.np_id,CHAR)AS "LMOName",ccd.product AS "product",
+	  CONVERT(cst.sla_time, CHAR) AS "resolutionTime",
+	  CASE WHEN cst.resolution_type = 0 THEN ""
+	  WHEN cst.sla_time BETWEEN 0 AND 14400000 THEN 'HOURS_0_4'
+	  WHEN cst.sla_time BETWEEN 14400000 AND 86400000 THEN 'HOURS_4_24'
+	  WHEN cst.sla_time BETWEEN 8640000 AND 172800000 THEN 'DAYS_1_2'
+	  WHEN cst.sla_time BETWEEN 172800000 AND 259200000 THEN 'DAYS_2_3'
+	  WHEN cst.sla_time BETWEEN 259200000 AND 345600000 THEN 'DAYS_3_4'
+	  WHEN cst.sla_time BETWEEN 432000000 AND 432000000 THEN 'DAYS_4_5'
+	  WHEN cst.sla_time BETWEEN 345600000 AND 518400000 THEN 'DAYS_5_6'
+	  WHEN cst.sla_time BETWEEN 518400000 AND 604800000 THEN 'DAYS_6_7'
+	  WHEN cst.sla_time BETWEEN 604800000 AND 864000000 THEN 'DAYS_7_10'
+	  WHEN cst.sla_time BETWEEN 864000000 AND 1296000000 THEN 'DAYS_10_15'
+	  WHEN cst.sla_time >1296000000 THEN 'DAYS_ABOVE_15' END AS "slab",
+	  CASE WHEN cst.expected_sla_time is NULL THEN
+      CASE WHEN cqss.sla is NULL OR cqss.sla = 0 OR cst.resolution_type = 0 THEN "" ELSE "Within SLA" END ELSE
+      CASE WHEN cst.sr_resolved_on IS NOT NULL AND cst.sr_resolved_on < cst.expected_sla_time and cst.`status` <> 'RO' THEN "Within SLA" ELSE
+      CASE WHEN cst.sr_resolved_on IS NULL AND cst.expected_sla_time > NOW() THEN "Within SLA" ELSE "Out of SLA" END
+      END END AS "slaStatus", 
+	  CONCAT(cqss.sla,' ',CASE cqss.sla_unit WHEN 'WH' THEN 'Working Hours' WHEN 'CD' THEN 'Calendar Days' WHEN 'WD' THEN 'Working Days' END ) as configuredSLA
+	 FROM
+	  crm_qrc_categories cqc,
+	  crm_qrc_sub_categories cqs,
+	  crm_qrc_sub_sub_categories cqss,
+	  crm_sr_tickets cst
+	  LEFT JOIN crm_customer_details ccd ON( ccd.customer_id = cst.mapping_id AND ccd.`status` <> 'CN')
+	  LEFT JOIN crm_ticket_history cth ON( cth.ticket_id = cst.sr_id)
+	 WHERE
+	  cst.qrc_category_id = cqc.qrc_category_id
+	  AND cst.qrc_sub_category_id = cqs.qrc_sub_category_id
+	  AND cst.qrc_sub_sub_category_id = cqss.qrc_sub_sub_category_id
+	  AND cth.created_time =(SELECT MAX(remarks1.created_time) FROM crm_ticket_history remarks1 WHERE remarks1.ticket_id = cst.sr_id)
+	  AND(:QTYPE IS NULL OR cst.qrc_type =:QTYPE)
+	  AND(:CATGRY IS NULL OR cst.qrc_category_id =:CATGRY)
+	  AND(:SUBCATGRY IS NULL OR cst.qrc_sub_category_id =:SUBCATGRY)
+	  AND(:SUBSUBCATGRY IS NULL OR cst.qrc_sub_sub_category_id =:SUBSUBCATGRY)
+	  AND (:CURRENTBIN  IS NULL OR cst.functionalbin_id=:CURRENTBIN )
+	  AND cst.created_time BETWEEN :FROM_DATE AND :TO_DATE
+	]]>
+ </sql-query>
+
+ <sql-query name="RESOLVED_TKT_RPT" callable="false">	
+	<![CDATA[SELECT ccd.customer_id AS "customerId", ccd.crf_id AS "crfId", ccd.status AS "status",
+		CONCAT(crm_addr.add_line1, CONCAT(CONCAT(' ', crm_addr.add_line2), CONCAT(CONCAT(' ', crm_addr.add_line3), CONCAT('-', crm_addr.pincode))))AS "installationAddress",
+		cst.sr_id AS "ticketId", cst.qrc_type AS "qrcType", cqc.qrc_category AS "category", cqs.qrc_sub_category AS "subCategory",
+		cqss.qrc_sub_sub_category AS "subSubCategory",cast(cth.remarks as char(4000)) AS "remarks", cst.status AS "ticketStatus",
+		CONVERT(cst.resolution_type,CHAR) AS "resolutionType", cst.created_time AS "raisedDate",cst.created_by AS "raiseUser",
+		cst.sr_reopened_on AS "srReopenedOn",cst.sr_resolved_on AS "srResolvedOn",cst.resolved_by AS "resolvedBy",cst.action_taken AS "resolutionCode",
+		cst.root_cause AS "rca",cst.attributed_to AS "attributedTo",cst.visit_required AS "fieldVisit",CONVERT(cst.functionalbin_id,CHAR) AS "binName",
+	    CONVERT(ccd.np_id,CHAR)AS "LMOName",ccd.service_type  AS "serviceType",ccd.product AS "product",
+	    CASE ccd.product WHEN 'EOC' THEN  cpnc.master_name ELSE ccnc.option_82 END AS "option82",
+ 		CONVERT(cst.sla_time, CHAR) AS "resolutionTime",
+     CASE WHEN cst.resolution_type = 0 THEN ""
+	    WHEN cst.sla_time BETWEEN 0 AND 14400000 THEN 'HOURS_0_4'
+	    WHEN cst.sla_time BETWEEN 14400000 AND 86400000 THEN 'HOURS_4_24'
+	    WHEN cst.sla_time BETWEEN 8640000 AND 172800000 THEN 'DAYS_1_2'
+	    WHEN cst.sla_time BETWEEN 172800000 AND 259200000 THEN 'DAYS_2_3'
+	    WHEN cst.sla_time BETWEEN 259200000 AND 345600000 THEN 'DAYS_3_4'
+	    WHEN cst.sla_time BETWEEN 432000000 AND 432000000 THEN 'DAYS_4_5'
+	    WHEN cst.sla_time BETWEEN 345600000 AND 518400000 THEN 'DAYS_5_6'
+	    WHEN cst.sla_time BETWEEN 518400000 AND 604800000 THEN 'DAYS_6_7'
+	    WHEN cst.sla_time BETWEEN 604800000 AND 864000000 THEN 'DAYS_7_10'
+	    WHEN cst.sla_time BETWEEN 864000000 AND 1296000000 THEN 'DAYS_10_15'
+	    WHEN cst.sla_time >1296000000 THEN 'DAYS_ABOVE_15' END AS "slab",
+     CASE WHEN cst.expected_sla_time is NULL THEN
+     CASE WHEN cqss.sla is NULL OR cqss.sla = 0 OR cst.resolution_type = 0 THEN "" ELSE "Within SLA" END ELSE
+     CASE WHEN cst.sr_resolved_on IS NOT NULL AND cst.sr_resolved_on < cst.expected_sla_time THEN "Within SLA" ELSE
+     CASE WHEN cst.sr_resolved_on IS NULL AND cst.expected_sla_time > NOW() THEN "Within SLA" ELSE "Out of SLA" END
+     END END AS "slaStatus", 
+	 CONCAT(cqss.sla,' ',CASE cqss.sla_unit WHEN 'WH' THEN 'Working Hours' WHEN 'CD' THEN 'Calendar Days' WHEN 'WD' THEN 'Working Days' END ) AS "configuredSLA",
+	 CASE WHEN cst.functionalbin_id=cmc.category_id AND cmc.category_id=cth1.to_bin THEN cth1.created_time ELSE NULL END AS "createdTime"
+  FROM
+	 crm_qrc_categories cqc,crm_qrc_sub_categories cqs,crm_ticket_history cth1,
+	 crm_qrc_sub_sub_categories cqss,crm_sr_tickets cst
+	 LEFT JOIN crm_customer_details ccd ON(ccd.customer_id = cst.mapping_id)
+	 LEFT JOIN crm_cust_address_details crm_addr ON(ccd.record_id = crm_addr.customer_record_id AND crm_addr.address_type = 'IN')
+	 LEFT JOIN crm_master_configuration cmc ON(cmc.value_alias='EOCRB')
+	 LEFT JOIN crm_ticket_history cth ON( cth.ticket_id=cst.sr_id AND cth.action='RV' )
+	 LEFT JOIN crm_cust_network_config ccnc ON (ccnc.customer_record_id = ccd.record_id )
+     LEFT JOIN crm_partner_network_config cpnc on(CONVERT(cpnc.record_id,CHAR) = ccnc.option_82)
+  WHERE
+ 	cst.status in ('R','C')
+ 	AND cst.qrc_category_id = cqc.qrc_category_id
+	AND cst.qrc_sub_category_id = cqs.qrc_sub_category_id
+	AND cst.qrc_sub_sub_category_id = cqss.qrc_sub_sub_category_id
+	AND cth.created_time = (SELECT MAX(remarks1.created_time) FROM crm_ticket_history remarks1 WHERE remarks1.ticket_id=cst.sr_id  AND remarks1.action='RV' )
+	AND cth1.created_time = (SELECT MAX(remarks2.created_time) FROM crm_ticket_history remarks2 WHERE remarks2.action='FW' )
+    AND (:QTYPE IS NULL OR cst.qrc_type=:QTYPE)
+    AND (:CURRENTBIN  IS NULL OR cst.functionalbin_id=:CURRENTBIN )
+    AND (:CATGRY IS NULL OR cst.qrc_category_id=:CATGRY)
+    AND (:SUBCATGRY IS NULL OR cst.qrc_sub_category_id=:SUBCATGRY)
+    AND (:SUBSUBCATGRY IS NULL OR cst.qrc_sub_sub_category_id=:SUBSUBCATGRY)
+    AND cst.sr_resolved_on BETWEEN :FROM_DATE AND :TO_DATE	]]>
+ </sql-query>
+	
+	<sql-query name="OPEN_TICKET_RPT" callable="false">	
+			<![CDATA[
+			Select DISTINCT cst.sr_id AS "ticketId",
+   ccd.crf_id AS "crfId",
+   ccd.customer_id AS "customerId",
+   ccd.cust_fname AS "custFname",
+   IFNULL(ccd.cust_lname, ' ') AS "custLname",
+   CONCAT(ccd.rmn, '') AS "rmn",
+   ccd.status AS "status",
+   ccd.product AS "product",
+   ccd.service_type AS "serviceType",
+   CONVERT(ccd.np_id,CHAR) AS "LMOName",
+   CASE ccd.product WHEN 'EOC' THEN cpnc.master_name ELSE ccnc.option_82 END AS "option82",
+   CONCAT(ccad.add_line1, CONCAT(CONCAT(' ', ccad.add_line2), CONCAT(CONCAT(' ', ccad.add_line3), CONCAT('-', ccad.pincode))))AS "installationAddress",
+   cst.qrc_type AS "qrcType",
+   cqc.qrc_category AS "category",
+   cqsc.qrc_sub_category AS "subCategory",
+   cqssc.qrc_sub_sub_category AS "subSubCategory",
+   cst.created_time AS "raisedDate",
+   cst.created_by AS "raiseUser",
+   CONVERT(cst.functionalbin_id,CHAR) AS "currentBin",
+    ci.created_time "inboxCreatedTime",
+   ci.user_id AS "inboxUserId",
+   CASE WHEN ci.user_id IS NOT NULL and ci.user_id != '' THEN (CASE WHEN ci.created_time IS NOT NULL THEN ci.created_time ELSE ci.last_modified_time END ) ELSE NULL END AS "inboxLastmodifiedTime",
+   cth.created_by AS "inboxCreatedBy",   
+   cast(remarks.remarks as char(4000)) AS "remarks",
+   DATE_FORMAT(TIMEDIFF(NOW() , cst.created_time), '%T') AS "totalPendingHours",
+   DATE_FORMAT(TIMEDIFF(NOW() , cth.created_time), '%T') AS "pendingCurrentBinHours",
+   cst.flag_remarks as flagRemarks,
+   DATE_FORMAT(TIMEDIFF(NOW() , (CASE WHEN ci.last_modified_time IS NULL THEN (CASE WHEN ci.user_id IS NOT NULL THEN ci.created_time ELSE NULL END ) ELSE ci.last_modified_time END)), '%T') AS "pendingCurrentUserHours",
+   CASE  WHEN cst.sla_time BETWEEN 0 AND 14400000 THEN 'HOURS_0_4'
+    WHEN cst.sla_time BETWEEN 14400000 AND 86400000 THEN 'HOURS_4_24'
+    WHEN cst.sla_time BETWEEN 8640000 AND 172800000 THEN 'DAYS_1_2'
+    WHEN cst.sla_time BETWEEN 172800000 AND 259200000 THEN 'DAYS_2_3'
+    WHEN cst.sla_time BETWEEN 259200000 AND 345600000 THEN 'DAYS_3_4'
+    WHEN cst.sla_time BETWEEN 432000000 AND 432000000 THEN 'DAYS_4_5'
+    WHEN cst.sla_time BETWEEN 345600000 AND 518400000 THEN 'DAYS_5_6'
+    WHEN cst.sla_time BETWEEN 518400000 AND 604800000 THEN 'DAYS_6_7'
+    WHEN cst.sla_time BETWEEN 604800000 AND 864000000 THEN 'DAYS_7_10'
+    WHEN cst.sla_time BETWEEN 864000000 AND 1296000000 THEN 'DAYS_10_15'
+    WHEN cst.sla_time >1296000000 THEN 'DAYS_ABOVE_15'
+    END AS "slab",
+    cst.status AS 'ticketStatus',
+    cpd.security_charges AS 'securityDeposit',
+       CASE WHEN cst.expected_sla_time is NULL THEN
+     CASE WHEN cqssc.sla is NULL OR cqssc.sla = 0 OR cst.resolution_type = 0 THEN "" ELSE "Within SLA" END
+ELSE
+     CASE WHEN cst.expected_sla_time > NOW()  THEN "Within SLA" 
+ELSE
+ "Out of SLA" END
+      END AS "slaStatus"
+   from 
+   crm_sr_tickets cst
+   LEFT JOIN crm_customer_details ccd ON(ccd.customer_id = cst.mapping_id)
+   LEFT JOIN crm_cust_payment_details cpd ON (ccd.record_id = cpd.customer_record_id AND cpd.installation_status = 'PreIns')   
+   LEFT JOIN crm_cust_address_details ccad ON(ccd.record_id = ccad.customer_record_id AND ccad.address_type = 'IN')
+   LEFT JOIN crm_qrc_categories cqc ON(cst.qrc_category_id=cqc.qrc_category_id)
+   LEFT JOIN crm_qrc_sub_categories cqsc ON(cqsc.qrc_sub_category_id=cst.qrc_sub_category_id)
+   LEFT JOIN crm_qrc_sub_sub_categories cqssc ON(cqssc.qrc_sub_sub_category_id=cst.qrc_sub_sub_category_id)
+   LEFT JOIN crm_inbox ci ON(ci.mapping_id=cst.sr_id AND ci.status='A' AND CONVERT(cst.functionalbin_id,CHAR) = ci.stage)
+   LEFT JOIN crm_ticket_history cth ON( cth.ticket_id=cst.sr_id  AND cth.action='OP')
+   LEFT JOIN crm_ticket_history remarks ON(remarks.ticket_id=cst.sr_id)
+   LEFT JOIN crm_cust_network_config ccnc ON (ccnc.customer_record_id = ccd.record_id )
+   LEFT JOIN crm_partner_network_config cpnc on(CONVERT(cpnc.record_id,CHAR) = ccnc.option_82)
+   WHERE cst.status in (:TKTOPENSTATUS,:TKTREOPENSTATUS)
+    AND (:QTYPE IS NULL OR cst.qrc_type=:QTYPE)
+    AND (:CATGRY IS NULL OR cst.qrc_category_id=:CATGRY)
+    AND (:SUBCATGRY IS NULL OR cst.qrc_sub_category_id=:SUBCATGRY)
+    AND (:SUBSUBCATGRY IS NULL OR cst.qrc_sub_sub_category_id=:SUBSUBCATGRY)
+    AND (:CURRENTBIN  IS NULL OR cst.functionalbin_id=:CURRENTBIN )
+    AND remarks.created_time = (SELECT MAX(remarks1.created_time) FROM crm_ticket_history remarks1 WHERE remarks1.ticket_id=cst.sr_id)
+   AND cth.created_time = (SELECT MAX(cth1.created_time) FROM crm_ticket_history cth1 where cth1.ticket_id=cst.sr_id  AND cth1.action='OP')
+   
+			]]>
+	</sql-query>
+	<sql-query name="REPEAT_TKT_RPT" callable="false">	
+		<![CDATA[
+		SELECT
+ old_cst.sr_id AS "ticketId",
+ new_cst.sr_id AS "repeatTicketId",
+ new_cst.mapping_id AS "customerId",
+ new_cst.qrc_type AS "qrcType",
+ csq.qrc_category AS "category",
+ cs.qrc_sub_category AS "subCategory",
+ css.qrc_sub_sub_category AS "subSubCategory",
+ new_cst.created_time AS "raisedDate",
+ new_cst.created_by AS "raiseUser",
+ new_cst.sr_resolved_on AS "srResolvedOn",
+ new_cst.resolved_by AS "resolvedBy",
+ new_cst.status AS "ticketStatus"
+FROM
+ ((SELECT * FROM crm_sr_tickets cst WHERE status IN('O') 
+ AND (:QTYPE IS NULL OR cst.qrc_type=:QTYPE) 
+  AND (:CATGRY IS NULL OR cst.qrc_category_id=:CATGRY)
+  AND (:SUBCATGRY IS NULL OR cst.qrc_sub_category_id=:SUBCATGRY)
+  AND (:SUBSUBCATGRY IS NULL OR cst.qrc_sub_sub_category_id=:SUBSUBCATGRY)
+  AND (:CURRENTBIN  IS NULL OR cst.functionalbin_id=:CURRENTBIN )
+  AND created_time  BETWEEN :FROM_DATE AND :TO_DATE
+) new_cst
+ INNER JOIN
+ (SELECT * FROM crm_sr_tickets cst WHERE status IN('C') 
+ AND (:QTYPE IS NULL OR cst.qrc_type=:QTYPE) 
+ AND (:CATGRY IS NULL OR cst.qrc_category_id=:CATGRY)
+  AND (:SUBCATGRY IS NULL OR cst.qrc_sub_category_id=:SUBCATGRY)
+  AND (:SUBSUBCATGRY IS NULL OR cst.qrc_sub_sub_category_id=:SUBSUBCATGRY)
+  AND (:CURRENTBIN  IS NULL OR cst.functionalbin_id=:CURRENTBIN )
+ AND created_time BETWEEN :FROM_DATE AND :TO_DATE
+) old_cst ON new_cst.mapping_id = old_cst.mapping_id 
+AND new_cst.qrc_sub_sub_category_id = old_cst.qrc_sub_sub_category_id 
+AND TIME_TO_SEC(TIMEDIFF(new_cst.created_time ,old_cst.sr_closed_on)) < (72*60*60)
+)
+LEFT JOIN crm_qrc_categories csq ON(new_cst.qrc_category_id = csq.qrc_category_id)
+LEFT JOIN crm_qrc_sub_categories cs ON(new_cst.qrc_sub_category_id = cs.qrc_sub_category_id)
+LEFT JOIN crm_qrc_sub_sub_categories css ON(new_cst.qrc_sub_sub_category_id = css.qrc_sub_sub_category_id)
+
+	]]>
+	</sql-query>
+	
+	
+	<sql-query name="REOPEN_TKT_RPT" callable="false">	
+		<![CDATA[
+		SELECT  ccd.customer_id AS "customerId",
+ ccd.cust_fname AS "custFname",
+ IFNULL(ccd.cust_lname, ' ') AS "custLname",
+ cst.sr_id AS "ticketId",
+ cst.qrc_type AS "qrcType",
+ cqc.qrc_category AS "category",
+ cqs.qrc_sub_categorY AS "subCategory",
+ cqss.qrc_sub_sub_category AS "subSubCategory",
+ cast( cth.remarks as char(4000)) AS "remarks",
+ cst.status AS "ticketStatus",
+ (SELECT COUNT(*) FROM  crm_ticket_history cthcount where cthcount.ticket_id=cst.sr_id AND cthcount.action='RO') AS "reopenCount",
+ cst.created_time AS "raisedDate",
+ cst.created_by AS "raiseUser",
+ cst.sr_resolved_ON AS "srResolvedOn",
+ cst.resolved_by AS "resolvedBy",
+ cst.action_taken AS "resolutionCode",
+ cst.root_cause AS "rca",
+ cst.attributed_TO AS "attributedTo",
+ CONVERT(cst.functionalbin_id,CHAR) AS "binName",
+ ccd.product AS "product",
+ DATE_FORMAT(TIMEDIFF(cst.sr_resolved_on , cst.created_time),'%T')  AS "resolutionTime",
+            CASE  WHEN cst.sla_time BETWEEN 0 AND 14400000 THEN 'HOURS_0_4'
+    WHEN cst.sla_time BETWEEN 14400000 AND 86400000 THEN 'HOURS_4_24'
+    WHEN cst.sla_time BETWEEN 8640000 AND 172800000 THEN 'DAYS_1_2'
+    WHEN cst.sla_time BETWEEN 172800000 AND 259200000 THEN 'DAYS_2_3'
+    WHEN cst.sla_time BETWEEN 259200000 AND 345600000 THEN 'DAYS_3_4'
+    WHEN cst.sla_time BETWEEN 432000000 AND 432000000 THEN 'DAYS_4_5'
+    WHEN cst.sla_time BETWEEN 345600000 AND 518400000 THEN 'DAYS_5_6'
+    WHEN cst.sla_time BETWEEN 518400000 AND 604800000 THEN 'DAYS_6_7'
+    WHEN cst.sla_time BETWEEN 604800000 AND 864000000 THEN 'DAYS_7_10'
+    WHEN cst.sla_time BETWEEN 864000000 AND 1296000000 THEN 'DAYS_10_15'
+    WHEN cst.sla_time >1296000000 THEN 'DAYS_ABOVE_15'
+    END AS "slab"
+ 
+FROM
+ crm_qrc_categories cqc,
+ crm_qrc_sub_categories cqs,
+ crm_qrc_sub_sub_categories cqss,
+ crm_sr_tickets cst
+LEFT JOIN crm_customer_details ccd ON(ccd.customer_id = cst.mapping_id)
+LEFT JOIN crm_ticket_history cth ON( cth.ticket_id=cst.sr_id AND cth.action='RO')
+
+WHERE
+  cst.qrc_category_id = cqc.qrc_category_id
+ AND cst.qrc_sub_category_id = cqs.qrc_sub_category_id
+ AND cst.qrc_sub_sub_category_id = cqss.qrc_sub_sub_category_id
+ AND cth.created_time = (SELECT MAX(remarks1.created_time) FROM crm_ticket_history remarks1 WHERE remarks1.ticket_id=cst.sr_id  AND remarks1.action='RO')
+  AND cst.sr_reopened_on  BETWEEN :FROM_DATE AND :TO_DATE
+  AND (:CURRENTBIN  IS NULL OR cst.functionalbin_id=:CURRENTBIN )
+  AND (:QTYPE IS NULL OR cst.qrc_type=:QTYPE) 
+   AND (:CATGRY IS NULL OR cst.qrc_category_id=:CATGRY)
+   AND (:SUBCATGRY IS NULL OR cst.qrc_sub_category_id=:SUBCATGRY)
+   AND (:SUBSUBCATGRY IS NULL OR cst.qrc_sub_sub_category_id=:SUBSUBCATGRY)	]]>
+	</sql-query>
+	
+	<sql-query name="CAT_WISE_OTR" callable="false">	
+		<![CDATA[SELECT cst.qrc_type AS "qrcType",
+	   cqc.qrc_category AS "category",
+	   cqsc.qrc_sub_category AS "subCategory",
+	   cqssc.qrc_sub_sub_category AS "subSubCategory",
+	   COUNT(CASE WHEN cst.sla_time >0 AND cst.sla_time <=14400000 THEN 1 END) AS "hr0_4Count",
+	   COUNT(CASE WHEN cst.sla_time >1440000 AND cst.sla_time <=86400000 THEN 1 END) AS "hr4_24Count",
+	   COUNT(CASE WHEN cst.sla_time >86400000 AND cst.sla_time <=172800000 THEN 1 END) AS "day1_2Count",
+	   COUNT(CASE WHEN cst.sla_time >172800000 AND cst.sla_time <=259200000 THEN 1 END) AS "day2_3Count",
+	   COUNT(CASE WHEN cst.sla_time >259200000 AND cst.sla_time <=345600000 THEN 1 END) AS "day3_4Count",
+	   COUNT(CASE WHEN cst.sla_time >345600000 AND cst.sla_time <=432000000 THEN 1 END) AS "day4_5Count",
+	   COUNT(CASE WHEN cst.sla_time >432000000 AND cst.sla_time <=518400000 THEN 1 END) AS "day5_6Count",
+	   COUNT(CASE WHEN cst.sla_time >518400000 AND cst.sla_time <=604800000 THEN 1 END) AS "day6_7Count",
+	   COUNT(CASE WHEN cst.sla_time >604800000 AND cst.sla_time <=864000000 THEN 1 END) AS "day7_10Count",
+	   COUNT(CASE WHEN cst.sla_time >864000000 AND cst.sla_time <=1296000000 THEN 1 END) AS "day10_15Count",
+	   COUNT(CASE WHEN cst.sla_time >1296000000 then 1  END) AS "dayAbove15Count",
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 0  AND cst.sla_time <=14400000 THEN 1 END),0)+
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 1440000 AND cst.sla_time <=86400000 THEN 1 END),0)+
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 86400000 AND cst.sla_time <=172800000 THEN 1 END), 0)+
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 172800000 AND cst.sla_time <=259200000 THEN 1 END), 0)+
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 259200000 AND cst.sla_time <=345600000 THEN 1 END), 0)+ 
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 345600000 AND cst.sla_time <=432000000 THEN 1 END), 0)+
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 432000000 AND cst.sla_time <=518400000 THEN 1 END), 0)+
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 518400000 AND cst.sla_time <=604800000 THEN 1 END), 0)+
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 604800000 AND cst.sla_time <=864000000 THEN 1 END), 0)+
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 864000000 AND cst.sla_time <=1296000000 THEN 1 END), 0)+
+	   COALESCE(COUNT(CASE WHEN cst.sla_time  > 1296000000 THEN 1 END), 0)
+	   AS "totalCount",CASE  WHEN cst.sla_time BETWEEN 0 AND 14400000 THEN 'HOURS_0_4'
+	    WHEN cst.sla_time BETWEEN 14400000 AND 86400000 THEN 'HOURS_4_24'
+	    WHEN cst.sla_time BETWEEN 8640000 AND 172800000 THEN 'DAYS_1_2'
+	    WHEN cst.sla_time BETWEEN 172800000 AND 259200000 THEN 'DAYS_2_3'
+	    WHEN cst.sla_time BETWEEN 259200000 AND 345600000 THEN 'DAYS_3_4'
+	    WHEN cst.sla_time BETWEEN 432000000 AND 432000000 THEN 'DAYS_4_5'
+	    WHEN cst.sla_time BETWEEN 345600000 AND 518400000 THEN 'DAYS_5_6'
+	    WHEN cst.sla_time BETWEEN 518400000 AND 604800000 THEN 'DAYS_6_7'
+	    WHEN cst.sla_time BETWEEN 604800000 AND 864000000 THEN 'DAYS_7_10'
+	    WHEN cst.sla_time BETWEEN 864000000 AND 1296000000 THEN 'DAYS_10_15'
+	    WHEN cst.sla_time > 1296000000 THEN 'DAYS_ABOVE_15'
+	   END AS "slaTime"
+	  FROM 
+	   crm_sr_tickets cst
+	   LEFT JOIN crm_qrc_categories cqc ON(cst.qrc_category_id=cqc.qrc_category_id)
+	   LEFT JOIN crm_qrc_sub_categories cqsc ON(cqsc.qrc_sub_category_id=cst.qrc_sub_category_id)
+	   LEFT JOIN crm_qrc_sub_sub_categories cqssc ON(cqssc.qrc_sub_sub_category_id=cst.qrc_sub_sub_category_id)
+	  WHERE cst.status IN('O','RO') 
+	   AND (:QTYPE IS NULL OR cst.qrc_type=:QTYPE)
+	   AND (:CATGRY IS NULL OR cst.qrc_category_id=:CATGRY)
+	   AND (:SUBCATGRY IS NULL OR cst.qrc_sub_category_id=:SUBCATGRY)
+	   AND (:SUBSUBCATGRY IS NULL OR cst.qrc_sub_sub_category_id=:SUBSUBCATGRY)
+	   GROUP BY cqc.qrc_category,cqsc.qrc_sub_category,cqssc.qrc_sub_sub_category,cst.qrc_type, cst.sla_time
+    ]]>
+  </sql-query>
+  <sql-query name="USER_WISE_OTR" callable="false">	
+	 <![CDATA[SELECT inbox.user_id AS "userName",
+	    COUNT(CASE WHEN cst.sla_time <= 1440000 AND cst.sla_time > 0 THEN 1 END) AS "hr0_4Count",
+	    COUNT(CASE WHEN cst.sla_time <=86400000 AND cst.sla_time > 1440000 THEN 1 END) AS "hr4_24Count",
+	    COUNT(CASE WHEN cst.sla_time <=172800000 AND cst.sla_time > 86400000 THEN 1 END) AS "day1_2Count",
+	    COUNT(CASE WHEN cst.sla_time <=259200000 AND cst.sla_time > 172800000 THEN 1 END) AS "day2_3Count",
+	    COUNT(CASE WHEN cst.sla_time <=345600000 AND cst.sla_time > 259200000 THEN 1 END) AS "day3_4Count",
+	    COUNT(CASE WHEN cst.sla_time <=432000000 AND cst.sla_time > 345600000 THEN 1 END) AS "day4_5Count",
+	    COUNT(CASE WHEN cst.sla_time <=518400000 AND cst.sla_time > 432000000 THEN 1 END) AS "day5_6Count",
+	    COUNT(CASE WHEN cst.sla_time <=604800000 AND cst.sla_time > 518400000 THEN 1 END) AS "day6_7Count",
+	    COUNT(CASE WHEN cst.sla_time <=864000000 AND cst.sla_time > 604800000 THEN 1 END) AS "day7_10Count",
+	    COUNT(CASE WHEN cst.sla_time <=1296000000 AND cst.sla_time > 864000000 THEN 1 END) AS "day10_15Count",
+	    COUNT(CASE WHEN cst.sla_time >1296000000 THEN 1 END) AS "dayAbove15Count",
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <= 1440000 AND cst.sla_time > 0 THEN 1 END),0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=86400000 AND  cst.sla_time > 1440000 THEN 1  END),0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=172800000 AND  cst.sla_time > 86400000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=259200000 AND  cst.sla_time > 172800000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=345600000 AND  cst.sla_time > 259200000 THEN 1  END), 0)+ 
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=432000000 AND  cst.sla_time > 345600000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=518400000 AND  cst.sla_time > 432000000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=604800000 AND  cst.sla_time > 518400000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=864000000 AND  cst.sla_time > 604800000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=1296000000 AND  cst.sla_time > 864000000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN cst.sla_time >1296000000 THEN 1 END), 0) AS "totalCount"
+	   FROM
+	    crm_inbox inbox
+	    LEFT JOIN crm_sr_tickets cst ON(inbox.created_by=cst.created_by AND inbox.mapping_id=cst.sr_id )
+	   WHERE 
+	    cst.status IN('O','RO')
+	    AND inbox.request_type='QRC'
+	    AND inbox.status='A'
+	    AND inbox.user_id IS NOT NULL
+	    AND (:USERID IS NULL OR inbox.user_id LIKE :USERID)
+	    GROUP BY inbox.user_id
+	]]>
+ </sql-query>
+ <sql-query name="OUT_OF_SLA_TICKET_RPT" callable="false">	
+	<![CDATA[SELECT inbox.user_id AS "userName",
+	    COUNT(CASE WHEN cst.sla_time <= 1440000 AND cst.sla_time > 0 THEN 1 END) AS "hr0_4Count",
+	    COUNT(CASE WHEN cst.sla_time <=86400000 AND cst.sla_time > 1440000 THEN 1 END) AS "hr4_24Count",
+	    COUNT(CASE WHEN cst.sla_time <=172800000 AND cst.sla_time > 86400000 THEN 1 END) AS "day1_2Count",
+	    COUNT(CASE WHEN cst.sla_timE <=259200000 AND cst.sla_time > 172800000 THEN 1 END) AS "day2_3Count",
+	    COUNT(CASE WHEN cst.sla_time <=345600000 AND cst.sla_time > 259200000 THEN 1 END) AS "day3_4Count",
+	    COUNT(CASE WHEN cst.sla_time <=432000000 AND cst.sla_time > 345600000 THEN 1 END) AS "day4_5Count",
+	    COUNT(CASE WHEN cst.sla_time <=518400000 AND cst.sla_time > 432000000 THEN 1 END) AS "day5_6Count",
+	    COUNT(CASE WHEN cst.sla_time <=604800000 AND cst.sla_time > 518400000 THEN 1 END) AS "day6_7Count",
+	    COUNT(CASE WHEN cst.sla_time <=864000000 AND cst.sla_time > 604800000 THEN 1 END) AS "day7_10Count",
+	    COUNT(CASE WHEN cst.sla_time <=1296000000 AND cst.sla_timE > 864000000 THEN 1 END) AS "day10_15Count",
+	    COUNT(CASE WHEN cst.sla_time >1296000000 THEN 1 END) AS "dayAbove15Count",
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <= 1440000 AND cst.sla_time > 0 THEN 1 END),0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=86400000 AND  cst.sla_time > 1440000 THEN 1  END),0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=172800000 AND  cst.sla_time > 86400000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=259200000 AND  cst.sla_time > 172800000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=345600000 AND  cst.sla_time > 259200000 THEN 1  END), 0)+ 
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=432000000 AND  cst.sla_time > 345600000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=518400000 AND  cst.sla_time > 432000000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=604800000 AND  cst.sla_time > 518400000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=864000000 AND  cst.sla_time > 604800000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN  cst.sla_time <=1296000000 AND  cst.sla_time > 864000000 THEN 1  END), 0)+
+	    COALESCE(COUNT(CASE WHEN cst.sla_time >1296000000 THEN 1 END), 0) AS "totalCount"
+	   FROM
+	    crm_inbox inbox
+	    LEFT JOIN crm_sr_tickets cst ON(inbox.created_by=cst.created_by AND inbox.mapping_id=cst.sr_id )
+	   WHERE 
+	    cst.status IN('O','RO') AND
+	    inbox.request_type='QRC' AND 
+	    inbox.status='A' AND
+	    inbox.user_id IS NOT NULL AND
+	    expected_sla_time < now() AND 
+	    (:USERID IS NULL OR inbox.user_id LIKE :USERID)
+	    GROUP BY inbox.user_id
+	]]>
+ </sql-query>
+</hibernate-mapping>

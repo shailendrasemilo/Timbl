@@ -1,0 +1,466 @@
+<root>
+  <!-- Post Payment -->
+  <!-- Request: -->
+  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+      <ns2:PostPayment xmlns="http://schemas.datacontract.org/2004/07/" xmlns:ns2="h8SSRMS" xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+        xmlns:ns4="http://schemas.microsoft.com/2003/10/Serialization/">
+        <ns2:custpay>
+          <BankTransID>NEFT1234566</BankTransID>
+          <RefTransid>881_1429621326384</RefTransid>
+          <amount>10.0</amount>
+          <customerNo>2000059</customerNo>
+          <payDate>2015-04-21T18:32:06.384+05:30</payDate>
+          <paymentRefId>NEFT1234566</paymentRefId>
+          <paymethod>O</paymethod>
+          <pgwTransId>NEFT1234566</pgwTransId>
+        </ns2:custpay>
+        <ns2:Request>
+          <extTransactionId>15950</extTransactionId>
+          <password>api@nextra.com</password>
+          <requestDate>2015-04-21T18:32:06.476+05:30</requestDate>
+          <systemId>api@nextra.com</systemId>
+        </ns2:Request>
+      </ns2:PostPayment>
+    </soap:Body>
+  </soap:Envelope>
+  <!-- Response: -->
+  <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body>
+      <PostPaymentResponse xmlns="h8SSRMS">
+        <PostPaymentResult xmlns:a="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+          <a:extTransactionId>15950</a:extTransactionId>
+          <a:returnCode>0</a:returnCode>
+          <a:returnMessage>Success</a:returnMessage>
+          <a:transactionId>20234</a:transactionId>
+          <a:Balance>39334.64</a:Balance>
+        </PostPaymentResult>
+      </PostPaymentResponse>
+    </s:Body>
+  </s:Envelope>
+  <!-- Change Status API -->
+  <!-- Request: -->
+  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+      <ns2:ChangeStatus xmlns="http://schemas.datacontract.org/2004/07/" xmlns:ns2="h8SSRMS" xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+        xmlns:ns4="http://schemas.microsoft.com/2003/10/Serialization/">
+        <ns2:customerNo>2000033</ns2:customerNo>
+        <ns2:remark>test</ns2:remark>
+        <ns2:statusName>Active</ns2:statusName>
+        <ns2:Request>
+          <extTransactionId>9253</extTransactionId>
+          <password>api@nextra.com</password>
+          <requestDate>2015-03-13T14:03:24.587+05:30</requestDate>
+          <systemId>api@nextra.com</systemId>
+        </ns2:Request>
+      </ns2:ChangeStatus>
+    </soap:Body>
+  </soap:Envelope>
+  <!-- Response: -->
+  <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body>
+      <ChangeStatusResponse xmlns="h8SSRMS">
+        <ChangeStatusResult xmlns:a="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+          <a:extTransactionId i:nil="true"/>
+          <a:returnCode>1</a:returnCode>
+          <a:returnMessage>Fail</a:returnMessage>
+          <a:transactionId>9435</a:transactionId>
+        </ChangeStatusResult>
+      </ChangeStatusResponse>
+    </s:Body>
+  </s:Envelope>
+  <!-- Bill Cycle Change -->
+  <!-- Request -->
+  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+      <ns2:ChangeBillCycle xmlns="http://schemas.datacontract.org/2004/07/" xmlns:ns2="h8SSRMS"
+        xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ns4="http://schemas.microsoft.com/2003/10/Serialization/">
+        <ns2:CustomerNo>2000033</ns2:CustomerNo>
+        <ns2:BillCycleName>5</ns2:BillCycleName>
+        <ns2:Request>
+          <extTransactionId>9069</extTransactionId>
+          <password>api@nextra.com</password>
+          <requestDate>2015-03-12T15:48:15.690+05:30</requestDate>
+          <systemId>api@nextra.com</systemId>
+        </ns2:Request>
+      </ns2:ChangeBillCycle>
+    </soap:Body>
+  </soap:Envelope>
+  <!-- Response: -->
+  <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body>
+      <ChangeBillCycleResponse xmlns="h8SSRMS">
+        <ChangeBillCycleResult xmlns:a="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+          <a:extTransactionId i:nil="true"/>
+          <a:returnCode>3206</a:returnCode>
+          <a:returnMessage>Cancellation of offer is only for Active customer</a:returnMessage>
+          <a:transactionId>9247</a:transactionId>
+        </ChangeBillCycleResult>
+      </ChangeBillCycleResponse>
+    </s:Body>
+  </s:Envelope>
+  <!-- Barring Exception List -->
+  <!-- Request -->
+  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+      <ns2:CustomerBaringExceptionList xmlns="http://schemas.datacontract.org/2004/07/" xmlns:ns2="h8SSRMS"
+        xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ns4="http://schemas.microsoft.com/2003/10/Serialization/">
+        <ns2:CBEL>
+          <action>ADD</action>
+          <barredOutDate>2015-03-13T00:00:00.000+05:30</barredOutDate>
+          <customerNo>0</customerNo>
+          <reason>Testing by today date</reason>
+        </ns2:CBEL>
+        <ns2:Request>
+          <extTransactionId>2024</extTransactionId>
+          <password>api@nextra.com</password>
+          <requestDate>2015-03-10T15:17:25.959+05:30</requestDate>
+          <systemId>api@nextra.com</systemId>
+        </ns2:Request>
+      </ns2:CustomerBaringExceptionList>
+    </soap:Body>
+  </soap:Envelope>
+  <!-- Response: -->
+  <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body>
+      <CustomerBaringExceptionListResponse xmlns="h8SSRMS">
+        <CustomerBaringExceptionListResult xmlns:a="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+          <a:extTransactionId>2024</a:extTransactionId>
+          <a:returnCode>3901</a:returnCode>
+          <a:returnMessage>Customer number not set.</a:returnMessage>
+          <a:transactionId>8691</a:transactionId>
+          <a:barredInDate>0001-01-01T00:00:00</a:barredInDate>
+          <a:barredOutDate>0001-01-01T00:00:00</a:barredOutDate>
+          <a:customerNo>0</a:customerNo>
+          <a:reason i:nil="true"/>
+          <a:status i:nil="true"/>
+          <a:userName i:nil="true"/>
+        </CustomerBaringExceptionListResult>
+      </CustomerBaringExceptionListResponse>
+    </s:Body>
+  </s:Envelope>
+  <!-- Customer Usage Details -->
+  <!-- Request -->
+  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+      <ns2:GetCustomerUsageDetail xmlns="http://schemas.datacontract.org/2004/07/" xmlns:ns2="h8SSRMS"
+        xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ns4="http://schemas.microsoft.com/2003/10/Serialization/">
+        <ns2:Request>
+          <extTransactionId>9112</extTransactionId>
+          <password>api@nextra.com</password>
+          <requestDate>2015-03-12T16:44:26.516+05:30</requestDate>
+          <systemId>api@nextra.com</systemId>
+        </ns2:Request>
+        <ns2:customerNo>2000033</ns2:customerNo>
+        <ns2:CRFNo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+        <ns2:RMN xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+        <ns2:RTN xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+        <ns2:EmailId xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+      </ns2:GetCustomerUsageDetail>
+    </soap:Body>
+  </soap:Envelope>
+  <!-- Response: -->
+  <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body>
+      <GetCustomerUsageDetailResponse xmlns="h8SSRMS">
+        <GetCustomerUsageDetailResult xmlns:a="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+          <a:extTransactionId>9112</a:extTransactionId>
+          <a:returnCode>1</a:returnCode>
+          <a:returnMessage>Fail</a:returnMessage>
+          <a:transactionId>9290</a:transactionId>
+          <a:Balance>0</a:Balance>
+          <a:CurrentBandwidth>0</a:CurrentBandwidth>
+          <a:PlanCode i:nil="true"/>
+          <a:UsageDetails i:nil="true"/>
+          <a:createdById>0</a:createdById>
+          <a:status i:nil="true"/>
+          <a:userName i:nil="true"/>
+        </GetCustomerUsageDetailResult>
+      </GetCustomerUsageDetailResponse>
+    </s:Body>
+  </s:Envelope>
+  <!--Create Customer as Company -->
+  <!-- Request -->
+  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+      <ns2:CreateCustomer xmlns="http://schemas.datacontract.org/2004/07/" xmlns:ns2="h8SSRMS"
+        xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ns4="http://schemas.microsoft.com/2003/10/Serialization/">
+        <ns2:acc>
+          <addonPlanCode>
+            <ns3:string>EAD20_N</ns3:string>
+          </addonPlanCode>
+          <alternateEmailId>anuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganuraganurag@npglobal.in
+          </alternateEmailId>
+          <alternateNumber>9873314540</alternateNumber>
+          <authorizedSignatoryName>GHGF GHGF</authorizedSignatoryName>
+          <billDetailPreference>1</billDetailPreference>
+          <billPreference>0</billPreference>
+          <billingAddress>
+            <addressline1>,ASHADEEP APARTMENT</addressline1>
+            <addressline2>SECTOR-2, DWARKA</addressline2>
+            <city>NEW DELHI</city>
+            <nation>India</nation>
+            <state>NEW DELHI</state>
+            <zipcode>344444</zipcode>
+          </billingAddress>
+          <businessPartnerCode>Nextra</businessPartnerCode>
+          <businessPartnerName>Nextra</businessPartnerName>
+          <categoryType>Government of India Undertaking</categoryType>
+          <crfDate>2015-04-14T00:00:00.000+05:30</crfDate>
+          <crfEntryDate>2015-04-14T10:04:50.000+05:30</crfEntryDate>
+          <crfNo>EA000081</crfNo>
+          <dateOfBirth>2015-04-20T00:00:00.000+05:30</dateOfBirth>
+          <deposit>0</deposit>
+          <deviceOwner>Nextra Recommended</deviceOwner>
+          <emailId>rubina@npglobal.in</emailId>
+          <emailIdValidationFlag>Non-Validated</emailIdValidationFlag>
+          <fatherName>SDSA SAFDS</fatherName>
+          <firstName>ANURAG ABC LIMITED</firstName>
+          <ftSubmitDate>2015-04-14T10:04:49.000+05:30</ftSubmitDate>
+          <installationAddress>
+            <addressline1>,ASHADEEP APARTMENT</addressline1>
+            <addressline2>SECTOR-2, DWARKA</addressline2>
+            <city>NEW DELHI</city>
+            <nation>India</nation>
+            <state>NEW DELHI</state>
+            <zipcode>344444</zipcode>
+          </installationAddress>
+          <localContactPersonContactNo>0</localContactPersonContactNo>
+          <mobileNo>9873314540</mobileNo>
+          <motherName>DFF FGFD</motherName>
+          <nationality>Indian</nationality>
+          <noOfWiringPoints>1</noOfWiringPoints>
+          <offerName>DEOCPO_N</offerName>
+          <organizationName>ANURAG ABC LIMITED</organizationName>
+          <panNo>DFHPS3448H</panNo>
+          <prepaidorPostpaidFlag>N</prepaidorPostpaidFlag>
+          <propertyType>Rented</propertyType>
+          <saleRepresentativeCode>Nextra One</saleRepresentativeCode>
+          <saleRepresentativeName>Nextra One</saleRepresentativeName>
+          <serviceCode>EOC</serviceCode>
+          <telephone>9873314540</telephone>
+          <teleserviceBankTransId>a222222</teleserviceBankTransId>
+          <teleservicePayment>674.16</teleservicePayment>
+          <teleservicePaymentMode>O</teleservicePaymentMode>
+          <teleservicePaymentRefId>a222222</teleservicePaymentRefId>
+          <teleservicePgTransId>a222222</teleservicePgTransId>
+          <teleserviceReferenceTransId>1161_1428986090000</teleserviceReferenceTransId>
+          <telesolutionBankTransId>as23333</telesolutionBankTransId>
+          <telesolutionPayment>1.12</telesolutionPayment>
+          <telesolutionPaymentDate>2015-04-14T10:04:50.000+05:30</telesolutionPaymentDate>
+          <telesolutionPaymentMode>O</telesolutionPaymentMode>
+          <telesolutionPaymentRefId>as23333</telesolutionPaymentRefId>
+          <telesolutionPgTransId>as23333</telesolutionPgTransId>
+          <telesolutionReferenceTransId>1161_1428986090000</telesolutionReferenceTransId>
+          <typeOfApplication>Resale</typeOfApplication>
+        </ns2:acc>
+        <ns2:Request>
+          <extTransactionId>15925</extTransactionId>
+          <password>api@nextra.com</password>
+          <requestDate>2015-04-21T16:52:33.824+05:30</requestDate>
+          <systemId>api@nextra.com</systemId>
+        </ns2:Request>
+      </ns2:CreateCustomer>
+    </soap:Body>
+  </soap:Envelope>
+  <!--Create Customer as Individual -->
+  <!-- Request -->
+  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+      <ns2:CreateCustomer xmlns="http://schemas.datacontract.org/2004/07/" xmlns:ns2="h8SSRMS"
+        xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ns4="http://schemas.microsoft.com/2003/10/Serialization/">
+        <ns2:acc>
+          <addonPlanCode>
+            <ns3:string>EAD20_N</ns3:string>
+          </addonPlanCode>
+          <alternateNumber>0</alternateNumber>
+          <billDetailPreference>1</billDetailPreference>
+          <billPreference>0</billPreference>
+          <billingAddress>
+            <addressline1>HOSIYARPUR</addressline1>
+            <addressline2>TEST LOCALITY, BHOAL R S MARKET</addressline2>
+            <city>BHOPAL</city>
+            <nation>India</nation>
+            <state>MADHYA PRADESH</state>
+            <zipcode>787845</zipcode>
+          </billingAddress>
+          <businessPartnerCode>94000</businessPartnerCode>
+          <businessPartnerName>Unique fiber world</businessPartnerName>
+          <categoryType>Individual</categoryType>
+          <crfDate>2015-07-03T00:00:00.000+05:30</crfDate>
+          <crfEntryDate>2015-07-03T12:59:52.000+05:30</crfEntryDate>
+          <crfNo>EA181840</crfNo>
+          <dateOfBirth>2001-07-11T00:00:00.000+05:30</dateOfBirth>
+          <deposit>1500</deposit>
+          <deviceOwner>Nextra Recommended</deviceOwner>
+          <emailId>neeraj@netprophetsglobal.com</emailId>
+          <emailIdValidationFlag>Non-Validated</emailIdValidationFlag>
+          <fatherName>FATHER NAME</fatherName>
+          <firstName>SANJEV</firstName>
+          <ftSubmitDate>2015-07-03T12:59:52.000+05:30</ftSubmitDate>
+          <gender>M</gender>
+          <installationAddress>
+            <addressline1>HOSIYARPUR</addressline1>
+            <addressline2>TEST LOCALITY, BHOAL R S MARKET</addressline2>
+            <city>BHOPAL</city>
+            <nation>India</nation>
+            <state>MADHYA PRADESH</state>
+            <zipcode>787845</zipcode>
+          </installationAddress>
+          <lastName>KUMAR</lastName>
+          <localContactPersonContactNo>0</localContactPersonContactNo>
+          <mobileNo>8800434724</mobileNo>
+          <motherName>MOTHER NAME</motherName>
+          <nationality>Indian</nationality>
+          <noOfWiringPoints>3</noOfWiringPoints>
+          <offerName>EF10A_N</offerName>
+          <panNo>ABCPU6754R</panNo>
+          <prepaidorPostpaidFlag>N</prepaidorPostpaidFlag>
+          <propertyType>Owned</propertyType>
+          <saleRepresentativeCode>86001</saleRepresentativeCode>
+          <saleRepresentativeName>Arun Kumar</saleRepresentativeName>
+          <serviceCode>EOC</serviceCode>
+          <telephone>8800434724</telephone>
+          <teleservicePayment>500.0</teleservicePayment>
+          <teleservicePaymentMode>C</teleservicePaymentMode>
+          <teleservicePaymentRefId>NT565681</teleservicePaymentRefId>
+          <teleserviceReferenceTransId>1081_NT_1435908592000</teleserviceReferenceTransId>
+          <telesolutionPayment>460.0</telesolutionPayment>
+          <telesolutionPaymentDate>2015-07-03T12:59:52.000+05:30</telesolutionPaymentDate>
+          <telesolutionPaymentMode>C</telesolutionPaymentMode>
+          <telesolutionPaymentRefId>NS353583</telesolutionPaymentRefId>
+          <telesolutionReferenceTransId>1081_NS_1435908592000</telesolutionReferenceTransId>
+          <typeOfApplication>Own Use</typeOfApplication>
+          <zone>BHOAL R S MARKET</zone>
+        </ns2:acc>
+        <ns2:Request>
+          <extTransactionId>8815</extTransactionId>
+          <password>api@nextra.com</password>
+          <requestDate>2015-07-03T13:06:30.192+05:30</requestDate>
+          <systemId>api@nextra.com</systemId>
+        </ns2:Request>
+      </ns2:CreateCustomer>
+    </soap:Body>
+  </soap:Envelope>
+  <!-- Response: -->
+  <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body>
+      <CreateCustomerResponse xmlns="h8SSRMS">
+        <CreateCustomerResult xmlns:a="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+          <a:extTransactionId>8815</a:extTransactionId>
+          <a:returnCode>692</a:returnCode>
+          <a:returnMessage>Invalid Zone</a:returnMessage>
+          <a:transactionId>34769</a:transactionId>
+          <a:customerNo>0</a:customerNo>
+        </CreateCustomerResult>
+      </CreateCustomerResponse>
+    </s:Body>
+  </s:Envelope>
+  <!-- Response: -->
+  <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body>
+      <ChangeOfferResponse xmlns="h8SSRMS">
+        <ChangeOfferResult xmlns:a="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+          <a:extTransactionId>3683</a:extTransactionId>
+          <a:returnCode>1</a:returnCode>
+          <a:returnMessage>Fail</a:returnMessage>
+          <a:transactionId>20026</a:transactionId>
+        </ChangeOfferResult>
+      </ChangeOfferResponse>
+    </s:Body>
+  </s:Envelope>
+  <!-- Add Charge -->
+  <!-- Request -->
+  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+      <ns2:AddCharge xmlns="http://schemas.datacontract.org/2004/07/" xmlns:ns2="h8SSRMS" xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+        xmlns:ns4="http://schemas.microsoft.com/2003/10/Serialization/">
+        <ns2:ac>
+          <chargeName>Static IP Charges Waiver</chargeName>
+          <customerNo>2000076</customerNo>
+        </ns2:ac>
+        <ns2:request>
+          <extTransactionId>3875</extTransactionId>
+          <password>api@nextra.com</password>
+          <requestDate>2015-04-23T13:18:07.361+05:30</requestDate>
+          <systemId>api@nextra.com</systemId>
+        </ns2:request>
+      </ns2:AddCharge>
+    </soap:Body>
+  </soap:Envelope>
+  <!-- Response: -->
+  <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body>
+      <AddChargeResponse xmlns="h8SSRMS">
+        <AddChargeResult xmlns:a="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+          <a:extTransactionId>3875</a:extTransactionId>
+          <a:returnCode>3407</a:returnCode>
+          <a:returnMessage>Invalid Charge Type</a:returnMessage>
+          <a:transactionId>20710</a:transactionId>
+          <a:chargeAmount>0</a:chargeAmount>
+        </AddChargeResult>
+      </AddChargeResponse>
+    </s:Body>
+  </s:Envelope>
+  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body>
+      <ns2:UpdateCustomer xmlns="http://schemas.datacontract.org/2004/07/" xmlns:ns2="h8SSRMS"
+        xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ns4="http://schemas.microsoft.com/2003/10/Serialization/">
+        <ns2:acc>
+          <CustomerNo>2000077</CustomerNo>
+          <firstName>111F</firstName>
+        </ns2:acc>
+        <ns2:Request>
+          <extTransactionId>25620</extTransactionId>
+          <password>api@nextra.com</password>
+          <requestDate>2015-07-02T13:28:02.898+05:30</requestDate>
+          <systemId>api@nextra.com</systemId>
+        </ns2:Request>
+      </ns2:UpdateCustomer>
+    </soap:Body>
+  </soap:Envelope>
+  <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:Body>
+      <GetCustomerUsageDetailResponse xmlns="h8SSRMS">
+        <GetCustomerUsageDetailResult xmlns:a="http://schemas.datacontract.org/2004/07/" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+          <a:extTransactionId>11522</a:extTransactionId>
+          <a:returnCode>0</a:returnCode>
+          <a:returnMessage>Success</a:returnMessage>
+          <a:transactionId>38697</a:transactionId>
+          <a:AddOnCode/>
+          <a:Balance>-5000</a:Balance>
+          <a:BillCycleName>1</a:BillCycleName>
+          <a:CurrentBandwidth>10240</a:CurrentBandwidth>
+          <a:PlanCode>DBP_N</a:PlanCode>
+          <a:UsageDetails>
+            <a:getCurrentUsageResult>
+              <a:ActivationDate>2015-07-17T00:00:00</a:ActivationDate>
+              <a:AllocatedTimeQuota>Unlimited</a:AllocatedTimeQuota>
+              <a:AllocatedVolumeQuota>2597762477</a:AllocatedVolumeQuota>
+              <a:Bucket>Primary</a:Bucket>
+              <a:ExpiryDate>9999-12-31T23:59:59</a:ExpiryDate>
+              <a:RemainTimeQuota>Unlimited</a:RemainTimeQuota>
+              <a:RemainVolumeQuota>2597762477</a:RemainVolumeQuota>
+              <a:UsedTimeQuota>0</a:UsedTimeQuota>
+              <a:UsedVolumeQuota>0</a:UsedVolumeQuota>
+            </a:getCurrentUsageResult>
+            <a:getCurrentUsageResult>
+              <a:ActivationDate>2015-07-17T00:00:00</a:ActivationDate>
+              <a:AllocatedTimeQuota>Unlimited</a:AllocatedTimeQuota>
+              <a:AllocatedVolumeQuota>Unlimited</a:AllocatedVolumeQuota>
+              <a:Bucket>Secondary</a:Bucket>
+              <a:ExpiryDate>9999-12-31T23:59:59</a:ExpiryDate>
+              <a:RemainTimeQuota>Unlimited</a:RemainTimeQuota>
+              <a:RemainVolumeQuota>Unlimited</a:RemainVolumeQuota>
+              <a:UsedTimeQuota>0</a:UsedTimeQuota>
+              <a:UsedVolumeQuota>0</a:UsedVolumeQuota>
+            </a:getCurrentUsageResult>
+          </a:UsageDetails>
+          <a:createdById>22</a:createdById>
+          <a:status>Active</a:status>
+          <a:userName>1234.4568.4645@nextraworld.com</a:userName>
+        </GetCustomerUsageDetailResult>
+      </GetCustomerUsageDetailResponse>
+    </s:Body>
+  </s:Envelope>
+</root>

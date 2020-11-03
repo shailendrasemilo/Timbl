@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 4 Sep, 2013 12:27:41 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.AlertStatusPojo" table="crm_alert_status" dynamic-update="true">
+	<cache usage="read-write"/>
+        <id name="alertId" type="java.lang.Long">
+            <column name="alert_id" />
+            <generator class="identity" />
+		</id>
+		<property name="emailSent" type="string">
+            <column name="email_sent" length="1" not-null="true" />
+		</property>
+		<property name="smsSent" type="string">
+            <column name="sms_sent" length="1" not-null="true" />
+		</property>
+		<property name="emailId" type="string">
+            <column name="email_id" length="256" />
+		</property>
+        <property name="mobileNo" type="java.lang.Long">
+            <column name="mobile_no" />
+		</property>
+        <property name="eventId" type="java.lang.Long">
+            <column name="event_id" />
+		</property>
+        <property name="smsTemplateId" type="java.lang.Long">
+            <column name="sms_template_id" />
+		</property>
+        <property name="emailTempleteId" type="java.lang.Long">
+            <column name="email_templete_id" />
+		</property>
+		<property name="sentDateTime" type="timestamp">
+            <column name="sent_date_time" length="19" />
+		</property>
+		<property name="smsDeliveryDateTime" type="timestamp">
+            <column name="sms_delivery_date_time" length="19" />
+		</property>
+		<property name="alertType" type="string">
+			<column name="alert_type" length="1" />
+		</property>
+		<property name="emailFailureReason" type="string">
+			<column name="email_fail_reason" length="128" />
+		</property>
+		<property name="smsFailureReason" type="string">
+			<column name="sms_fail_reason" length="128" />
+		</property>
+        <property name="eventTemplateId" type="java.lang.Long">
+			<column name="event_template_id" precision="10" scale="0" />
+		</property>
+        <property name="smsRetry" type="java.lang.Byte">
+            <column name="sms_retry" />
+		</property>
+        <property name="emailRetry" type="java.lang.Byte">
+            <column name="email_retry" />
+		</property>
+		<property name="alertRequestType" type="string">
+			<column name="alert_request_type" length="50" />
+		</property>
+		<property name="mappingId" type="string">
+			<column name="mapping_id" length="128" />
+		</property>
+		 <property name="fromEmail" type="string">
+            <column name="from_email" length="256" />
+        </property>
+        <property name="cc" type="string">
+            <column name="cc" length="254" />
+        </property>
+          <property name="bcc" type="string">
+            <column name="bcc" length="254" />
+        </property>
+        <property name="subject" type="string">
+            <column name="subject" length="128" />
+        </property>
+        <property name="emailMessage" type="binary">
+            <column name="email_message" sql-type="blob"/>
+        </property>
+        <property name="emailServer" type="string">
+            <column name="email_server" length="100" />
+        </property>
+        <property name="smsMessage" type="binary">
+            <column name="sms_message" sql-type="blob"/>
+        </property>
+        <property name="smsServer" type="string">
+            <column name="sms_server" length="100" />
+        </property>
+	</class>
+</hibernate-mapping>

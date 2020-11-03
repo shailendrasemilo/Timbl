@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 1, 2014 4:00:27 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmBillingTransactionsPojo" table="crm_billing_transactions" dynamic-update="true">
+        <id name="transId" type="java.lang.Long">
+            <column name="trans_id" />
+            <generator class="identity" />
+				
+        </id>
+        <property name="billingTransId" type="string">
+            <column name="billing_trans_id" length="20" />
+        </property>
+        <property name="apiOperation" type="string">
+            <column name="api_operation" length="3" not-null="true" />
+        </property>
+        <property name="moduleName" type="string">
+            <column name="module_name" length="10" not-null="true" />
+        </property>
+        <property name="customerId" type="java.lang.Long">
+            <column name="customer_id" />
+        </property>
+        <property name="requestDetails" type="binary">
+            <column name="request_details" not-null="true" sql-type="blob"/>
+        </property>
+        <property name="responseDetails" type="binary">
+            <column name="response_details" sql-type="blob" />
+        </property>
+        <property name="responseTimeInMills" type="java.lang.Long">
+            <column name="response_time_in_mills" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" update="false" insert="false">
+            <column name="last_modified_time" length="19" />
+        </property>
+        <property name="reason" type="string">
+            <column name="reason" length="512" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" not-null="true" />
+        </property>
+        <property name="requestType" type="string">
+            <column name="request_type" length="2"/>
+        </property>
+    </class>
+</hibernate-mapping>

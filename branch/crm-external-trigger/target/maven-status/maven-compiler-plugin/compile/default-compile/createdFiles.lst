@@ -1,0 +1,13 @@
+com\np\tele\crm\faultRepair\businessmgr\IQRCFaultRepairMgr.class
+com\np\tele\crm\external\trigger\CrmExternalTriggerService.class
+com\np\tele\crm\faultRepair\businessmgr\QRCFaultRepairMgrImpl.class
+com\np\tele\crm\rest\RIRestService.class
+com\np\tele\crm\external\businessmgr\CrmExternalTriggerMgrImpl.class
+com\np\tele\crm\ecaf\businessmgr\ECafMgrImpl.class
+com\np\tele\crm\ecaf\fileupload\ECAFService.class
+com\np\tele\crm\easyBill\businessmgr\CrmEasyBillMgrImpl.class
+com\np\tele\crm\ecaf\businessmgr\IECafMgr.class
+com\np\tele\crm\external\businessmgr\ICrmExternalTriggerMgr.class
+com\np\tele\crm\faultRepair\QRCFaultRepairService.class
+com\np\tele\crm\easyBill\businessmgr\ICrmEasyBillMgr.class
+com\np\tele\crm\easyBill\CrmEasyBillService.class

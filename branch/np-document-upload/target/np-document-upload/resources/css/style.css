@@ -1,0 +1,43 @@
+table {
+	border-collapse: collapse;
+}
+
+table td, table caption {
+	border: 1px solid #ccc;
+	padding: 5px;
+}
+
+table caption {
+	text-decoration: underline;
+}
+
+#main-wrapper {
+	width: 500px;
+	margin: 10px auto;
+}
+
+.error {
+	color: #f00;
+}
+
+.btn {
+	border: 1px outset #424242;
+	padding: 5px;
+	background: #424242;
+	color: #fff;
+	outline: none;
+	cursor: pointer;
+}
+
+.btn.submit {
+	border-color: #F1A400;
+	background: #F1A400;
+}
+
+.viewAll {
+	cursor: pointer;
+	color: #fff;
+	background: #424242;
+	border: 1px outset #424242;
+	padding: 6px;
+}

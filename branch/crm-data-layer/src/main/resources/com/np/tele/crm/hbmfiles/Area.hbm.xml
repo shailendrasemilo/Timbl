@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27 Aug, 2013 3:24:00 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+  <class name="com.np.tele.crm.pojos.AreaPojo" table="crm_area_master" dynamic-update="true">
+    <cache usage="read-write" />
+    <id name="areaId" type="java.lang.Long">
+      <column name="area_id" />
+      <generator class="identity" />
+
+    </id>
+    <!-- <many-to-one name="city" class="com.np.tele.crm.pojos.CityPojo" fetch="select" lazy="false"> <column name="CITY_ID" precision="10" scale="0" /> </many-to-one> -->
+
+    <property name="cityId" type="long">
+      <column name="city_id" precision="10" scale="0" />
+    </property>
+    <property name="area" type="string">
+      <column name="area" length="30" not-null="true" />
+    </property>
+    <property name="areaAlias" type="string">
+      <column name="area_alias" length="10" />
+    </property>
+    <property name="createdBy" type="string" update="false">
+      <column name="created_by" length="128" not-null="true" />
+    </property>
+    <property name="createdTime" type="timestamp" update="false" insert="false">
+      <column name="created_time" length="19" not-null="true" />
+    </property>
+    <property name="lastModifiedBy" type="string" insert="false" update="false">
+      <column name="last_modified_by" length="128" />
+    </property>
+    <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+      <column name="last_modified_time" length="19" />
+    </property>
+    <property name="status" type="string">
+      <column name="status" length="2" />
+    </property>
+    <!-- <set name="localities" table="crm_locality_master" inverse="false" lazy="false" fetch="select"> <cache usage="read-write"/> <key> <column name="area_id" 
+      not-null="true" /> </key> <one-to-many class="com.np.tele.crm.pojos.LocalityPojo" /> <filter condition="status =:stStatus" name="ActiveLocalities" /> </set> -->
+  </class>
+  <sql-query name="AreaNameByAreaId" callable="false">	
+		<![CDATA[SELECT CONCAT(area_id,'') as 'area' 
+		FROM crm_area_master areaAS,crm_city_master city,crm_state_master st
+	WHERE st.state_id=city.state_id
+	AND areaAS.city_id=city.city_id
+	AND st.state_name=:STATE
+	AND city.city_name=:CITY
+	AND areaAS.area=:AREA
+	
+]]>
+  </sql-query>
+
+  <sql-query name="RFS_RPT" callable="false">	
+	<![CDATA[
+	SELECT concat(so.primary_pincode,'') AS "primaryPinCodes", concat(so.secondary_pincode,'') AS "secondaryPinCodes",
+	s.state_name as state,c.city_name as city ,a.area as area , so.locality_name AS "localitySector", so.society_name AS "society" ,p.partner_name AS "networkPartner",
+	so.connectable_homes AS "connectableHomes",so.latitude AS "latitude",
+	so.longitude AS "longitude",
+	so.customer_category AS "customerCategory",
+	CASE WHEN snp.product_name = 'EOC' THEN "FTTN"
+	WHEN snp.product_name = 'BB'  THEN "FTTX"
+	END AS "networkType", concat(snp.rfs_dus,'') AS "rfsDus",
+	so.network_availability AS "typeOfField",
+	 IF((snp.status='I'),snp.status,so.status) AS "societyStatus"
+ 	FROM crm_society so,
+crm_state_master s,
+crm_city_master c,
+crm_area_master a,
+crm_society_network_partner snp,
+crm_partner p
+WHERE c.city_id=a.city_id
+and a.area_id=so.area_id
+and s.state_id=c.state_id
+and so.society_id=snp.society_id
+and p.partner_id=snp.network_partner_id
+AND (:STATE IS NULL OR s.state_id=:STATE)
+AND (:CITY IS NULL OR c.city_id=:CITY)
+AND (:AREA IS NULL OR a.area_id=:AREA)
+AND (:SOCIETY IS NULL OR so.society_id=:SOCIETY)
+	
+	]]>
+  </sql-query>
+
+
+  <sql-query name="getGISIdByName" callable="false">	
+		<![CDATA[SELECT CONCAT(s.state_id,'') as displaystateId,CONCAT(c.city_id,'') as displayCityId,CONCAT(a.area_id,'') as displayareaId,CONCAT(so.society_id,'') as displaysocietyId 
+			from crm_state_master s,crm_city_master c,crm_area_master a,crm_society so
+			WHERE s.state_id=c.state_id
+			and c.city_id=a.city_id
+			and so.area_id=a.area_id
+			AND s.state_name=:STATE
+			AND c.city_name=:CITY
+			AND a.area=:AREA
+		    AND so.locality_name=:LOCALITY
+		    AND so.status='A' AND 
+		   CASE WHEN (:SOCIETY IS NULL ) THEN so.society_name IS NULL OR so.society_name = '' 
+            ELSE so.society_name=:SOCIETY
+           END
+			
+]]>
+  </sql-query>
+  
+  
+   <sql-query name="getGISIdByID" callable="false"> 
+    <![CDATA[SELECT CONCAT(s.state_name,'') as displaystateId,CONCAT(c.city_name,'') as displayCityId,CONCAT(a.area,'') as displayareaId,
+        CASE WHEN so.society_name IS  NULL  or so.society_name =''
+     	THEN CONCAT(so.locality_name,'')
+			WHEN (so.society_name IS NOT NULL)
+		Then CONCAT(so.locality_name,' - ',so.society_name)  
+        END AS  displaysocietyId
+      from crm_state_master s,crm_city_master c,crm_area_master a,crm_society so
+      WHERE s.state_id=c.state_id
+      and c.city_id=a.city_id
+      and so.area_id=a.area_id
+   AND s.state_id=:STATE
+   AND c.city_id=:CITY
+  AND a.area_id=:AREA
+  AND so.society_id=:SOCIETY
+    
+      
+]]>
+  </sql-query>
+  
+
+</hibernate-mapping>

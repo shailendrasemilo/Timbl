@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" 
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+	<form-beans>
+		<form-bean name="gisForm" type="com.np.tele.crm.gis.forms.GISForm" />
+
+		<form-bean name="loginForm" type="com.np.tele.crm.usrmngmnt.forms.LoginForm" />
+		<form-bean name="alertForm" type="com.np.tele.crm.alerts.forms.AlertsForm" />
+		<form-bean name="roleGroupForm"
+			type="com.np.tele.crm.masterdata.forms.RoleGroupForm"></form-bean>
+		<form-bean name="parameterGroupForm"
+			type="com.np.tele.crm.masterdata.forms.ParameterGroupForm"></form-bean>
+		<form-bean name="crmProjectForm"
+			type="com.np.tele.crm.masterdata.forms.CrmProjectForm"></form-bean>
+		<form-bean name="partnerManagementForm"
+			type="com.np.tele.crm.masterdata.forms.PartnerManagementForm"></form-bean>
+		<form-bean name="masterForm"
+			type="com.np.tele.crm.masterdata.forms.MasterForm"></form-bean>
+		<form-bean name="lmsForm" type="com.np.tele.crm.lms.form.LmsForm"></form-bean>
+		<form-bean name="inboxForm" type="com.np.tele.crm.inbox.form.InboxForm"></form-bean>
+		<form-bean name="crmRcaReasonForm"
+			type="com.np.tele.crm.masterdata.forms.CrmRcaReasonForm"></form-bean>
+		<form-bean name="eWUserMappingForm"
+			type="com.np.tele.crm.usrmngmnt.forms.EWUserMappingForm"></form-bean>
+		<form-bean name="crmCapForm" type="com.np.tele.crm.cap.form.CrmCapForm"></form-bean>
+		<form-bean name="financeForm" type="com.np.tele.crm.finance.forms.FinanceForm"></form-bean>
+		<form-bean name="customerProfileForm"
+			type="com.np.tele.crm.usrmngmnt.forms.CustomerProfileForm"></form-bean>
+		<form-bean name="qrcForm" type="com.np.tele.crm.qrc.forms.QrcForm" />
+		<form-bean name="massOutageForm"
+			type="com.np.tele.crm.qrc.forms.QrcMassOutageForm" />
+		<form-bean name="qrcConfigForm"
+			type="com.np.tele.crm.qrc.config.forms.QrcConfigForm" />
+		<form-bean name="logForm" type="com.np.tele.crm.config.forms.CRMLogForm" />
+		<form-bean name="reportForm" type="com.np.tele.crm.reports.form.CRMReportForm" />
+		<form-bean name="bulkUploadForm" type="com.np.tele.crm.qrc.forms.BulkUploadForm" />
+	</form-beans>
+	<global-forwards>
+		<forward name="customerRemarks" path="/jsp/content/masterdata/remarks.jsp"></forward>
+		<forward name="ticketHistory" path="/jsp/content/qrc/ticketHistory.jsp"></forward>
+		<forward name="successLogin" path="homePage"></forward>
+	</global-forwards>
+
+
+
+	<action-mappings>
+
+		<!-- <action path="/Register1" type="org.springframework.web.struts.DelegatingActionProxy" 
+			name="userForm" input="/jsp/content/RegisterUser.jsp" parameter="method" 
+			> <forward name="success" path="success" /> </action> -->
+		<action path="/profileSearch"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="method" input="customerProfileSearchPage" name="customerProfileForm">
+			<forward name="customerProfileSearchPage" path="customerProfileSearchPage"></forward>
+			<forward name="lmsViewPageForSingle" path="/leadGeneration.do?method=viewLeadDetails"></forward>
+			<forward name="qrcSearchCustomerMethod" path="/manageQrc.do?method=searchCustomer"
+				redirect="true" contextRelative="true"></forward>
+		</action>
+		<action path="/RegisterUserPage"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="method" />
+
+		<action path="/viewDetails"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="method" name="lmsForm">
+			<forward name="leadGeneration" path="leadGeneration"></forward>
+			<forward name="failure" path="viewLeadDeatils" />
+		</action>
+
+		<!-- QRC Action Mapping Starts -->
+		<action path="/manageQrc"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="qrcForm"
+			input="qrcSearchCustomerPage" parameter="method">
+			<forward name="qrcSearchCustomerPage" path="qrcSearchCustomerPage" />
+			<forward name="qrcCustomerProfile" path="qrcCustomerProfile" />
+			<forward name="qrcSearchCustomerMethod" path="/manageQrc.do?method=searchCustomer" />
+			<forward name="activityLogPage" path="activityLogPage" />
+			<forward name="barringPage" path="barringPage" />
+			<forward name="collectedPaymentPage" path="collectedPaymentPage" />
+			<forward name="planMigrationPage" path="planMigrationPage" />
+			<forward name="waiverPage" path="waiverPage" redirect="true"
+				contextRelative="true" />
+			<forward name="waiverPageMethod" path="/manageQrc.do?method=waiverPage"
+				redirect="true" contextRelative="true" />
+			<forward name="ticketsPage" path="ticketsPage" />
+			<forward name="addSingleWhiteList" path="addSingleWhiteList" />
+			<forward name="viewTicket" path="viewTicket" />
+			<forward name="editTicketPage" path="editTicketPage" />
+			<forward name="bulkWhitelistPage" path="bulkWhitelistPage"></forward>
+			<forward name="disconnectionPage" path="disconnectionPage"></forward>
+			<forward name="customerInteractionPage" path="customerInteractionPage" />
+			<forward name="deviceChangePage" path="deviceChangePage"></forward>
+			<forward name="deviceChangePopup" path="/jsp/content/qrc/deviceChangePopup.jsp"></forward>
+			<forward name="addRemoveAccessoriesPage" path="addRemoveAccessoriesPage"></forward>
+			<forward name="tariffMigration" path="tariffMigration"></forward>
+			<forward name="getAccessories" path="/manageQrc.do?method=getAccessories"
+				redirect="true" contextRelative="true"></forward>
+			<forward name="viewPaymentAndInvoiceDetails"
+				path="/jsp/content/qrc/viewPaymentAndInvoiceDetails.jsp"></forward>
+			<forward name="inbox" path="/goToInbox.do?method=qrcInbox"
+				redirect="true" />
+			<forward name="installationPartnerStage" path="/shiftingWorkflow.do?method=editStage"
+				redirect="true" contextRelative="true"></forward>
+			<forward name="networkPartnerStage" path="networkPartnerStage"
+				redirect="true" contextRelative="true"></forward>
+			<forward name="workflowInbox" path="/goToInbox.do?method=workflowInbox"
+				redirect="true" contextRelative="true" />
+			<forward name="customerActivity" path="/jsp/content/masterdata/activityLogData.jsp"></forward>
+			<forward name="waiverHistory" path="/jsp/content/qrc/waiverHistory.jsp" />
+		</action>
+
+		<!-- Bulk Upload for Mount Booster & Validity Extension -->
+		<action path="/bulkUploadAction"
+			type="org.springframework.web.struts.DelegatingActionProxy"
+			parameter="method" name="bulkUploadForm">
+			<forward name="bulkMountBoosterPage" path="bulkMountBoosterPage"></forward>
+			<forward name="bulkValidityExtensionPage" path="bulkValidityExtensionPage"></forward>
+		</action>
+
+		<!-- QRC Action Mapping Ends -->
+		<action path="/massOutage"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="massOutageForm"
+			parameter="method" input="">
+			<forward name="addMassOutagePage" path="addMassOutagePage" />
+			<forward name="massOutage" path="massOutage" />
+			<forward name="searchMassOutagePage" path="searchMassOutagePage" />
+			<forward name="searchMassOutage" path="/massOutage.do?method=searchMassOutage"
+				redirect="true" />
+			<forward name="editMassOutagePage" path="editMassOutagePage" />
+			<forward name="resolveMassOutagePage" path="resolveMassOutagePage" />
+		</action>
+
+		<action path="/qrcConfig"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="qrcConfigForm"
+			input="configAttributedToPage" parameter="method">
+			<forward name="configRcaPage" path="configRcaPage" />
+			<forward name="configResolutionCodePage" path="configResolutionCodePage"></forward>
+			<forward name="configureSubSubCatPage" path="configureSubSubCatPage"></forward>
+			<forward name="configAttributedToPage" path="configAttributedToPage"></forward>
+			<forward name="configFunctionalBinPage" path="configFunctionalBinPage" />
+			<forward name="getSubSubCatRedirect" path="/qrcConfig.do?method=getSubSubCat"
+				contextRelative="true" />
+		</action>
+
+
+		<!-- mapping for Login Action -->
+
+		<action path="/login"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="loginForm"
+			input="login" parameter="method">
+			<forward name="successLogin" path="homePage"></forward>
+			<forward name="login" path="login" />
+			<forward name="changePassword" path="changePassword" />
+			<forward name="createUserPage" path="newUser" />
+			<forward name="myAccount" path="/userManagement.do?method=myProfile"
+				redirect="true" />
+		</action>
+
+		<action path="/gis"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="gisForm"
+			input="createSociety" parameter="method" scope="session">
+			<forward name="uploadGis" path="uploadGis" />
+			<forward name="createSociety" path="createSociety" />
+			<forward name="searchGis" path="searchGis" />
+			<forward name="viewSociety" path="/jsp/content/gis/viewSociety.jsp" />
+			<forward name="searchGisForCreateSociety" path="/gis.do?method=searchSociety"
+				contextRelative="true" />
+
+		</action>
+		<action path="/gisMaster"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="gisForm"
+			input="viewGisMaster" parameter="method" scope="session">
+			<forward name="viewGisMaster" path="viewGisMaster" />
+			<forward name="searchAfterEditState" path="/gisMaster.do?method=searchState"
+				contextRelative="true" />
+			<forward name="searchAfterEditCity" path="/gisMaster.do?method=searchCity"
+				contextRelative="true" />
+			<forward name="searchAfterEditArea" path="/gisMaster.do?method=searchArea"
+				contextRelative="true" />
+			<forward name="searchAfterEditLocality" path="/gisMaster.do?method=searchLocality"
+				contextRelative="true" />
+		</action>
+
+
+		<action path="/changePassword"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="loginForm"
+			input="changePassword" parameter="method">
+			<forward name="login" path="login" />
+			<forward name="changePassword" path="changePassword" />
+			<forward name="myAccount" path="myAccount" />
+		</action>
+		<action path="/register"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="loginForm"
+			input="newUser" parameter="method">
+			<forward name="createUserPage" path="newUser"></forward>
+			<forward name="modifyUserPage" path="modifyUser"></forward>
+			<forward name="viewUserPage" path="viewUser"></forward>
+			<forward name="assignRoleGroup" path="assignRoleGroup" />
+			<forward name="searchUserByIdPage" path="/userManagement.do?method=searchUserById"
+				contextRelative="true" />
+		</action>
+		<action path="/smsAlert"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="alertForm"
+			input="createSmsTemplate" parameter="method">
+			<forward name="createSmsTemplate" path="createSmsTemplate"></forward>
+			<forward name="modifySMSTemplate" path="modifySMSTemplate"></forward>
+			<forward name="saveSMSTemplate" path="saveSMSTemplate"></forward>
+			<forward name="searchTemplate" path="searchTemplate"></forward>
+			<forward name="viewSMSTemplate" path="/smsAlert.do?method=viewSMSTemplate"
+				contextRelative="true"></forward>
+			<forward name="error" path="failure"></forward>
+			<forward name="userAlert" path="userAlert"></forward>
+			<forward name="addUserAlertRedirect" path="/smsAlert.do?method=userAlertTemplatePage"
+				contextRelative="true"></forward>
+		</action>
+		<!-- Team 1 Starts -->
+		<action path="/userManagement"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="loginForm"
+			input="searchUser" parameter="method" scope="request">
+			<forward name="searchUser" path="searchUser" />
+			<forward name="createUserPage" path="newUser" />
+			<forward name="modifyUserPage" path="modifyUser" />
+			<forward name="myAccount" path="myAccount" />
+			<forward name="viewUserPage" path="/jsp/content/user/viewUser.jsp" />
+			<forward name="searchUserByIdPage" path="searchUserByIdPage" />
+			<forward name="login" path="login" />
+
+			<forward name="assignRoleGroup"
+				path="/roleManagement.do?method=updateRoleAssignPage" redirect="true" />
+
+			<forward name="assignParameterGroup"
+				path="/parameterManagement.do?method=updateParameterAssignPage"
+				redirect="true" />
+		</action>
+		<action path="/roleGroup"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="roleGroupForm"
+			input="createRoleGroupPage" parameter="method" scope="session">
+			<forward name="createRoleGroupPage" path="createRoleGroupPage" />
+			<forward name="searchRoleGroupPage" path="searchRoleGroupPage" />
+			<forward name="assignAreaPage" path="assignAreaPage" />
+			<forward name="searchRoleGroup" path="/roleGroup.do?method=searchRoleGroup"
+				contextRelative="true" />
+			<forward name="listRoleGroup" path="listRoleGroup" />
+			<forward name="viewRole" path="/jsp/content/masterdata/viewRoleGroup.jsp" />
+			<forward name="login" path="login" />
+			<forward name="showRolesDetails" path="/jsp/content/masterdata/showRolesDetails.jsp"></forward>
+		</action>
+
+		<action path="/parameterGroup"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="parameterGroupForm"
+			input="createParameterGroupPage" parameter="method" scope="session">
+			<forward name="createParameterGroupPage" path="createParameterGroupPage" />
+			<forward name="searchParameterGroupPage" path="searchParameterGroupPage" />
+			<forward name="viewParameter"
+				path="/jsp/content/masterdata/viewParameterGroup.jsp" />
+			<forward name="searchParameterGroup"
+				path="/parameterGroup.do?method=searchParameterGroup"
+				contextRelative="true"></forward>
+			<forward name="login" path="login" />
+			<forward name="parameterDetails"
+				path="/jsp/content/masterdata/showParameterDetails.jsp"></forward>
+		</action>
+
+		<action path="/forgetPassword"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="loginForm"
+			input="forgetPassword" parameter="method" scope="request">
+			<forward name="forgetPassword" path="forgetPassword" />
+			<forward name="login" path="login" />
+
+		</action>
+
+		<action path="/roleManagement"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="loginForm"
+			input="assignRoleGroup" parameter="method" scope="session">
+			<forward name="assignRoleGroup" path="assignRoleGroup" />
+			<forward name="assignRoleGroupPage"
+				path="/roleManagement.do?method=updateRoleAssignPage"
+				contextRelative="true" />
+			<forward name="assignParameterGroup" path="assignParameterGroup" />
+			<forward name="login" path="login" />
+			<forward name="assignAreaPage" path="assignAreaPage" />
+			<forward name="assignAreaPagePopUp" path="/jsp/content/user/assignAreaPagePopUp.jsp" />
+
+			<forward name="assignAreaAction" path="/roleManagement.do?method=assignAreaPage" />
+
+
+			<forward name="showRolesDetails" path="/jsp/content/masterdata/showRolesDetails.jsp"></forward>
+		</action>
+		<action path="/parameterManagement"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="loginForm"
+			input="assignParameterGroup" parameter="method" scope="session">
+			<forward name="assignParameterGroup" path="assignParameterGroup" />
+			<forward name="assignParameterPage"
+				path="/parameterManagement.do?method=updateParameterAssignPage"
+				contextRelative="true" />
+			<forward name="login" path="login" />
+		</action>
+
+		<action path="/option82Management"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="masterForm"
+			input="option82" parameter="method" scope="session">
+			<forward name="option82Page" path="option82" />
+			<forward name="assignParameterGroup" path="assignParameterGroup" />
+			<forward name="option82redirect" path="/option82Management.do?method=option82Page"
+				contextRelative="true" />
+			<forward name="searchOption82PageRedirect"
+				path="/option82Management.do?method=searchOption82Page"
+				contextRelative="true" />
+
+		</action>
+		<action path="/emailServer"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="masterForm"
+			input="createEmailServer" parameter="method">
+			<forward name="createEmailServer" path="createEmailServer" />
+			<forward name="searchEmailServer" path="searchEmailServer" />
+			<forward name="searchEmailAction" path="/emailServer.do?method=searchEmailServerPage"
+				contextRelative="true" />
+		</action>
+
+		<action path="/alertsConfiguration"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="masterForm"
+			input="alertsConfig" parameter="method">
+			<forward name="alertsConfig" path="alertsConfig" />
+		</action>
+
+		<action path="/smsManagement"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="masterForm"
+			input="smsManagement" parameter="method" scope="session">
+			<forward name="smsManagement" path="smsManagement" />
+			<forward name="searchSmsCofigurationPage" path="searchSmsCofigurationPage" />
+			<forward name="searchSmsConfig" path="/smsManagement.do?method=searchSMSGateway"
+				contextRelative="true" />
+		</action>
+		<!-- mapping for LMS Action -->
+		<action path="/leadGeneration"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="lmsForm"
+			input="leadGeneration" parameter="method" scope="request">
+			<forward name="leadGeneration" path="leadGeneration"></forward>
+			<forward name="lmsFileUpload" path="lmsFileUpload"></forward>
+			<forward name="viewLead" path="viewCreatedLead"></forward>
+			<forward name="viewLeadDeatils" path="viewLeadDeatils"
+				redirect="true"></forward>
+			<forward name="viewCreatedLead" path="viewCreatedLead"></forward>
+			<forward name="customerAppontment" path="/jsp/content/lms/appointment.jsp"></forward>
+			<forward name="lmsTicketPage" path="/jsp/content/lms/lmsTicketPage.jsp"></forward>
+			<forward name="inbox" path="/goToInbox.do?method=leadInbox"
+				redirect="true" />
+		</action>
+		<action path="/goToInbox"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="inboxForm"
+			input="" parameter="method">
+			<forward name="inbox" path="inbox"></forward>
+			<!-- <forward name="viewLeadDeatils" path="/jsp/content/lms/viewLeads.jsp" 
+				redirect="true"> </forward> -->
+			<forward name="editLeadDeatils" path="/leadGeneration.do?method=modifyLeadPage"
+				redirect="true"></forward>
+			<!-- <forward name="viewCreatedLead" path="viewCreatedLead"></forward> -->
+			<!-- <forward name="viewCRF" path="/crmCap.do?method=viewCRFDetails" redirect="true"></forward> -->
+			<forward name="allInbox" path="/goToInbox.do?method=allInbox"
+				redirect="true" />
+		</action>
+		<action path="/crmRcaReason"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="crmRcaReasonForm"
+			input="createRcaReason" parameter="method">
+			<forward name="createRcaReason" path="createRcaReason"></forward>
+			<forward name="addReceiptPage" path="addReceiptPage"></forward>
+			<forward name="viewaAddReceiptPage" path="/jsp/content/masterdata/viewAddReceipt.jsp"></forward>
+			<forward name="showDetails" path="/jsp/content/masterdata/showDetails.jsp"></forward>
+			<forward name="addHolidayPage" path="addHolidayPage"></forward>
+		</action>
+		<action path="/searchEWUser"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="eWUserMappingForm"
+			input="searchEWUserPage" parameter="method">
+			<forward name="searchEWUserPage" path="searchEWUserPage"></forward>
+			<forward name="ewUserMappingPage" path="ewUserMappingPage"></forward>
+			<forward name="searchUserPopUp" path="/jsp/content/user/userMappingPopUP.jsp"></forward>
+		</action>
+		<action path="/crmCap"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="crmCapForm"
+			input="installationAndActivation" parameter="method" scope="request">
+			<forward name="installationAndActivation" path="installationAndActivation"></forward>
+			<forward name="searchCrfPage" path="searchCrfPage"></forward>
+			<forward name="viewCrfPage" path="viewCrfPage"></forward>
+			<forward name="checkFeasibility" path="/jsp/content/cap/checkFeasibility.jsp"></forward>
+			<forward name="inbox" path="/goToInbox.do?method=crfInbox"
+				redirect="true"></forward>
+			<forward name="crfValidatepage" path="crfValidatepage"></forward>
+			<forward name="viewCRFDetails" path="viewCRFDetails"></forward>
+			<forward name="networkDetailsPage" path="networkDetailsPage"></forward>
+			<forward name="networkConfigDetailPage" path="/jsp/content/cap/networkConfigDetail.jsp"></forward>
+			<forward name="mapMacIdDetailsPage" path="mapMacIdDetailsPage"></forward>
+			<forward name="isrReportPage" path="isrReportPage"></forward>
+			<forward name="salesCRFConfirmationPage" path="salesCRFConfirmationPage"></forward>
+			<forward name="cancelCRF" path="cancelCRF"></forward>
+			<forward name="viewCustDetailsBySociety" path="/jsp/content/cap/viewCustDetailsBySociety.jsp"></forward>
+			<forward name="editCPEStatusPage" path="/jsp/content/cap/editCpeStatus.jsp"></forward>
+
+		</action>
+
+		<!-- Team 1 Ends -->
+		<!-- Team 2 Starts -->
+		<action path="/emailAlert"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="alertForm"
+			input="createEmailTemplate" parameter="method">
+			<forward name="createEmailTemplate" path="createEmailTemplate"></forward>
+			<forward name="searchTemplate" path="searchTemplate"></forward>
+			<forward name="searchAndViewEmail"
+				path="/emailAlert.do?method=searchAndViewEmailTemplate"
+				contextRelative="true"></forward>
+			<forward name="error" path="failure"></forward>
+		</action>
+		<action path="/crmProject"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="crmProjectForm"
+			input="externalProjectPage" parameter="method">
+			<forward name="externalProjectPage" path="externalProjectPage"></forward>
+			<forward name="searchExternalProject" path="searchExternalProject"></forward>
+			<forward name="extrProjectSearch" path="/crmProject.do?method=searchExtrnlProject"
+				contextRelative="true"></forward>
+			<forward name="viewExternalProject" path="viewExternalProject"></forward>
+			<forward name="error" path="failure"></forward>
+		</action>
+
+		<action path="/partnerManagement"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="partnerManagementForm"
+			input="addModifyPartner" parameter="method" scope="session">
+			<forward name="addModifyPartner" path="addModifyPartner"></forward>
+			<forward name="searchPartner" path="searchPartner"></forward>
+			<forward name="searchPartnerSuccessfull" path="/partnerManagement.do?method=searchPartner"
+				contextRelative="true"></forward>
+			<forward name="viewPartner" path="/jsp/content/masterdata/viewPartner.jsp"></forward>
+			<forward name="assignServicePartner" path="assignServicePartner"></forward>
+			<forward name="addNPMobilePage" path="addNPMobilePage"></forward>
+			<forward name="addNPMobileRedirect" path="/partnerManagement.do?method=addNPMobilePage"
+				contextRelative="true"></forward>
+			<forward name="assignPartnerRedirect"
+				path="/partnerManagement.do?method=assignServicePartnerPage"
+				contextRelative="true"></forward>
+		</action>
+
+		<action path="/eventTemplateMapping"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="alertForm"
+			input="eventTemplateMapping" parameter="method">
+			<forward name="eventTemplateMapping" path="eventTemplateMapping"></forward>
+			<forward name="error" path="failure"></forward>
+		</action>
+		<action path="/accountVerification"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="loginForm"
+			input="verifyUser" parameter="method">
+			<forward name="verifyUser" path="activateAccount"></forward>
+			<forward name="login" path="login"></forward>
+		</action>
+
+		<action path="/paymentPosting"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="financeForm"
+			input="paymentPostingPage" parameter="method">
+			<forward name="paymentPostingPage" path="paymentPostingPage"></forward>
+			<forward name="paymentReversalPage" path="paymentReversalPage"></forward>
+			<forward name="paymentReversalPopUp" path="/jsp/content/finance/paymentReversalPopup.jsp"></forward>
+			<forward name="paymentTracking" path="/paymentTracking.do?method=paymentTracking"
+				contextRelative="true" />
+			<forward name="realizationPopUp" path="/jsp/content/finance/realizationPopUp.jsp"></forward>
+			<forward name="paymentTrackingPage"
+				path="/paymentTracking.do?method=paymentTrackingPage"></forward>
+
+			<forward name="suspenseRejectedPayment"
+				path="/paymentTracking.do?method=viewSuspenseRejectedRecord"
+				contextRelative="true"></forward>
+		</action>
+
+		<action path="/paymentTracking"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="financeForm"
+			input="" parameter="method">
+			<forward name="paymentTrackingPage" path="paymentTrackingPage"></forward>
+			<forward name="suspenseRejectedPaymentPage" path="suspenseRejectedPaymentPage"></forward>
+			<forward name="viewPayment" path="/jsp/content/finance/viewPayment.jsp"></forward>
+			<forward name="editRejectedRecordPage"
+				path="/jsp/content/finance/editRejectedRecordPopUp.jsp"></forward>
+			<forward name="paymentGatewaysConfigPage" path="paymentGatewaysConfigPage"></forward>
+		</action>
+		<action path="/upFrontPaymentRecovery"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="financeForm"
+			input="manualyUpfrontPaymentPage" parameter="method">
+			<forward name="manualyUpfrontPaymentPage" path="manualyUpfrontPaymentPage"></forward>
+			<forward name="searchUpfrontPaymentPage" path="searchUpfrontPaymentPage"></forward>
+			<forward name="searchUpfrontPaymentAction"
+				path="/upFrontPaymentRecovery.do?method=searchUpfrontPayment"
+				contextRelative="true"></forward>
+			<forward name="upfrontPopup" path="/jsp/content/finance/viewUPfrontPopup.jsp" />
+			<forward name="fileUploadUFPaymentPage" path="fileUploadUFPaymentPage"></forward>
+		</action>
+		<action path="/customerStatus"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="qrcForm"
+			input="safeCustodyPage" parameter="method">
+			<forward name="safeCustodyPage" path="safeCustodyPage" />
+			<forward name="customerStatusPage" path="customerStatusPage" />
+			<forward name="successSafeCustodyPage" path="/manageQrc.do?method=searchCustomer"></forward>
+		</action>
+
+		<action path="/customerProfile"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="qrcForm"
+			input="viewCustomerProfilePage" parameter="method">
+			<forward name="viewCustomerProfilePage" path="viewCustomerProfilePage" />
+			<forward name="qrcSearchCustomerMethod" path="/manageQrc.do?method=searchCustomer" />
+			<forward name="viewCustomerBillCyclePage" path="viewCustomerBillCyclePage" />
+			<forward name="gracePeriodPage" path="gracePeriodPage" />
+			<forward name="customerBillCyCle" path="/logAction.do?method=getBillCycleHistory" />
+		</action>
+
+		<action path="/waiver"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="qrcForm"
+			input="viewWaiverPage" parameter="method">
+			<forward name="viewWaiverPage" path="viewWaiverPage" />
+			<forward name="updateWaiverPage" path="updateWaiverPage" />
+			<forward name="workflowInbox" path="/goToInbox.do?method=workflowInbox"
+				redirect="true" contextRelative="true" />
+
+		</action>
+
+		<action path="/shiftingWorkflow"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="qrcForm"
+			input="shiftingInitiationPage" parameter="method" scope="request">
+			<forward name="shiftingInitiationPage" path="shiftingInitiationPage" />
+			<forward name="ifrstage" path="ifrstage" />
+			<forward name="installationPartnerStage" path="installationPartnerStage" />
+			<forward name="networkPartnerStage" path="networkPartnerStage" />
+			<forward name="addressChangePage" path="addressChangePage" />
+			<forward name="addressChangeFeasibility" path="/jsp/content/qrc/addressChangeFeasibility.jsp"></forward>
+			<forward name="qrcCustomerProfile" path="qrcCustomerProfile" />
+			<forward name="workflowInbox" path="/goToInbox.do?method=workflowInbox"
+				redirect="true" contextRelative="true" />
+			<forward name="shiftingview" path="shiftingview" />
+			<forward name="shiftingHistory" path="/jsp/content/qrc/shiftingHistory.jsp" />
+			<forward name="csdOutcallStage" path="csdOutcallStage" />
+             <forward name="IfrEocLevel1" path="IfrEocLevel1" />
+             <forward name="CsdLevel3" path="CsdLevel3" />
+              <forward name="NOCLEVEL1" path="NOCLEVEL1" />
+		</action>
+
+		<action path="/refund"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="financeForm"
+			input="postRefundPage" parameter="method" scope="session">
+			<forward name="postRefundPage" path="postRefundPage" />
+			<forward name="postRefundPageSuccess" path="/refund.do?method=postRefundPage" />
+			<forward name="fileUploadPODPage" path="fileUploadPODPage" />
+			<forward name="refundTrackingPage" path="refundTrackingPage" />
+			<forward name="nonRealizationPopUp" path="/jsp/content/finance/nonRealizationPopUp.jsp" />
+			<forward name="viewPodTrackingPage" path="viewPodTrackingPage" />
+			<forward name="viewPODRectifyPage" path="/jsp/content/finance/rectifyPod.jsp" />
+		</action>
+
+		<action path="/logAction"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="logForm"
+			input="getRemarks" parameter="method" scope="session">
+			<forward name="customerBillCyCle" path="/jsp/content/qrc/billCyCleHistory.jsp"></forward>
+		</action>
+
+		<action path="/capReportAction"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="reportForm"
+			input="" parameter="method" scope="request">
+			<forward name="crfScanningReport" path="crfScanningReport" />
+			<forward name="crfDetailReport" path="crfDetailReport"></forward>
+			<forward name="cancellationReport" path="cancellationReport"></forward>
+			<forward name="workorderInstallationReport" path="workorderInstallationReport"></forward>
+			<forward name="workorderPendancyReport" path="workorderPendancyReport"></forward>
+			<forward name="ftRejectionReport" path="ftRejectionReport"></forward>
+			<forward name="isrPendancyReport" path="isrPendancyReport"></forward>
+			<forward name="srPReport" path="srPReport"></forward>
+			<forward name="erpReport" path="erpReport"></forward>
+			<forward name="workorderGenerationReport" path="workorderGenerationReport"></forward>
+			<forward name="kpiReport" path="kpiReport"></forward>
+			<forward name="activationReport" path="activationReport"></forward>
+		</action>
+
+		<action path="/rfsReportAction"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="reportForm"
+			input="" parameter="method" scope="request">
+			<forward name="rfsReport" path="rfsReport"></forward>
+		</action>
+
+		<action path="/qrcReportAction"
+			type="org.springframework.web.struts.DelegatingActionProxy" name="reportForm"
+			input="" parameter="method" scope="request">
+			<forward name="qrcReportHome" path="qrcReportHome"></forward>
+			<forward name="churnReport" path="churnReport"></forward>
+			<forward name="categoryNSlaWiseResolveTicketReport" path="categoryNSlaWiseResolveTicketReport" />
+			<forward name="categoryWiseReopenTicketReport" path="categoryWiseReopenTicketReport" />
+			<forward name="massOutageReport" path="massOutageReport"></forward>
+			<forward name="interactionReport" path="interactionReport"></forward>
+			<forward name="migrationReport" path="migrationReport"></forward>
+			<forward name="reactivationReport" path="reactivationReport"></forward>
+			<forward name="validityExtensionReport" path="validityExtensionReport"></forward>
+			<forward name="openTicketReport" path="openTicketReport"></forward>
+			<forward name="resolvedTickets" path="resolvedTickets"></forward>
+			<forward name="taggingReport" path="taggingReport"></forward>
+			<forward name="ticketReport" path="ticketReport"></forward>
+			<forward name="firstAssignedBinTicketReport" path="firstAssignedBinTicketReport"></forward>
+			<forward name="reopenTicketReport" path="reopenTicketReport"></forward>
+			<forward name="repeatTicketReport" path="repeatTicketReport"></forward>
+			<forward name="safeCustodyReport" path="safeCustodyReport" />
+			<forward name="barringReport" path="barringReport" />
+			<forward name="catWiseOpenTicketReport" path="catWiseOpenTicketReport" />
+			<forward name="userWiseOpenTicketReport" path="userWiseOpenTicketReport" />
+			<forward name="userWiseReOpenResolvedTktReport" path="userWiseReOpenResolvedTktReport" />
+			<forward name="lmsReport" path="lmsReport"></forward>
+			<forward name="paymentReportPage" path="paymentReportPage"></forward>
+			<forward name="outOfSlaTicketReport" path="outOfSlaTicketReport"></forward>
+			<forward name="catWiseResolveTicketReport" path="catWiseResolveTicketReport"></forward>
+		</action>
+		<action path="/faultRepair"
+			type="org.springframework.web.struts.DelegatingActionProxy" />
+
+
+	</action-mappings>
+
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<message-resources parameter="com.telecrm.properties.ApplicationResource" />
+	<message-resources key="userProp" parameter="${properties.url}" />
+
+	<!-- <plug-in className="org.apache.struts.validator.ValidatorPlugIn"> <set-property 
+		property="pathnames" value="/WEB-INF/config/validator-rules.xml, /WEB-INF/config/validator-user.xml" 
+		/> </plug-in> -->
+	<!-- Tiles Plug in -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/config/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+	<!-- Spring Plug in -->
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation" value="/WEB-INF/config/spring-bean.xml" />
+	</plug-in>
+</struts-config>

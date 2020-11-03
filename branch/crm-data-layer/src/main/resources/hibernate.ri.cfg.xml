@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+	
+		<property name="hibernate.connection.datasource">java:/telecrmds</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.autocommit">false</property>
+		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.use_sql_comments">false</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">validate</property>
+		<property name="hibernate.jdbc.batch_size">20</property>
+		<property name="hibernate.connection.autoReconnect">true</property>  
+		
+
+
+
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+
+
+		
+
+
+
+
+
+
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmUser.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Partner.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Projects.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/SmsTemplate.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/AccessGroup.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMaster.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmParameter.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmRoles.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/EmailCcBcc.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/EmailTemplate.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Events.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/EventTemplates.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Groups.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/UserRoles.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Area.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/City.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Country.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/State.hbm.xml" />
+<!-- 		<mapping resource="com/np/tele/crm/hbmfiles/Locality.hbm.xml" /> -->
+		<mapping resource="com/np/tele/crm/hbmfiles/Society.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/SocietyNetworkPartner.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/AlertStatus.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Remarks.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/LMS.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Appointment.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmInbox.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPartnerMapping.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmUserMapping.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMasterConfiguration.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/LmsCrfMapping.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmAuditLog.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCustomerActivity.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmUserAssociation.hbm.xml" />
+		<!-- I&A Mapping files -->
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCustomerDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmAdditionalDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmAddressDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmDocumentDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmNationalityDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmOrderDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPaymentDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPlanDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmNetworkConfigurations.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmParamData.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCmsFile.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCmsPayment.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmUpCrfMapping.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmUpfrontPayment.hbm.xml" />
+		<!-- Duplicate CRF Mapping files -->
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCrfDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCrfAddressDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCrfNationalityDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCrfOrderDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCrfPlanDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCrfNetworkConfig.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPartnerDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPartnerNetworkConfig.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPlanMaster.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmBillingTransactions.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmBillingPlanRequest.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCustAadharNumber.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/NpUploads.hbm.xml" />
+		<!-- QRC Tables -->
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmQrcCategories.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmQrcCategoryBinMapping.hbm.xml" />
+		<!-- <mapping resource="com/np/tele/crm/hbmfiles/CrmQrcAttributedTo.hbm.xml" 
+			/> -->
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmQrcRootCause.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmQrcActionTaken.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmQrcSubCategories.hbm.xml" />
+
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmQrcSubSubCategories.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmSrTickets.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmQrcWhitelist.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCustInteractions.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCustMyAccount.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCustWaiver.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCustAssetDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmInvoiceDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmShiftingWorkflow.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPodDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmCustomerRefunds.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmTicketHistory.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmWorkflowSequence.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmValueFirstRequest.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmNpMobile.hbm.xml" />
+		
+		<!-- Salfcare -->
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmSelfcareCategories.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPgwTransactions.hbm.xml" />
+		<!-- mass outage -->
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMassOutage.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMassOutagePartner.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMassOutageMasters.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMassOutageState.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMassOutageCity.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMassOutageArea.hbm.xml" />
+		<!-- <mapping resource="com/np/tele/crm/hbmfiles/CrmMassOutageLocality.hbm.xml" /> -->
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMassOutageSociety.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmBillCycle.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPaymentCentres.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmSlaLogs.hbm.xml" />
+		<!-- crm holiday details -->
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmHolidayDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmEmailAttachment.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

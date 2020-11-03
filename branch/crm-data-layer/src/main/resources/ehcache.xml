@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+	<diskStore path="java.io.tmpdir" />
+	<defaultCache maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200" overflowToDisk="true">
+		<!-- <persistence strategy="distributed"/> -->
+		<!-- <terracotta clustered="true" consistency="eventual"/> -->
+	</defaultCache>
+	<cache name="com.np.tele.crm.pojos.CountryPojo" maxElementsInMemory="1" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.StatePojo" maxElementsInMemory="50" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CityPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.AreaPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.LocalityPojo" maxElementsInMemory="5000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.SocietyPojo" maxElementsInMemory="5000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.SocietyNetworkPartnerPojo" maxElementsInMemory="10000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.PartnerPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmPartnerDetailsPojo" maxElementsInMemory="1200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmQrcCategoriesPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmQrcSubCategoriesPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmQrcSubSubCategoriesPojo" maxElementsInMemory="300" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<!-- QrcConfigManagerDaoImpl -->
+	<cache name="com.np.tele.crm.pojos.CrmQrcAttributedToPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmQrcCategoryBinMappingPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<!-- QrcManagerDaoImpl -->
+	<cache name="com.np.tele.crm.pojos.CrmSrTicketsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmQrcWhitelistPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCustAssetDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCustMyAccountPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCustInteractionsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmMassOutagePojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCustWaiverPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmPlanMasterPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmSelfcareCategoriesPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.AppointmentPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmAdditionalDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmAddressDetailsPojo" maxElementsInMemory="5000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCustomerActivityPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCustomerDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmDocumentDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmInboxPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmNationalityDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmNetworkConfigurationsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmOrderDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmParamDataPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmPartnerNetworkConfigPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmPaymentDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmPlanDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.RemarksPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmUserPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.UserRolesPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmUserMappingPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.AccessGroupPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmRolesPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmMasterPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmParameterPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.GroupsPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmRcaReasonPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.EventsPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmAuditLogPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.AlertStatusPojo" maxElementsInMemory="200" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmBillCyclePojo" maxElementsInMemory="2" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCmsFilePojo" maxElementsInMemory="20" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCmsPaymentPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCrfAddressDetailsPojo" maxElementsInMemory="5000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCrfDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCrfNationalityDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCrfNetworkConfigPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCrfOrderDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCrfPlanDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmCustomerRefundsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmHolidayDetails" maxElementsInMemory="50" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmInvoiceDetailsPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmMassOutageAreaPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmMassOutageCityPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmMassOutageDetailsPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmMassOutageLocalityPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmMassOutageMastersPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmMassOutagePartnerPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmMassOutageSocietyPojo" maxElementsInMemory="2000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmMassOutageStatePojo" maxElementsInMemory="50" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmPartnerMappingPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmPaymentCentresPojo" maxElementsInMemory="30" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmPgwTransactionsPojo" maxElementsInMemory="50" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmPodDetailsPojo" maxElementsInMemory="20" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmQrcActionTakenPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmQrcRootCausePojo" maxElementsInMemory="300" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmShiftingWorkflowPojo" maxElementsInMemory="30" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmSlaLogPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmTicketHistoryPojo" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmUpCrfMappingPojo" maxElementsInMemory="10" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmUpfrontPaymentPojo" maxElementsInMemory="20" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.CrmUserAssociationPojo" maxElementsInMemory="500" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.EmailCcBccPojo" maxElementsInMemory="50" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.EmailTemplatePojo" maxElementsInMemory="50" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.EventTemplatesPojo" maxElementsInMemory="50" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.LmsCrfMappingPojo" maxElementsInMemory="50" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.LMSPojo" maxElementsInMemory="100" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200" overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.ProjectsPojo" maxElementsInMemory="1" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="com.np.tele.crm.pojos.SmsTemplatePojo" maxElementsInMemory="50" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+	<cache name="org.hibernate.cache.StandardQueryCache" maxElementsInMemory="50" eternal="false" timeToIdleSeconds="3600" timeToLiveSeconds="7200"
+		overflowToDisk="false" />
+</ehcache>
+<!-- <terracottaConfig> <tc-config> <servers> <server host="192.168.1.60" name="Faisal"/> <server host="192.168.1.16" name="Alok"/> </servers> <clients> <logs>E:/Official/delivery/logs/cachelog</logs> 
+	</clients> </tc-config> </terracottaConfig> -->

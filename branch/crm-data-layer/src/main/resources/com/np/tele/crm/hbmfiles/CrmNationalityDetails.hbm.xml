@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2013 12:03:20 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmNationalityDetailsPojo" table="crm_cust_nationality_details" dynamic-update="true" polymorphism="explicit">
+        <cache usage="read-write"/>
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />
+            <generator class="identity" />
+        </id>
+        <property name="customerRecordId" type="java.lang.Long">
+            <column name="customer_record_id" />
+        </property>
+        <property name="passportNo" type="string">
+            <column name="passport_no" length="128" />
+        </property>
+        <property name="passportValidity" type="date">
+            <column name="passport_validity" length="10" />
+        </property>
+        <property name="visaType" type="string">
+            <column name="visa_type" length="50" />
+        </property>
+        <property name="visaValidity" type="date">
+            <column name="visa_validity" length="10" />
+        </property>
+        <property name="localCpFname" type="string">
+            <column name="local_cp_fname" length="45" />
+        </property>
+        <property name="localCpLname" type="string">
+            <column name="local_cp_lname" length="45" />
+        </property>
+        <property name="localCpMobileNo" type="java.lang.Long">
+            <column name="local_cp_mobile_no" />
+        </property>
+        <property name="localCpAdd" type="string">
+            <column name="local_cp_add" />
+        </property>
+        <property name="localCpLandmark" type="string">
+            <column name="local_cp_landmark" length="128" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="7" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="7" />
+        </property>
+          <property name="addLine1" type="string">
+            <column name="address_1" length="35" />
+        </property>
+        <property name="addLine2" type="string">
+            <column name="address_2" length="35" />
+        </property>
+        <property name="addLine3" type="string">
+            <column name="address_3" length="35" />
+        </property>
+         <property name="pincode" type="java.lang.Integer">
+            <column name="pin" precision="10" scale="0" />
+        </property>
+         <property name="state" type="string">
+            <column name="state" length="40" />
+        </property>
+         <property name="city" type="string">
+            <column name="city" length="40" />
+        </property>
+        <property name="nationality" type="string">
+            <column name="nationality" length="64" default="Indian"/>
+        </property>
+    </class>
+</hibernate-mapping>

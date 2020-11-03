@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2014 6:05:04 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmQrcRootCausePojo" table="crm_qrc_root_cause" dynamic-update="true">
+    <cache usage="read-write"/>
+        <id name="rootCauseId" type="java.lang.Long">
+            <column name="root_cause_id" />
+            <generator class="identity" />
+        </id>
+        <!-- <many-to-one name="crmQrcRca" class="CrmQrcRca" fetch="select">
+            <column name="RCA_ID" precision="10" scale="0" not-null="true" />
+        </many-to-one> -->
+        <property name="actionId" type="long">
+			<column name="action_id" precision="10" scale="0"
+				not-null="true" />
+		</property>
+        <property name="rootCause" type="string">
+            <column name="root_cause" length="128" not-null="true" />
+        </property>
+        <property name="attributedTo" type="string">
+            <column name="attributed_to" length="128" />
+        </property>
+        
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+        <!-- <set name="crmQrcAttributedTos" table="CRM_QRC_ATTRIBUTED_TO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RESOLUTION_CODE_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.np.tele.crm.pojos.CrmQrcAttributedToPojo" />
+            <filter condition="status =:resolutionStatus" name="ActiveAttributedTo" />
+        </set> -->
+    </class>
+</hibernate-mapping>

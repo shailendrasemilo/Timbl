@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2015 1:08:55 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmShiftingWorkflowPojo"
+		table="crm_shifting_workflow" dynamic-update="true">
+		<cache usage="read-write" />
+		<id name="shiftingId" type="java.lang.Long">
+			<column name="shifting_id" />
+			<generator class="identity" />
+		</id>
+		<property name="workflowId" type="string">
+			<column name="workflow_id" length="41" />
+		</property>
+		<property name="workflowStage" type="string">
+			<column name="workflow_stage" length="25" not-null="true" />
+		</property>
+		<property name="customerId" type="string" update="false">
+			<column name="customer_id" length="15" not-null="true" />
+		</property>
+		<property name="shiftingType" type="string" update="false">
+			<column name="shifting_type" length="5" not-null="true" />
+		</property>
+		<property name="shiftingAddress" type="string">
+			<column name="shifting_address" length="256" />
+		</property>
+		<property name="npId" type="java.lang.Long">
+			<column name="np_id" />
+		</property>
+		<property name="spId" type="java.lang.Long">
+			<column name="sp_id" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false"
+			insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" update="false"
+			insert="false">
+			<column name="last_modified_time" length="19" not-null="true" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" not-null="true" />
+		</property>
+		<property name="previousStage" type="string">
+			<column name="previous_stage" length="25" />
+		</property>
+		<property name="stateId" type="java.lang.Long">
+			<column name="state_id" />
+		</property>
+		<property name="cityId" type="java.lang.Long">
+			<column name="city_id" />
+		</property>
+		<property name="areaId" type="java.lang.Long">
+			<column name="area_id" />
+		</property>
+		<property name="societyId" type="java.lang.Long">
+			<column name="society_id" />
+		</property>
+		<property name="locality" type="string">
+			<column name="locality" />
+		</property>
+		<property name="society" type="string">
+			<column name="society" />
+		</property>
+		<property name="houseNumber" type="string">
+			<column name="house_no" />
+		</property>
+		<property name="pincode" type="java.lang.Integer">
+			<column name="pin_code" length="6" />
+		</property>
+		<property name="landmark" type="string">
+			<column name="landmark" />
+		</property>
+		<property name="addressLine1" type="string">
+			<column name="address_line1" length="60" />
+		</property>
+		<property name="addressLine2" type="string">
+			<column name="address_line2" length="60" />
+		</property>
+		<property name="addressLine3" type="string">
+			<column name="address_line3" length="60" />
+		</property>
+		<property name="proprtyType" type="string">
+			<column name="proprty_type" length="60" />
+		</property>
+		<property name="closerReason" type="string">
+			<column name="closer_reason" length="60" />
+		</property>
+		<property name="product" type="string">
+			<column name="product" length="10" />
+		</property>
+		<property name="previousNetwork" type="string">
+			<column name="previous_network" length="3" />
+		</property>
+		<property name="currentBin" type="string">
+			<column name="current_bin" length="3" />
+		</property>
+		<property name="previousBin" type="string">
+			<column name="previous_bin" length="3" />
+		</property>
+		<property name="previousNpId" type="java.lang.Long">
+			<column name="previous_np_id" />
+		</property>
+		<property name="physicalInstallation" type="string">
+			<column name="physical_installation" length="3" />
+		</property>
+		<property name="customerRefusal" type="string">
+			<column name="cust_refusal" length="3" />
+		</property>
+		<property name="cpeAvailable" type="string">
+			<column name="cpe_available" length="3" />
+		</property>
+		<property name="option82" type="string">
+			<column name="option_82" length="3" />
+		</property>
+		<property name="currentCPeMacId" type="string">
+			<column name="currentCpeMacId" length="3" />
+		</property>
+		<property name="currentSlaveMacId" type="string">
+			<column name="currentSlaveMacId" length="3" />
+		</property>
+		<property name="basePlanCode" type="string">
+			<column name="base_plan_code" length="128" />
+		</property>
+		<property name="addOnPlanCode" type="string">
+			<column name="add_on_plan_code" length="128" />
+		</property>
+		<property name="serviceChange" type="string" insert="false">
+			<column name="service_change" length="1" />
+		</property>
+		<property name="planChange" type="string" insert="false">
+			<column name="plan_change" length="1" />
+		</property>
+		<property name="nassportChange" type="string" insert="false">
+			<column name="nassport_change" length="1" />
+		</property>
+		<property name="macBind" type="string" insert="false">
+			<column name="mac_bind" length="1" />
+		</property>
+	</class>
+</hibernate-mapping>

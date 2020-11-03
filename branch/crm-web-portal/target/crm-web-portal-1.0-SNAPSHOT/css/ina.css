@@ -1,0 +1,216 @@
+/* ul.i_aTabs{ list-style:none; margin:15px 0 10px 0; padding:0;}
+ul.i_aTabs li{ float:left; margin:0px; }
+.tabFirst{ background:url(../images/bg/tab-left.png) no-repeat left center !important; padding:14px 2px !important;}
+ul.i_aTabs li a{  background:url(../images/bg/tab-bg.png) repeat-x; padding:0px 0px; display:inline-block; color:#1d4686;}
+ul.i_aTabs li a span{ background:url(../images/bg/tab-right.png) no-repeat right center;  display:inline-block;
+ padding:5px 25px 5px 5px; font:14px arial; padding:6px 25px 5px 5px\0; height:33px;} 
+.tabLast{background:url(../images/bg/tab-right-last.png) no-repeat right center !important; }
+ul.i_aTabs li a i{display:inline; color:#d4d4d4; font:bold 35px arial; padding-left:10px;}
+ul.i_aTabs li a.last{ background:none !important;}
+
+ul.i_aTabs li a:hover i, ul.i_aTabs li a.selectedTab i{ color:#1d4686;} */
+
+/*=================== new tabing ==================*/
+ul.i_aTabs{ list-style-type: none; padding: 0 0 20px; margin: -30px 10px 10px 10px; overflow: hidden;}
+ul.i_aTabs li{ display: inline-block; float: left; /* border-right: 1px solid #fff; */}
+ul.i_aTabs li a{padding: 15px; display: inline-block; /* background: #5a89d1; color: #fff; */ font-size: 16px; font-family: Tahoma, Geneva, sans-serif; position: relative;}
+ul.i_aTabs li a:hover, .ul.i_aTabs li a:focus, ul.i_aTabs li a.active {/* background: #1d4686; */}
+ul.i_aTabs li a.active:after {
+	position: absolute; 
+	left: 50%; 
+	margin-left: -7px;
+	bottom: -12px; 
+	content: ''; 
+	display: block;
+	/* border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 12px solid #1d4686; */
+	height: 0;
+	width: 0;
+}
+.blueborder1 {/* border: 1px solid #1d4686 */}
+.positionR10 {right: 10px !important;}
+
+.marginleft15{ margin-left:15px;}
+.marginleft18{ margin-left:18px !important;}
+.marginleft45{ margin-left:45px;}
+.marginleft35{margin-left:35px;}
+.paddingTop10{ padding-top:10px;}
+.marginBottom30{ margin-bottom:30px;}
+.width200{ width:200px;}
+.margintop7{ margin-top:7px;}
+.createBorder{/* border:1px solid #CCCCCC; */ padding:10px 15px;}
+sup{  margin:0; padding:0; position:absolute; /* color:#666; */}
+
+.tab_content .headStrong {
+    /* color: #DEAF01; */
+    display: block;
+    font: bold 12px arial;
+    margin: 5px 5px 0 0;
+    padding-bottom: 3px;
+    
+}
+
+#validationCRFEntry .LmsTable {margin-left: 0px !important;}
+#validationCRFEntry .noPaddingLR,#crfDetails .noPaddingLR,#mapMacId .noPaddingLR, #isrReportsID .noPaddingLR {padding-left: 0px !important; padding-right: 0px !important;}
+#validationCRFEntry .paddingR104,#crfDetails .paddingR104,#mapMacId .paddingR104 {padding-right: 104px !important;}
+
+.tab_content p { margin-bottom:12px;margin-top: 12px;}
+
+
+
+.tab_content p span{  position:relative;}
+.tab_content p span.dropdownWithoutJs, .tab_content p span.LmsdropdownWithoutJs{  position:static;}
+
+.inatextarea {
+    /* background: url("../images/bg/textarea-bg.png") repeat-x scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #AFAFAF; */
+    height: 45px;
+    padding: 5px;
+    resize: none;
+    width: 317px;
+}
+
+.errorTextbox {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 55px;
+    width: 161px;
+	font:11px arial;  /* color:#e70000; */
+	margin:0 !important;
+}
+.errorTextboxSpl {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 55px;
+    width: 187px;
+	font:11px arial;  /* color:#e70000; */
+	margin:0 !important;
+}
+.errorTextboxInDiv {
+    display: block;
+    position: absolute;
+    top: auto;
+    width: 220px;
+	font:11px arial;  /* color:#e70000; */
+	margin:0 !important;
+}
+.errorBilledUsage {
+    display: block;
+	left: 19px;
+	position: absolute;
+	top: 6px;
+	width: 250px;
+	font: 11px arial;
+	/* color: #e70000; */
+	margin: 0px !important;
+}
+
+.errorTextboxTop42 {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 42px;
+    width: 160px;
+	font:11px arial;  /* color:#e70000; */
+	margin:0 !important;
+}
+
+.errorRadio {
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 35px;
+    width: 160px;
+	font:11px arial;  /* color:#e70000; */
+	margin:0 !important;
+}
+
+.errorAddress {
+display: block;
+margin: 0px 0 0 0 !important;
+width: 225px !important;
+position: absolute;
+left: 0px;
+/* color: #E70000; */
+top: 105px;
+}
+
+/*Inherited from label.error*/
+
+.INA p {margin-top:12px;}
+
+.INA p strong{width:auto;
+/* color: #414042; */
+display: block;
+font: bold 12px arial;
+margin: 5px 5px 3px 0;
+text-align: left;
+padding-bottom: 0;
+}
+
+.errorDropbox {
+display: block;
+left: 0;
+position: absolute;
+top: 75px;
+width: 160px;
+font: 11px arial;
+/* color: #e70000; */
+margin:0 !important;
+}
+
+.errorCheckbox {
+display: block;
+margin: 0px 0 0 0 !important;
+width: 225px !important;
+position: absolute;
+left: 0px;
+top: 20px;
+}
+/*******  view ina ************/
+
+.viewCRF{ width:800px;}
+
+/*****  validation CRF Entry  *******/
+.validationCRFEntry label{ display:inline-block; /*width:100px; word-wrap:break-word; */}
+.validationCRFEntry .tab_content{ /* border:1px solid #ccc; */ margin-bottom:0;}
+.validationCRFEntry .tab_content .inner_left_lead{ margin:10px;}
+.tabcontentUL{ margin:0; padding:0; list-style:none;}
+.tabcontentUL li{ float:left; margin-right:15px; margin-top:10px;}
+
+/********   installation satisfaction report  ***********************/
+
+.importISR{ position:relative; vertical-align:bottom; display:inline-block;}
+.importISR .importInputFile{ /* border: 1px solid #FF0000; */ cursor: pointer;opacity: 0.01;position: relative;width:80px;height:28px;z-index: 100;}
+.importISR .importLink{ position:absolute; left:0; top:0}
+
+/********* CRF Details  **********/
+.link{ /* color:#242424; */ text-decoration:underline; font-size:13px;}
+
+/*-------------------- 1024 -------------------------------*/
+@media screen and (max-width:1024px){
+	/*.validationCRFEntry label{ display:inline-block; width:75px; word-wrap:break-word; }*/
+}
+div#cdcfFormId {
+position: relative;
+top: 25px;
+}
+/*-------------------------For navigation buttons----------------------*/
+.pageNav {font-size: 12px; padding: 5px 10px;  /* color: #fff; */ margin-left: 5px;}
+.prev {padding-left: 15px !important; /* background: #deae00 url(../images/bg/next-prev-icon.png) 3px 6px no-repeat; */}
+.next {padding-right: 15px !important; /* background: #deae00 url(../images/bg/next-prev-icon.png) 38px -42px no-repeat; */}
+.textAC {text-align: center;}
+.errorTextArea{
+	display: block;
+    left: 0;
+    position: absolute;
+   
+    width: 160px;
+	font:11px arial;  /* color:#e70000; */
+	margin:0 !important;
+	
+}
+img.ui-datepicker-trigger{position:absolute;left: 100%;top:25px;}

@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2014 6:05:04 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmQrcSubSubCategoriesPojo"
+		table="crm_qrc_sub_sub_categories" dynamic-update="true">
+		<cache usage="read-write"/>
+        <id name="qrcSubSubCategoryId" type="java.lang.Long">
+			
+            <column name="qrc_sub_sub_category_id" />
+            <generator class="identity" />
+		</id>
+		 <!-- <many-to-one name="crmQrcSubCategories" class="com.np.tele.crm.pojos.CrmQrcSubCategoriesPojo"
+			fetch="select">
+			<column name="QRC_SUB_CATEGORY_ID" precision="10" scale="0"
+				not-null="true" />
+		</many-to-one> -->
+		<property name="qrcSubCategoryId" type="long" update="false">
+			<column name="qrc_sub_category_id" precision="10" scale="0" />
+		</property>
+		<property name="qrcSubSubCategory" type="string">
+            <column name="qrc_sub_sub_category" length="128" not-null="true" />
+		</property>
+		<property name="qrcType" type="string">
+            <column name="qrc_type" length="2" />
+		</property>
+		<property name="resolutionType" type="java.lang.Byte">
+            <column name="resolution_type" />
+		</property>
+        <property name="functionalBinId" type="java.lang.Long">
+            <column name="functional_bin_id" />
+		</property>
+		<property name="modificationAllowed" type="string">
+            <column name="modification_allowed" length="1" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" update="false" insert="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+		<property name="massOutageRol" type="string">
+			<column name="mass_outage_rol" length="1" />
+		</property>
+		<property name="sla" type="java.lang.Integer">
+			<column name="sla" precision="6" scale="0" />
+		</property>
+		<property name="slaUnit" type="string">
+			<column name="sla_unit" length="3" />
+		</property>
+		<property name="moduleType" type="string">
+            <column name="module_type" length="10"/>
+		</property>
+		<!-- <set name="crmQrcCategoryBinMappings" table="CRM_QRC_CATEGORY_BIN_MAPPING"
+			inverse="true" lazy="false" fetch="select">
+			<cache usage="read-write"/>
+			<key>
+				<column name="QRC_SUB_SUB_CATEGORY_ID" precision="10" scale="0"
+					not-null="true" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.CrmQrcCategoryBinMappingPojo" />
+			<filter condition="STATUS =:catStatus" name="ActiveBinMapping" />
+		</set> -->
+		<!-- <set name="crmSrTicketses" table="CRM_SR_TICKETS" inverse="true" lazy="true" 
+			fetch="select"> <key> <column name="QRC_SUB_SUB_CATEGORY_ID" precision="10" 
+			scale="0" not-null="true" /> </key> <one-to-many class="CrmSrTickets" /> 
+			</set> -->
+	</class>
+	<filter-def name="ActiveBinMapping">
+		<filter-param name="catStatus" type="string"/>
+	</filter-def>
+</hibernate-mapping>

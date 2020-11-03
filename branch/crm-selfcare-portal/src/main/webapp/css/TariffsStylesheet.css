@@ -1,0 +1,47 @@
+/*****Select Option Plan*******/
+.myopSteps
+{
+    height: 40px;
+    float: left;
+}
+.myopStepSeperatorContainer
+{
+    margin: 0 38px;
+    width: 24px;
+    height: 25px;
+    float: left;
+}
+.myopStepSeperator
+{
+    margin-top: 8px;
+}
+.myopSteps .SubHeading
+{
+    margin-top: 7px;
+    font-size: 20px;
+    white-space: nowrap;
+}
+.myopSteps div.stepNumberContainer
+{
+    width: 34px;
+    height: 34px;
+    padding: 4px 0 0 0;
+    float: left;
+    margin-right: 12px;
+}
+.myopSteps .stepNumberContainer div.stepNumber
+{
+    font-size: 22px;
+    font-family: Arial;
+    font-weight: normal;
+    /* color: #fff; */
+    margin-left: 10px;
+}
+.myopSteps div.activeStepNumber
+{
+    /* background: #fff url('../images/MyopStepActive.jpg') no-repeat 0 0; */
+}
+.myopSteps div.inActiveStepNumber
+{
+    /* background: #fff url('../images/MyopStepInActive.jpg') no-repeat 0 0; */
+}

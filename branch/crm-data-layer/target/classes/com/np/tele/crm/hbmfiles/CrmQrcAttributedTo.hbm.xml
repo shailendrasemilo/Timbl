@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 9, 2014 6:05:04 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmQrcAttributedToPojo"
+		table="CRM_QRC_ATTRIBUTED_TO" dynamic-update="true">
+		<cache usage="read-write"/>
+		<id name="attributedToId" type="long">
+			<column name="ATTRIBUTED_TO_ID" precision="10" scale="0" />
+			<generator class="sequence">
+				<param name="sequence">CRM_QRC_ATTRIBUTED_TO_SEQ</param>
+			</generator>
+		</id>
+		<!-- <many-to-one class="com.np.tele.crm.pojos.CrmQrcResolutionCodePojo"
+			fetch="select" name="crmQrcResolutionCode">
+			<column name="RESOLUTION_CODE_ID" not-null="true" precision="10"
+				scale="0" />
+		</many-to-one> -->
+		 <property name="resolutionCodeId" type="long">
+            <column name="RESOLUTION_CODE_ID" precision="10" scale="0" />
+        </property>
+		<property generated="never" lazy="false" name="attributedTo"
+			type="string">
+			<column length="128" name="ATTRIBUTED_TO" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="createdBy"
+			type="string" update="false">
+			<column length="128" name="CREATED_BY" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="createdTime"
+			type="timestamp" update="false" insert="false">
+			<column length="7" name="CREATED_TIME" />
+		</property>
+		<property generated="never" lazy="false" name="lastModifiedBy"
+			type="string">
+			<column length="128" name="LAST_MODIFIED_BY" />
+		</property>
+		<property generated="never" lazy="false" name="lastModifiedTime"
+			type="timestamp" insert="false" update="false">
+			<column length="7" name="LAST_MODIFIED_TIME" />
+		</property>
+		<property generated="never" lazy="false" name="status" type="string">
+			<column name="STATUS" length="2"/>
+		</property>
+	</class>
+</hibernate-mapping>

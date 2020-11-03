@@ -1,0 +1,734 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 16, 2013 12:03:20 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmCustomerDetailsPojo" table="crm_customer_details"
+		dynamic-update="true" polymorphism="explicit">
+		<cache usage="read-write" />
+		<id name="recordId" type="java.lang.Long">
+			<column name="record_id" />
+			<generator class="identity" />
+		</id>
+		<property name="product" type="string">
+			<column name="product" length="10" />
+		</property>
+		<property name="crfId" type="string" unique="true" update="false">
+			<column name="crf_id" length="25" />
+		</property>
+		<property name="customerId" type="string" unique="true">
+			<column name="customer_id" length="15" />
+		</property>
+		<property name="crfDate" type="date">
+			<column name="crf_date" length="10" not-null="true" />
+		</property>
+		<property name="connectionType" type="string">
+			<column name="connection_type" length="25" not-null="true" />
+		</property>
+		<property name="custFname" type="string">
+			<column name="cust_fname" length="200" not-null="true" />
+		</property>
+		<property name="custMname" type="string">
+			<column name="cust_mname" length="50" />
+		</property>
+		<property name="custLname" type="string">
+			<column name="cust_lname" length="50" />
+		</property>
+		<property name="authSignFname" type="string">
+			<column name="auth_sign_fname" length="45" />
+		</property>
+		<property name="authSignLname" type="string">
+			<column name="auth_sign_lname" length="45" />
+		</property>
+		<property name="authSignDesg" type="string">
+			<column name="auth_sign_desg" length="45" />
+		</property>
+		<property name="orgCordFname" type="string">
+			<column name="org_cord_fname" length="45" />
+		</property>
+		<property name="orgCordLname" type="string">
+			<column name="org_cord_lname" length="45" />
+		</property>
+		<property name="custEmailId" type="string">
+			<column name="cust_email_id" length="256" />
+		</property>
+		<property name="altEmailId" type="string">
+			<column name="alt_email_id" length="256" />
+		</property>
+		<property name="custMobileNo" type="java.lang.Long">
+			<column name="cust_mobile_no" />
+		</property>
+		<property name="fhFname" type="string">
+			<column name="fh_fname" length="45" />
+		</property>
+		<property name="fhLname" type="string">
+			<column name="fh_lname" length="45" />
+		</property>
+		<property name="custDob" type="date">
+			<column name="cust_dob" length="10" />
+		</property>
+		<property name="custGender" type="string">
+			<column name="cust_gender" length="1" />
+		</property>
+		<property name="nationality" type="string">
+			<column name="nationality" length="30" />
+		</property>
+		<property name="custPanGirNo" type="string">
+			<column name="cust_pan_gir_no" length="10" />
+		</property>
+		<property name="rmn" type="java.lang.Long">
+			<column name="rmn" />
+		</property>
+		<property name="rtn" type="java.lang.Long">
+			<column name="rtn" />
+		</property>
+		<property name="crfStage" type="string">
+			<column name="crf_stage" length="25" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false"
+			insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false"
+			update="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="status" type="string" insert="false" update="true">
+			<column name="status" length="2" />
+		</property>
+		<property name="crfReferenceNo" type="string">
+			<column name="crf_reference_no" length="128" />
+		</property>
+		<property name="crfPreviousStage" type="string">
+			<column name="crf_previous_stage" length="25" />
+		</property>
+		<property name="dateOnIsr" type="timestamp">
+			<column name="date_on_isr" length="7" />
+		</property>
+		<property name="isrReferenceNo" type="string">
+			<column name="isr_reference_no" length="128" />
+		</property>
+		<property name="serviceType" type="string" update="false">
+			<column name="service_type" length="2" />
+		</property>
+		<property name="emailValidationFlag" type="string">
+			<column name="email_id_validation_flag" length="1" />
+		</property>
+		<property name="ftSubmittionDate" type="timestamp" >
+			<column name="ft_submittion_date" length="19" />
+		</property>
+		<property name="ftApprovalDate" type="timestamp" >
+			<column name="ft_approval_date" length="7" />
+		</property>
+		<property name="activationDate" type="timestamp" insert="false">
+			<column name="activation_date" length="19" />
+		</property>
+		<property name="barringDate" type="timestamp" insert="false">
+			<column name="barring_date" length="7" />
+		</property>
+		<property name="unBarringDate" type="timestamp" insert="false">
+			<column name="unbarring_date" length="7" />
+		</property>
+		<property name="tempDisconnectDate" type="timestamp" insert="false">
+			<column name="td_date" length="19" />
+		</property>
+		<property name="permanentDisconnectDate" type="timestamp" insert="false">
+			<column name="pd_date" length="19" />
+		</property>
+		<property name="npId" type="long">
+			<column name="np_id" precision="10" scale="0" />
+		</property>
+		<property name="spId" type="long">
+			<column name="sp_id" precision="10" scale="0" />
+		</property>
+		<property name="businessPartner" type="long">
+			<column name="bp_id" precision="10" scale="0" />
+		</property>
+		<property name="salesRepresentative" type="string">
+			<column name="sales_representative" length="128" />
+		</property>
+		<property name="custToken" type="string">
+			<column name="cust_token" length="1024" />
+		</property>
+		<property name="tokenDate" type="timestamp">
+			<column name="token_date" length="7" />
+		</property>
+		<property name="billDate" type="string">
+			<column name="bill_date" length="2" />
+		</property>
+
+		<property name="safeCustodyDate" type="timestamp" insert="false">
+			<column name="safe_custody_date" length="7" />
+		</property>
+
+		<property name="linkedCRF" type="string">
+			<column name="linked_crf" length="25" />
+		</property>
+		<property name="brand" type="string">
+			<column name="brand" length="20" />
+		</property>
+		<property name="aadharNo" type="string">
+			<column name="aadhar_no" length="12" />
+		</property>
+
+		<set name="crmAddressDetailses" table="crm_cust_address_details"
+			inverse="true" lazy="false" fetch="select" cascade="">
+			<cache usage="read-write" />
+			<key>
+				<column name="customer_record_id" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.CrmAddressDetailsPojo" />
+		</set>
+		<set name="crmPlanDetailses" table="crm_cust_plan_details"
+			inverse="true" lazy="false" fetch="select">
+			<cache usage="read-write" />
+			<key>
+				<column name="customer_record_id" unique="true" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.CrmPlanDetailsPojo" />
+		</set>
+
+	</class>
+	<sql-query name="ParameterByCrfNumber" callable="false">	
+	<![CDATA[SELECT concat(crf.crf_id,'' )AS CRFID,concat(crf.product,'') AS PRODUCT ,
+			concat(crf.customer_id,'') AS CUSTOMERID,
+			CONCAT(crf.rmn, '') AS CUSTOMER_RMN,
+			concat(crf.cust_email_id,'') AS CUSTOMER_EMAIL
+			FROM crm_customer_details  crf
+			WHERE crf_id=:CRF_ID
+			]]>
+	</sql-query>
+
+
+	<sql-query name="CRF_SCN_RPT" callable="false">	
+	<![CDATA[ SELECT ccd.crf_id AS "crfId",
+				ccd.crf_date AS "crfDate",
+				ccd.created_time AS "createdTime",
+				ccd.cust_fname AS "custFname",
+				IFNULL(ccd.cust_lname, ' ') AS "custLname",
+				cp.partner_name AS "BPName",
+				CONCAT(cu.first_name, CONCAT(' ', cu.last_name) ) AS "SRName",
+				cp1.partner_name AS "LMOName",
+				cp.crm_partner_code AS "BPCode",
+				cu.sr_code AS "SRCode",
+				#CASE ccd.status WHEN 'CN' THEN 'CANCELLED' ELSE (CASE ccd.crf_stage WHEN 'FTR' THEN 'REJECTED' ELSE (CASE WHEN ccd.ft_approval_date IS NULL THEN '' ELSE 'APPROVED' END ) END ) END AS "status"
+				CASE crf_stage WHEN 'Initiate' THEN 'Saved Cases' ELSE (CASE ccd.crf_stage WHEN 'FT' THEN 'No Action Taken by FT' ELSE (CASE ccd.crf_stage WHEN 'FTR' THEN 'Rejected by FT' ELSE (CASE WHEN ccd.ft_approval_date IS NULL THEN '' ELSE 'APPROVED' END ) END ) END )END AS "status" 
+			FROM
+				crm_user cu,
+				crm_customer_details ccd
+				LEFT JOIN crm_partner cp ON(ccd.bp_id = cp.partner_id)
+				LEFT JOIN crm_partner cp1 on(ccd.np_id = cp1.partner_id)
+			WHERE
+				ccd.sales_representative = cu.user_id
+				AND ccd.created_time BETWEEN :FROM_DATE AND :TO_DATE
+				AND ccd.service_type IN (:STYPE1,:STYPE2)
+				AND ccd.product IN (:SNAME1, :SNAME2, :SNAME3)]]>
+	</sql-query>
+
+
+	<sql-query name="ParameterByCustomerId" callable="false">	      
+      <![CDATA[SELECT 
+              concat(crm_cust.cust_fname,'') AS CUSTOMERFIRSTNAME,
+             concat(IFNULL(crm_cust.cust_lname, ' '),'' )AS CUSTOMERLASTNAME,
+						concat(	crm_cust.crf_id,'') AS CRFID,
+            concat(crm_cust.customer_id,'') AS CUSTOMERID,
+               CONCAT(crm_cust.rmn, '') AS CUSTOMER_RMN,
+               CONCAT(crm_cust.rtn, '') AS CUSTOMER_RTN,
+               concat(crm_cust.cust_email_id,'') AS CUSTOMER_EMAIL,
+               concat(my_account.password,'') AS MYACCOUNTPASSWORD,
+               CONCAT(crm_cust.brand, SUBSTR(crm_cust.rmn, 7,10 )) AS WIFI_NAME,
+               CONCAT('0', crm_cust.customer_id) AS WIFI_PASSWORD,
+               CONCAT(crm_addr.add_line1, CONCAT(CONCAT(' ', crm_addr.add_line2), CONCAT(CONCAT(' ', crm_addr.add_line3), CONCAT('-', crm_addr.pincode))))AS CUSTOMER_BILLADDR,
+               CONCAT(crm_pm.plan_name,'; Rs ',TRIM(crm_pm.rent_excl_tax + IFNULL(crm_pm1.rent_excl_tax,0))+0,' plus tax for ',CASE crm_pm.plan_usage_type WHEN 'L' THEN ( CASE crm_cust.service_type WHEN 'PO' THEN ( CONCAT ( TRIM( (crm_pm.primary_quota + IFNULL(crm_pm1.primary_quota,0)) /(1024 * 1024 * 1024) )+0, CONCAT ( ' GB at ', CONCAT ( TRIM(crm_pm.primary_speed / 1024)+0, ' Mbps' ) ) ) ) ELSE ( CONCAT ( TRIM( (crm_pm.primary_quota + IFNULL(crm_pm1.primary_quota,0)) /(1024 * 1024 * 1024) )+0, CASE crm_pm.quota_type WHEN 'MON' THEN (CONCAT('(', TRIM( ((crm_pm.primary_quota + IFNULL(crm_pm1.primary_quota,0)) /(1024 * 1024 * 1024) )/30)+0,'GB/day)')) END, CONCAT ( ' GB at ', CONCAT ( TRIM(crm_pm.primary_speed / 1024)+0, ' Mbps' ) ) ) ) END ) ELSE CASE crm_pm.quota_type WHEN 'TUL' THEN CONCAT('Unlimited at ', CONCAT(TRIM(crm_pm.primary_speed / 1024) + 0, ' Mbps')) ELSE (CONCAT(TRIM((crm_pm.primary_quota + IFNULL(crm_pm1.primary_quota, 0)) /(1024 * 1024 * 1024)) + 0,CASE crm_pm.quota_type WHEN 'MON' THEN (CONCAT('(', TRIM( ((crm_pm.primary_quota + IFNULL(crm_pm1.primary_quota,0)) /(1024 * 1024 * 1024) )/30)+0,'GB/day)')) ELSE('') END, CONCAT(' GB at ', CONCAT(TRIM(crm_pm.primary_speed / 1024) + 0, CONCAT(' Mbps, and Unlimited at ',CASE WHEN crm_pm.secondary_speed >= 1024 THEN CONCAT(TRIM(crm_pm.secondary_speed / 1024) + 0, ' Mbps') ELSE CONCAT((crm_pm.secondary_speed), ' Kbps') END ))))) END END ) AS CUSTOMER_PLANDETAIL,
+               CONCAT(IFNULL(crm_pm.rent_incl_tax, 0)+ IFNULL(crm_pm1.rent_incl_tax, 0), '') AS CUSTOMER_PLANCHARGES,
+               CONCAT('http://${crm.myaccount.host}/verify?sessionId=', crm_cust.cust_token) AS CUSTOMER_EMAILVERIFICATIONLINK,
+               CONCAT(cpd.security_charges,'') AS SECURITY_DEPOSIT
+   FROM
+     crm_customer_details crm_cust
+   LEFT JOIN crm_cust_payment_details cpd ON (crm_cust.record_id = cpd.customer_record_id AND cpd.installation_status='PreIns')
+   LEFT JOIN crm_cust_my_account my_account ON(crm_cust.customer_id = my_account.customer_id)
+   LEFT JOIN crm_cust_address_details crm_addr ON(crm_cust.record_id = crm_addr.customer_record_id AND crm_addr.address_type = 'BL')
+   LEFT JOIN crm_cust_plan_details crm_pd ON(crm_cust.record_id = crm_pd.customer_record_id)
+   LEFT JOIN crm_plan_master crm_pm ON(crm_pd.base_plan_code = crm_pm.plan_code) 
+   LEFT JOIN crm_plan_master crm_pm1 ON (crm_pd.add_on_plan_code = crm_pm1.plan_code)
+ WHERE crm_cust.customer_id = :CUSTOMER_ID]]>
+	</sql-query>
+	<sql-query name="WO_INST_RPT" callable="false">	
+		<![CDATA[SELECT ccd.crf_id AS "crfId",ccd.crf_date AS "crfDate",ccd.customer_id AS "customerId",ccd.created_time AS "createdTime",ccd.ft_approval_date AS "ftApprovalDate",ccd.activation_date AS "activationDate",
+			CONCAT(ccd.np_id, '')AS "LMOName" ,ccd.connection_type AS "connectionType",
+			#ccd.cust_fname AS "custFname", ccd.cust_lname AS "custLname",CONCAT(ccd.rmn, '')AS "rmn",
+			#CONCAT(ccd.rtn, '') AS "rtn",
+			ccd.cust_email_id AS "custEmailId",cam.area AS "areaName",
+			CONCAT(crm_addr.add_line1,CONCAT(CONCAT(' ', crm_addr.add_line2),CONCAT(CONCAT(' ', crm_addr.add_line3),CONCAT('-', crm_addr.pincode))))AS "installationAddress",
+			cpm.plan_name AS "basePlanName",crm_pm1.plan_name AS "addonPlanName",CONCAT(cu.first_name, CONCAT(' ', cu.last_name) ) AS "SRName",crmp.partner_name AS "BPName" ,ccd.status AS "status",ccd.product AS "product",ccd.service_type AS "serviceType",
+			ccd.crf_reference_no AS "crfReferenceNo"
+		FROM 
+			crm_user cu,
+			crm_customer_details ccd
+			LEFT JOIN crm_partner crmp ON(ccd.bp_id = crmp.partner_id)
+			LEFT JOIN crm_cust_address_details crm_addr ON(	ccd.record_id = crm_addr.customer_record_id	AND crm_addr.address_type = 'IN')
+			LEFT JOIN crm_area_master cam ON (cam.area_id=crm_addr.inst_area_id)
+			LEFT JOIN crm_cust_plan_details ccpd ON(ccd.record_id = ccpd.customer_record_id)
+			LEFT JOIN crm_plan_master cpm ON(ccpd.base_plan_code = cpm.plan_code)
+			LEFT JOIN crm_plan_master crm_pm1 ON (ccpd.add_on_plan_code = crm_pm1.plan_code AND crm_pm1.plan_category='ADDON')
+		WHERE
+			ccd.sales_representative = cu.user_id
+	AND
+ 			ccd.activation_date BETWEEN :FROM_DATE AND :TO_DATE
+ 			AND ccd.service_type IN (:STYPE1,:STYPE2) AND ccd.product IN (:SNAME1,:SNAME2,:SNAME3)
+	  ]]>
+	</sql-query>
+	<sql-query name="WO_PNDC_RPT" callable="false">	
+		<![CDATA[SELECT ccd.crf_id AS "crfId",ccd.customer_id AS "customerId",ccd.created_time AS "createdTime",ccd.ft_approval_date AS "ftApprovalDate",CONCAT(ccd.np_id, '')AS "LMOName",ccd.connection_type AS "connectionType",
+   ccd.cust_fname AS "custFname", ccd.cust_lname AS "custLname",CONCAT(ccd.rmn, '')AS "rmn",CONCAT(ccd.rtn, '') AS "rtn",ccd.cust_email_id AS "custEmailId",
+   CONCAT(crm_addr.add_line1,CONCAT(CONCAT(' ', crm_addr.add_line2),CONCAT(CONCAT(' ', crm_addr.add_line3),CONCAT('-', crm_addr.pincode))))AS "installationAddress",
+   cam.area AS "areaName",cpm.plan_name AS "basePlanName",crm_pm1.plan_name AS "addonPlanName",CONCAT(cu.first_name, CONCAT(' ', cu.last_name) ) AS "SRName",CONCAT(ccd.bp_id, '')AS "BPName" ,
+   ccd.product AS "product",ccd.service_type AS "serviceType",
+   ccd.crf_stage AS "crfStage",
+   ccd.crf_previous_stage AS "crfPreviousStage"
+  FROM
+   crm_user cu,
+   crm_customer_details ccd
+   LEFT JOIN crm_cust_address_details crm_addr ON( ccd.record_id = crm_addr.customer_record_id AND crm_addr.address_type = 'IN')
+   LEFT JOIN crm_area_master cam ON (cam.area_id=crm_addr.inst_area_id)
+   LEFT JOIN crm_cust_plan_details ccpd ON(ccd.record_id = ccpd.customer_record_id)
+   LEFT JOIN crm_plan_master cpm ON(ccpd.base_plan_code = cpm.plan_code)
+   LEFT JOIN crm_plan_master crm_pm1 ON (ccpd.add_on_plan_code = crm_pm1.plan_code AND crm_pm1.plan_category='ADDON')
+  WHERE
+   ccd.sales_representative = cu.user_id AND ccd.crf_stage IN('NP','SP','NPR','SPNP') AND 
+   ccd.service_type IN(:STYPE1,:STYPE2) AND ccd.product IN(:SNAME1,:SNAME2,:SNAME3)
+    AND ccd.activation_date IS NULL
+	  ]]>
+	</sql-query>
+
+	<sql-query name="CANCELLATION_RPT" callable="false">	
+			<![CDATA[SELECT
+       ccd.crf_id AS "crfId",
+       ccd.pd_date AS "lastModifiedTime",
+       CONVERT(ccd.bp_id,CHAR) AS "BPName",
+    	CONVERT( ccd.np_id,CHAR) AS "LMOName",
+     cast(cr.remarks as char(4000)) AS "remarks",
+     cmc.category_value AS "reason",
+     cty.city_name AS "cityName",
+		 ccd.crf_date AS "crfDate",
+			ccd.ft_approval_date AS "ftApprovalDate",
+			ccd.customer_id AS "customerId",
+			ccd.product AS "product",
+			ccd.service_type AS "serviceType",
+			ccd.connection_type AS "connectionType",
+			crm_pm.plan_name AS "basePlanName",
+			ccd.last_modified_by AS "rejectedBy"
+    FROM
+     crm_customer_details ccd
+    LEFT JOIN crm_remarks cr ON(CONVERT(ccd.record_id,CHAR)= cr.mapping_id AND cr.actions = "CN")
+    LEFT JOIN crm_cust_address_details cca ON(ccd.record_id = cca.customer_record_id AND cca.address_type = "IN")
+    LEFT JOIN crm_master_configuration cmc ON(cr.reason_id = cmc.category_id)
+    LEFT JOIN crm_city_master cty ON(cty.city_id = cca.city_id)
+	LEFT JOIN crm_cust_plan_details crm_pd ON(ccd.record_id = crm_pd.customer_record_id)
+    LEFT JOIN crm_plan_master crm_pm ON(crm_pd.base_plan_code = crm_pm.plan_code) 
+    WHERE ccd.status = "CN"
+     AND ccd.service_type IN(:STYPE1 ,:STYPE2)
+     AND ccd.product IN(:SNAME1 ,:SNAME2 ,:SNAME3)
+     AND ccd.pd_date BETWEEN :FROM_DATE
+     AND :TO_DATE 
+				
+				]]>
+	</sql-query>
+	<sql-query name="CRFDETAIL_RPT" callable="false">	
+  	 <![CDATA[SELECT 
+    crm_cust.crf_id AS "crfId",
+    crm_cust.crf_date AS "crfDate",
+    crm_cust.ft_approval_date AS "ftApprovalDate",
+    crm_cust.connection_type AS "connectionType",
+    #crm_cust.cust_fname AS "custFname",
+    #IFNULL(crm_cust.cust_lname, ' ') AS "custLname",
+    CONCAT(crm_cust.cust_mobile_no, '') AS "custMobileNo",    
+    #CONCAT(crm_cust.rmn, '') AS "rmn",
+    #CONCAT(crm_cust.rtn, '') AS "rtn",    
+    crm_cust.cust_email_id AS "custEmailId",
+    CONCAT(crm_addr.add_line1, CONCAT(CONCAT(' ', crm_addr.add_line2), CONCAT(CONCAT(' ', crm_addr.add_line3), CONCAT('-', crm_addr.pincode))))AS "installationAddress",
+    
+    crmcm.city_name AS "cityName",
+    crm_cust.customer_id AS "customerId",
+    crm_pm.plan_name AS "basePlanName",
+    crm_pm1.plan_name AS "addonPlanName",
+    crm_cod.cpe_status AS "cpeStatus",
+    CONCAT(crm_usr.first_name, CONCAT(' ', crm_usr.last_name) ) AS "SRName",
+    crm_usr.sr_code AS "SRCode",
+    bp.partner_name AS "BPName",
+    bp.crm_partner_code AS "BPCode",
+    np.partner_name AS "LMOName",
+   #CASE crm_cust.crf_stage WHEN 'FTR' THEN 'REJECTED' ELSE (CASE WHEN crm_cust.ft_approval_date IS NULL THEN '' ELSE 'APPROVED' END ) END AS "status",
+   	CASE crm_cust.crf_stage WHEN 'FT' THEN 'No Action Taken by FT' ELSE(CASE crm_cust.crf_stage WHEN 'FTR' THEN 'Rejected by FT' ELSE(CASE WHEN crm_cust.ft_approval_date IS NULL THEN '' ELSE 'APPROVED' END) END)END AS "status",
+    CASE WHEN crm_cust.activation_date IS NULL THEN '' ELSE 'ACTIVATED' END AS "activated",
+    CASE crm_cust.status WHEN 'CN' THEN 'CANCELLED' ELSE '' END AS "cancelled",
+    crm_cust.crf_stage AS "crfStage",
+    ccpd.payment_mode AS "paymentMode"
+   FROM
+     crm_customer_details crm_cust   
+   LEFT JOIN crm_cust_address_details crm_addr ON(crm_cust.record_id = crm_addr.customer_record_id AND crm_addr.address_type = 'IN')
+   LEFT JOIN crm_cust_plan_details crm_pd ON(crm_cust.record_id = crm_pd.customer_record_id)
+   LEFT JOIN crm_plan_master crm_pm ON(crm_pd.base_plan_code = crm_pm.plan_code) 
+   LEFT JOIN crm_plan_master crm_pm1 ON (crm_pd.add_on_plan_code = crm_pm1.plan_code)
+   LEFT JOIN crm_cust_order_details crm_cod ON(crm_cust.record_id=crm_cod.customer_record_id) 
+   LEFT JOIN crm_user crm_usr ON(crm_usr.user_id=crm_cust.sales_representative)
+   LEFT JOIN crm_partner np ON (np.partner_id=crm_cust.np_id)
+   LEFT JOIN crm_partner bp ON (bp.partner_id=crm_cust.bp_id)
+   LEFT JOIN crm_city_master  crmcm ON(crmcm.city_id = crm_addr.city_id)
+   LEFT JOIN crm_cust_payment_details ccpd ON (crm_cust.record_id = ccpd.customer_record_id AND ccpd.installation_status = 'PreIns' AND ccpd.entity_type = 'S' AND ccpd.activation_charges IS NOT NULL )
+   WHERE
+     crm_cust.created_time BETWEEN :FROM_DATE AND :TO_DATE AND
+    crm_cust.service_type IN (:STYPE1,:STYPE2) AND crm_cust.product IN (:SNAME1,:SNAME2,:SNAME3)
+   GROUP BY
+   crm_cust.crf_id, crm_cust.crf_date, crm_cust.ft_approval_date, crm_cust.connection_type, crm_cust.cust_fname, crm_cust.cust_lname, crm_cust.cust_mobile_no, crm_cust.rmn, crm_cust.rtn, crm_cust.cust_email_id, crm_addr.add_line1, crm_addr.add_line2, crm_addr.add_line3, crm_addr.pincode, crmcm.city_name, crm_cust.customer_id , crm_pm.plan_name , crm_pm1.plan_name, crm_cod.cpe_status , crm_usr.first_name,  crm_usr.last_name, crm_usr.sr_code , bp.partner_name , bp.crm_partner_code , np.partner_name , crm_cust.crf_stage , crm_cust.ft_approval_date, crm_cust.activation_date , crm_cust.status , ccpd.payment_mode
+    ]]>
+	</sql-query>
+	<sql-query name="SRP_RPT" callable="false">
+		<![CDATA[SELECT ccd.crf_id AS "crfId",ccd.crf_date AS "crfDate",ccd.created_time AS "createdTime",ccd.ft_approval_date AS "ftApprovalDate",
+   cal.created_time AS "ftRejectionDate",ccd.connection_type AS "connectionType",ccd.cust_fname AS "custFname",ccd.cust_lname AS "custLname",CONCAT(ccd.cust_mobile_no, '') AS "custMobileNo",
+   CONCAT(ccd.rmn, '')AS "rmn",CONCAT(ccd.rtn, '') AS "rtn",ccd.cust_email_id AS "custEmailId",
+   CONCAT( crm_addr.add_line1, CONCAT(CONCAT(' ', crm_addr.add_line2), CONCAT( CONCAT(' ', crm_addr.add_line3), CONCAT('-', crm_addr.pincode)) ) )AS "installationAddress",
+   ccm.city_name AS "cityName", base.plan_name AS "basePlanName", addon.plan_name AS "addonPlanName", ccod.cpe_status AS "cpeStatus",
+   CONCAT(ccd.bp_id, '') AS "BPName", CONCAT(ccd.np_id, '') AS "LMOName", ccd.customer_id AS "customerId",
+   CASE WHEN ccd.activation_date IS NULL THEN 'NOT ACTIVATED' ELSE 'ACTIVATED' END AS "activated", CASE ccd.status WHEN 'CN' THEN 'CANCELED' ELSE '' END AS "cancelled",
+   ccd.crf_stage AS "crfStage",ci.user_id AS "currentOwner",ccd.crf_previous_stage AS "crfPreviousStage",cal.created_by AS "previousOwner",
+   cift.created_by AS "crfApprovedBy", cmc.category_value AS "reason", cast(cr.remarks as char(4000)) AS "remarks",
+   ccd.product AS "product", ccd.service_type AS "serviceType"
+  FROM
+   crm_customer_details ccd
+   LEFT JOIN crm_cust_order_details ccod ON(ccod.customer_record_id = ccd.record_id)
+   LEFT JOIN crm_cust_address_details crm_addr ON( ccd.record_id = crm_addr.customer_record_id AND crm_addr.address_type = 'IN')
+   LEFT JOIN crm_city_master ccm ON(ccm.city_id = crm_addr.city_id)
+   LEFT JOIN crm_cust_plan_details ccpd ON(ccd.record_id = ccpd.customer_record_id)
+   LEFT JOIN crm_plan_master base ON(ccpd.base_plan_code = base.plan_code)
+   LEFT JOIN crm_plan_master addon ON(ccpd.add_on_plan_code = addon.plan_code AND addon.plan_category = 'ADDON')
+   LEFT JOIN crm_inbox ci ON (ci.mapping_id = CONVERT(ccd.record_id,CHAR) AND ci.status = 'A' AND ci.request_type='CAF' AND ci.stage = ccd.crf_stage)
+   LEFT JOIN crm_inbox cift ON (cift.mapping_id = CONVERT(ccd.record_id,CHAR) AND cift.request_type='CAF' AND cift.stage = 'NP')
+   LEFT JOIN crm_audit_log cal ON (cal.from_bin = ccd.crf_previous_stage AND cal.to_bin = ccd.crf_stage AND cal.mapping_id=CONVERT(ccd.record_id,CHAR) AND cal.module='CAF')
+   LEFT JOIN crm_remarks cr ON (CONVERT(ccd.record_id,CHAR)= cr.mapping_id AND cal.audit_log_id = cr.activity_id )
+   LEFT JOIN crm_master_configuration cmc ON(cr.reason_id = cmc.category_id)
+   WHERE
+     ccd.service_type IN(:STYPE1 ,:STYPE2)
+    AND ccd.product IN(:SNAME1 ,:SNAME2 ,:SNAME3)
+    AND ccd.crf_stage IN('NPBP', 'SPBP')
+   AND cal.audit_log_id= (SELECT MAX(cal1.audit_log_id) FROM crm_audit_log cal1 WHERE cal1.from_bin = ccd.crf_previous_stage 
+AND cal1.to_bin = ccd.crf_stage AND cal1.mapping_id=CONVERT(ccd.record_id,CHAR) AND cal1.module='CAF')
+		]]>
+	</sql-query>
+	
+		
+	<sql-query name="WO_GENRT_RPT" callable="false">	
+		<![CDATA[SELECT ccd.crf_id AS "crfId",ccd.crf_date AS "crfDate",ccd.customer_id AS "customerId",
+			ccd.created_time AS "createdTime",ccd.ft_approval_date AS "ftApprovalDate",
+			CONCAT(ccd.np_id, '')AS "LMOName" ,ccd.connection_type AS "connectionType",
+			ccd.cust_fname AS "custFname", ccd.cust_lname AS "custLname",CONCAT(ccd.rmn, '')AS "rmn",
+			ccd.cust_email_id AS "custEmailId",cam.area AS "areaName",
+			CONCAT(crm_addr.add_line1,CONCAT(CONCAT(' ', crm_addr.add_line2),CONCAT(CONCAT(' ', crm_addr.add_line3),CONCAT('-', crm_addr.pincode))))AS "installationAddress",
+			cpm.plan_name AS "basePlanName",
+			crm_pm1.plan_name AS "addonPlanName",CONCAT(cu.first_name, CONCAT(' ', cu.last_name) ) AS "SRName",
+			CONCAT(ccd.bp_id, '')AS "BPName" ,ccd.status AS "status",
+			ccd.product AS "product",ccd.service_type AS "serviceType",
+			cin.last_modified_by AS "crfApprovedBy"
+		FROM
+			crm_user cu,
+			crm_customer_details ccd
+			LEFT JOIN crm_cust_address_details crm_addr ON(	ccd.record_id = crm_addr.customer_record_id	AND crm_addr.address_type = 'IN')
+			LEFT JOIN crm_area_master cam ON (cam.area_id=crm_addr.inst_area_id)
+			LEFT JOIN crm_cust_plan_details ccpd ON(ccd.record_id = ccpd.customer_record_id)
+			LEFT JOIN crm_plan_master cpm ON(ccpd.base_plan_code = cpm.plan_code)
+			LEFT JOIN crm_plan_master crm_pm1 ON (ccpd.add_on_plan_code = crm_pm1.plan_code AND crm_pm1.plan_category='ADDON')
+			JOIN crm_inbox cin ON (ccd.record_id=cin.mapping_id AND cin.stage='FT')
+		WHERE
+			ccd.sales_representative = cu.user_id 
+			AND	ccd.ft_approval_date BETWEEN :FROM_DATE AND :TO_DATE
+ 			AND ccd.service_type IN (:STYPE1,:STYPE2) AND ccd.product IN (:SNAME1,:SNAME2,:SNAME3)
+	  ]]>
+	</sql-query>
+	
+	
+	<sql-query name="KPI_RPT" callable="false">
+		<![CDATA[SELECT
+    ccd.crf_id AS "crfId",ccd.product AS "product",ccd.service_type AS "serviceType",
+    ccd.crf_date AS "crfDate",ccd.created_time AS "createdTime",
+    CASE ci.stage WHEN 'FTR' THEN 'YES' ELSE 'NO' END AS "status",ccd.ft_submittion_date AS "ftSubmittionDate",
+      ccd.ft_approval_date AS "ftApprovalDate",CASE ccd.status WHEN 'CN' THEN 'CANCELLED' ELSE 'REGULAR' END AS "cancelled",
+      CASE ccd.service_type WHEN 'PR' THEN ccd.activation_date ELSE ccd.date_on_isr END AS "isrDate"
+   FROM
+    crm_customer_details ccd
+    LEFT JOIN crm_inbox ci ON( ci.mapping_id = CONVERT(ccd.record_id,CHAR) AND ci.stage = 'FTR' AND ci.request_type='CAF')
+   WHERE
+    ccd.created_time BETWEEN :FROM_DATE AND :TO_DATE
+    AND ccd.service_type IN(:STYPE1 ,:STYPE2)
+       AND ccd.product IN(:SNAME1 ,:SNAME2 ,:SNAME3)
+		]]>
+	</sql-query>
+	<sql-query name="FT_REJECTION_RPT" callable="false">
+	<![CDATA[SELECT ccd.crf_id AS "crfId",
+  ccd.connection_type AS "connectionType",
+  ccd.crf_date AS "crfDate",
+  ccd.created_time AS "createdTime",
+  ccd.cust_fname AS "custFname",
+  ccd.cust_lname AS "custLname",
+  CONVERT( ccd.np_id,CHAR) AS "LMOName",
+  ccd.product AS "product",
+  ccd.service_type AS "serviceType",
+  bp.partner_name AS "BPName",
+  bp.crm_partner_code AS "BPCode",
+  cu.sr_code AS "SRCode",
+  ci.created_by AS "crfActivatedBy",
+  cal.created_time AS "ftRejectionDate",
+  cal.remarks AS "remarks",
+  CASE cur.status WHEN 'I' THEN '' ELSE cur.user_id END AS "areaManager",
+  cmc.category_value AS "reason"
+  FROM
+   crm_user cu,
+   crm_customer_details ccd
+  LEFT JOIN crm_inbox ci ON(ci.mapping_id = CONVERT(ccd.record_id,CHAR) AND ci.stage = 'FT'  AND ci.request_type='CAF')
+  LEFT JOIN crm_partner bp ON (bp.partner_id=ccd.bp_id)
+  LEFT JOIN crm_cust_address_details cca ON(ccd.record_id = cca.customer_record_id AND cca.address_type = 'IN')
+  LEFT JOIN crm_area_master cam ON (cam.area_id=cca.inst_area_id)
+  LEFT JOIN crm_user_roles cur ON (cur.parameter_value = cam.area AND cur.parameter_id = (SELECT parameter_id FROM crm_parameter WHERE parameter_group ='USER' AND parameter_group_type ='ACCESS' AND parameter_name='Area')
+  AND cur.record_id= (SELECT cur1.record_id FROM crm_user_roles cur1 WHERE cur1.parameter_value = cur.parameter_value LIMIT 1))  
+  LEFT JOIN crm_audit_log cal ON (cal.from_bin = ccd.crf_previous_stage AND cal.to_bin = ccd.crf_stage AND cal.mapping_id=CONVERT(ccd.record_id, CHAR) AND cal.module='CAF')
+  LEFT JOIN crm_remarks cm ON(cm.mapping_id=ccd.record_id AND cm.mapping_type='INA' AND cm.actions='RJ' AND cm.activity_id=cal.audit_log_id)
+  LEFT JOIN crm_master_configuration cmc ON(cm.reason_id=cmc.category_id)
+  WHERE
+   ccd.sales_representative = cu.user_id
+  AND ccd.crf_stage = 'FTR' 
+  AND cal.audit_log_id= (SELECT MAX(cal1.audit_log_id) FROM crm_audit_log cal1 WHERE cal1.from_bin = ccd.crf_previous_stage AND cal1.to_bin = ccd.crf_stage AND cal1.mapping_id=CONVERT(ccd.record_id,CHAR) AND cal1.module='CAF')
+  AND ccd.service_type IN(:STYPE1 ,:STYPE2) 
+   AND ccd.product IN(:SNAME1 ,:SNAME2 ,:SNAME3)
+		  	]]>
+	</sql-query>
+
+	<sql-query name="ISR_PENDENCY_RPT" callable="false">
+	  	<![CDATA[SELECT
+  ccd.crf_id AS "crfId",
+  ccd.customer_id AS "customerId",
+  ccd.created_time AS "createdTime",
+  ccd.ft_approval_date AS "ftApprovalDate",
+  ccd.activation_date AS "macBindDate",
+  ccd.date_on_isr AS "isrDate",
+  cal.created_time AS "isrEntryDate",
+  cam.area AS "areaName",
+  CONVERT(ccd.np_id,CHAR) AS "LMOName",
+  ccd.product AS "product",
+  cod.cpe_status AS "cpeStatus",
+  ccn.current_cpe_mac_id AS "cpeMacId",
+  macbind.created_by AS "crfActivatedBy",
+  cal.created_by AS "isrPunchedBy"
+  FROM 
+  crm_customer_details ccd
+  LEFT JOIN crm_cust_order_details cod ON( ccd.record_id = cod.customer_record_id )
+  LEFT JOIN crm_cust_address_details cca ON(ccd.record_id = cca.customer_record_id AND cca.address_type = 'IN' )
+  LEFT JOIN crm_area_master cam ON (cam.area_id=cca.inst_area_id)
+  LEFT JOIN crm_cust_network_config ccn ON(ccd.record_id=ccn.customer_record_id) 
+  LEFT JOIN crm_audit_log cal ON (cal.from_bin = 'ISR' AND cal.to_bin = 'FTSR' AND cal.mapping_id=CONVERT(ccd.record_id,CHAR) AND cal.module='CAF') 
+  LEFT JOIN crm_audit_log macbind ON (macbind.events='CA' AND macbind.mapping_id=CONVERT(ccd.record_id,CHAR) AND macbind.module='CAF') 
+  WHERE
+  ccd.activation_date IS NOT NULL AND ccd.crf_stage NOT IN ('OB','CN')
+     AND ccd.service_type = 'PO'
+     AND ccd.service_type IN(:STYPE1 ,:STYPE2) 
+  AND ccd.product IN(:SNAME1 ,:SNAME2 ,:SNAME3)
+	  	]]>
+
+	</sql-query>
+
+	<sql-query name="CHURN_RPT" callable="false">
+   <![CDATA[SELECT ccd.customer_id AS "customerId",
+	   ccd.cust_fname AS "custFname",
+	   IFNULL(ccd.cust_lnamE, ' ')AS "custLname",
+	   CONCAT(cs.locality_name, IF(cs.society_name = '' OR cs.society_name IS NULL,'',CONCAT(' - ',cs.society_name)) ) AS "societyName",
+	   cam.area AS "areaName",
+	   ccm.city_name AS "cityName",
+	   ccd.activation_date AS "activationDate",
+	   ccd.td_date AS "tempDisconnectDate",
+	   cca.reason AS "reason",
+	   cast(cr.remarks AS char(4000)) AS "remarks",
+	   np.partner_name AS "LMOName",
+	   ccd.product AS "product",
+	   ccd.service_type AS "serviceType",cca.created_time AS "createdTime",
+	   cca.ticket_id AS "ticketId"
+	   FROM
+	   crm_customer_details ccd
+	   LEFT JOIN crm_cust_address_details ccad ON(ccd.record_id = ccad.customer_record_id AND ccad.address_type = 'IN')
+	   LEFT JOIN crm_partner np ON (np.partner_id = ccd.np_id)
+	   LEFT JOIN crm_city_master ccm ON (ccm.city_id = ccad.city_id)
+	   LEFT JOIN crm_area_master cam ON (cam.area_id = ccad.inst_area_id)
+	   LEFT JOIN crm_society cs ON (cs.society_id = ccad.inst_society_id)
+	   LEFT JOIN crm_customer_activity cca ON (cca.action = 'CRMCA37' AND cca.customer_id = ccd.customer_id AND cca.created_by <> 'Billing')
+	   LEFT JOIN crm_remarks cr ON (cr.activity_id = cca.activity_id and cr.mapping_id = cca.customer_id and cr.actions = 'Temporary Disconnection')	   	  
+	   WHERE
+	   ccd.td_date BETWEEN :FROM_DATE AND :TO_DATE AND
+	   ccd.service_type IN (:STYPE1,:STYPE2) AND 
+	   ccd.product in (:SNAME1,:SNAME2,:SNAME3)
+  ]]>
+	</sql-query>
+
+	<sql-query name="REACTIVATION_RPT" callable="false">
+  <![CDATA[SELECT DISTINCT ccd.customer_id AS "customerId",
+	   ccd.cust_fname AS "custFname",
+	   IFNULL(ccd.cust_lname, ' ')AS "custLname",
+	   CONCAT(cs.locality_name, IF(cs.society_name = '' OR cs.society_name IS NULL,'',CONCAT(' - ',cs.society_name)) ) AS "societyName",
+	   cam.area AS "areaName",
+	   ccm.city_name AS "cityName",
+	   ccd.activation_date AS "activationDate",
+	   cca.reason AS "reason",
+	   ccd.td_date AS "lastModifiedTime",
+	   cca.created_time AS "createdTime",
+	   ccd.product AS "product",
+	   ccd.service_type AS "serviceType"
+	   FROM
+	   crm_customer_activity cca
+	   LEFT JOIN crm_customer_activity ccatdc ON (ccatdc.customer_id = cca.customer_id AND cca.action = 'CRMCA25'),crm_customer_details ccd
+	   LEFT JOIN crm_cust_address_details ccad ON( ccd.record_id = ccad.customer_record_id AND ccad.address_type = 'IN')
+	   #LEFT JOIN crm_partner np ON(np.partner_id = ccd.np_id)
+	   LEFT JOIN crm_city_master ccm ON(ccm.city_id = ccad.city_id)
+	   LEFT JOIN crm_area_master cam ON( cam.area_id = ccad.inst_area_id)
+	   LEFT JOIN crm_society cs ON( cs.society_id = ccad.inst_society_id)
+	   WHERE
+	   cca.created_time BETWEEN :FROM_DATE AND :TO_DATE
+	   AND cca.customer_id = ccd.customer_id
+	   AND ccd.service_type IN (:STYPE1,:STYPE2)
+	   AND ccd.product IN (:SNAME1,:SNAME2,:SNAME3)
+	   AND ccatdc.created_time = (SELECT Max(ccatdc1.created_time) from crm_customer_activity ccatdc1 where ccatdc1.customer_id = ccatdc.customer_id )
+	   ORDER BY cca.created_time
+   ]]>
+	</sql-query>
+
+	<!-- <sql-query name="SAFE_CUSTODY_RPT" callable="false"> <![CDATA[ SELECT 
+		CCD.CUSTOMER_ID AS "customerId", CCD.CUST_FNAME AS "custFname", NVL(CCD.CUST_LNAME, 
+		' ') AS "custLname", CCD.CRF_ID AS "crfId", CCD.STATUS AS "status", CR.REMARKS 
+		AS "remarks", CCD.SAFE_CUSTODY_DATE AS "activationDate", CCA.CREATED_BY AS 
+		"currentOwner", (CCD.SAFE_CUSTODY_DATE + 182) AS "ftApprovalDate", TO_CHAR(ROUND(SYSDATE 
+		- CCD.SAFE_CUSTODY_DATE)) AS "extendedDays" FROM CRM_CUSTOMER_DETAILS CCD 
+		LEFT JOIN CRM_CUSTOMER_ACTIVITY CCA ON(CCA.CREATED_TIME >= CCD.SAFE_CUSTODY_DATE 
+		AND CCA.ACTION = 'CRMCA41' AND CCA.CUSTOMER_ID = CCD.CUSTOMER_ID) LEFT JOIN 
+		CRM_REMARKS CR ON(CR.ACTIVITY_ID = CCA.ACTIVITY_ID) WHERE CCD.SAFE_CUSTODY_DATE 
+		BETWEEN :FROM_DATE AND :TO_DATE AND CCD.STATUS = 'SC' AND CCD.SERVICE_TYPE 
+		IN (:STYPE1,:STYPE2) AND CCD.PRODUCT IN (:SNAME1,:SNAME2,:SNAME3) ]]> </sql-query> -->
+
+	<sql-query name="BARRING_RPT" callable="false">
+   <![CDATA[SELECT ccd.cust_fname AS "custFname",
+	   IFNULL(ccd.cust_lname, ' ')AS "custLname",
+	   ccd.customer_id AS "customerId",
+	   CONCAT(cs.locality_name, IF(cs.society_name = '' OR cs.society_name IS NULL,'',CONCAT(' - ',cs.society_name)) ) AS "societyName",
+	   cam.area AS "areaName",
+	   ccm.city_name AS "cityName",
+	   ccd.activation_date AS "activationDate",
+	   ccd.barring_date AS "ftSubmittionDate", 
+	   cca.created_by AS "currentOwner",
+	   cca.reason AS "reason",
+	   cast( cr.remarks as char(4000)) AS "remarks",
+	   CONVERT(ccd.np_id,CHAR) AS "LMOName",
+	   ccd.product AS "product",
+	   ccd.service_type AS "serviceType"
+	   FROM
+	   crm_customer_details ccd
+	   LEFT JOIN crm_cust_address_details ccad ON(ccd.record_id = ccad.customer_record_id AND ccad.address_type = 'IN')
+	   LEFT JOIN crm_partner np ON(np.partner_id = ccd.np_id)
+	   LEFT JOIN crm_city_master ccm ON(ccm.city_id = ccad.city_id)
+	   LEFT JOIN crm_area_master cam ON(cam.area_id = ccad.inst_area_id)
+	   LEFT JOIN crm_society cs ON(cs.society_id = ccad.inst_society_id)
+	   LEFT JOIN crm_customer_activity cca ON( cca.action = 'CRMCA05' AND cca.customer_id = ccd.customer_id)
+	   JOIN crm_remarks cr ON(cr.activity_id = cca.activity_id AND cr.actions = 'Barring')
+	   WHERE
+	   ccd.barring_date BETWEEN :FROM_DATE AND :TO_DATE
+	   AND cca.activity_id= (SELECT MAX(cal1.activity_id) FROM crm_customer_activity cal1 WHERE cal1.action = 'CRMCA05' AND cal1.customer_id = ccd.customer_id)
+	   AND ccd.status='B'
+	   AND ccd.service_type IN (:STYPE1,:STYPE2) 
+	   AND ccd.product IN (:SNAME1,:SNAME2,:SNAME3)
+	]]>
+</sql-query>
+	 <sql-query name="ADDED_DOC_LIST">
+	  	<![CDATA[SELECT d.doc_type FROM np_document_uploads d WHERE d.module_name =:MODULE AND d.mapping_id =:MAPPING ]]>
+	 </sql-query>
+	 <sql-query name="ERP_RPT" callable="false">
+		<![CDATA[select ccd.crf_id AS "crfId",ccd.crf_date AS "crfDate",ccd.created_time AS "createdTime",ccd.ft_approval_date AS "ftApprovalDate",
+ cal.created_time AS "ftRejectionDate",
+ccd.connection_type AS "connectionType",ccd.cust_fname AS "custFname",
+    ccd.cust_lname AS "custLname",CONCAT(ccd.cust_mobile_no, '') AS "custMobileNo",
+   CONCAT(ccd.rmn, '')AS "rmn",CONCAT(ccd.rtn, '') AS "rtn",ccd.cust_email_id AS "custEmailId",
+   CONCAT( crm_addr.add_line1, CONCAT(CONCAT(' ', crm_addr.add_line2), CONCAT( CONCAT(' ', crm_addr.add_line3), CONCAT('-', crm_addr.pincode)) ) )AS "installationAddress",
+   ccm.city_name AS "cityName", base.plan_name AS "basePlanName", 
+        addon.plan_name AS "addonPlanName", 
+    ccod.cpe_status AS "cpeStatus",
+   CONCAT(ccd.bp_id, '') AS "BPName", 
+CONCAT(ccd.np_id, '') AS "LMOName", ccd.customer_id AS "customerId",
+CASE WHEN ccd.activation_date IS NULL THEN 'NOT ACTIVATED' 
+ELSE 'ACTIVATED' END AS "activated", CASE ccd.status WHEN 'CN' 
+THEN 'CANCELED' 
+ELSE '' END AS "cancelled",
+   ccd.crf_stage AS "crfStage",ci.user_id AS "currentOwner",ccd.crf_previous_stage AS "crfPreviousStage",cal.created_by AS "previousOwner",
+   cift.created_by AS "crfApprovedBy", 
+ cmc.category_value AS "reason",
+ cast(cr.remarks as char(4000)) AS "remarks",
+   ccd.product AS "product", ccd.service_type AS "serviceType" 
+from crm_customer_details ccd
+ LEFT JOIN crm_cust_order_details ccod ON(ccod.customer_record_id = ccd.record_id)
+   LEFT JOIN crm_cust_address_details crm_addr ON( ccd.record_id = crm_addr.customer_record_id AND crm_addr.address_type = 'IN')
+   LEFT JOIN crm_city_master ccm ON(ccm.city_id = crm_addr.city_id)
+   LEFT JOIN crm_cust_plan_details ccpd ON(ccd.record_id = ccpd.customer_record_id)
+   LEFT JOIN crm_plan_master base ON(ccpd.base_plan_code = base.plan_code)
+   LEFT JOIN crm_plan_master addon ON(ccpd.add_on_plan_code = addon.plan_code AND addon.plan_category = 'ADDON')
+    LEFT JOIN crm_inbox ci ON (ci.mapping_id = CONVERT(ccd.record_id,CHAR) AND ci.status = 'A' AND ci.request_type='CAF' AND ci.stage = ccd.crf_stage)
+ LEFT JOIN crm_inbox cift ON (cift.mapping_id = CONVERT(ccd.record_id,CHAR) AND cift.request_type='CAF' AND cift.request_type='CAF' AND cift.stage = 'NP' )
+    LEFT JOIN crm_audit_log cal ON (cal.mapping_id=CONVERT(ccd.record_id,CHAR) AND cal.module='CAF' and cal.`events`='ERP' )
+   LEFT JOIN crm_remarks cr ON (CONVERT(ccd.record_id,CHAR)= cr.mapping_id AND cal.audit_log_id = cr.activity_id   )
+ LEFT JOIN crm_master_configuration cmc ON(cr.reason_id = cmc.category_id)
+  WHERE
+    ccd.service_type IN(:STYPE1 ,:STYPE2)
+    AND ccd.product IN(:SNAME1 ,:SNAME2 ,:SNAME3)
+    AND ccd.crf_stage IN('NPBP', 'SPBP','NP','SP','SPNP','NPR')
+
+ AND cal.audit_log_id= (SELECT MAX(cal1.audit_log_id) FROM crm_audit_log cal1 WHERE cal1.`events`='ERP'
+AND cal1.mapping_id=CONVERT(ccd.record_id,CHAR) AND cal1.module='CAF')
+		]]>
+	</sql-query>
+<sql-query name="NetworkParameterByCustomerId" callable="false">
+		<![CDATA[SELECT CONCAT(ccd.crf_id,'') AS CRFID, CONCAT(ccd.crf_date,'') AS CAFDATE, CONCAT(ccd.customer_id,'') AS CUSTOMERID,
+			CONCAT(ccd.created_time,'') AS CURRENTTIME, CONCAT(ccd.ft_approval_date,'') AS FTAPPROVALDATE,
+			CONCAT(cp1.partner_name,'') AS LMO,
+			CASE WHEN  ccd.connection_type = 'Ind' THEN 'Individual'
+       		WHEN ccd.connection_type =  'Prop' THEN 'Proprietorship'
+	     	WHEN ccd.connection_type =  'Part' THEN 'Partnership'
+	     	WHEN ccd.connection_type =  'Ltd/Pvt' THEN 'Ltd./Pvt. Ltd.'
+	     	WHEN ccd.connection_type =  'Ngo' THEN 'Society/Trust/NGO'
+	     	WHEN ccd.connection_type =  'Gov' THEN 'Government of India Undertaking'
+	     	WHEN ccd.connection_type =  'Fma' THEN 'Foreign Mission Agency'
+	     	END AS CONNECTIONTYPE,
+			CONCAT(ccd.cust_fname,'') AS CUSTOMERFIRSTNAME, CONCAT(ccd.cust_lname,'') AS CUSTOMERLASTNAME,CONCAT(ccd.rmn, '')AS CUSTOMER_RMN,
+			CONCAT(ccd.cust_email_id,'') AS CUSTOMER_EMAIL, CONCAT(cam.area,'') AS AREA_NAME,
+			CONCAT(crm_addr.add_line1,CONCAT(CONCAT(' ', crm_addr.add_line2),CONCAT(CONCAT(' ', crm_addr.add_line3),CONCAT('-', crm_addr.pincode))))AS CUSTOMER_ADDRESS,
+			CONCAT(cpm.plan_name,'') AS BASEPLANNAME,
+			CASE WHEN crm_pm1.plan_name IS NULL THEN ' ' ELSE crm_pm1.plan_name END AS ADDONPLANNAME,CONCAT(cu.first_name, CONCAT(' ', cu.last_name) ) AS SRNAME,
+			CONCAT(cp2.partner_name,'') AS BPNAME,
+			CASE ccd.product WHEN 'EOC' THEN 'FTTN' ELSE 'FTTX' END AS SERVICE_NAME,
+			CASE ccd.service_type WHEN 'PR' THEN 'Prepaid' ELSE 'Postpaid' END AS SERVICETYPE,
+			CONCAT(cin.last_modified_by,'') AS CAFAPPROVEDBY,
+			cp1.email_id AS PARTNEREMAILID,
+			CONCAT(cpd.security_charges,'') AS SECURITY_DEPOSIT
+		FROM
+			crm_user cu,
+			crm_customer_details ccd
+			LEFT JOIN crm_cust_payment_details cpd ON (ccd.record_id = cpd.customer_record_id AND cpd.installation_status = 'PreIns')
+			LEFT JOIN crm_cust_address_details crm_addr ON(	ccd.record_id = crm_addr.customer_record_id	AND crm_addr.address_type = 'IN')
+			LEFT JOIN crm_area_master cam ON (cam.area_id=crm_addr.inst_area_id)
+			LEFT JOIN crm_cust_plan_details ccpd ON(ccd.record_id = ccpd.customer_record_id)
+			LEFT JOIN crm_plan_master cpm ON(ccpd.base_plan_code = cpm.plan_code)
+			LEFT JOIN crm_plan_master crm_pm1 ON (ccpd.add_on_plan_code = crm_pm1.plan_code AND crm_pm1.plan_category='ADDON')
+			LEFT JOIN crm_inbox cin ON (ccd.record_id=cin.mapping_id AND cin.stage='FT')
+			LEFT JOIN crm_partner cp1 ON (ccd.np_id = cp1.partner_id)
+			LEFT JOIN crm_partner cp2 ON (ccd.bp_id = cp2.partner_id)
+		WHERE
+			ccd.customer_id = :CUSTOMER_ID AND
+			ccd.sales_representative = cu.user_id
+]]>
+	</sql-query>
+</hibernate-mapping>

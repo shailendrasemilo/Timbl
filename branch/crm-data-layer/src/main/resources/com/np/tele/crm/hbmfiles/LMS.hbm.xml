@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 Sep, 2013 5:26:04 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.LMSPojo" table="crm_lms"
+		dynamic-update="true">
+		<cache usage="read-write" />
+		<id name="lmsId" type="java.lang.Long">
+			<column name="lms_id" />
+			<generator class="identity" />
+
+		</id>
+		<property name="leadId" type="string">
+			<column name="lead_id" length="42" />
+		</property>
+		<property name="customerName" type="string">
+			<column name="customer_name" length="50" />
+		</property>
+		<property name="ctiNumber" type="java.lang.Long">
+			<column name="cti_number" />
+		</property>
+		<property name="contactNumber" type="java.lang.Long">
+			<column name="contact_number" />
+		</property>
+		<property name="state" type="string">
+			<column name="state" length="30" />
+		</property>
+		<property name="city" type="string">
+			<column name="city" length="30" />
+		</property>
+		<property name="area" type="string">
+			<column name="area" length="30" />
+		</property>
+		<property name="locality" type="string">
+			<column name="locality" length="30" />
+		</property>
+		<property name="houseNumber" type="string">
+			<column name="house_number" length="10" />
+		</property>
+		<property name="landmark" type="string">
+			<column name="landmark" length="25" />
+		</property>
+		<property name="feasibility" type="string">
+			<column name="feasibility" length="1" />
+		</property>
+		<property name="product" type="string" insert="false">
+			<column name="product" length="10" />
+		</property>
+		<property name="lmsStage" type="string">
+			<column name="lms_stage" length="25" not-null="true" />
+		</property>
+		<property name="leadSource" type="string">
+			<column name="lead_source" length="25" not-null="true" />
+		</property>
+		<property name="referralSource" type="string">
+			<column name="referral_source" length="128" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+		<property name="pincode" type="java.lang.Integer">
+			<column name="pincode" />
+		</property>
+		<property name="emailId" type="string">
+			<column name="email_id" length="256" />
+		</property>
+		<property name="previousStage" type="string">
+			<column name="previous_stage" length="25" />
+		</property>
+		<property name="partnerId" type="java.lang.Long">
+			<column name="partner_id" />
+		</property>
+	</class>
+
+	<sql-query name="ParameterByLeadId" callable="false">
+	
+	<![CDATA[select concat(crm_lms.customer_name,'') as LEADCUSTOMERNAME ,
+			concat(crm_lms.cti_number,'') as LEADCTINUMBER,
+			concat(crm_lms.contact_number,'') as LEADCONTACTNUMBER,
+			concat(crm_lms.product,'') as LEADPRODUCT,
+			concat(crm_lms.email_id,'') as LEADEMAILID,
+			concat(crm_lms.lead_id,'') as LEAD_ID
+			from crm_lms where lms_id= :LMS_ID]]>
+	</sql-query>
+	
+	<sql-query name="ParameterByLMSSrNumber" callable="false">
+		<![CDATA[SELECT	SUBSTR(cst.sr_id, LENGTH(lms.lead_id) + 2, 4)AS TICKETID,
+				lms.lead_id AS CUSTOMERID,lms.customer_name AS CUSTOMERFIRSTNAME,
+				lms.email_id AS CUSTOMER_EMAIL,	CONCAT(lms.contact_number, '')AS CUSTOMER_RMN,
+				DATE_FORMAT(cst.expected_sla_time, '%d-%b %H:%i')AS ETR_DATE,
+				cqc.qrc_category AS QRC_CATEGORY,cqsc.qrc_sub_category AS QRC_SUB_CATEGORY,
+				cqssc.qrc_sub_sub_category AS QRC_SUB_SUB_CATEGORY
+			FROM
+				crm_sr_tickets cst,
+				crm_lms lms,
+				crm_qrc_categories cqc,
+				crm_qrc_sub_categories cqsc,
+				crm_qrc_sub_sub_categories cqssc
+			WHERE
+				cst.mapping_id = lms.lead_id
+				AND cst.qrc_sub_sub_category_id = cqssc.qrc_sub_sub_category_id
+				AND cqssc.qrc_sub_category_id = cqsc.qrc_sub_category_id
+				AND cqsc.qrc_category_id = cqc.qrc_category_id
+				AND cst.sr_id =:LMS_SR_ID
+		]]>
+	</sql-query>
+	
+	<sql-query name="LMS_RPT" callable="false">
+	<![CDATA[SELECT
+   CONCAT(lms.lms_id,'') AS "lmsId",
+   lms.created_time AS "createdTime",
+   lms.created_by AS "createdBy",
+   lms.lead_source AS "leadSource",
+   lms.referral_source AS "referralSource",
+   lms.feasibility AS "feasibility",
+   lms.product AS "business",
+   lms.customer_name AS "customerName",
+   CONCAT(lms.contact_number,'') AS "mobileNumber",
+      CONCAT(lms.cti_number,'') AS "callingNumber",
+   lms.email_id AS "emailId", 
+   lms.state AS "state",
+   lms.city AS "city",
+   lms.area AS "area",
+   lms.locality AS "locality",
+   lms.society AS "society",
+   lms.house_number AS "houseNumber",
+   lms.landmark AS "landmark",
+   CONCAT(lms.pincode,'') AS "pincode",
+   ci.user_id AS "currentOwner",
+   lms.status AS "status",
+   	CASE  lms.status WHEN 'C' OR 'M' THEN lms.last_modified_by ELSE NULL END AS "lastModifiedBy",
+	CASE lms.status WHEN 'C' OR 'M' THEN lms.last_modified_time ELSE NULL END AS "lastModifiedTime",
+   (SELECT group_concat(clcm.crf_value,  ',' ORDER BY clcm.crf_value ASC)FROM
+   crm_lms_crf_mapping clcm
+   WHERE clcm.lms_id = lms.lms_id)AS "crfNo",
+   cast(cr.remarks as char(4000))AS "remarks",
+   cast( crl.remarks as char(4000))AS "latestRemarks",
+   crl.created_time AS "latestRemarksTime",
+   CASE lms.status WHEN 'C' THEN cmc.category_value ELSE NULL end AS "reason"
+      FROM 
+   crm_lms lms
+   LEFT JOIN crm_remarks cr ON(cr.mapping_id = lms.lead_id and cr.created_time = (SELECT MIN(firstrmk.created_time) FROM crm_remarks firstrmk WHERE firstrmk.mapping_id = lms.lead_id))
+   LEFT JOIN crm_remarks crl ON (crl.mapping_id = lms.lead_id and crl.created_time = (SELECT MAX(lastrmk.created_time) FROM crm_remarks lastrmk WHERE lastrmk.mapping_id = lms.lead_id))
+   LEFT JOIN crm_master_configuration cmc ON(cmc.category_id=crl.reason_id)
+   LEFT JOIN crm_inbox ci ON(ci.mapping_id=lms.lead_id AND ci.status='A')
+   WHERE 
+   lms.created_time BETWEEN :FROM_DATE AND :TO_DATE ORDER BY lms.lms_id
+			]]>
+	</sql-query>
+	
+	<sql-query name="LMS_RPT_SUBQUERY" callable="false">
+	<![CDATA[SELECT	CONCAT(lms.lms_id,'') AS "lmsId",max(cal.created_time) AS "leadForwardedOn"
+		FROM crm_lms lms
+			LEFT JOIN crm_audit_log AS cal ON cal.mapping_id = lms.lms_id AND cal.to_bin = lms.lms_stage
+		WHERE
+			cal.EVENTS = 'FW' AND lms.created_time BETWEEN :FROM_DATE AND :TO_DATE 
+		GROUP BY lms.lms_id	
+	  ]]>
+	</sql-query>
+	
+	<sql-query name="ParameterByLeadUser" callable="false">
+	<![CDATA[SELECT
+			lms.lead_id AS LEAD_ID,
+			lms.customer_name AS LEADCUSTOMERNAME,
+			lms.area AS AREA_NAME,
+			lms.email_id AS LEADEMAILID,
+			CASE WHEN lms.society is NULL THEN lms.locality ELSE lms.society END AS SOCIETY,
+			lms.state AS STATE,	
+			concat(lms.contact_number, '') AS LEADCONTACTNUMBER,
+			CASE WHEN inbox.user_id IS NOT NULL THEN cu.email_id END AS USEREMAILID,
+			CASE WHEN inbox.user_id IS NOT NULL THEN concat(cu.mobile_no, '') END AS USERMOBILENO,
+			lms.landmark as LANDMARK
+			FROM
+				crm_lms lms,
+				crm_inbox inbox
+			LEFT JOIN crm_user cu ON(cu.user_id = inbox.user_id)
+		WHERE
+		lms.lead_id = :LeadUser
+		AND lms.lead_id = inbox.mapping_id
+		AND lms.`status` = 'A'
+		AND inbox.`status` = 'A']]>
+   </sql-query>
+</hibernate-mapping>

@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 Nov, 2013 6:48:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmNetworkConfigurationsPojo"
+		table="crm_cust_network_config" dynamic-update="true" polymorphism="explicit">
+		<cache usage="read-write"/>
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />
+            <generator class="identity" />
+				
+		</id>
+		<property name="customerRecordId" type="long" unique="true">
+            <column name="customer_record_id" not-null="true" unique="true" />
+				
+		</property>
+		<property name="serviceModel" type="string">
+            <column name="service_model" length="10" not-null="true" />
+		</property>
+        <property name="vlanId" type="java.lang.Long">
+            <column name="vlan_id" />
+		</property>
+		<property name="oltNoteId" type="string">
+            <column name="olt_note_id" length="10" />
+		</property>
+        <property name="oltPort" type="java.lang.Byte">
+            <column name="olt_port" />
+		</property>
+        <property name="oltSubPort" type="java.lang.Byte">
+            <column name="olt_sub_port" />
+		</property>
+        <property name="oltSlot" type="java.lang.Byte">
+            <column name="olt_slot" />
+		</property>
+		<property name="ontOnuPort" type="string">
+            <column name="ont_onu_port" length="10" />
+		</property>
+		<property name="serviceType" type="string">
+            <column name="service_type" length="10" />
+		</property>
+        <property name="ontRgMduDone" type="java.lang.Boolean">
+            <column name="ont_rg_mdu_done" sql-type="bit"/>
+		</property>
+		<property name="radiusCustomerId" type="string">
+            <column name="radius_customer_id" length="128" />
+		</property>
+		<property name="option82" type="string">
+            <column name="option_82" length="128" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="firstCpeMacId" type="string">
+			<column name="first_cpe_mac_id" length="14" />
+		</property>
+		<property name="currentCpeMacId" type="string">
+			<column name="current_cpe_mac_id" length="14" />
+		</property>
+		<property name="firstSlaveMacId" type="string">
+			<column name="first_slave_mac_id" length="14" />
+		</property>
+		<property name="currentSlaveMacId" type="string">
+			<column name="current_slave_mac_id" length="14" />
+		</property>
+		<property name="spOntRgMduDone" type="java.lang.Boolean">
+			<column name="sp_ont_rg_mdu_done" sql-type="bit"/>
+		</property>
+		<property name="secondaryMACAddr" type="string">
+			<column name="secondary_mac_addr" length="14" />
+		</property>
+		<property name="macBind" type="string">
+			<column name="mac_bind" length="1" />
+		</property>
+	</class>
+</hibernate-mapping>

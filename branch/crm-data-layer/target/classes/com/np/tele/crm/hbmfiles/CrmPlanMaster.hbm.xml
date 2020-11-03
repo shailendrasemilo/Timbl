@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 20, 2014 10:26:57 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmPlanMasterPojo" table="crm_plan_master" dynamic-update="true">
+        <cache usage="read-only"/>
+        <id name="planId" type="java.lang.Long">
+            <column name="plan_id" />
+            <generator class="identity" />
+        </id>
+        <property name="planName" type="string">
+            <column name="plan_name" length="40" not-null="true" />
+        </property>
+        <property name="planCode" type="string">
+            <column name="plan_code" length="15" not-null="true" unique="true" />
+        </property>
+        <property name="offerCode" type="string">
+            <column name="offer_code" length="15" not-null="true" />
+        </property>
+        <property name="primarySpeed" type="java.lang.Long">
+            <column name="primary_speed" />
+        </property>
+        <property name="secondarySpeed" type="java.lang.Long">
+            <column name="secondary_speed" />
+        </property>
+        <property name="primaryQuota" type="java.lang.Long">
+            <column name="primary_quota" />
+        </property>
+        <property name="secondaryQuota" type="java.lang.Long">
+            <column name="secondary_quota" />
+        </property>
+        <property name="rentExclTax" type="java.lang.Double">
+            <column name="rent_excl_tax" precision="10" />
+        </property>
+        <property name="rentInclTax" type="java.lang.Double">
+            <column name="rent_incl_tax" precision="10" />
+        </property>
+        <property name="service" type="string">
+            <column name="service" length="20" not-null="true" />
+        </property>
+        <property name="planUsageType" type="string">
+            <column name="plan_usage_type" length="1" />
+        </property>
+        <property name="planType" type="string">
+            <column name="plan_type" length="10" not-null="true" />
+        </property>
+        <property name="planCategory" type="string">
+            <column name="plan_category" length="10" />
+        </property>
+        <property name="prepaidYn" type="string">
+            <column name="prepaid_yn" length="1" />
+        </property>
+        <property name="activationDate" type="date">
+            <column name="activation_date" length="10" />
+        </property>
+        <property name="deactivationDate" type="date">
+            <column name="deactivation_date" length="10" />
+        </property>
+        <property name="addonAllowedYn" type="string">
+            <column name="addon_allowed_yn" length="1" />
+        </property>
+        <property name="boosterAllowedYn" type="string">
+            <column name="booster_allowed_yn" length="1" />
+        </property>
+        <property name="securityDeposit" type="java.lang.Double">
+            <column name="security_deposit" precision="8" />
+        </property>
+        <property name="advTelservPayment" type="java.lang.Double">
+            <column name="adv_telserv_payment" precision="10" />
+        </property>
+        <property name="advTelsolnPayment" type="java.lang.Double">
+            <column name="adv_telsoln_payment" precision="10" />
+        </property>
+        <property name="actvAllowedYn" type="string">
+            <column name="actv_allowed_yn" length="1" />
+        </property>
+        <property name="migrAllowedYn" type="string">
+            <column name="migr_allowed_yn" length="1" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+        <property name="brand" type="string">
+            <column name="brand" length="20" />
+        </property>
+         <property name="quotaType" type="string" insert="false" update="false">
+            <column name="quota_type" length="2" />
+        </property>
+    </class>
+</hibernate-mapping>

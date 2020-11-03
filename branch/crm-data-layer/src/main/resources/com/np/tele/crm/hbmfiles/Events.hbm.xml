@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Jul, 2013 11:15:38 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.EventsPojo" table="crm_events" dynamic-update="true">
+   	<cache usage="read-only"/>
+        <id name="eventId" type="java.lang.Long">
+            <column name="event_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="projects" class="com.np.tele.crm.pojos.ProjectsPojo" fetch="join">
+            <column name="project_id" not-null="true" />
+        </many-to-one>
+        <property name="eventName" type="string">
+            <column name="event_name" length="50" not-null="true" />
+        </property>
+        <property name="eventDescription" type="string">
+            <column name="event_description" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" update="false" insert="false">
+            <column name="last_modified_time" length="19" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+       <!--  <set name="eventTemplateses" table="CRM_EVENT_TEMPLATES" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="EVENT_ID" precision="10" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.np.tele.crm.pojos.EventTemplatesPojo" />
+        </set> -->
+    </class>
+</hibernate-mapping>

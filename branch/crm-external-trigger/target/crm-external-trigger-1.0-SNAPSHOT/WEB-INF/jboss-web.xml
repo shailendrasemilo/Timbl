@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+	<context-root>crm-external-trigger</context-root>
+	<valve>
+		<class-name>org.apache.catalina.valves.RemoteAddrValve</class-name>
+		<param>
+			<param-name>allow</param-name>
+			<param-value>125.63.90.210,125.63.90.212,14.141.59.2,122.170.117.208,203.90.117.69,203.90.66.75,203.90.66.70,192.168.1.*</param-value>
+		</param>
+		<param>
+			<param-name>deny</param-name>
+			<param-value />
+		</param>
+	</valve>
+	<valve>
+		<class-name>org.apache.catalina.valves.RequestDumperValve</class-name>
+	</valve>
+</jboss-web>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+	<!-- 	 <property name="hibernate.connection.tinyInt1isBit">true</property>
+		<property name="hibernate.connection.transformedBitIsBoolean">true</property> -->
+		<property name="hibernate.connection.datasource">java:/telecrmds</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.autocommit">false</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.use_sql_comments">false</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">validate</property>
+		<property name="hibernate.jdbc.batch_size">20</property>
+		<!-- <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property> 
+			<property name="hibernate.cache.use_query_cache">true</property> <property 
+			name="hibernate.cache.use_second_level_cache">true</property> -->
+
+
+
+
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmUser.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Partner.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Projects.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/SmsTemplate.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/AccessGroup.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMaster.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmParameter.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmRoles.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/EmailCcBcc.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/EmailTemplate.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Events.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/EventTemplates.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Groups.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/UserRoles.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Area.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/City.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Country.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/State.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Locality.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Society.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/SocietyNetworkPartner.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/AlertStatus.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Remarks.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/LMS.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/Appointment.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmInbox.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPartnerMapping.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmUserMapping.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmMasterConfiguration.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/LmsCrfMapping.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmAuditLog.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmUserAssociation.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmSlaLogs.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmPartnerDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmHolidayDetails.hbm.xml" />
+		<mapping resource="com/np/tele/crm/hbmfiles/CrmEmailAttachment.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

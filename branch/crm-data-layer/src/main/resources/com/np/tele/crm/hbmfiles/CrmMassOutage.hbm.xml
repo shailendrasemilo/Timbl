@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 24, 2015 5:30:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmMassOutagePojo" table="crm_mass_outage"
+		dynamic-update="true">
+		<id name="outageId" type="java.lang.Long">
+
+			<column name="outage_id" />
+			<generator class="identity" />
+		</id>
+		<!-- <property name="customerId" type="string"> <column name="CUSTOMER_ID" 
+			length="15" /> </property> -->
+		<property name="outageType" type="string" update="false">
+			<column name="outage_type" length="10" not-null="true" />
+		</property>
+		<property name="outageStartTime" type="timestamp" update="false">
+			<column name="outage_start_time" length="19" not-null="true" />
+		</property>
+		<property name="outageEtrTime" type="timestamp">
+			<column name="outage_etr_time" length="19" not-null="true" />
+		</property>
+		<property name="resolutionTime" type="timestamp">
+			<column name="resolution_time" length="19" />
+		</property>
+		<property name="serviceName" type="string" update="false">
+			<column name="service_name" length="4" />
+		</property>
+		<property name="remarks" type="string" update="true">
+			<column name="remarks" length="4000" not-null="true" />
+		</property>
+		<property name="reason" type="string" update="true">
+			<column name="reason" length="1024" not-null="true" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" insert="false"
+			update="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false"
+			update="false">
+			<column name="last_modified_time" length="19" not-null="true" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" not-null="true" />
+		</property>
+		<property name="outageLevel" type="string" update="false">
+			<column name="outage_level" length="20" not-null="true" />
+		</property>
+		<property name="outageActivity" type="string" insert="false">
+			<column name="outage_activity" length="2" default="Y" />
+		</property>
+		<!-- <set name="crmMassOutageDetailses" table="CRM_MASS_OUTAGE_DETAILS" 
+			inverse="true" lazy="false" fetch="select"> <key> <column name="OUTAGE_ID" 
+			precision="10" scale="0" not-null="true" /> </key> <one-to-many class="com.np.tele.crm.pojos.CrmMassOutageDetailsPojo" 
+			/> </set> -->
+		<!-- <set name="crmMassOutagePartners" table="CRM_MASS_OUTAGE_PARTNER" 
+			inverse="true" lazy="false" fetch="select"> <key> <column name="OUTAGE_ID" 
+			precision="10" scale="0" not-null="true" /> </key> <one-to-many class="com.np.tele.crm.pojos.CrmMassOutagePartnerPojo" 
+			/> </set> -->
+		<property name="sendSms" type="java.lang.Boolean">
+            <column name="sms" sql-type="bit"/>
+		</property>
+		<!-- <set name="crmMassOutageDetailses" table="CRM_MASS_OUTAGE_DETAILS" inverse="true" lazy="false" fetch="select"> <key> <column name="OUTAGE_ID" precision="10" 
+			scale="0" not-null="true" /> </key> <one-to-many class="com.np.tele.crm.pojos.CrmMassOutageDetailsPojo" /> </set> -->
+		<!-- <set name="crmMassOutagePartners" table="CRM_MASS_OUTAGE_PARTNER" inverse="true" lazy="false" fetch="select"> <key> <column name="OUTAGE_ID" precision="10" 
+			scale="0" not-null="true" /> </key> <one-to-many class="com.np.tele.crm.pojos.CrmMassOutagePartnerPojo" /> </set> -->
+	</class>
+	<sql-query name="GetCustomerByMaster" callable="false">	
+		<![CDATA[SELECT DISTINCT ccd.customer_id AS "Customer ID"
+				FROM crm_mass_outage_masters CMOM 
+				LEFT JOIN crm_partner_network_config CPNC ON (CPNC.master_name = CMOM.master_name)
+				LEFT JOIN crm_cust_network_config ccnc ON (CPNC.record_id = ccnc.option_82)
+				LEFT JOIN crm_customer_details ccd ON (ccd.record_id=ccnc.customer_record_id AND ccd.status = 'A')
+				WHERE
+				CMOM.master_name IN(:MASTER)]]>
+	</sql-query>
+	<sql-query name="GetCustomerBySociety" callable="false">	
+		<![CDATA[SELECT DISTINCT ccd.customer_id AS "Customer ID"
+				FROM crm_mass_outage_society CMOS 
+				LEFT JOIN crm_cust_address_details CCAD ON (CCAD.inst_society_id = CMOS.society_id AND CCAD.address_type = 'IN')
+				LEFT JOIN crm_customer_details ccd ON (ccd.record_id=CCAD.customer_record_id AND ccd.product = 'BB' AND ccd.status = 'A')
+				WHERE
+				CMOS.society_id IN(:SOCIETY)]]>
+	</sql-query>
+	<sql-query name="ParameterByOutageId" callable="false">	
+		<![CDATA[SELECT CONCAT(CONCAT(DAY(outage_etr_time),"-",MONTHNAME(outage_etr_time)),'') AS DDMMM ,CONCAT(TIMESTAMPDIFF (HOUR,outage_start_time,outage_etr_time),'')  AS HOURS FROM crm_mass_outage WHERE outage_id = :OUTAGE_ID]]>
+	</sql-query>
+</hibernate-mapping>

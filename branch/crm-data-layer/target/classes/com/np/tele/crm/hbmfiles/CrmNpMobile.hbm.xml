@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 22, 2016 11:38:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmNpMobilePojo" table="crm_np_mobile"
+		dynamic-update="true">
+		<id name="recordId" type="java.lang.Long">
+			<column name="record_id" />
+			<generator class="identity" />
+		</id>
+		<property name="npId" type="long">
+			<column name="np_id" not-null="false" />
+		</property>
+		<property name="mobileNo" type="java.lang.Long">
+			<column name="mobile_no" not-null="true" />
+		</property>
+		<property name="createdBy" type="string">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp">
+			<column name="created_time" length="7" not-null="true" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false"
+			update="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+		<property name="emailId" type="string">
+            <column name="user_email_id" length="256" not-null="false" />
+		</property>
+		<property name="eventId" type="java.lang.Long">
+			<column name="event_id" not-null="false" />
+		</property>
+		<property name="genericType" type="string">
+			<column name="generic_type" length="21" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

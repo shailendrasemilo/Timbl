@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" 
+	"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="loginForm" type="com.np.tele.selfcare.forms.SelfcareLoginForm" />
+		<form-bean name="selfcareForm" type="com.np.tele.selfcare.forms.SelfcareForm" />
+		<form-bean name="quickPayForm" type="com.np.tele.selfcare.forms.SelfcareQuickPayForm" />
+		<form-bean name="migrationForm" type="com.np.tele.selfcare.forms.SelfcareMigrationForm" />
+		<form-bean name="verificationForm" type="com.np.tele.selfcare.forms.SelfcareVerificationForm" />
+	</form-beans>
+	<global-forwards>
+		<forward name="homePage" contextRelative="true" path="/quickPay.do?method=quickPayPage" redirect="true" />
+		<forward name="selfcareIndex" path="/" contextRelative="true" redirect="true"></forward>
+	</global-forwards>
+	<action-mappings>
+		<!-- mapping for Login Action -->
+		<!-- <action path="/login" type="org.springframework.web.struts.DelegatingActionProxy" name="loginForm" input="" parameter="method" scope="session">
+			<forward name="loginPagePopup" path="/jsp/content/myaccount/selfcareLoginPopup.jsp" />
+			<forward name="chooseAccountPopup" path="/jsp/content/myaccount/chooseAccountPopup.jsp" />
+			<forward name="forgotPasswordPopup" path="/jsp/content/myaccount/selfcareForgotPasswordPopup.jsp" />
+			<forward name="forceChangePasswordPopup" path="/user.do?method=changePasswordPage" contextRelative="true" />
+			<forward name="myAccountPage" path="/user.do?method=myAccountPage" contextRelative="true" />
+		</action>
+		<action path="/user" type="org.springframework.web.struts.DelegatingActionProxy" name="selfcareForm" input="" parameter="method" scope="session">
+			<forward name="changePasswordPopup" path="/jsp/content/user/selfcareChangePasswordPopup.jsp" />
+			<forward name="changePassword" path="/user.do?method=changePasswordPage" contextRelative="true" />
+			<forward name="myAccountPage" path="myAccountPage" />
+			<forward name="updateAddressPopup" path="/jsp/content/user/updateAddressPopup.jsp" />
+			<forward name="nonOpenTicketsPopup" path="/jsp/content/user/ticketHistoryPopup.jsp" />
+			<forward name="logTicketPage" path="/jsp/content/user/logTicketPopup.jsp" />
+			<forward name="postPaidFaqPage" path="/jsp/content/user/faqPostPaidPopup.jsp" />
+			<forward name="prePaidFaqPage" path="/jsp/content/user/faqPrePaidPopup.jsp" />
+		</action> -->
+		<action path="/quickPay" type="org.springframework.web.struts.DelegatingActionProxy" name="quickPayForm" parameter="method" scope="request">
+			<forward name="quickPayPage" path="quickPayPage" />
+			<forward name="quickPayList" path="quickPayList" />
+			<forward name="quickPayTransaction" path="quickPayTransaction" />
+			<forward name="quickPayConfirm" path="quickPayConfirm" />
+			<forward name="paymentSuccess" path="paymentResponse" />
+			<forward name="paymentCenter" path="/jsp/content/quickpay/selfcarePaymentCenters.jsp" />
+		</action>
+		<!-- <action path="/migration" type="org.springframework.web.struts.DelegatingActionProxy" name="migrationForm" input="" parameter="method">
+			<forward name="boosterTopUpPage" path="boosterTopUpPage" />
+			<forward name="planMigrationPage" path="planMigrationPage"></forward>
+		</action>
+		<action path="/hdfcresponse" type="org.springframework.web.struts.DelegatingActionProxy" name="quickPayForm" input="" parameter="method"
+			scope="session">
+			<forward name="paymentSuccess" path="/quickPay.do?method=paymentResponse" redirect="true" />
+			<forward name="paymentFailure" path="paymentResponse" />
+		</action> -->
+		<action path="/tpresponse" type="org.springframework.web.struts.DelegatingActionProxy" name="quickPayForm" parameter="method" scope="request">
+			<forward name="paymentSuccess" path="/quickPay.do?method=paymentResponse" redirect="true" />
+			<forward name="paymentFailure" path="paymentResponse" />
+		</action>
+	<!-- 	<action path="/atomresponse" type="org.springframework.web.struts.DelegatingActionProxy" name="quickPayForm" input="" parameter="method" scope="session">
+			<forward name="paymentSuccess" path="/quickPay.do?method=paymentResponse" redirect="true" />
+			<forward name="paymentFailure" path="paymentResponse" />
+		</action>
+		<action path="/generatepdf" type="com.np.tele.selfcare.action.SelfcarePaymentPDFAction" name="quickPayForm" input="" scope="session"></action>
+		-->
+		<action path="/verify" type="org.springframework.web.struts.DelegatingActionProxy" name="verificationForm" parameter="method">
+			<forward name="verificationPage" path="emailVerification" />
+		</action> 
+	</action-mappings>
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+	<message-resources parameter="com.telecrm.properties.ApplicationResource" />
+	<!-- Tiles Plug in -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/config/selfcare-tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+	<!-- Spring Plug in -->
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property property="contextConfigLocation" value="/WEB-INF/config/selfcare-spring-bean.xml" />
+	</plug-in>
+</struts-config>

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Jul, 2013 11:15:38 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmParameterPojo" table="crm_parameter" dynamic-update="true">
+	<cache usage="read-write"/>
+        <id name="parameterId" type="java.lang.Long">
+		<column name="parameter_id" />
+            <generator class="identity" />
+		</id>
+		<property name="parameterGroup" type="string">
+            <column name="parameter_group" length="128" />
+		</property>
+		<property name="parameterGroupType" type="string">
+            <column name="parameter_group_type" length="128" />
+		</property>
+		<property name="parameterName" type="string">
+            <column name="parameter_name" length="128" />
+		</property>
+		<property name="parameterType" type="string">
+            <column name="parameter_type" length="20" />
+		</property>
+        <property name="parameterLength" type="java.lang.Long">
+            <column name="parameter_length" />
+		</property>
+		<property name="createdBy" type="string" update="false" >
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+			<column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+			<column name="last_modified_time" length="7" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" length="2" />
+		</property>
+		<property name="parameterPattern" type="string">
+			<column name="parameter_pattern" length="512" />
+		</property>
+		<property name="parameterMultiplicity" type="string">
+			<column name="parameter_multiplicity" length="1" />
+		</property>
+		<property name="parameterDescription" type="string">
+            <column name="parameter_description" length="512" />
+        </property>
+		<many-to-one name="projectsPojo" class="com.np.tele.crm.pojos.ProjectsPojo"
+			fetch="join" lazy="false">
+			<column name="project_id" not-null="false" />
+		</many-to-one>
+		<!-- <set name="accessGroups" table="CRM_ACCESS_GROUP" inverse="true" lazy="true" 
+			fetch="select"> <key> <column name="PARAMETER_ID" precision="10" scale="0" 
+			/> </key> <one-to-many class="com.np.tele.crm.pojos.AccessGroup" /> </set> 
+			<set name="userRoleses" table="CRM_USER_ROLES" inverse="true" lazy="true" fetch="select"> 
+			<key> <column name="PARAMETER_ID" precision="10" scale="0" /> </key> <one-to-many 
+			class="com.np.tele.crm.pojos.UserRoles" /> </set> -->
+	</class>
+</hibernate-mapping>

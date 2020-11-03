@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 24, 2015 6:24:57 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmPodDetailsPojo" table="crm_pod_details" dynamic-update="true">
+    <cache usage="read-write"/>
+        <id name="podId" type="java.lang.Long">
+            <column name="pod_id" />
+            <generator class="identity" />
+        </id>
+        <property name="customerId" type="string">
+            <column name="customer_id" length="15" />
+        </property>
+        <property name="receiverName" type="string">
+            <column name="receiver_name" length="45" />
+        </property>
+        <property name="deliveredDate" type="date">
+            <column name="delivered_date" length="7" />
+        </property>
+        <property name="customerRelation" type="string">
+            <column name="customer_relation" length="45" />
+        </property>
+        <property name="contactNumber" type="java.lang.Long">
+            <column name="contact_number" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="7" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="7" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" not-null="true" />
+        </property>
+        <property name="instrumentNumber" type="string">
+            <column name="instrument_number" length="20" />
+        </property>
+         <property name="deliveryStatus" type="string">
+            <column name="delivery_status" length="2"  />
+        </property>
+         <property name="nonDeliveryReason" type="string">
+            <column name="non_delivery_reason" length="256"  />
+        </property>
+        
+    </class>
+</hibernate-mapping>

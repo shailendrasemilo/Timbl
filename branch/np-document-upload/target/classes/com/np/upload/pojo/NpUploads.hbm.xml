@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 30, 2015 10:32:57 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.upload.pojo.NpUploads" table="np_document_uploads" dynamic-update="true">
+        <id name="docId" type="integer">
+            <column name="doc_id" />
+            <generator class="identity" />
+        </id>
+        <version name="version" type="java.lang.Integer">
+            <column name="version" />
+        </version>
+        <property name="moduleName" type="string">
+            <column name="module_name" not-null="true" />
+        </property>
+        <property name="mappingId" type="string">
+            <column name="mapping_id" not-null="true" />
+        </property>
+        <property name="docType" type="string">
+            <column name="doc_type" not-null="true" />
+        </property>
+        <property name="docName" type="string">
+            <column name="doc_name" not-null="true" />
+        </property>
+        <property name="docPath" type="string">
+            <column name="doc_path" length="1024" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" insert="false" update="false">
+            <column name="created_time" length="19" />
+        </property>
+        <property name="modifiedTime" type="timestamp" insert="false" update="false">
+            <column name="modified_time" length="19" />
+        </property>
+    </class>
+    <sql-query name="LAST_ADDED_DOC">
+        <return alias="a" class="com.np.upload.pojo.NpUploads" />
+        <![CDATA[SELECT d.doc_id as {a.docId},d.module_name as {a.moduleName},d.mapping_id as {a.mappingId},d.doc_type as {a.docType},d.doc_name as {a.docName},d.version as {a.version},
+                        d.doc_path as {a.docPath},d.created_time as {a.createdTime},d.modified_time as {a.modifiedTime}
+                FROM np_document_uploads d
+                JOIN(
+                    SELECT module_name, mapping_id, doc_type, max(version) AS version
+                    FROM np_document_uploads u
+                    WHERE u.module_name=:module and u.mapping_id=:mapping
+                    GROUP BY module_name, mapping_id, doc_type
+                )tt USING( module_name, mapping_id, doc_type, version )
+                WHERE d.module_name=:module and d.mapping_id=:mapping]]>
+    </sql-query>
+</hibernate-mapping>

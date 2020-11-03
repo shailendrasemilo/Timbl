@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Jul, 2013 11:15:38 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmMasterPojo" table="crm_master" dynamic-update="true">
+    <cache usage="read-write"/>
+        <id name="categoryId" type="long">
+            <column name="category_id" />
+            <generator class="identity" />
+        </id>
+        <property name="category" type="string" update="false">
+            <column name="category" length="50" not-null="true" />
+        </property>
+        <property name="subCategory" type="string" update="false">
+            <column name="sub_category" length="50" not-null="true" />
+        </property>
+        <property name="subSubCategory" type="string" update="false">
+            <column name="sub_sub_category" length="50" not-null="true" />
+        </property>
+        <property name="categoryAlias" type="string" insert="false" update="false">
+            <column name="category_alias" length="101" />
+        </property>
+        <property name="categoryValue" type="string">
+            <column name="category_value" length="1024" not-null="true" />
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+        </property>
+        <property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+        <property name="dataType" type="string">
+            <column name="category_type" length="1"  not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
+
+

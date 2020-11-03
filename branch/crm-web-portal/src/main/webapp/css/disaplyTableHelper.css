@@ -1,0 +1,12 @@
+.dataTable {/* background:#D4D4D4; */ margin-top:25px; font: 12px arial; }
+.dataTable thead tr th {font-size:12px; /* color:#000000; */ font-weight:bold; /* background:#EEF2F9; */ text-align:center; padding:10px 0;}
+.dataTable  a { /* color: #1D4686; */ font: 12px arial; text-decoration: underline; }
+.dataTable tr.odd { /* background-color: #E1E6EE; */ text-align:center;}
+.dataTable tr.odd td, .dataTable tr.even td{ padding:10px 5px; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word; white-space: normal;}
+.dataTable tr.even {	/* background-color: #EEF2F9; */ text-align:center;}
+.pagelinks , .pagebanner { /* background:#C9DDFF; */ display: block; padding: 5px; text-decoration: none; font:12px arial; }
+.pagelinks a:link , a:visited  { font-family: inherit; font-size:inherit; margin: inherit; text-decoration: none; font-weight: bold; }
+ .pagelinks a:hover { font-family: inherit; font-size:inherit; margin: inherit; text-decoration: none; font-weight: bold; /* color: maroon; */ }
+.dataTable th.sorted a , th.sortable a { background-position: right; display: block; width: 100%; text-decoration: none; background-repeat: no-repeat; font-weight:bold; }
+span.pagebanner { /* background-color: #eee; */ border: 1px dotted #999; padding: 2px 4px 2px 4px; font:12px arial; margin-top: 10px; display: block; border-bottom: none; }
+span.pagelinks { /* background-color: #eee; */ border: 1px dotted #999; padding: 2px 4px 2px 4px; font:12px arial; display: block; border-top: none; margin-bottom: -5px; }

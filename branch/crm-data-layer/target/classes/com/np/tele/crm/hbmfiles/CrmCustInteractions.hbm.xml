@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 13, 2014 1:09:40 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmCustInteractionsPojo" table="crm_cust_interactions" dynamic-update="true">
+    	<cache usage="read-write"/>
+        <id name="interactionId" type="java.lang.Long">
+            <column name="interaction_id" />
+            <generator class="identity" />
+				
+        </id>
+        <property name="customerId" type="string">
+            <column name="customer_id" length="15" not-null="true" />
+        </property>
+        <property name="interactionCategory" type="string">
+            <column name="interaction_category" length="128" not-null="true" />
+        </property>
+        <property name="interactionSubCategory" type="string">
+            <column name="interaction_sub_category" length="128" not-null="true" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="remarks" length="65535" not-null="true" sql-type="text"/>
+        </property>
+        <property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

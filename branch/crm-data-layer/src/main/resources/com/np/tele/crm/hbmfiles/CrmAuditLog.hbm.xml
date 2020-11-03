@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 3 Oct, 2013 4:08:06 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.CrmAuditLogPojo" table="crm_audit_log" dynamic-update="true">
+	<cache usage="read-write"/>
+        <id name="auditLogId" type="java.lang.Long">
+            <column name="audit_log_id" />
+            <generator class="identity" />
+				
+		</id>
+		<property name="oldValues" type="string">
+            <column name="old_values" length="2048" />
+		</property>
+		<property name="newValues" type="string">
+            <column name="new_values" length="2048" />
+		</property>
+		<property name="events" type="string">
+            <column name="events" length="128" not-null="true" />
+		</property>
+		<property name="mappingId" type="string">
+            <column name="mapping_id" length="50" not-null="true" />
+		</property>
+		<property name="module" type="string">
+            <column name="module" length="128" not-null="true" />
+		</property>
+		<property name="remarks" type="string">
+            <column name="remarks" length="4000" not-null="true" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="19" />
+		</property>
+		<property name="clientIp" type="string">
+            <column name="client_ip" length="40" not-null="true" />
+        </property>
+        <property name="serverIp" type="string">
+            <column name="server_ip" length="40" not-null="true" />
+        </property>
+        <property name="serviceIp" type="string">
+            <column name="service_ip" length="40" not-null="true" />
+        </property>
+        <property name="fromBin" type="string">
+			<column name="from_bin" length="20" />
+		</property>
+		<property name="toBin" type="string">
+			<column name="to_bin" length="20" />
+		</property>
+	</class>
+</hibernate-mapping>

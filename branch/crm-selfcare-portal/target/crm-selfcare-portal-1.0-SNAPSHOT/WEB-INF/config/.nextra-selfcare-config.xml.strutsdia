@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="StrutsProcess">
+ <PROCESS-ITEM ID="#login" NAME="action19" PATH="/login"
+  SHAPE="48,689,0,0" TITLE="loginForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="loginPagePopup" NAME="forward2"
+   PATH="/jsp/content/myaccount/selfcareLoginPopup.jsp" TARGET="page2"
+   TITLE="loginPagePopup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="chooseAccountPopup" NAME="forward0"
+   PATH="/jsp/content/myaccount/chooseAccountPopup.jsp" TARGET="page0"
+   TITLE="chooseAccountPopup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="myAccountPage" NAME="forward3"
+   PATH="/user.do?method=myAccountPage" TARGET="action0"
+   TITLE="myAccountPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="forgotPasswordPopup" NAME="forward4"
+   PATH="/jsp/content/myaccount/selfcareForgotPasswordPopup.jsp"
+   TARGET="page3" TITLE="forgotPasswordPopup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="forceChangePasswordPopup" NAME="forward5"
+   PATH="/user.do?method=changePasswordPage" TARGET="action0"
+   TITLE="forceChangePasswordPopup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page1" PATH="homePage" SHAPE="240,1057,0,0"
+  SUBTYPE="tile" TITLE="homePage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="homePage" NAME="forward0"
+  PATH="/user.do?method=myAccountPage" SHAPE="32,1057,0,0"
+  TARGET="action0" TITLE="homePage" TYPE="forward" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page2"
+  PATH="/jsp/content/myaccount/selfcareLoginPopup.jsp"
+  SHAPE="256,801,0,0" SUBTYPE="jsp" TITLE="selfcareLoginPopup.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/login.do" SUBTYPE="confirmed"
+   TARGET="action19" TITLE="/login.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page0"
+  PATH="/jsp/content/myaccount/chooseAccountPopup.jsp"
+  SHAPE="256,689,0,0" SUBTYPE="jsp" TITLE="chooseAccountPopup.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/login.do" SUBTYPE="confirmed"
+   TARGET="action19" TITLE="/login.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#user" NAME="action0" PATH="/user"
+  SHAPE="336,593,0,0" TITLE="selfcareForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="changePasswordPopup" NAME="forward0"
+   PATH="/jsp/content/user/selfcareChangePasswordPopup.jsp"
+   TARGET="page4" TITLE="changePasswordPopup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="changePassword" NAME="forward1"
+   PATH="/user.do?method=changePasswordPage" TARGET="action0"
+   TITLE="changePassword" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="myAccountPage" NAME="forward2"
+   PATH="myAccountPage" TARGET="page5" TITLE="myAccountPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="nonOpenTicketsPopup" NAME="forward4"
+   PATH="/jsp/content/user/ticketHistoryPopup.jsp" TARGET="page7"
+   TITLE="nonOpenTicketsPopup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="logTicketPage" NAME="forward5"
+   PATH="/jsp/content/user/logTicketPopup.jsp" TARGET="page9"
+   TITLE="logTicketPage" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="updateAddressPopup" NAME="forward3"
+   PATH="/jsp/content/user/updateAddressPopup.jsp" TARGET="page6"
+   TITLE="updateAddressPopup" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page3"
+  PATH="/jsp/content/myaccount/selfcareForgotPasswordPopup.jsp"
+  SHAPE="464,689,0,0" SUBTYPE="jsp"
+  TITLE="selfcareForgotPasswordPopup.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/login.do" SUBTYPE="confirmed"
+   TARGET="action19" TITLE="/login.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page4"
+  PATH="/jsp/content/user/selfcareChangePasswordPopup.jsp"
+  SHAPE="64,578,0,0" SUBTYPE="jsp"
+  TITLE="selfcareChangePasswordPopup.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/user.do" SUBTYPE="confirmed"
+   TARGET="action0" TITLE="/user.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page5" PATH="myAccountPage" SHAPE="544,593,0,0"
+  SUBTYPE="tile" TITLE="myAccountPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="selfcareIndex" NAME="forward1" PATH="/"
+  SHAPE="32,1617,0,0" TARGET="action1" TITLE="selfcareIndex"
+  TYPE="forward" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page6"
+  PATH="/jsp/content/user/updateAddressPopup.jsp" SHAPE="752,593,0,0"
+  SUBTYPE="jsp" TITLE="updateAddressPopup.jsp" TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/user.do" SUBTYPE="confirmed"
+   TARGET="action0" TITLE="/user.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page7"
+  PATH="/jsp/content/user/ticketHistoryPopup.jsp" SHAPE="544,817,0,0"
+  SUBTYPE="jsp" TITLE="ticketHistoryPopup.jsp" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page9" PATH="/jsp/content/user/logTicketPopup.jsp"
+  SHAPE="960,593,0,0" SUBTYPE="jsp" TITLE="logTicketPopup.jsp"
+  TYPE="page" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT NAME="link0" PATH="/user.do" SUBTYPE="confirmed"
+   TARGET="action0" TITLE="/user.do" TYPE="link" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#quickPay" NAME="action2" PATH="/quickPay"
+  SHAPE="32,1985,0,0" TITLE="quickPayForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="quickPayTransaction" NAME="forward0"
+   PATH="quickPayTransaction" TARGET="page8" TITLE="quickPayTransaction"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="quickPayList" NAME="forward1"
+   PATH="quickPayList" TARGET="page10" TITLE="quickPayList"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="quickPayPage" NAME="forward2"
+   PATH="quickPayPage" TARGET="page11" TITLE="quickPayPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="quickPayConfirm" NAME="forward3"
+   PATH="quickPayConfirm" TARGET="page12" TITLE="quickPayConfirm"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="paymentSuccess" NAME="forward4"
+   PATH="paymentResponse" TARGET="page17" TITLE="paymentSuccess"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#migration" NAME="action4" PATH="/migration"
+  SHAPE="32,2785,0,0" TITLE="migrationForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="boosterTopUpPage" NAME="forward0"
+   PATH="boosterTopUpPage" TARGET="page15" TITLE="boosterTopUpPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="planMigrationPage" NAME="forward1"
+   PATH="planMigrationPage" TARGET="page16" TITLE="planMigrationPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page8" PATH="quickPayTransaction"
+  SHAPE="288,2002,0,0" SUBTYPE="tile" TITLE="quickPayTransaction"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page10" PATH="quickPayList" SHAPE="288,2210,0,0"
+  SUBTYPE="tile" TITLE="quickPayList" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page11" PATH="quickPayPage" SHAPE="288,2322,0,0"
+  SUBTYPE="tile" TITLE="quickPayPage" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page12" PATH="quickPayConfirm" SHAPE="288,2434,0,0"
+  SUBTYPE="tile" TITLE="quickPayConfirm" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page15" PATH="boosterTopUpPage"
+  SHAPE="256,2802,0,0" SUBTYPE="tile" TITLE="boosterTopUpPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM NAME="page16" PATH="planMigrationPage"
+  SHAPE="256,2946,0,0" SUBTYPE="tile" TITLE="planMigrationPage"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#hdfcresponse" NAME="action3" PATH="/hdfcresponse"
+  SHAPE="32,3457,0,0" TITLE="quickPayForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="paymentSuccess" NAME="forward0"
+   PATH="/quickPay.do?method=paymentResponse" TARGET="action2"
+   TITLE="paymentSuccess" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="paymentFailure" NAME="forward1"
+   PATH="paymentResponse" TARGET="page17" TITLE="paymentFailure"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM ID="#" NAME="action1" PATH="/" SHAPE="240,1617,0,0"
+  SUBTYPE="unknown" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#generatepdf" NAME="action5" PATH="/generatepdf"
+  SHAPE="32,3489,0,0" TITLE="quickPayForm" TYPE="action" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#tpresponse" NAME="action6" PATH="/tpresponse"
+  SHAPE="48,2449,0,0" TITLE="quickPayForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="paymentSuccess" NAME="forward0"
+   PATH="/quickPay.do?method=paymentResponse" TARGET="action2"
+   TITLE="paymentSuccess" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="paymentFailure" NAME="forward1"
+   PATH="paymentResponse" TARGET="page17" TITLE="paymentFailure"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page17" PATH="paymentResponse" SHAPE="240,2097,0,0"
+  SUBTYPE="tile" TITLE="paymentResponse" TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#verify" NAME="action7" PATH="/verify"
+  SHAPE="32,3521,0,0" TITLE="verificationForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="verificationPage" NAME="forward0"
+   PATH="emailVerification" TARGET="page13" TITLE="verificationPage"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="page13" PATH="emailVerification"
+  SHAPE="240,3521,0,0" SUBTYPE="tile" TITLE="emailVerification"
+  TYPE="page" model-entity="StrutsProcessItem"/>
+ <PROCESS-ITEM ID="#atomresponse" NAME="action8" PATH="/atomresponse"
+  SHAPE="64,2449,0,0" TITLE="quickPayForm" TYPE="action" model-entity="StrutsProcessItem">
+  <PROCESS-ITEM-OUTPUT ID="paymentSuccess" NAME="forward0"
+   PATH="/quickPay.do?method=paymentResponse" TARGET="action2"
+   TITLE="paymentSuccess" TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+  <PROCESS-ITEM-OUTPUT ID="paymentFailure" NAME="forward1"
+   PATH="paymentResponse" TARGET="page17" TITLE="paymentFailure"
+   TYPE="forward" model-entity="StrutsProcessItemOutput"/>
+ </PROCESS-ITEM>
+</PROCESS>

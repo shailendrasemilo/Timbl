@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28 Aug, 2013 11:28:13 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.SocietyPojo" table="crm_society"
+		dynamic-update="true">
+		<cache usage="read-write" />
+        <id name="societyId" type="java.lang.Long">
+            <column name="society_id" />
+            <generator class="identity" />
+				
+		</id>
+		<!-- <many-to-one name="locality" class="com.np.tele.crm.pojos.LocalityPojo" 
+			fetch="select" lazy="false"> <column name="LOCALITY_ID" precision="10" scale="0" 
+			not-null="true" /> </many-to-one> -->
+
+		<property name="societyName" type="string">
+            <column name="society_name" length="50" not-null="true" />
+		</property>
+		<property name="networkAvailability" type="string">
+            <column name="network_availability" length="1" not-null="true" />
+		</property>
+		<property name="latitude" type="string">
+            <column name="latitude" length="50" not-null="true" />
+		</property>
+		<property name="longitude" type="string">
+            <column name="longitude" length="50" not-null="true" />
+		</property>
+		<property name="customerCategory" type="string">
+            <column name="customer_category" length="35" not-null="true" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+            <column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+            <column name="created_time" length="19" not-null="true" />
+		</property>
+		<property name="lastModifiedBy" type="string">
+            <column name="last_modified_by" length="128" />
+		</property>
+		<property name="lastModifiedTime" type="timestamp" insert="false" update="false">
+            <column name="last_modified_time" length="19"  />
+		</property>
+		<property name="status" type="string">
+            <column name="status" length="2" />
+		</property>
+		 <property name="primaryPincode" type="java.lang.Integer">
+            <column name="primary_pincode"  length="6"/>
+		</property>
+		 <property name="secPincode" type="java.lang.Integer">
+            <column name="secondary_pincode" length="6"/>
+		</property>
+			<property name="areaId" type="long">
+			<column name="area_id" precision="10" scale="0" />
+		</property>
+		<property name="localityName" type="string">
+            <column name="locality_name" length="50"/>
+		</property>
+		<property name="connectableHomes" type="string">
+            <column name="connectable_homes" length="128"/>
+		</property>
+		<set name="societyNetworkPartners" table="crm_society_network_partner"
+			inverse="true" lazy="false" fetch="join">
+			<cache usage="read-write" />
+			<key>
+				<column name="society_id" precision="10" scale="0" not-null="true" />
+			</key>
+			<one-to-many class="com.np.tele.crm.pojos.SocietyNetworkPartnerPojo" />
+			<filter condition="status =:stStatus" name="Feasible" />
+		</set>
+	</class>
+</hibernate-mapping>

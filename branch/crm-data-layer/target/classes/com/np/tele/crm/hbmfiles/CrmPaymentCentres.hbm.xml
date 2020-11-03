@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 4, 2015 3:55:19 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmPaymentCentresPojo" table="crm_payment_centres" mutable="false">
+    <cache usage="read-write"/>
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />
+            <generator class="identity" />
+        </id>
+        <property name="vendorName" type="string">
+            <column name="vendor_name" length="128" not-null="true" />
+        </property>
+        <property name="outletAddress" type="string">
+            <column name="outlet_address" length="256" not-null="true" />
+        </property>
+        <property name="outletCity" type="string">
+            <column name="outlet_city" length="35" />
+        </property>
+        <property name="paymentMode" type="string">
+            <column name="payment_mode" length="1" not-null="true" />
+        </property>
+        <property name="pincode" type="string">
+            <column name="pincode" length="6" not-null="true" />
+        </property>
+        <property name="createdBy" type="string"  update="false">
+            <column name="created_by" length="128" not-null="true" />
+        </property>
+        <property name="createdTime" type="timestamp" insert="false" update="false" >
+            <column name="created_time" length="19" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="2" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="iCrmExternalTriggerMgr"
+		class="com.np.tele.crm.external.businessmgr.CrmExternalTriggerMgrImpl">
+		<property name="externalTriggerDao" ref="externalTriggerDao" />
+		<property name="billingTransactionDao" ref="billingTransactionDao" />
+	</bean>
+
+	<bean id="qrcfaultRepairMgr"
+		class="com.np.tele.crm.faultRepair.businessmgr.QRCFaultRepairMgrImpl">
+		<property name="externalTriggerDao" ref="externalTriggerDao" />
+	</bean>
+
+	<bean id="externalTriggerDao"
+		class="com.np.tele.crm.external.trigger.dao.ExternalTriggerDaoImpl">
+		<property name="qrcManagerDao" ref="qrcManagerDao" />
+	</bean>
+
+	<bean id="qrcManagerDao" class="com.np.tele.crm.qrc.dao.QrcManagerDaoImpl">
+		<property name="crmBillingManager" ref="crmBillingManager" />
+	</bean>
+
+	<bean id="iCrmEasyBillMgr" class="com.np.tele.crm.easyBill.businessmgr.CrmEasyBillMgrImpl">
+		<property name="easyBillDao" ref="easyBillDao" />
+	</bean>
+	<bean id="easyBillDao" class="com.np.tele.crm.easyBill.dao.EasyBillDaoImpl">
+		<property name="qrcManagerDao" ref="qrcManagerDao" />
+	</bean>
+	<bean id="crmBillingManager" class="com.np.tele.crm.billing.manager.CrmBillingManagerImpl">
+		<property name="billingConversionImpl" ref="billingConversionImpl" />
+	</bean>
+	<bean id="eCafMgr" class="com.np.tele.crm.ecaf.businessmgr.ECafMgrImpl">
+		<property name="eCafDao" ref="eCafDao" />
+	</bean>
+	<bean id="eCafDao" class="com.np.tele.crm.ecaf.dao.ECafDaoImpl"></bean>
+	<bean id="billingConversionImpl"
+		class="com.np.tele.crm.billing.manager.BillingConversionMgrImpl"></bean>
+	<bean id="billingTransactionDao" class="com.np.tele.crm.billing.dao.CRMBillingTransactionDao"></bean>
+</beans>

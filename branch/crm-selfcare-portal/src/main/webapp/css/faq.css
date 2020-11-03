@@ -1,0 +1,152 @@
+.noclose .ui-dialog-titlebar-close
+        {
+            display: none;
+        }
+        .submit-btn
+        {
+            /* background: url(images/submit-btn.png) no-repeat; */
+            cursor: pointer;
+            /* border: 0px;
+            color: #034289; */
+            font-weight: bold;
+            font-size: 11px !important;
+            float: left;
+            padding: 6px 20px 9px 18px;
+            width: 82px;
+            font-family: Arial !important;
+        }
+        .signin-btn
+        {
+            /* color: #034289; */
+            font-weight: bold;
+            font-family: Arial !important;
+            font-size: 11px !important;
+        }
+        .main-head
+        {
+            /* background-color: #F5F6F8;
+            color: #818181; */
+            margin: 2px 0 0 0 !important;
+            padding: 0px 0 5px 10px !important;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 445px !important;
+            float: none !important;
+            border-radius: 0px;
+        }
+	.bodyText p
+        {
+            font-size: 12px;
+            line-height: 17px;
+            font-weight: normal;
+        }
+        .accordintext
+        {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 5px 10px 20px 10px;
+            width: 424px;
+            border-radius: 0px;
+            /* color: #333333;
+            background-color: #fff; */
+        }
+        .accordintext a:link, .accordintext a:visited
+        {
+            /* color: #4C78AB; */
+            text-decoration: underline !important;
+        }
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default
+        {
+            /* background: #f5f6f8;
+            color: #818181; */
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active
+        {
+            /* background: #f5f6f8;
+            color: #818181; */
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h3.ui-corner-all, h3.ui-corner-top, h3.ui-corner-bottom
+        {
+            border-radius: 0px !important;
+        }
+        #ChangePassword .row-info1 .user-detail
+        {
+            width: 235px;
+        }
+        
+        #TNC h3, h4
+        {
+            font-family: Verdana;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 10px auto 5px auto;
+            /* color: #00468E; */
+        }
+        #TNC h5
+        {
+            font-family: Verdana;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin: 5px auto;
+        }
+        #TNC p, ul li
+        {
+            font-family: Verdana;
+            font-size: 12px;
+            font-weight: normal;
+            /* color: #818181; */
+            line-height: 1.6em;
+        }
+        #TNC p.subpara
+        {
+            margin-left: 20px;
+        }
+        #TNC p.bigpara
+        {
+            margin: 10px auto;
+        }
+        #TNC p.bigpara b
+        {
+            font-family: Verdana;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin: 5px auto;
+            /* color: #00468E; */
+        }
+        #TNC ul
+        {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        #TNC ul li
+        {
+            margin-left: 20px;
+        }
+        .remove-btn
+        {
+            /* background: url(images/submit-btn.png) no-repeat; */
+            cursor: pointer;
+            /* border: 0px;
+            color: #034289; */
+            font-weight: bold;
+            font-size: 11px !important;
+            float: left;
+            padding: 6px 20px 9px 18px;
+            font-family: Arial !important;
+        }
+		
+		.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+    position: absolute;
+    left: -1.2em!important;
+	}
+	.ui-dialog-title {
+    font-weight: bold !important;
+    font-size: 13px !important;
+    font-family: Arial,sans-serif !important;
+    /* color: #FFF; */
+	}

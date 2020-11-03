@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12 Sep, 2013 5:26:04 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.np.tele.crm.pojos.RemarksPojo" table="crm_remarks" dynamic-update="true">
+	 <cache usage="read-write"/>
+        <id name="remarkId" type="java.lang.Long">
+			
+            <column name="remark_id" />
+            <generator class="identity" />
+		</id>
+		<property name="remarks" type="string">
+            <column name="remarks" length="65535" not-null="true" sql-type="text"/>
+		</property>
+		<property name="actions" type="string">
+			<column name="actions" length="128" />
+		</property>
+		<property name="mappingId" type="string">
+			<column name="mapping_id" length="50" not-null="true" />
+		</property>
+        <property name="reasonId" type="java.lang.Long">
+			<column name="reason_id" precision="10" scale="0" />
+		</property>
+		<property name="createdBy" type="string" update="false">
+			<column name="created_by" length="128" not-null="true" />
+		</property>
+		<property name="createdTime" type="timestamp" update="false" insert="false">
+			<column name="created_time" length="7" />
+		</property>
+		<property name="activityId" type="long">
+			<column name="activity_id" precision="10" scale="0" />
+		</property>
+		<property name="mappingType" type="string">
+			<column name="mapping_type" length="10" />
+		</property>
+	</class>
+</hibernate-mapping>

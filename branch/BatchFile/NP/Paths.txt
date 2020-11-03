@@ -1,0 +1,6 @@
+BUILD_ENV=dev8080
+JBOSS_HOME=E:\Official\Anurag\Tools\Servers\JBoss7.1.1.Final
+TELECRM_HOME=F:\Official\Shailendra\CodeBase\Telecrm\trunk
+PROJECT_BASE_DIR=E:
+NP_PORTAL_URL=192.168.1.154:8080/npcrm
+NP_MYACCOUNT_URL=192.168.1.154:8080/myaccount

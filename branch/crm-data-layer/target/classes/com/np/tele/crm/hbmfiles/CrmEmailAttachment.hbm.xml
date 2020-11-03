@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 20, 2015 10:22:07 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.np.tele.crm.pojos.CrmEmailAttachment" table="crm_email_attachment" dynamic-update="true">
+      <!--  <cache usage="read-write"/> -->
+        <id name="recordId" type="java.lang.Long">
+            <column name="record_id" />
+            <generator class="identity" />
+			
+		</id>
+        <property name="alertId" type="long">
+            <column name="alert_id" />
+		</property>
+        <property name="attachment" type="binary">
+            <column name="attachment" sql-type="blob"/>
+        </property>
+        <property name="attachmentPath" type="string">
+            <column name="attachment_path" length="128" />
+        </property>
+          <property name="fileName" type="string">
+            <column name="file_name" length="128" />
+        </property>
+    </class>
+</hibernate-mapping>
